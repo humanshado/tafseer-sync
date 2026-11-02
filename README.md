@@ -9,6 +9,8 @@ expressions are shown in Arabic script.
 pipeline/
   run_lecture.sh   one command per lecture: clean audio -> transcribe -> build JSON
   transcribe_ctc.py Hausa commentary: CLEAR-Global w2v-bert-2.0 Hausa model (CC BY-SA 4.0), word timings
+  transcribe_whisper_hf.py  alternative Hausa pass with a Hugging Face Whisper fine-tune (default NCAIR1/Hausa-ASR)
+  compare_ncair.sh / compare_asr.py  run two Hausa models on the same excerpt and compare side by side
   transcribe.py    Whisper large-v3 (faster-whisper), Arabic pass used to find Quran recitation
   build.py         merges both passes, detects Quran recitation, tags Arabic phrases, flags low confidence
   glossary.json    Arabic expressions to detect in the Hausa text (add to it as you review)
@@ -36,7 +38,11 @@ Why two models: Whisper is poor at Hausa (it produced mostly gibberish on this l
 dedicated Hausa model gives usable text but cannot write Arabic. So the Hausa model transcribes the
 commentary, and Whisper's Arabic output is used only to find which verses are recited.
 `NCAIR1/Hausa-ASR` (Nigeria's National Centre for AI and Robotics) is another candidate, but it is
-gated: it needs a Hugging Face login and acceptance of its terms.
+gated: accept its terms on Hugging Face and set a read token in `HF_TOKEN`. To compare it with the
+current model on a 2-minute excerpt (writes `work/compare/<id>-<start>/comparison.md`):
+```bash
+PYTHON=.venv/bin/python pipeline/compare_ncair.sh fatihah01_baqara05 600 120
+```
 
 ## Process a lecture
 ```bash

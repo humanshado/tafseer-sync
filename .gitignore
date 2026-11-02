@@ -1,5 +1,6 @@
-__pycache__/
-.venv/
-work/test_*/
 *.log
+.venv/
+__pycache__/
 work/*/backups/
+work/compare/
+work/test_*/
