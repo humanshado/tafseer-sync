@@ -119,7 +119,9 @@ def main():
     ap.add_argument("--title", default="")
     a = ap.parse_args()
 
-    ha = json.load(open(os.path.join(a.work_dir, "raw_ha.json")))["segments"]
+    ha_raw = json.load(open(os.path.join(a.work_dir, "raw_ha.json")))
+    ha = ha_raw["segments"]
+    review_below = ha_raw.get("review_below_logprob", -1.0)  # CTC models report confidence differently
     ar_path = os.path.join(a.work_dir, "raw_ar.json")
     ar = json.load(open(ar_path))["segments"] if os.path.exists(ar_path) else []
     words, owner, index = load_quran()
@@ -160,7 +162,7 @@ def main():
                                 "meaning_ha": g["meaning_ha"]})
         segs.append({"start": s["start"], "end": s["end"], "type": "speech", "text": s["text"],
                      "phrases": phrases,
-                     "review": s["avg_logprob"] < -1.0 or s["no_speech_prob"] > 0.6})
+                     "review": s["avg_logprob"] < review_below or s["no_speech_prob"] > 0.6})
 
     for q in quran:
         segs.append({"start": q["start"], "end": q["end"], "type": "quran",

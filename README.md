@@ -8,7 +8,8 @@ expressions are shown in Arabic script.
 ```
 pipeline/
   run_lecture.sh   one command per lecture: clean audio -> transcribe -> build JSON
-  transcribe.py    Whisper (faster-whisper) with timestamps: a Hausa pass and an Arabic pass
+  transcribe_ctc.py Hausa commentary: CLEAR-Global w2v-bert-2.0 Hausa model (CC BY-SA 4.0), word timings
+  transcribe.py    Whisper large-v3 (faster-whisper), Arabic pass used to find Quran recitation
   build.py         merges both passes, detects Quran recitation, tags Arabic phrases, flags low confidence
   glossary.json    Arabic expressions to detect in the Hausa text (add to it as you review)
   quran_data/      Uthmani + Warsh text, Hausa translation (Gumi), surah names
@@ -23,9 +24,15 @@ work/<id>/         raw Whisper output (kept for re-building)
 
 ## Setup
 ```bash
-python3 -m venv .venv && .venv/bin/pip install faster-whisper rapidfuzz
+python3 -m venv .venv && .venv/bin/pip install faster-whisper rapidfuzz torch transformers
 ```
-The first run downloads the Whisper model (about 3 GB) from huggingface.co.
+The first run downloads the models from huggingface.co (Whisper large-v3 about 3 GB, the Hausa model about 2.3 GB).
+
+Why two models: Whisper is poor at Hausa (it produced mostly gibberish on this lecture), while the
+dedicated Hausa model gives usable text but cannot write Arabic. So the Hausa model transcribes the
+commentary, and Whisper's Arabic output is used only to find which verses are recited.
+`NCAIR1/Hausa-ASR` (Nigeria's National Centre for AI and Robotics) is another candidate, but it is
+gated: it needs a Hugging Face login and acceptance of its terms.
 
 ## Process a lecture
 ```bash

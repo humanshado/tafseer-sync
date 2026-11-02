@@ -17,8 +17,10 @@ equalizer=f=250:t=q:w=1:g=-2,equalizer=f=2500:t=q:w=1.5:g=2,loudnorm=I=-16:TP=-1
     -ar 44100 -c:a libmp3lame -q:a 4 "$CLEAN"
 fi
 
-echo "== Transcribing (this is the slow step)"
-"$PY" "$ROOT/pipeline/transcribe.py" "$CLEAN" "$ROOT/work/$ID" "$@"
+echo "== Transcribing Hausa commentary (CLEAR-Global w2v-bert Hausa model)"
+"$PY" "$ROOT/pipeline/transcribe_ctc.py" "$CLEAN" "$ROOT/work/$ID" "$@"
+echo "== Transcribing Arabic (Whisper large-v3; the slow step) to find Quran recitation"
+"$PY" "$ROOT/pipeline/transcribe.py" "$CLEAN" "$ROOT/work/$ID" --langs ar "$@"
 
 echo "== Building transcript"
 "$PY" "$ROOT/pipeline/build.py" "$ROOT/work/$ID" "$ID" "audio/$ID.mp3" "$ROOT/player/data/$ID.json" --title "$TITLE"
