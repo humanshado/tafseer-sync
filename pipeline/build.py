@@ -118,6 +118,39 @@ def skeleton(t):
     return re.sub(r"(.)\1+", r"\1", t)
 
 
+def find_openings(ar, formulas, min_score=75, continue_score=60, max_gap=4.0):
+    """Arabic-pass segments that form a known opening formula at the start of the lecture.
+
+    Returns (blocks, indices of the Arabic segments used). A block starts with a matching segment
+    inside the formula's start window and continues while consecutive segments keep matching.
+    """
+    blocks, used = [], set()
+    for f in formulas:
+        target = " ".join(norm_ar(m) for m in f["match"])
+        block = None
+        for k, s in enumerate(ar):
+            seg = norm_ar(s["text"])
+            score = fuzz.partial_ratio(seg, target) if seg else 0
+            ok = len(seg.split()) >= 2 and score >= min_score
+            if block is None:
+                if s["start"] > f.get("starts_within_seconds", 90):
+                    break
+                if ok and len(seg.split()) >= 4:
+                    block = {"id": f["id"], "label": f["label"], "text": f["text"],
+                             "start": s["start"], "end": s["end"], "heard": s["text"]}
+                    used.add(k)
+            elif s["start"] - block["end"] <= max_gap and (
+                    score >= continue_score or len(seg.split()) <= 2):  # a started block tolerates rougher text
+                block["end"] = s["end"]
+                block["heard"] += " " + s["text"]
+                used.add(k)
+            else:
+                break
+        if block:
+            blocks.append(block)
+    return blocks, used
+
+
 def overlap(a0, a1, b0, b1):
     return max(0.0, min(a1, b1) - max(a0, b0))
 
@@ -159,6 +192,8 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--title", default="")
     ap.add_argument("--focus", default="", help="surahs the lecture covers, e.g. 1,2")
+    ap.add_argument("--discard-reviewed", action="store_true",
+                    help="regenerate everything, throwing away reviewed segments in the existing output")
     a = ap.parse_args()
 
     ha_raw = json.load(open(os.path.join(a.work_dir, "raw_ha.json")))
@@ -173,9 +208,16 @@ def main():
     for g in glossary:
         g["re"] = re.compile(g["pattern"])
 
+    # 0. Set opening formulas (praise, testimony, prayers) are Arabic but not Quran recitation,
+    #    even where they quote a verse. Find them first and keep them out of the verse matching.
+    formulas = json.load(open(os.path.join(HERE, "formulas.json")))["formulas"]
+    openings, used = find_openings(ar, formulas)
+
     # 1. Quran recitation from the Arabic pass; merge neighbours that continue the same passage.
     quran = []
-    for s in ar:
+    for k, s in enumerate(ar):
+        if k in used:
+            continue
         m = match_quran(s["text"], words, owner, index, verse_pairs, focus)
         if not m:
             continue
@@ -195,7 +237,7 @@ def main():
     segs = []
     for s in ha:
         dur = max(0.01, s["end"] - s["start"])
-        if any(overlap(s["start"], s["end"], q["start"], q["end"]) / dur > 0.5 for q in quran):
+        if any(overlap(s["start"], s["end"], q["start"], q["end"]) / dur > 0.5 for q in quran + openings):
             continue
         phrases = []
         for g in glossary:
@@ -212,6 +254,21 @@ def main():
                      "refs": [f"{c}:{v}" for c, v in q["refs"]], "heard": q["heard"],
                      "match": q["score"], "review": q["score"] < 85})
 
+    for o in openings:
+        segs.append({"start": o["start"], "end": o["end"], "type": "arabic", "label": o["label"],
+                     "formula": o["id"], "text": o["text"], "heard": o["heard"], "review": True})
+
+    # Keep human work: if the output exists, its reviewed segments win over freshly generated ones.
+    kept = 0
+    if os.path.exists(a.out) and not a.discard_reviewed:
+        reviewed = [s for s in json.load(open(a.out))["segments"] if s.get("reviewed")]
+        def clashes(s):
+            d = max(0.01, s["end"] - s["start"])
+            return any(overlap(s["start"], s["end"], r["start"], r["end"]) / min(d, max(0.01, r["end"] - r["start"])) > 0.3
+                       for r in reviewed)
+        segs = [s for s in segs if not clashes(s)] + reviewed
+        kept = len(reviewed)
+
     segs.sort(key=lambda x: x["start"])
     for i, s in enumerate(segs, 1):
         s["id"] = i
@@ -221,7 +278,7 @@ def main():
 
     out = {
         "lecture": a.lecture_id, "title": a.title or a.lecture_id, "audio": a.audio_url,
-        "language": "ha", "status": "draft - machine transcript, not yet reviewed",
+        "language": "ha", "status": (f"draft - {kept} of {len(segs)} segments reviewed" if kept else "draft - machine transcript, not yet reviewed"),
         "sources": {
             "quran_text": "Tanzil.net Uthmani (CC BY 3.0, verbatim) via quran-json",
             "warsh": "KFGQPC Warsh via Quranpedia.net, via quran-json",
@@ -232,7 +289,7 @@ def main():
     json.dump(out, open(a.out, "w"), ensure_ascii=False, indent=1)
     print(f"{len(segs)} segments ({sum(s['type'] == 'quran' for s in segs)} Quran passages, "
           f"{sum(len(s.get('phrases', [])) for s in segs)} tagged phrases, "
-          f"{sum(s['review'] for s in segs)} flagged for review) -> {a.out}")
+          f"{sum(bool(s.get('review')) for s in segs)} flagged for review, {kept} reviewed segments kept) -> {a.out}")
 
 
 if __name__ == "__main__":

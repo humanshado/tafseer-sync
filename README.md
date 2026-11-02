@@ -12,6 +12,7 @@ pipeline/
   transcribe.py    Whisper large-v3 (faster-whisper), Arabic pass used to find Quran recitation
   build.py         merges both passes, detects Quran recitation, tags Arabic phrases, flags low confidence
   glossary.json    Arabic expressions to detect in the Hausa text (add to it as you review)
+  formulas.json    set Arabic openings (e.g. Khutbat al-Hajah) shown as "Opening praise", not as Quran verses
   quran_data/      Uthmani + Warsh text, Hausa translation (Gumi), surah names
   models/cb.rnnn   noise-reduction model used for audio cleanup
 review/
@@ -42,9 +43,11 @@ gated: it needs a Hugging Face login and acceptance of its terms.
 PYTHON=.venv/bin/python pipeline/run_lecture.sh ORIGINAL.mp3 fatihah01_baqara05 "Tafsiri 1: Fatiha – Baƙara 5"
 ```
 For a quick quality test on 2 minutes, add `--start 600 --duration 120`.
-Re-run only the build step (for example after editing glossary.json):
+Re-run only the build step (for example after editing glossary.json or formulas.json).
+Segments already marked reviewed in the existing transcript are kept; everything else is regenerated
+(add `--discard-reviewed` to start over):
 ```bash
-.venv/bin/python pipeline/build.py work/fatihah01_baqara05 fatihah01_baqara05 audio/fatihah01_baqara05.mp3 player/data/fatihah01_baqara05.json --title "..."
+.venv/bin/python pipeline/build.py work/fatihah01_baqara05 fatihah01_baqara05 audio/fatihah01_baqara05.mp3 player/data/fatihah01_baqara05.json --title "..." --focus 1,2
 ```
 
 ## Preview
@@ -78,7 +81,7 @@ Run the review tool only on your own computer: it can write files and has no log
   - `speech`: Hausa `text`, plus `phrases[]` (detected Arabic expressions)
   - `quran`: `refs` such as `["2:2", "2:3"]`, plus `heard` (what speech recognition heard, kept for review)
   - every segment: `reviewed: true` once a person has checked it
-  - `arabic`: other Arabic `text` (added by hand during review)
+  - `arabic`: other Arabic `text`, with an optional `label` (e.g. "Opening praise"); `formula` marks a draft from formulas.json
 - `review: true` marks segments speech recognition was unsure about. Toggle **Review** in the player to see them.
 - `verses{}`: the text for each referenced verse (`uthmani`, `warsh`, `hausa`).
 

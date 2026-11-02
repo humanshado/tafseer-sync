@@ -58,6 +58,8 @@ body:not(.show-review) .seg.review .t::after { content: ""; }
 
 .quran { background: var(--quran-bg); border: 1px solid var(--line); border-left-width: 3px; padding: 14px 16px; margin: 12px 0; }
 .quran.active { border-left-color: var(--active-line); }
+.arabic .label { font-size: .78rem; color: var(--accent); font-weight: 600; }
+.arabic .ar { font-size: 1.45rem; line-height: 2.1; text-align: right; }
 .quran .ref { font-size: .78rem; color: var(--accent); font-weight: 600; display: flex; justify-content: space-between; gap: 8px; }
 .quran .ref .ar { font-size: 1rem; }
 .verse { margin-top: 8px; }
@@ -193,6 +195,8 @@ body:not(.show-review) .seg.review .t::after { content: ""; }
           box.append(ar, el("div", "ha", `(${v.ayah}) ${v.hausa.replace(/\s*\[\d+\]/g, "")}`)); n.append(box);
         }
       } else if (s.type === "arabic") {
+        n.classList.add("arabic");
+        if (s.label) n.append(el("div", "label", s.label));
         n.append(el("div", "ar", s.text));
       } else {
         n.append(el("div", "txt", s.text));

@@ -39,6 +39,7 @@ select, input[type=text], textarea {
   border: 1px solid var(--line); background: var(--bg); border-radius: 8px; padding: 5px 8px;
 }
 textarea { width: 100%; resize: vertical; min-height: 70px; font-size: 1.05rem; }
+textarea.ar { font-size: 1.35rem; line-height: 2.1; min-height: 180px; }
 kbd { font: .75rem ui-monospace, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; background: var(--bg); }
 
 header {
@@ -221,6 +222,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
       const v = doc.verses[s.refs[0]];
       return el("span", { class: "sum" }, `${v ? v.surah_translit : ""} ${s.refs.length > 1 ? s.refs[0] + "–" + s.refs[s.refs.length - 1].split(":")[1] : s.refs[0]}`);
     }
+    if (s.type === "arabic" && s.label) return el("span", { class: "sum" }, s.label);
     return el("span", { class: "sum" + (s.type === "arabic" ? " ar" : "") }, s.text);
   }
   function row(s, i) {
@@ -319,10 +321,18 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
 
   function textEditor(s, i) {
     const wrap = el("div");
+    if (s.type === "arabic") {
+      const lab = el("input", { type: "text", value: s.label || "", placeholder: "Optional label, e.g. Opening praise, Hadith, Du'a", style: "flex:1" });
+      lab.oninput = () => { s.label = lab.value.trim() || undefined; changed(); refreshRow(i); };
+      wrap.append(el("div", { class: "line" }, el("label", { class: "k" }, "Label"), lab));
+      if (s.formula) wrap.append(el("p", { class: "hint", style: "margin:0 0 6px" },
+        "Draft text from pipeline/formulas.json. Correct it to what is actually said; to fix it for every future lecture, edit that file."));
+    }
     const ta = el("textarea", { dir: s.type === "arabic" ? "rtl" : "auto", class: s.type === "arabic" ? "ar" : "", spellcheck: "false" });
     ta.value = s.text || "";
     ta.oninput = () => { s.text = ta.value; changed(); refreshRow(i); };
     wrap.append(ta);
+    if (s.type === "arabic" && s.heard) wrap.append(el("div", { class: "line", style: "margin-top:6px" }, el("label", { class: "k" }, "Heard"), el("span", { class: "heard ar" }, s.heard)));
     if (s.type === "speech") {
       const letters = el("div", { class: "line letters", style: "margin-top:6px" }, el("span", { class: "hint" }, "Insert:"));
       for (const ch of ["ɓ", "ɗ", "ƙ", "ƴ", "Ɓ", "Ɗ", "Ƙ", "Ƴ", "ʼ"]) {

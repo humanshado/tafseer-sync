@@ -1,0 +1,22 @@
+{
+ "_note": "Set Arabic formulas the lecturer says at the start of a lecture (praise, testimony, prayers). Speech that matches one of these, beginning within 'starts_within_seconds' of the start, becomes an 'Opening praise' block of Arabic, not a Quran verse. 'match' is what the Arabic speech recognition is compared against (no vowel marks needed; add the lecturer's own wording variants). 'text' is the draft Arabic shown in the player; reviewers correct it in the review tool. Edit 'text' once to match this lecturer's exact wording and every future lecture starts out correct.",
+ "formulas": [
+  {
+   "id": "khutbat_al_hajah",
+   "label": "Opening praise (Khuṭbat al-Ḥājah)",
+   "starts_within_seconds": 90,
+   "match": [
+    "اعوذ بالله من الشيطان الرجيم بسم الله الرحمن الرحيم",
+    "ان الحمد لله نحمده ونستعينه ونستغفره ونعوذ بالله من شرور انفسنا ومن سيئات اعمالنا",
+    "من يهده الله فلا مضل له ومن يضلل فلا هادي له",
+    "من يهده الله فهو المهتد ومن يضلل فلن تجد له وليا مرشدا",
+    "واشهد ان لا اله الا الله وحده لا شريك له في ارضه وسمائه",
+    "واشهد ان نبينا محمدا عبده ورسوله وخيرته من خلقه",
+    "صلى الله عليه وعلى اله واصحابه وذرياته",
+    "اما بعد فان خير الحديث كتاب الله وخير الهدي هدي محمد صلى الله عليه وسلم",
+    "السلام عليكم ورحمة الله وبركاته"
+   ],
+   "text": "أَعُوذُ بِٱللَّهِ مِنَ ٱلشَّيْطَٰنِ ٱلرَّجِيمِ، بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ. إِنَّ ٱلْحَمْدَ لِلَّهِ، نَحْمَدُهُ وَنَسْتَعِينُهُ وَنَسْتَغْفِرُهُ، وَنَعُوذُ بِٱللَّهِ مِنْ شُرُورِ أَنْفُسِنَا وَمِنْ سَيِّئَاتِ أَعْمَالِنَا، مَنْ يَهْدِهِ ٱللَّهُ فَهُوَ ٱلْمُهْتَدِ، وَمَنْ يُضْلِلْ فَلَنْ تَجِدَ لَهُ وَلِيًّا مُرْشِدًا، وَأَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ نَبِيَّنَا مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ، صَلَّى ٱللَّهُ عَلَيْهِ وَعَلَىٰ آلِهِ وَأَصْحَابِهِ. وَٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّهِ."
+  }
+ ]
+}
