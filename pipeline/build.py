@@ -46,43 +46,55 @@ def load_quran():
     return words, owner, index
 
 
-def match_quran(text, words, owner, index, verse_pairs, min_words=3, min_score=72):
-    """Return (score, [(surah, ayah), ...]) if the Arabic text is Quran recitation."""
+def match_quran(text, words, owner, index, verse_pairs, focus=(), min_words=3, min_score=72):
+    """Return (score, [(surah, ayah), ...]) if the Arabic text is Quran recitation.
+
+    `focus` lists the surahs the lecture is about; when a phrase occurs in several places
+    (e.g. "al-hamdu lillahi rabbil-alamin" is 1:2, 6:45, 10:10, 37:182, ...), those win.
+    """
     seg = norm_ar(text).split()
     if len(seg) < min_words:
         return None
-    votes = Counter()
+    hits = defaultdict(list)  # offset -> [(seg index, quran position)]
     for i in range(len(seg) - 1):
         for p in index.get((seg[i], seg[i + 1]), ())[:400]:  # very common bigrams are capped
-            votes[p - i] += 1
-    if votes:
-        # pool votes of nearby offsets (ASR drops/merges words), then take the best exact offset
-        pooled = Counter()
-        for off, n in votes.items():
-            pooled[off // 3] += n
-        bucket, n = pooled.most_common(1)[0]
-        if n >= max(2, 0.25 * (len(seg) - 1)):
-            off = max((o for o in votes if o // 3 == bucket), key=votes.get)
-            off = max(0, off)
-            lo, hi = max(0, off - 3), min(len(words), off + len(seg) + 3)
-            score = fuzz.partial_ratio(" ".join(seg), " ".join(words[lo:hi]))
+            hits[p - i].append((i, p))
+    if hits:
+        # pool nearby offsets (speech recognition drops or merges words)
+        pooled = defaultdict(int)
+        for off, h in hits.items():
+            pooled[off // 3] += len(h)
+        top = max(pooled.values())
+        if top >= max(2, 0.25 * (len(seg) - 1)):
+            cands = [b for b, n in pooled.items() if n == top]
+            b = max(cands, key=lambda b: (owner[max(0, b * 3)][0] in focus, -b))
+            off = max((o for o in hits if o // 3 == b), key=lambda o: len(hits[o]))
+            # only the Quran words that were actually heard decide which verses are shown
+            pos = sorted({q for o in hits if abs(o - off) <= 2 for _, p in hits[o] for q in (p, p + 1)})
+            score = fuzz.partial_ratio(" ".join(seg), " ".join(words[pos[0]:pos[-1] + 1]))
             if score >= min_score:
                 refs = []
-                for r in owner[off:min(len(words), off + len(seg))]:
-                    if r not in refs:
-                        refs.append(r)
+                for q in pos:
+                    if owner[q] not in refs:
+                        refs.append(owner[q])
                 return score, refs
-    # Fallback for garbled recitation: character-level fuzzy match against every pair of consecutive verses.
+    # Fallback for garbled recitation: character-level fuzzy match against pairs of consecutive verses.
     s = " ".join(seg)
     if len(s) < 20:
         return None
-    best = max(((fuzz.partial_ratio(s, t, score_cutoff=80), refs) for t, refs in verse_pairs),
-               key=lambda x: x[0])
+    best = (0, False, None)
+    for t, refs in verse_pairs:
+        # the verse text must be comparable in length, or a short verse (e.g. "حم") matches anywhere
+        if len(t) < 15 or len(t) < 0.5 * len(s):
+            continue
+        sc = fuzz.partial_ratio(s, t, score_cutoff=80)
+        if sc and (sc, refs[0][0] in focus) > best[:2]:
+            best = (sc, refs[0][0] in focus, refs)
     if best[0] < 80:
         return None
     # keep only the verses of the pair that were actually heard
-    refs = [r for r in best[1] if len(verse_text[r]) >= 8 and fuzz.partial_ratio(verse_text[r], s) >= 80]
-    return best[0], refs or best[1][:1]
+    refs = [r for r in best[2] if len(verse_text[r]) >= 8 and fuzz.partial_ratio(verse_text[r], s) >= 80]
+    return best[0], refs or best[2][:1]
 
 
 verse_text = {}
@@ -117,6 +129,7 @@ def main():
     ap.add_argument("audio_url")
     ap.add_argument("out")
     ap.add_argument("--title", default="")
+    ap.add_argument("--focus", default="", help="surahs the lecture covers, e.g. 1,2")
     a = ap.parse_args()
 
     ha_raw = json.load(open(os.path.join(a.work_dir, "raw_ha.json")))
@@ -126,6 +139,7 @@ def main():
     ar = json.load(open(ar_path))["segments"] if os.path.exists(ar_path) else []
     words, owner, index = load_quran()
     verse_pairs = load_verse_pairs()
+    focus = {int(x) for x in a.focus.split(",") if x.strip()}
     glossary = json.load(open(os.path.join(HERE, "glossary.json")))["phrases"]
     for g in glossary:
         g["re"] = re.compile(g["pattern"])
@@ -133,7 +147,7 @@ def main():
     # 1. Quran recitation from the Arabic pass; merge neighbours that continue the same passage.
     quran = []
     for s in ar:
-        m = match_quran(s["text"], words, owner, index, verse_pairs)
+        m = match_quran(s["text"], words, owner, index, verse_pairs, focus)
         if not m:
             continue
         score, refs = m

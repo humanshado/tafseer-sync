@@ -1,0 +1,6994 @@
+{
+ "lecture": "fatihah01_baqara05",
+ "title": "Tafsiri 1: Suratul Fatiha – Baƙara 5",
+ "audio": "audio/fatihah01_baqara05.mp3",
+ "language": "ha",
+ "status": "draft - machine transcript, not yet reviewed",
+ "sources": {
+  "quran_text": "Tanzil.net Uthmani (CC BY 3.0, verbatim) via quran-json",
+  "warsh": "KFGQPC Warsh via Quranpedia.net, via quran-json",
+  "hausa_translation": "Abubakar Mahmoud Gumi, via QuranEnc.com"
+ },
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 7.52,
+   "type": "quran",
+   "refs": [
+    "1:1",
+    "1:2"
+   ],
+   "heard": "الرجيم. بسم الله الرحمن الرحيم. ان الحمد لله نحمده ونتعينه",
+   "match": 90.625,
+   "review": false,
+   "id": 1
+  },
+  {
+   "start": 9.0,
+   "end": 13.53,
+   "type": "speech",
+   "text": "nigudiaiisiririakodi nawa min sayahatimalina",
+   "phrases": [],
+   "review": true,
+   "id": 2
+  },
+  {
+   "start": 13.96,
+   "end": 20.22,
+   "type": "quran",
+   "refs": [
+    "18:17"
+   ],
+   "heard": "يهديه الله فهو المهتد. ومن يبلل فلن تجد له ولي مرسدا. واشهد ان لا",
+   "match": 97.14285714285714,
+   "review": false,
+   "id": 3
+  },
+  {
+   "start": 19.4,
+   "end": 23.8,
+   "type": "speech",
+   "text": "wahiduwan layi na dayindamafu da hulaaikalafofi ardidia sama'i",
+   "phrases": [],
+   "review": false,
+   "id": 4
+  },
+  {
+   "start": 24.04,
+   "end": 28.44,
+   "type": "speech",
+   "text": "a saduwannannabianamuhaadidinabduhuaitulihufiratuhuminkanfi",
+   "phrases": [],
+   "review": true,
+   "id": 5
+  },
+  {
+   "start": 28.65,
+   "end": 36.66,
+   "type": "speech",
+   "text": "alaailaaalaalihiasadiadaace waaniitadadihadizinawajiakaalakimuraa",
+   "phrases": [],
+   "review": true,
+   "id": 6
+  },
+  {
+   "start": 38.63,
+   "end": 52.44,
+   "type": "speech",
+   "text": "barkmada saduwa wannan yammaci na talata wanda ya dace da taya ga wata rma bawanawaninan hekar ta dubu da darihudu da ashirin da uku bayan iazoaaana iharkallon daga birnin maka zuwamadina wanda kuma hine yammafina",
+   "phrases": [],
+   "review": false,
+   "id": 7
+  },
+  {
+   "start": 52.87,
+   "end": 54.36,
+   "type": "speech",
+   "text": "yarnanakasi",
+   "phrases": [],
+   "review": true,
+   "id": 8
+  },
+  {
+   "start": 54.67,
+   "end": 57.37,
+   "type": "speech",
+   "text": "biyar da watuntaɗaya shekarakaibiyu",
+   "phrases": [],
+   "review": false,
+   "id": 9
+  },
+  {
+   "start": 57.51,
+   "end": 59.09,
+   "type": "speech",
+   "text": "dabiyomaladiya",
+   "phrases": [],
+   "review": true,
+   "id": 10
+  },
+  {
+   "start": 59.21,
+   "end": 60.09,
+   "type": "speech",
+   "text": "domin",
+   "phrases": [],
+   "review": false,
+   "id": 11
+  },
+  {
+   "start": 60.49,
+   "end": 69.05,
+   "type": "speech",
+   "text": "fara karatun tasirin alƙurani mai girma na wannan shekara idan ba abinta ba cekara d sauti mun tike zuwa ga ƙarshen miijinniwannan",
+   "phrases": [],
+   "review": false,
+   "id": 12
+  },
+  {
+   "start": 69.67,
+   "end": 75.22,
+   "type": "speech",
+   "text": "i ibaceta ubangiji ce dai ba mu damar yadda makaa farkon alhaburillahin rabbin alami",
+   "phrases": [],
+   "review": false,
+   "id": 13
+  },
+  {
+   "start": 75.31,
+   "end": 80.21,
+   "type": "speech",
+   "text": "aka buduraƙuriaidakida ke harizuwa gaiiaaikin shekarutaka",
+   "phrases": [],
+   "review": false,
+   "id": 14
+  },
+  {
+   "start": 80.84,
+   "end": 85.14,
+   "type": "speech",
+   "text": "muna yi mata godiya isa da haka muna roƙonka ya ƙara mana cikin falalaa",
+   "phrases": [],
+   "review": false,
+   "id": 15
+  },
+  {
+   "start": 85.32,
+   "end": 87.09,
+   "type": "speech",
+   "text": "binda duki ya gabata",
+   "phrases": [],
+   "review": false,
+   "id": 16
+  },
+  {
+   "start": 87.27,
+   "end": 93.62,
+   "type": "speech",
+   "text": "na abinda ya wuce a baya na fuskure ko rashin sani ko ƙaracin ilimi ko bincike fata muhallaaia",
+   "phrases": [],
+   "review": false,
+   "id": 17
+  },
+  {
+   "start": 94.22,
+   "end": 102.17,
+   "type": "speech",
+   "text": "abinda kuma wato ainakin samu fuskanta muna roƙon ubangiji ta allahi yi mana jagoranci wajen faɗin daidai da aikata daidai",
+   "phrases": [],
+   "review": false,
+   "id": 18
+  },
+  {
+   "start": 102.76,
+   "end": 108.44,
+   "type": "speech",
+   "text": "annan ko muna dadia ga tsarin da muke akai na karantar wadin ko na tsarin takiri di",
+   "phrases": [],
+   "review": false,
+   "id": 19
+  },
+  {
+   "start": 108.55,
+   "end": 112.95,
+   "type": "speech",
+   "text": "watu tsarin ataidamaakukialiida kasance shine umda",
+   "phrases": [],
+   "review": false,
+   "id": 20
+  },
+  {
+   "start": 113.45,
+   "end": 116.28,
+   "type": "speech",
+   "text": "shi ne madugara wajen cati",
+   "phrases": [],
+   "review": false,
+   "id": 21
+  },
+  {
+   "start": 116.55,
+   "end": 120.44,
+   "type": "speech",
+   "text": "lekin maanoli da ya kamata mu baiwa rindalkurani",
+   "phrases": [],
+   "review": false,
+   "id": 22
+  },
+  {
+   "start": 120.87,
+   "end": 124.47,
+   "type": "speech",
+   "text": "ko wace aya za mu yi ƙoƙari a iya kafin ƙanƙaramin saninmu",
+   "phrases": [],
+   "review": false,
+   "id": 23
+  },
+  {
+   "start": 124.52,
+   "end": 127.25,
+   "type": "speech",
+   "text": "ene dagantakati da sauranareina alkurani",
+   "phrases": [],
+   "review": false,
+   "id": 24
+  },
+  {
+   "start": 127.59,
+   "end": 137.81,
+   "type": "speech",
+   "text": "enene abinda ya ke fassara ta ckinhadiamazutalallai aihimusalla dingasuenene maganganu na mayan magabata ikinsaadaitaiida kuma salihu tariina",
+   "phrases": [],
+   "review": false,
+   "id": 25
+  },
+  {
+   "start": 138.19,
+   "end": 145.91,
+   "type": "speech",
+   "text": "onin kuma idan hali ya kama na yin bayani ko fadakarwa dandida hukuncehukunce nakikehu ba tare da yawatawa da yawa ba",
+   "phrases": [],
+   "review": false,
+   "id": 26
+  },
+  {
+   "start": 146.12,
+   "end": 154.81,
+   "type": "speech",
+   "text": "kuma yin bayani na wazuhule ra wazuhulee dada ketusinafaani mai girma gurbadan harri hakan zai gudanu da iniubadii",
+   "phrases": [],
+   "review": false,
+   "id": 27
+  },
+  {
+   "start": 154.99,
+   "end": 156.6,
+   "type": "speech",
+   "text": "allahiyi mini jagorai",
+   "phrases": [],
+   "review": false,
+   "id": 28
+  },
+  {
+   "start": 156.87,
+   "end": 157.91,
+   "type": "speech",
+   "text": "danakalafi",
+   "phrases": [],
+   "review": true,
+   "id": 29
+  },
+  {
+   "start": 159.69,
+   "end": 171.12,
+   "type": "quran",
+   "refs": [
+    "1:1"
+   ],
+   "heard": "من الشيطان الرجيم. بسم الله الرحمن الرحيم. لفظ اعوذ. اتلنسى",
+   "match": 100.0,
+   "review": false,
+   "id": 30
+  },
+  {
+   "start": 171.75,
+   "end": 172.92,
+   "type": "speech",
+   "text": "a'a wuju",
+   "phrases": [],
+   "review": true,
+   "id": 31
+  },
+  {
+   "start": 174.63,
+   "end": 176.79,
+   "type": "speech",
+   "text": "a awudu watakenan",
+   "phrases": [],
+   "review": true,
+   "id": 32
+  },
+  {
+   "start": 177.39,
+   "end": 180.89,
+   "type": "speech",
+   "text": "an sami alhamga ta taure aini",
+   "phrases": [],
+   "review": false,
+   "id": 33
+  },
+  {
+   "start": 181.26,
+   "end": 184.47,
+   "type": "speech",
+   "text": "dawawan ta zo bayantakitina cikinhurufinilla",
+   "phrases": [],
+   "review": false,
+   "id": 34
+  },
+  {
+   "start": 184.68,
+   "end": 186.81,
+   "type": "speech",
+   "text": "a i da ƙarfin ɗaukar damma",
+   "phrases": [],
+   "review": false,
+   "id": 35
+  },
+  {
+   "start": 187.43,
+   "end": 189.65,
+   "type": "speech",
+   "text": "usamman a cikin gamba akwai kika",
+   "phrases": [],
+   "review": false,
+   "id": 36
+  },
+  {
+   "start": 189.93,
+   "end": 193.05,
+   "type": "speech",
+   "text": "da aka dauke wannan farma akadadaitakanana",
+   "phrases": [],
+   "review": false,
+   "id": 37
+  },
+  {
+   "start": 193.51,
+   "end": 196.6,
+   "type": "speech",
+   "text": "ai ya kasance wawunditaratu aniaka",
+   "phrases": [],
+   "review": true,
+   "id": 38
+  },
+  {
+   "start": 198.76,
+   "end": 204.32,
+   "type": "quran",
+   "refs": [
+    "16:98"
+   ],
+   "heard": "اذا عاد يعود اوضاً به. اعوذ بالله من الشيطان الرجيم.",
+   "match": 100.0,
+   "review": false,
+   "id": 39
+  },
+  {
+   "start": 204.87,
+   "end": 208.82,
+   "type": "speech",
+   "text": "ina neman tsarin allah ina neman kariyar alla",
+   "phrases": [],
+   "review": false,
+   "id": 40
+  },
+  {
+   "start": 208.97,
+   "end": 213.56,
+   "type": "speech",
+   "text": "da ka san za ka yi ƙare ni nilasefa daga shefar",
+   "phrases": [],
+   "review": false,
+   "id": 41
+  },
+  {
+   "start": 214.12,
+   "end": 218.26,
+   "type": "speech",
+   "text": "dafadansakwa yana nufin kowani irin kangalalle",
+   "phrases": [],
+   "review": false,
+   "id": 42
+  },
+  {
+   "start": 221.66,
+   "end": 232.44,
+   "type": "quran",
+   "refs": [
+    "6:112"
+   ],
+   "heard": "كوالجنو. نعم. وكذلك جعلنا لكل نبي عدو يحياطين الانس والجن. يوحي بعضهم الى بعضهم ضخمة القول برورة. ولو شاء ربك ما",
+   "match": 86.0,
+   "review": false,
+   "id": 43
+  },
+  {
+   "start": 227.91,
+   "end": 243.38,
+   "type": "speech",
+   "text": "laiba duhun ilaba abinzukunfafaigurura walata a rabukama baanaubabaraaaiahakaaba waiana gastatuwa mai kadai akan aljaba ya iya gatatuwa akan aljan ya iya gastatuwa akandaada",
+   "phrases": [],
+   "review": true,
+   "id": 44
+  },
+  {
+   "start": 243.63,
+   "end": 248.76,
+   "type": "speech",
+   "text": "dukkan mutuminda ya kikauke ciar dagangan bayan ya saba yana garisiya zama ceka",
+   "phrases": [],
+   "review": false,
+   "id": 45
+  },
+  {
+   "start": 249.13,
+   "end": 254.84,
+   "type": "speech",
+   "text": "aiakaagasocewa saidancisa barbadan abinda ya kakena gaskiya",
+   "phrases": [],
+   "review": true,
+   "id": 46
+  },
+  {
+   "start": 255.08,
+   "end": 259.03,
+   "type": "speech",
+   "text": "wani yafi wani heƙa wasu tafi wasu heƙa allah kayi mana heƙa",
+   "phrases": [],
+   "review": false,
+   "id": 47
+  },
+  {
+   "start": 259.63,
+   "end": 265.78,
+   "type": "speech",
+   "text": "augidilahiiiitadijiu ina neman tsarin allah ya kare nini dasakan karajiyu",
+   "phrases": [],
+   "review": false,
+   "id": 48
+  },
+  {
+   "start": 265.83,
+   "end": 267.45,
+   "type": "speech",
+   "text": "asananane",
+   "phrases": [],
+   "review": true,
+   "id": 49
+  },
+  {
+   "start": 267.72,
+   "end": 269.65,
+   "type": "speech",
+   "text": "hulan rai daga rami bugi",
+   "phrases": [],
+   "review": false,
+   "id": 50
+  },
+  {
+   "start": 270.28,
+   "end": 272.5,
+   "type": "speech",
+   "text": "anaikiaiamadarafiya",
+   "phrases": [],
+   "review": true,
+   "id": 51
+  },
+  {
+   "start": 273.16,
+   "end": 275.54,
+   "type": "speech",
+   "text": "ukilai ajaruwanmakiri",
+   "phrases": [],
+   "review": true,
+   "id": 52
+  },
+  {
+   "start": 275.72,
+   "end": 280.02,
+   "type": "speech",
+   "text": "da haka sisikecawa duk inda aka sami dariwamajiui ko aka sami ba",
+   "phrases": [],
+   "review": false,
+   "id": 53
+  },
+  {
+   "start": 280.71,
+   "end": 283.38,
+   "type": "speech",
+   "text": "baya da ƙarfii an sami abinda yakeaaaliloie",
+   "phrases": [],
+   "review": false,
+   "id": 54
+  },
+  {
+   "start": 283.88,
+   "end": 286.84,
+   "type": "speech",
+   "text": "wajen me ya ke ta'alluidiisukaababan",
+   "phrases": [],
+   "review": false,
+   "id": 55
+  },
+  {
+   "start": 286.95,
+   "end": 290.61,
+   "type": "speech",
+   "text": "waɗansu ki tallara maka kitimi waɗansu ki tallara maka fiii",
+   "phrases": [],
+   "review": false,
+   "id": 56
+  },
+  {
+   "start": 290.76,
+   "end": 294.04,
+   "type": "speech",
+   "text": "mma dai abindaifidajidiakadara masa fini",
+   "phrases": [],
+   "review": true,
+   "id": 57
+  },
+  {
+   "start": 294.35,
+   "end": 298.13,
+   "type": "speech",
+   "text": "uakankumagando yana da munakaba da abinda a ke",
+   "phrases": [],
+   "review": false,
+   "id": 58
+  },
+  {
+   "start": 298.89,
+   "end": 301.85,
+   "type": "speech",
+   "text": "wato isni layi akara",
+   "phrases": [],
+   "review": true,
+   "id": 59
+  },
+  {
+   "start": 303.34,
+   "end": 305.69,
+   "type": "speech",
+   "text": "gayitahudun da karatu ne za ka yi",
+   "phrases": [],
+   "review": false,
+   "id": 60
+  },
+  {
+   "start": 305.77,
+   "end": 306.55,
+   "type": "speech",
+   "text": "aka",
+   "phrases": [],
+   "review": true,
+   "id": 61
+  },
+  {
+   "start": 306.7,
+   "end": 314.9,
+   "type": "speech",
+   "text": "ina neman agadi da sunan allah ina neman taimako da gudunmawar sunan allah wajen yin karatuna",
+   "phrases": [],
+   "review": false,
+   "id": 62
+  },
+  {
+   "start": 315.34,
+   "end": 319.51,
+   "type": "speech",
+   "text": "domin da taimakonka ne da agadinka ne zan karanta daidai",
+   "phrases": [],
+   "review": false,
+   "id": 63
+  },
+  {
+   "start": 320.01,
+   "end": 324.21,
+   "type": "speech",
+   "text": "kma dadadakatarsisanei zan karanta din dinsailada",
+   "phrases": [],
+   "review": false,
+   "id": 64
+  },
+  {
+   "start": 324.97,
+   "end": 326.61,
+   "type": "speech",
+   "text": "an ine abindaka",
+   "phrases": [],
+   "review": true,
+   "id": 65
+  },
+  {
+   "start": 326.92,
+   "end": 328.79,
+   "type": "speech",
+   "text": "anakakaraka",
+   "phrases": [],
+   "review": true,
+   "id": 66
+  },
+  {
+   "start": 328.97,
+   "end": 333.17,
+   "type": "speech",
+   "text": "hinbitunala ayake daga cikin ƙayanin suruatin guda bakwai",
+   "phrases": [],
+   "review": false,
+   "id": 67
+  },
+  {
+   "start": 333.29,
+   "end": 336.47,
+   "type": "speech",
+   "text": "undamalamai sunyi jima'i kurufinfatin ayoyinku guda mak",
+   "phrases": [],
+   "review": false,
+   "id": 68
+  },
+  {
+   "start": 336.81,
+   "end": 339.03,
+   "type": "speech",
+   "text": "oaaiisiaaaaaa",
+   "phrases": [],
+   "review": true,
+   "id": 69
+  },
+  {
+   "start": 339.43,
+   "end": 343.09,
+   "type": "speech",
+   "text": "ɗasu malamitukke jikiinaiiiyikafakike",
+   "phrases": [],
+   "review": true,
+   "id": 70
+  },
+  {
+   "start": 341.54,
+   "end": 350.84,
+   "type": "quran",
+   "refs": [
+    "1:2"
+   ],
+   "heard": "الرحيم. اية فرقك. الحمد لله رب العالمين. اية فرقك. اياك نعبد",
+   "match": 100.0,
+   "review": false,
+   "id": 71
+  },
+  {
+   "start": 350.84,
+   "end": 357.88,
+   "type": "quran",
+   "refs": [
+    "1:6"
+   ],
+   "heard": "واياك نستعين. اهجنا السراط المستقيم سبا. سراط الذين انعمت",
+   "match": 82.05128205128204,
+   "review": true,
+   "id": 72
+  },
+  {
+   "start": 356.36,
+   "end": 361.78,
+   "type": "speech",
+   "text": "rakaladainaalamka alaihimusailimadobialaiialiisukaayataakake",
+   "phrases": [],
+   "review": true,
+   "id": 73
+  },
+  {
+   "start": 363.27,
+   "end": 366.39,
+   "type": "speech",
+   "text": "anna bisa da waɗanda suka kirga",
+   "phrases": [],
+   "review": false,
+   "id": 74
+  },
+  {
+   "start": 366.54,
+   "end": 369.59,
+   "type": "speech",
+   "text": "batumala cewa aya ke cikin ƙarin surtinbata",
+   "phrases": [],
+   "review": false,
+   "id": 75
+  },
+  {
+   "start": 369.99,
+   "end": 372.12,
+   "type": "speech",
+   "text": "wajen iaaiii koala",
+   "phrases": [],
+   "review": true,
+   "id": 76
+  },
+  {
+   "start": 372.3,
+   "end": 373.75,
+   "type": "speech",
+   "text": "basanabaayakiba",
+   "phrases": [],
+   "review": true,
+   "id": 77
+  },
+  {
+   "start": 374.41,
+   "end": 375.7,
+   "type": "speech",
+   "text": "cikin surkin lafiya",
+   "phrases": [],
+   "review": false,
+   "id": 78
+  },
+  {
+   "start": 375.91,
+   "end": 376.92,
+   "type": "speech",
+   "text": "atabai",
+   "phrases": [],
+   "review": true,
+   "id": 79
+  },
+  {
+   "start": 377.19,
+   "end": 378.74,
+   "type": "speech",
+   "text": "wata jinla ce",
+   "phrases": [],
+   "review": false,
+   "id": 80
+  },
+  {
+   "start": 379.15,
+   "end": 381.72,
+   "type": "speech",
+   "text": "adda ubangiji ta'ala ya zaɓeka",
+   "phrases": [],
+   "review": false,
+   "id": 81
+  },
+  {
+   "start": 381.96,
+   "end": 384.12,
+   "type": "speech",
+   "text": "domin boɗe kowace sura",
+   "phrases": [],
+   "review": false,
+   "id": 82
+  },
+  {
+   "start": 384.23,
+   "end": 388.15,
+   "type": "speech",
+   "text": "cikin suraran alƙur'ani arida gomatahudu in bada sutika",
+   "phrases": [],
+   "review": false,
+   "id": 83
+  },
+  {
+   "start": 388.68,
+   "end": 395.77,
+   "type": "speech",
+   "text": "hadizu ya tabbata da adulahinafakin sirinaidawuwanda ya keta bazan allahkaaaalaiiwakalla",
+   "phrases": [],
+   "review": true,
+   "id": 84
+  },
+  {
+   "start": 395.91,
+   "end": 398.33,
+   "type": "speech",
+   "text": "ya kasance baya gane",
+   "phrases": [],
+   "review": false,
+   "id": 85
+  },
+  {
+   "start": 398.51,
+   "end": 402.36,
+   "type": "speech",
+   "text": "an gama wannan turaza a igiwat ansauki mas diii",
+   "phrases": [],
+   "review": true,
+   "id": 86
+  },
+  {
+   "start": 403.11,
+   "end": 412.41,
+   "type": "speech",
+   "text": "anaimana saukar maka ayoyiaƙurani daga lokacinda tuaiyu yasan ayada a ke magana akanta kouturada akemagana dakanta jiya ko sheƙaradiazutaƙarida sabosura",
+   "phrases": [],
+   "review": false,
+   "id": 87
+  },
+  {
+   "start": 413.51,
+   "end": 418.01,
+   "type": "speech",
+   "text": "lokacinda ukifiasan cewaaabida farkamaa yanzufarkenra",
+   "phrases": [],
+   "review": true,
+   "id": 88
+  },
+  {
+   "start": 418.31,
+   "end": 421.21,
+   "type": "speech",
+   "text": "kasura da kuma wataikinkarhe",
+   "phrases": [],
+   "review": true,
+   "id": 89
+  },
+  {
+   "start": 422.47,
+   "end": 425.91,
+   "type": "speech",
+   "text": "to wannan hianuna wato batmala kamar mabuƙi ne",
+   "phrases": [],
+   "review": false,
+   "id": 90
+  },
+  {
+   "start": 426.15,
+   "end": 429.01,
+   "type": "speech",
+   "text": "na kowasutura daga cikiaarinafaaniii",
+   "phrases": [],
+   "review": false,
+   "id": 91
+  },
+  {
+   "start": 429.16,
+   "end": 433.21,
+   "type": "speech",
+   "text": "aiknadasurukintafiya da sauran tuorin in banda surdai",
+   "phrases": [],
+   "review": true,
+   "id": 92
+  },
+  {
+   "start": 432.59,
+   "end": 437.31,
+   "type": "quran",
+   "refs": [
+    "1:1"
+   ],
+   "heard": "ستوضيح. مسألة كده تتكلم. تتكلم معنا. بسم الله الرحمن",
+   "match": 100.0,
+   "review": false,
+   "id": 93
+  },
+  {
+   "start": 436.3,
+   "end": 439.13,
+   "type": "speech",
+   "text": "aaiaaaiabadakaai",
+   "phrases": [],
+   "review": true,
+   "id": 94
+  },
+  {
+   "start": 439.21,
+   "end": 443.13,
+   "type": "speech",
+   "text": "aahiyeasisami guda biyudatsokuhihamar ubangijia",
+   "phrases": [],
+   "review": true,
+   "id": 95
+  },
+  {
+   "start": 444.65,
+   "end": 445.85,
+   "type": "speech",
+   "text": "bama malami",
+   "phrases": [],
+   "review": false,
+   "id": 96
+  },
+  {
+   "start": 446.06,
+   "end": 450.84,
+   "type": "speech",
+   "text": "sun ha babagalimaaai waɗan suka ce da arrahama da arrahidumaak",
+   "phrases": [],
+   "review": false,
+   "id": 97
+  },
+  {
+   "start": 451.37,
+   "end": 456.44,
+   "type": "speech",
+   "text": "arrahama yana nufin mai rahama arragin kimairahama kaiaoaidudirhaa",
+   "phrases": [],
+   "review": false,
+   "id": 98
+  },
+  {
+   "start": 457.35,
+   "end": 462.23,
+   "type": "speech",
+   "text": "kamar ba watasabarmaana ya kawo ba yana karfaalaiiafain",
+   "phrases": [],
+   "review": false,
+   "id": 99
+  },
+  {
+   "start": 462.95,
+   "end": 467.0,
+   "type": "speech",
+   "text": "waɗansu malamiiikaa ara amma ina da alaƙa da rahamar duliya",
+   "phrases": [],
+   "review": false,
+   "id": 100
+  },
+  {
+   "start": 467.05,
+   "end": 474.13,
+   "type": "speech",
+   "text": "akina daalaƙa da rahmin laida dohaka nema laaabinda yakafilaidakalaikani gimoiia",
+   "phrases": [],
+   "review": true,
+   "id": 101
+  },
+  {
+   "start": 474.54,
+   "end": 476.69,
+   "type": "speech",
+   "text": "ushe ba carenuamaiinaamana",
+   "phrases": [],
+   "review": false,
+   "id": 102
+  },
+  {
+   "start": 476.97,
+   "end": 479.32,
+   "type": "speech",
+   "text": "saboda rhama da rahamani ya tafu",
+   "phrases": [],
+   "review": false,
+   "id": 103
+  },
+  {
+   "start": 479.59,
+   "end": 482.13,
+   "type": "speech",
+   "text": "saminu a kule daliiibadiiitoriya",
+   "phrases": [],
+   "review": true,
+   "id": 104
+  },
+  {
+   "start": 482.25,
+   "end": 487.64,
+   "type": "speech",
+   "text": "dakinnaamataakaiiakirakiatakusuibadahamoindkak",
+   "phrases": [],
+   "review": true,
+   "id": 105
+  },
+  {
+   "start": 488.01,
+   "end": 490.01,
+   "type": "speech",
+   "text": "anizanciimai raunikarai dagae",
+   "phrases": [],
+   "review": true,
+   "id": 106
+  },
+  {
+   "start": 491.08,
+   "end": 495.86,
+   "type": "speech",
+   "text": "lafazi na uku shine komagana ta uku itasoamaganar dikintewa",
+   "phrases": [],
+   "review": false,
+   "id": 107
+  },
+  {
+   "start": 496.04,
+   "end": 497.94,
+   "type": "speech",
+   "text": "lababin ƙarahama ne",
+   "phrases": [],
+   "review": false,
+   "id": 108
+  },
+  {
+   "start": 498.38,
+   "end": 501.97,
+   "type": "speech",
+   "text": "yana nutsufatuwar allah da rahama dinsi a karan kansa",
+   "phrases": [],
+   "review": false,
+   "id": 109
+  },
+  {
+   "start": 502.28,
+   "end": 504.18,
+   "type": "speech",
+   "text": "amma lafazintsari",
+   "phrases": [],
+   "review": false,
+   "id": 110
+  },
+  {
+   "start": 504.33,
+   "end": 507.57,
+   "type": "speech",
+   "text": "ana nufin sadar da rahama tasi zuwa babari",
+   "phrases": [],
+   "review": false,
+   "id": 111
+  },
+  {
+   "start": 508.11,
+   "end": 509.43,
+   "type": "speech",
+   "text": "owanmudannan bayi",
+   "phrases": [],
+   "review": true,
+   "id": 112
+  },
+  {
+   "start": 509.9,
+   "end": 517.37,
+   "type": "speech",
+   "text": "umulene kaiane kowane daaialainaiakkemakalallauiiyaimanakikiaaha",
+   "phrases": [],
+   "review": true,
+   "id": 113
+  },
+  {
+   "start": 514.86,
+   "end": 521.57,
+   "type": "quran",
+   "refs": [
+    "2:143"
+   ],
+   "heard": "ليضيع ايمانكم ان الله بالناس لرؤوكم فاكبر بالناس. هذا الناس",
+   "match": 100.0,
+   "review": false,
+   "id": 114
+  },
+  {
+   "start": 520.17,
+   "end": 523.93,
+   "type": "speech",
+   "text": "bidilaidadiallaaidaaiikuma aaorai",
+   "phrases": [],
+   "review": true,
+   "id": 115
+  },
+  {
+   "start": 525.82,
+   "end": 538.36,
+   "type": "quran",
+   "refs": [
+    "22:65"
+   ],
+   "heard": "بالناس ما بفره. على انترى ان الله سخر لكم بعض الارض. والفلك تجريت الفارغ امره. ويمسك بالسماء ان تقع على الارض الا بإذنه. ان الله بالناس. ده مع الناس.",
+   "match": 87.87878787878788,
+   "review": false,
+   "id": 116
+  },
+  {
+   "start": 537.48,
+   "end": 540.05,
+   "type": "speech",
+   "text": "ama anna ya kafi minmudiiakiiga",
+   "phrases": [],
+   "review": true,
+   "id": 117
+  },
+  {
+   "start": 540.14,
+   "end": 543.57,
+   "type": "speech",
+   "text": "butunwajenmuiikuma ankigahi akafiinnaofi",
+   "phrases": [],
+   "review": true,
+   "id": 118
+  },
+  {
+   "start": 543.75,
+   "end": 546.13,
+   "type": "speech",
+   "text": "aoaraiiakaiaiai",
+   "phrases": [],
+   "review": true,
+   "id": 119
+  },
+  {
+   "start": 546.67,
+   "end": 547.61,
+   "type": "speech",
+   "text": "alufimne",
+   "phrases": [],
+   "review": true,
+   "id": 120
+  },
+  {
+   "start": 547.72,
+   "end": 549.11,
+   "type": "speech",
+   "text": "lokacinaaaa",
+   "phrases": [],
+   "review": true,
+   "id": 121
+  },
+  {
+   "start": 549.26,
+   "end": 551.45,
+   "type": "speech",
+   "text": "ana duatsufuntuwar allah darhamki",
+   "phrases": [],
+   "review": false,
+   "id": 122
+  },
+  {
+   "start": 551.56,
+   "end": 555.38,
+   "type": "speech",
+   "text": "haka nemasizodafigaiaagatara amma laifia",
+   "phrases": [],
+   "review": true,
+   "id": 123
+  },
+  {
+   "start": 555.43,
+   "end": 557.78,
+   "type": "speech",
+   "text": "wanda dloaleskikiiidigia",
+   "phrases": [],
+   "review": true,
+   "id": 124
+  },
+  {
+   "start": 557.83,
+   "end": 563.89,
+   "type": "speech",
+   "text": "danansdawyialainkaaakafishaialabibalagabiaika",
+   "phrases": [],
+   "review": true,
+   "id": 125
+  },
+  {
+   "start": 564.65,
+   "end": 571.22,
+   "type": "speech",
+   "text": "daa adaibayana din cikar abu dabaiaa ohaka rma yanana faɗir rahama",
+   "phrases": [],
+   "review": true,
+   "id": 126
+  },
+  {
+   "start": 571.75,
+   "end": 573.65,
+   "type": "speech",
+   "text": "akaaikii",
+   "phrases": [],
+   "review": true,
+   "id": 127
+  },
+  {
+   "start": 574.04,
+   "end": 578.92,
+   "type": "quran",
+   "refs": [
+    "7:156"
+   ],
+   "heard": "فَأَكْتُبُهَا لَلَّذِينَ يَتَبْقُونَ وَيَرْخُونَ الزَّكَاءَ وَالَّذِينَ هُمْ بِآيَتِنَا يُؤْمِنُونَ",
+   "match": 92.17391304347827,
+   "review": false,
+   "id": 128
+  },
+  {
+   "start": 577.19,
+   "end": 584.66,
+   "type": "speech",
+   "text": "llainanida hakamalaikuaukjiniamata suka ce rabbana wasita kulleciaaataaa",
+   "phrases": [],
+   "review": false,
+   "id": 129
+  },
+  {
+   "start": 584.87,
+   "end": 586.58,
+   "type": "speech",
+   "text": "a kukllinagina tabi",
+   "phrases": [],
+   "review": true,
+   "id": 130
+  },
+  {
+   "start": 586.67,
+   "end": 589.27,
+   "type": "speech",
+   "text": "ataakatadila waialai",
+   "phrases": [],
+   "review": true,
+   "id": 131
+  },
+  {
+   "start": 590.15,
+   "end": 596.09,
+   "type": "speech",
+   "text": "akadara sufatuwar allahidaramdinkinrabia saidarmazuwagaa",
+   "phrases": [],
+   "review": true,
+   "id": 132
+  },
+  {
+   "start": 597.39,
+   "end": 600.76,
+   "type": "speech",
+   "text": "da ka sake amfani da waɗannanmafuagudabiuama daabui",
+   "phrases": [],
+   "review": false,
+   "id": 133
+  },
+  {
+   "start": 601.99,
+   "end": 605.85,
+   "type": "speech",
+   "text": "idan an hada gaba ɗaikakebasmala saboda guyakakiatabasmala",
+   "phrases": [],
+   "review": false,
+   "id": 134
+  },
+  {
+   "start": 605.99,
+   "end": 608.73,
+   "type": "speech",
+   "text": "shin idan na se wa ya karanta basmala",
+   "phrases": [],
+   "review": false,
+   "id": 135
+  },
+  {
+   "start": 609.13,
+   "end": 610.13,
+   "type": "speech",
+   "text": "a nuke muka",
+   "phrases": [],
+   "review": false,
+   "id": 136
+  },
+  {
+   "start": 611.66,
+   "end": 614.04,
+   "type": "speech",
+   "text": "ina mukin ya ce bisulin lahi",
+   "phrases": [],
+   "review": false,
+   "id": 137
+  },
+  {
+   "start": 614.38,
+   "end": 615.06,
+   "type": "speech",
+   "text": "kadai",
+   "phrases": [],
+   "review": false,
+   "id": 138
+  },
+  {
+   "start": 615.37,
+   "end": 619.0,
+   "type": "speech",
+   "text": "nanafin ya ce bisnilanarwa malamirni",
+   "phrases": [],
+   "review": true,
+   "id": 139
+  },
+  {
+   "start": 616.95,
+   "end": 618.75,
+   "type": "quran",
+   "refs": [
+    "1:1"
+   ],
+   "heard": "الله الرحمن الرحيم.",
+   "match": 100.0,
+   "review": false,
+   "id": 140
+  },
+  {
+   "start": 623.11,
+   "end": 624.79,
+   "type": "speech",
+   "text": "iike nabiunafarko ko nabi",
+   "phrases": [],
+   "review": false,
+   "id": 141
+  },
+  {
+   "start": 627.95,
+   "end": 629.49,
+   "type": "speech",
+   "text": "ama idin larabci",
+   "phrases": [],
+   "review": false,
+   "id": 142
+  },
+  {
+   "start": 630.22,
+   "end": 636.53,
+   "type": "speech",
+   "text": "duabinda aka gina si akan wazanan taalla kuma ya kasance an yi intizain waɗansuharuffa ne daga kalmobi guda biyu",
+   "phrases": [],
+   "review": false,
+   "id": 143
+  },
+  {
+   "start": 636.71,
+   "end": 639.35,
+   "type": "speech",
+   "text": "ona dasatuwa kan wannan kalmomin gudabiu kai",
+   "phrases": [],
+   "review": false,
+   "id": 144
+  },
+  {
+   "start": 639.75,
+   "end": 643.83,
+   "type": "speech",
+   "text": "asmala kamar haukala na ga daga nahaula wanakoa",
+   "phrases": [],
+   "review": false,
+   "id": 145
+  },
+  {
+   "start": 644.36,
+   "end": 646.71,
+   "type": "speech",
+   "text": "haukala ka ga hauɗin daga na haula",
+   "phrases": [],
+   "review": false,
+   "id": 146
+  },
+  {
+   "start": 647.82,
+   "end": 648.92,
+   "type": "speech",
+   "text": "sa'a dandagami",
+   "phrases": [],
+   "review": false,
+   "id": 147
+  },
+  {
+   "start": 649.0,
+   "end": 651.77,
+   "type": "speech",
+   "text": "owa alakowa kagiasiidagidi",
+   "phrases": [],
+   "review": true,
+   "id": 148
+  },
+  {
+   "start": 652.14,
+   "end": 658.68,
+   "type": "speech",
+   "text": "ba tsammani daga biki da kuma allah na figindiaa amma baya kafin maitiiaidii",
+   "phrases": [],
+   "review": false,
+   "id": 149
+  },
+  {
+   "start": 658.99,
+   "end": 661.01,
+   "type": "speech",
+   "text": "sai mutumya nogon tawuli kokasa",
+   "phrases": [],
+   "review": false,
+   "id": 150
+  },
+  {
+   "start": 661.55,
+   "end": 662.39,
+   "type": "speech",
+   "text": "anbania",
+   "phrases": [],
+   "review": true,
+   "id": 151
+  },
+  {
+   "start": 663.08,
+   "end": 664.02,
+   "type": "speech",
+   "text": "dalai",
+   "phrases": [],
+   "review": false,
+   "id": 152
+  },
+  {
+   "start": 664.78,
+   "end": 669.65,
+   "type": "speech",
+   "text": "alagali lagawa iilami",
+   "phrases": [],
+   "review": true,
+   "id": 153
+  },
+  {
+   "start": 667.44,
+   "end": 706.1,
+   "type": "quran",
+   "refs": [
+    "1:2",
+    "1:3",
+    "1:4",
+    "1:5",
+    "1:6",
+    "1:7"
+   ],
+   "heard": "العالمين الرحمن الرحيم مالك يوم الدين إياك نحفظ وإياك نستعين فيهدنا الصراف المستقيم صراف الذين أنعمت عليهم غير المغضوب عليهم ولا الضوء. لفظ الحمد لنا نفو يبوه.",
+   "match": 92.7536231884058,
+   "review": false,
+   "id": 154
+  },
+  {
+   "start": 707.53,
+   "end": 710.97,
+   "type": "speech",
+   "text": "ta wanaboya tabatulillahi da allah ta'ala",
+   "phrases": [],
+   "review": false,
+   "id": 155
+  },
+  {
+   "start": 711.02,
+   "end": 713.33,
+   "type": "speech",
+   "text": "riaalami obangininhai",
+   "phrases": [],
+   "review": true,
+   "id": 156
+  },
+  {
+   "start": 714.06,
+   "end": 716.98,
+   "type": "speech",
+   "text": "wato da alhamdu da ashukuru akwi babbanci tsakani",
+   "phrases": [],
+   "review": false,
+   "id": 157
+  },
+  {
+   "start": 717.71,
+   "end": 721.94,
+   "type": "speech",
+   "text": "wani ya kan tara wani maana a cikinsu ta faskar ina ya dofa",
+   "phrases": [],
+   "review": false,
+   "id": 158
+  },
+  {
+   "start": 722.31,
+   "end": 724.44,
+   "type": "speech",
+   "text": "domin lafagin alhammi",
+   "phrases": [],
+   "review": false,
+   "id": 159
+  },
+  {
+   "start": 724.55,
+   "end": 726.97,
+   "type": "speech",
+   "text": "yana nufin yazo da godiya ga allah",
+   "phrases": [],
+   "review": false,
+   "id": 160
+  },
+  {
+   "start": 727.24,
+   "end": 732.21,
+   "type": "speech",
+   "text": "bisa da abinda ya yi wa bawa namiima ko abinda ya zallabe sijiki na baladi",
+   "phrases": [],
+   "review": false,
+   "id": 161
+  },
+  {
+   "start": 733.03,
+   "end": 738.49,
+   "type": "speech",
+   "text": "allah ya baka nukiya ya ba ka kotun lafiya ya baka mutin ya ba ka ʻyaya alhangulinnan",
+   "phrases": [],
+   "review": false,
+   "id": 162
+  },
+  {
+   "start": 739.18,
+   "end": 746.52,
+   "type": "speech",
+   "text": "ya dora maka ciwon kai zazzaɓi basasaratama duka launari matsala kaditasiiin kasa alhangulina",
+   "phrases": [],
+   "review": false,
+   "id": 163
+  },
+  {
+   "start": 746.95,
+   "end": 748.69,
+   "type": "speech",
+   "text": "atukarikiahami",
+   "phrases": [],
+   "review": true,
+   "id": 164
+  },
+  {
+   "start": 748.84,
+   "end": 753.17,
+   "type": "speech",
+   "text": "shi ne yabawa allah domin cancantarana a yaba maka",
+   "phrases": [],
+   "review": false,
+   "id": 165
+  },
+  {
+   "start": 753.9,
+   "end": 762.39,
+   "type": "speech",
+   "text": "o kuma ya na sansata a yaba masa ne saboda abinda ya ke fi na awawan sunaye da kuma mafi kamada sukofi",
+   "phrases": [],
+   "review": false,
+   "id": 166
+  },
+  {
+   "start": 759.7,
+   "end": 764.48,
+   "type": "quran",
+   "refs": [
+    "20:8"
+   ],
+   "heard": "دكما مفي كمال السفوفي. الله لا اله الا هو له الاطمئن",
+   "match": 100.0,
+   "review": false,
+   "id": 167
+  },
+  {
+   "start": 765.51,
+   "end": 768.37,
+   "type": "speech",
+   "text": "saboda abinda ya ke da shi nawannan sai a ke ibarki",
+   "phrases": [],
+   "review": false,
+   "id": 168
+  },
+  {
+   "start": 768.49,
+   "end": 772.12,
+   "type": "speech",
+   "text": "wainyayi maka wani abugobe mukaaimaka nia yagarbe ka",
+   "phrases": [],
+   "review": false,
+   "id": 169
+  },
+  {
+   "start": 772.68,
+   "end": 774.26,
+   "type": "speech",
+   "text": "omin ko wanne aka hikima",
+   "phrases": [],
+   "review": false,
+   "id": 170
+  },
+  {
+   "start": 775.05,
+   "end": 777.4,
+   "type": "speech",
+   "text": "cikin al'amurin ubangiji ta'ala babusia",
+   "phrases": [],
+   "review": false,
+   "id": 171
+  },
+  {
+   "start": 777.45,
+   "end": 781.72,
+   "type": "speech",
+   "text": "dan ya baka dukiya ba sani ane in ya haɗa kakalaui basani bane",
+   "phrases": [],
+   "review": false,
+   "id": 172
+  },
+  {
+   "start": 781.96,
+   "end": 784.69,
+   "type": "speech",
+   "text": "nayagamasaikakarankankadakaaace",
+   "phrases": [],
+   "review": true,
+   "id": 173
+  },
+  {
+   "start": 784.78,
+   "end": 789.08,
+   "type": "speech",
+   "text": "matituda akaihikina aurensu abin bai zama hiiba dageuwajen saia",
+   "phrases": [],
+   "review": false,
+   "id": 174
+  },
+  {
+   "start": 789.42,
+   "end": 790.61,
+   "type": "speech",
+   "text": "angaladi",
+   "phrases": [],
+   "review": true,
+   "id": 175
+  },
+  {
+   "start": 790.79,
+   "end": 792.79,
+   "type": "speech",
+   "text": "daakanufisihanunaikin yabo",
+   "phrases": [],
+   "review": true,
+   "id": 176
+  },
+  {
+   "start": 793.07,
+   "end": 796.25,
+   "type": "speech",
+   "text": "godiya da halubisasda kowani tanhali bawa ika",
+   "phrases": [],
+   "review": false,
+   "id": 177
+  },
+  {
+   "start": 796.81,
+   "end": 800.79,
+   "type": "speech",
+   "text": "ama lakazin aikukukuma anaakin godewa kaɗai wajen nema",
+   "phrases": [],
+   "review": false,
+   "id": 178
+  },
+  {
+   "start": 801.74,
+   "end": 802.9,
+   "type": "speech",
+   "text": "nabaaai",
+   "phrases": [],
+   "review": true,
+   "id": 179
+  },
+  {
+   "start": 803.21,
+   "end": 804.25,
+   "type": "speech",
+   "text": "ama",
+   "phrases": [],
+   "review": true,
+   "id": 180
+  },
+  {
+   "start": 804.55,
+   "end": 805.56,
+   "type": "speech",
+   "text": "alhambu",
+   "phrases": [],
+   "review": false,
+   "id": 181
+  },
+  {
+   "start": 805.8,
+   "end": 807.54,
+   "type": "speech",
+   "text": "ana yinkani daharbi kalai",
+   "phrases": [],
+   "review": false,
+   "id": 182
+  },
+  {
+   "start": 809.29,
+   "end": 811.54,
+   "type": "speech",
+   "text": "tananiyyar yinsa kowanihima",
+   "phrases": [],
+   "review": true,
+   "id": 183
+  },
+  {
+   "start": 811.63,
+   "end": 812.95,
+   "type": "speech",
+   "text": "komai jirraba",
+   "phrases": [],
+   "review": false,
+   "id": 184
+  },
+  {
+   "start": 814.09,
+   "end": 815.32,
+   "type": "speech",
+   "text": "ikaba",
+   "phrases": [],
+   "review": true,
+   "id": 185
+  },
+  {
+   "start": 815.59,
+   "end": 817.24,
+   "type": "speech",
+   "text": "bada harke kaɗai ake yinsaba",
+   "phrases": [],
+   "review": false,
+   "id": 186
+  },
+  {
+   "start": 817.32,
+   "end": 820.92,
+   "type": "speech",
+   "text": "anayinfu da dutsi anayinfu da harhe anayinfu dagaarki",
+   "phrases": [],
+   "review": false,
+   "id": 187
+  },
+  {
+   "start": 821.61,
+   "end": 825.37,
+   "type": "speech",
+   "text": "amma sababinda ya sa a ke yi ajekuru",
+   "phrases": [],
+   "review": false,
+   "id": 188
+  },
+  {
+   "start": 825.42,
+   "end": 827.13,
+   "type": "speech",
+   "text": "hi ne ia maka nima kadai",
+   "phrases": [],
+   "review": false,
+   "id": 189
+  },
+  {
+   "start": 827.72,
+   "end": 829.78,
+   "type": "speech",
+   "text": "a idan ya zaakabaka cihiku",
+   "phrases": [],
+   "review": false,
+   "id": 190
+  },
+  {
+   "start": 830.44,
+   "end": 831.51,
+   "type": "speech",
+   "text": "kitaaa",
+   "phrases": [],
+   "review": true,
+   "id": 191
+  },
+  {
+   "start": 831.88,
+   "end": 836.05,
+   "type": "speech",
+   "text": "ahagaya zamiiaiikaai",
+   "phrases": [],
+   "review": true,
+   "id": 192
+  },
+  {
+   "start": 836.11,
+   "end": 839.13,
+   "type": "speech",
+   "text": "aaakakaiya kasance",
+   "phrases": [],
+   "review": false,
+   "id": 193
+  },
+  {
+   "start": 839.53,
+   "end": 840.28,
+   "type": "speech",
+   "text": "wana",
+   "phrases": [],
+   "review": true,
+   "id": 194
+  },
+  {
+   "start": 840.49,
+   "end": 842.93,
+   "type": "speech",
+   "text": "abuakuu ana faɗa wajen nima da komi",
+   "phrases": [],
+   "review": false,
+   "id": 195
+  },
+  {
+   "start": 843.82,
+   "end": 844.69,
+   "type": "speech",
+   "text": "kin shaka",
+   "phrases": [],
+   "review": false,
+   "id": 196
+  },
+  {
+   "start": 845.35,
+   "end": 850.58,
+   "type": "speech",
+   "text": "inda yasaake sinhik i akeikawai tacantatacewaki yana dishin kofi na kamala",
+   "phrases": [],
+   "review": true,
+   "id": 197
+  },
+  {
+   "start": 850.83,
+   "end": 855.09,
+   "type": "speech",
+   "text": "abonda yake sa a ke yinashikurkuma kasancewar a ya yi maka lema",
+   "phrases": [],
+   "review": false,
+   "id": 198
+  },
+  {
+   "start": 855.21,
+   "end": 862.17,
+   "type": "speech",
+   "text": "tu ama anayin alhali kadai da harshe amma asuku anayinka dalufi anayinku da harshe anayinsu da gaa",
+   "phrases": [],
+   "review": false,
+   "id": 199
+  },
+  {
+   "start": 862.67,
+   "end": 864.25,
+   "type": "speech",
+   "text": "and yafiwanifatialai",
+   "phrases": [],
+   "review": true,
+   "id": 200
+  },
+  {
+   "start": 867.02,
+   "end": 868.31,
+   "type": "speech",
+   "text": "ani banbanmane",
+   "phrases": [],
+   "review": false,
+   "id": 201
+  },
+  {
+   "start": 870.63,
+   "end": 874.97,
+   "type": "speech",
+   "text": "idanmunkalli kana fustanwandan yafiwannaaidanmunkalletanabangarenwndiana",
+   "phrases": [],
+   "review": false,
+   "id": 202
+  },
+  {
+   "start": 875.66,
+   "end": 877.49,
+   "type": "speech",
+   "text": "tarakar abinda a ke yin",
+   "phrases": [],
+   "review": false,
+   "id": 203
+  },
+  {
+   "start": 877.8,
+   "end": 878.97,
+   "type": "speech",
+   "text": "godiyar da ce",
+   "phrases": [],
+   "review": false,
+   "id": 204
+  },
+  {
+   "start": 879.21,
+   "end": 880.5,
+   "type": "speech",
+   "text": "ande ya fi faɗi mala",
+   "phrases": [],
+   "review": false,
+   "id": 205
+  },
+  {
+   "start": 880.71,
+   "end": 881.56,
+   "type": "speech",
+   "text": "a shukul",
+   "phrases": [],
+   "review": true,
+   "id": 206
+  },
+  {
+   "start": 881.64,
+   "end": 884.44,
+   "type": "speech",
+   "text": "aboda anayinku da juki anayinku daharfe anayinku dae",
+   "phrases": [],
+   "review": false,
+   "id": 207
+  },
+  {
+   "start": 884.52,
+   "end": 885.11,
+   "type": "speech",
+   "text": "daa",
+   "phrases": [],
+   "review": true,
+   "id": 208
+  },
+  {
+   "start": 886.73,
+   "end": 889.65,
+   "type": "speech",
+   "text": "kaainda tafaaa",
+   "phrases": [],
+   "review": true,
+   "id": 209
+  },
+  {
+   "start": 890.06,
+   "end": 893.56,
+   "type": "speech",
+   "text": "gojiyar me yasa a ke yin godiyar",
+   "phrases": [],
+   "review": false,
+   "id": 210
+  },
+  {
+   "start": 893.67,
+   "end": 897.72,
+   "type": "speech",
+   "text": "shin anayi ne kaɗai daniima ko kuma badada ko kuma harjen garreba",
+   "phrases": [],
+   "review": false,
+   "id": 211
+  },
+  {
+   "start": 897.77,
+   "end": 899.32,
+   "type": "speech",
+   "text": "deismaianadankuki",
+   "phrases": [],
+   "review": true,
+   "id": 212
+  },
+  {
+   "start": 899.72,
+   "end": 900.73,
+   "type": "speech",
+   "text": "anhagekwaɗin",
+   "phrases": [],
+   "review": false,
+   "id": 213
+  },
+  {
+   "start": 901.26,
+   "end": 903.83,
+   "type": "speech",
+   "text": "ajasadaiaaidagyonna",
+   "phrases": [],
+   "review": true,
+   "id": 214
+  },
+  {
+   "start": 904.17,
+   "end": 905.24,
+   "type": "speech",
+   "text": "aia",
+   "phrases": [],
+   "review": true,
+   "id": 215
+  },
+  {
+   "start": 906.41,
+   "end": 907.38,
+   "type": "speech",
+   "text": "ina bakaka",
+   "phrases": [],
+   "review": true,
+   "id": 216
+  },
+  {
+   "start": 907.5,
+   "end": 911.09,
+   "type": "speech",
+   "text": "kuma ta koinasimugacewa lallai nufadai",
+   "phrases": [],
+   "review": true,
+   "id": 217
+  },
+  {
+   "start": 911.18,
+   "end": 913.59,
+   "type": "speech",
+   "text": "wabriimaakaabadasabodama",
+   "phrases": [],
+   "review": true,
+   "id": 218
+  },
+  {
+   "start": 913.9,
+   "end": 917.33,
+   "type": "speech",
+   "text": "taakinda ya sa a ke masa dalhadu dindakaaia",
+   "phrases": [],
+   "review": false,
+   "id": 219
+  },
+  {
+   "start": 918.38,
+   "end": 921.56,
+   "type": "speech",
+   "text": "aboda abinda ya fake dasiaaanamafiya kyau",
+   "phrases": [],
+   "review": false,
+   "id": 220
+  },
+  {
+   "start": 921.64,
+   "end": 923.19,
+   "type": "speech",
+   "text": "da kuma cunfofi na kamana",
+   "phrases": [],
+   "review": false,
+   "id": 221
+  },
+  {
+   "start": 923.34,
+   "end": 925.91,
+   "type": "speech",
+   "text": "i sakiahaakutamtuanafurani",
+   "phrases": [],
+   "review": true,
+   "id": 222
+  },
+  {
+   "start": 926.12,
+   "end": 928.92,
+   "type": "speech",
+   "text": "ka bude turoiakikaidanturoi",
+   "phrases": [],
+   "review": false,
+   "id": 223
+  },
+  {
+   "start": 929.29,
+   "end": 931.19,
+   "type": "speech",
+   "text": "ikasanceawaihagi",
+   "phrases": [],
+   "review": true,
+   "id": 224
+  },
+  {
+   "start": 931.69,
+   "end": 932.5,
+   "type": "speech",
+   "text": "ania",
+   "phrases": [],
+   "review": true,
+   "id": 225
+  },
+  {
+   "start": 932.65,
+   "end": 937.24,
+   "type": "speech",
+   "text": "i ne abin cancanta ko kumar dayicancanta a yabamasu a fako saicancanta kuma yabamasukak",
+   "phrases": [],
+   "review": false,
+   "id": 226
+  },
+  {
+   "start": 938.62,
+   "end": 944.04,
+   "type": "quran",
+   "refs": [
+    "18:1"
+   ],
+   "heard": "لله رب العالمين. الحمد لله الذي انزل على ابن كتابه ولويد",
+   "match": 100.0,
+   "review": false,
+   "id": 227
+  },
+  {
+   "start": 944.04,
+   "end": 948.38,
+   "type": "quran",
+   "refs": [
+    "35:1"
+   ],
+   "heard": "الله وجوده. الحمد لله فاطر السماوات والارض جائد الملاحقة",
+   "match": 100.0,
+   "review": false,
+   "id": 228
+  },
+  {
+   "start": 945.32,
+   "end": 958.04,
+   "type": "speech",
+   "text": "alhabdullahi fasadasamawakaaiaalaikatrusaauikimasanawtsaiiaanakuaceiahadulillahi aalibiaaaiaada anbude da shi kuma anrfe",
+   "phrases": [],
+   "review": false,
+   "id": 229
+  },
+  {
+   "start": 952.6,
+   "end": 956.94,
+   "type": "quran",
+   "refs": [
+    "39:75"
+   ],
+   "heard": "وقيل الحمد لله رب العالمين قريشان صورة الله. هذا عمبو ايضا",
+   "match": 100.0,
+   "review": false,
+   "id": 230
+  },
+  {
+   "start": 958.25,
+   "end": 960.89,
+   "type": "speech",
+   "text": "isafiya duƙule shiwalaaagiula",
+   "phrases": [],
+   "review": true,
+   "id": 231
+  },
+  {
+   "start": 961.16,
+   "end": 963.8,
+   "type": "speech",
+   "text": "wal akara wali huku aitii",
+   "phrases": [],
+   "review": true,
+   "id": 232
+  },
+  {
+   "start": 964.17,
+   "end": 967.89,
+   "type": "speech",
+   "text": "alhamdulillahi dukkan yibu ya tsambata da allaak",
+   "phrases": [
+    {
+     "id": "hamdala",
+     "arabic": "ٱلْحَمْدُ لِلَّهِ",
+     "translit": "Al-ḥamdu lillāh",
+     "meaning_en": "All praise is due to Allah",
+     "meaning_ha": ""
+    }
+   ],
+   "review": false,
+   "id": 233
+  },
+  {
+   "start": 967.06,
+   "end": 973.16,
+   "type": "quran",
+   "refs": [
+    "5:28"
+   ],
+   "heard": "الله رب العالمين وطيبين الهلال. لفظ الرب. ينالون الامر",
+   "match": 100.0,
+   "review": false,
+   "id": 234
+  },
+  {
+   "start": 974.06,
+   "end": 976.98,
+   "type": "speech",
+   "text": "alkalkawali murku watabiru",
+   "phrases": [],
+   "review": true,
+   "id": 235
+  },
+  {
+   "start": 977.61,
+   "end": 979.13,
+   "type": "speech",
+   "text": "watu shi ne muhalli",
+   "phrases": [],
+   "review": false,
+   "id": 236
+  },
+  {
+   "start": 979.75,
+   "end": 981.21,
+   "type": "speech",
+   "text": "kinadama",
+   "phrases": [],
+   "review": true,
+   "id": 237
+  },
+  {
+   "start": 981.45,
+   "end": 985.75,
+   "type": "speech",
+   "text": "kulsi ke gudanar da al'amuran bayanhadin batarisaimakongura",
+   "phrases": [],
+   "review": false,
+   "id": 238
+  },
+  {
+   "start": 986.95,
+   "end": 990.01,
+   "type": "speech",
+   "text": "dkaka yi zaman rakulalaida ubangijinhaiiaay",
+   "phrases": [],
+   "review": false,
+   "id": 239
+  },
+  {
+   "start": 990.38,
+   "end": 993.08,
+   "type": "speech",
+   "text": "ba wanda ya yi tarayya da allahwajenhalitkin bai",
+   "phrases": [],
+   "review": false,
+   "id": 240
+  },
+  {
+   "start": 993.26,
+   "end": 994.17,
+   "type": "speech",
+   "text": "ika",
+   "phrases": [],
+   "review": true,
+   "id": 241
+  },
+  {
+   "start": 994.95,
+   "end": 1000.34,
+   "type": "speech",
+   "text": "nan allah nemallakin bai ɗin babu mallakar wani abu cikinsama kokasa kali",
+   "phrases": [],
+   "review": false,
+   "id": 242
+  },
+  {
+   "start": 1001.25,
+   "end": 1018.85,
+   "type": "quran",
+   "refs": [
+    "34:22",
+    "34:23"
+   ],
+   "heard": "من دون الله لا يملكون مثل الظرة في السماوات ولا في الأرض. وما لهم فيهما من ترك. وما لهم منهم من ظهير. ولا تنفق الشفاعة عنده الا لمن ادنى له. حتى اذا كذبع عن قلوبهم. قالوا ماذا قال ربكم? قالوا الحق. وهو العلي الكبير.",
+   "match": 91.07142857142857,
+   "review": false,
+   "id": 243
+  },
+  {
+   "start": 1020.3,
+   "end": 1027.32,
+   "type": "speech",
+   "text": "annan kuma hie wanda ya ke kaama da kawo dare da kawo rana da kawo sanyi da kawo zafi da canji yanayi",
+   "phrases": [],
+   "review": false,
+   "id": 244
+  },
+  {
+   "start": 1027.37,
+   "end": 1029.59,
+   "type": "speech",
+   "text": "duk wannan tarbiyya kanzu ta aike",
+   "phrases": [],
+   "review": false,
+   "id": 245
+  },
+  {
+   "start": 1029.8,
+   "end": 1031.35,
+   "type": "speech",
+   "text": "akuiasaai",
+   "phrases": [],
+   "review": true,
+   "id": 246
+  },
+  {
+   "start": 1031.59,
+   "end": 1034.26,
+   "type": "speech",
+   "text": "banda allah ba wanda ya kiwajuliya wannan gatar",
+   "phrases": [],
+   "review": false,
+   "id": 247
+  },
+  {
+   "start": 1034.38,
+   "end": 1038.49,
+   "type": "speech",
+   "text": "halittarta mallakarta da kuma gudanar da al'amuranta bisa ga sari",
+   "phrases": [],
+   "review": false,
+   "id": 248
+  },
+  {
+   "start": 1038.54,
+   "end": 1046.01,
+   "type": "speech",
+   "text": "a tare da ansami kika tsakanin abinda ke faruwa da samn ko abindake faruwaasa ba oabinda ya ke faruwa cikin dare kaabindakefrwa cinran",
+   "phrases": [],
+   "review": false,
+   "id": 249
+  },
+  {
+   "start": 1046.06,
+   "end": 1048.28,
+   "type": "speech",
+   "text": "alakemuna girman kituaa",
+   "phrases": [],
+   "review": true,
+   "id": 250
+  },
+  {
+   "start": 1048.75,
+   "end": 1052.89,
+   "type": "speech",
+   "text": "an rahmaniraiya bayanisakaridaasabizatafibaa",
+   "phrases": [],
+   "review": true,
+   "id": 251
+  },
+  {
+   "start": 1053.23,
+   "end": 1055.0,
+   "type": "speech",
+   "text": "malikyamii",
+   "phrases": [],
+   "review": true,
+   "id": 252
+  },
+  {
+   "start": 1055.11,
+   "end": 1060.15,
+   "type": "speech",
+   "text": "okacemaliki kokacemaliki dukansukiragulabiyuta tabbata kokeaaikimu dawaka",
+   "phrases": [],
+   "review": false,
+   "id": 253
+  },
+  {
+   "start": 1060.43,
+   "end": 1064.09,
+   "type": "speech",
+   "text": "usakaaemaikmuane arawikinasa",
+   "phrases": [],
+   "review": true,
+   "id": 254
+  },
+  {
+   "start": 1064.3,
+   "end": 1071.83,
+   "type": "speech",
+   "text": "wato da imamin kisadi da imaaafindiginiikikfi suni sokarata ainiiiiiakiaii",
+   "phrases": [],
+   "review": true,
+   "id": 255
+  },
+  {
+   "start": 1071.95,
+   "end": 1075.67,
+   "type": "speech",
+   "text": "akakakaa sokacimaliiaiidihakia",
+   "phrases": [],
+   "review": true,
+   "id": 256
+  },
+  {
+   "start": 1076.46,
+   "end": 1077.97,
+   "type": "speech",
+   "text": "wato mamallaki",
+   "phrases": [],
+   "review": false,
+   "id": 257
+  },
+  {
+   "start": 1078.51,
+   "end": 1082.97,
+   "type": "speech",
+   "text": "mamallakin ranar sakamako domin abiin ananikinarjia sakamako",
+   "phrases": [],
+   "review": false,
+   "id": 258
+  },
+  {
+   "start": 1083.05,
+   "end": 1085.85,
+   "type": "speech",
+   "text": "mardaimaukariyar matoasar daga mahamad",
+   "phrases": [],
+   "review": true,
+   "id": 259
+  },
+  {
+   "start": 1086.09,
+   "end": 1093.65,
+   "type": "speech",
+   "text": "awatu aljauianianaljaza har ya ƙaracewa kamar kabiru kudamu wato irin yadda ka yiiiikaiha",
+   "phrases": [],
+   "review": false,
+   "id": 260
+  },
+  {
+   "start": 1094.03,
+   "end": 1099.86,
+   "type": "speech",
+   "text": "n ka kyakkyawan aki aakakyan sakamako in ta imumunanahi aakauunisaklaa",
+   "phrases": [],
+   "review": false,
+   "id": 261
+  },
+  {
+   "start": 1100.76,
+   "end": 1102.76,
+   "type": "quran",
+   "refs": [
+    "1:5"
+   ],
+   "heard": "اياك نعبد وياك نستعيد.",
+   "match": 95.23809523809523,
+   "review": false,
+   "id": 262
+  },
+  {
+   "start": 1103.18,
+   "end": 1106.71,
+   "type": "speech",
+   "text": "gari ku kaɗe muke bataya allah gari ku kaɗe muke nemancaba",
+   "phrases": [],
+   "review": false,
+   "id": 263
+  },
+  {
+   "start": 1108.46,
+   "end": 1113.12,
+   "type": "quran",
+   "refs": [
+    "1:5"
+   ],
+   "heard": "اياك نعبد واياك نستعيد. واتو انقباطرد مفهولا به منصوب.",
+   "match": 100.0,
+   "review": false,
+   "id": 264
+  },
+  {
+   "start": 1114.76,
+   "end": 1117.17,
+   "type": "speech",
+   "text": "kan sikilidin wanda shine na abu",
+   "phrases": [],
+   "review": false,
+   "id": 265
+  },
+  {
+   "start": 1118.12,
+   "end": 1123.35,
+   "type": "speech",
+   "text": "ato abinda wannan ke munawa bauta haƙƙin allah ne kikadai wani baya tarayyar allahe",
+   "phrases": [],
+   "review": false,
+   "id": 266
+  },
+  {
+   "start": 1123.63,
+   "end": 1130.45,
+   "type": "speech",
+   "text": "kamar yadda neman taimako cikin abinda ba mai iyiyasu kai allah haƙƙin allah ne ikadai wani baya tariyiya allaiiinai",
+   "phrases": [],
+   "review": false,
+   "id": 267
+  },
+  {
+   "start": 1131.05,
+   "end": 1133.46,
+   "type": "speech",
+   "text": "aakatakiiaka naguluyaiakakae",
+   "phrases": [],
+   "review": true,
+   "id": 268
+  },
+  {
+   "start": 1133.71,
+   "end": 1135.8,
+   "type": "speech",
+   "text": "dina kurakar masafiyan",
+   "phrases": [],
+   "review": true,
+   "id": 269
+  },
+  {
+   "start": 1135.85,
+   "end": 1140.05,
+   "type": "speech",
+   "text": "ka shiryardamu akuraƙamaskintafarki wanda ya kemalami",
+   "phrases": [],
+   "review": false,
+   "id": 270
+  },
+  {
+   "start": 1140.97,
+   "end": 1151.22,
+   "type": "speech",
+   "text": "lainaaalaentafarkin waɗanda kainirma agaresu aiimagobe alaiyeba waɗanda kisuki agarensua walaali ba kuma tafarkiia",
+   "phrases": [],
+   "review": false,
+   "id": 271
+  },
+  {
+   "start": 1151.66,
+   "end": 1156.89,
+   "type": "speech",
+   "text": "ya tabbata cikin musuamaahaadina anbal cewa almaglubi alaihin sune yahudu",
+   "phrases": [],
+   "review": false,
+   "id": 272
+  },
+  {
+   "start": 1157.48,
+   "end": 1159.83,
+   "type": "speech",
+   "text": "agwalekuma tune nasara",
+   "phrases": [],
+   "review": true,
+   "id": 273
+  },
+  {
+   "start": 1160.3,
+   "end": 1163.96,
+   "type": "speech",
+   "text": "wato muna neman tafarki na watanda ke aneba",
+   "phrases": [],
+   "review": false,
+   "id": 274
+  },
+  {
+   "start": 1164.04,
+   "end": 1166.49,
+   "type": "speech",
+   "text": "ba ta farkin waɗanda kikishidatuba",
+   "phrases": [],
+   "review": false,
+   "id": 275
+  },
+  {
+   "start": 1166.54,
+   "end": 1168.5,
+   "type": "speech",
+   "text": "barifarkin waɗanda suke fata",
+   "phrases": [],
+   "review": false,
+   "id": 276
+  },
+  {
+   "start": 1169.51,
+   "end": 1170.52,
+   "type": "speech",
+   "text": "bakatu",
+   "phrases": [],
+   "review": true,
+   "id": 277
+  },
+  {
+   "start": 1170.76,
+   "end": 1171.51,
+   "type": "speech",
+   "text": "aa",
+   "phrases": [],
+   "review": true,
+   "id": 278
+  },
+  {
+   "start": 1171.88,
+   "end": 1175.22,
+   "type": "speech",
+   "text": "waɗanda aka yi fushi a garesu kuma yahudu",
+   "phrases": [],
+   "review": false,
+   "id": 279
+  },
+  {
+   "start": 1175.69,
+   "end": 1178.58,
+   "type": "speech",
+   "text": "to don me suka sami tsuffa da anyukashi da su",
+   "phrases": [],
+   "review": false,
+   "id": 280
+  },
+  {
+   "start": 1179.56,
+   "end": 1181.75,
+   "type": "speech",
+   "text": "ugu adancandanme suka fama",
+   "phrases": [],
+   "review": true,
+   "id": 281
+  },
+  {
+   "start": 1181.8,
+   "end": 1183.64,
+   "type": "speech",
+   "text": "sufaka cewa sukasakila",
+   "phrases": [],
+   "review": true,
+   "id": 282
+  },
+  {
+   "start": 1184.62,
+   "end": 1185.59,
+   "type": "speech",
+   "text": "suagoda",
+   "phrases": [],
+   "review": true,
+   "id": 283
+  },
+  {
+   "start": 1185.8,
+   "end": 1187.86,
+   "type": "speech",
+   "text": "abindakiiaiiidasu",
+   "phrases": [],
+   "review": true,
+   "id": 284
+  },
+  {
+   "start": 1188.39,
+   "end": 1190.65,
+   "type": "speech",
+   "text": "wato suna dasaniamabana aikika",
+   "phrases": [],
+   "review": false,
+   "id": 285
+  },
+  {
+   "start": 1191.72,
+   "end": 1193.33,
+   "type": "speech",
+   "text": "un san gaskiyababaaake",
+   "phrases": [],
+   "review": false,
+   "id": 286
+  },
+  {
+   "start": 1194.19,
+   "end": 1197.17,
+   "type": "speech",
+   "text": "domin mazan allah dai zo kafin yazo kufi kowasi",
+   "phrases": [],
+   "review": false,
+   "id": 287
+  },
+  {
+   "start": 1197.23,
+   "end": 1199.61,
+   "type": "speech",
+   "text": "ainaakiakiaaaiin",
+   "phrases": [],
+   "review": true,
+   "id": 288
+  },
+  {
+   "start": 1200.38,
+   "end": 1204.68,
+   "type": "quran",
+   "refs": [
+    "2:146"
+   ],
+   "heard": "يعرفون ابنائهم وان فريقا منهم لا يكتبون الهدف. وهو",
+   "match": 100.0,
+   "review": false,
+   "id": 289
+  },
+  {
+   "start": 1204.43,
+   "end": 1205.14,
+   "type": "speech",
+   "text": "alai",
+   "phrases": [],
+   "review": true,
+   "id": 290
+  },
+  {
+   "start": 1205.19,
+   "end": 1209.3,
+   "type": "speech",
+   "text": "tasufi koyowasanisfofinmadnllai rbitsauradaiure",
+   "phrases": [],
+   "review": true,
+   "id": 291
+  },
+  {
+   "start": 1208.34,
+   "end": 1222.38,
+   "type": "quran",
+   "refs": [
+    "7:157"
+   ],
+   "heard": "الانجليزية يجدونه مكتوبا عيدهم في التوراة والانجليزية يأمرهم بالمغروب وينهامهم عن الممكن ويحذدهم الطيبات ويحرم عليهم الخبائث ويضاع عنهم قطرهم والاغلال الذي يكادف عليهم. ده",
+   "match": 83.01886792452831,
+   "review": true,
+   "id": 292
+  },
+  {
+   "start": 1222.19,
+   "end": 1224.6,
+   "type": "speech",
+   "text": "daakadasisun san gaskiya suka bie imata",
+   "phrases": [],
+   "review": true,
+   "id": 293
+  },
+  {
+   "start": 1224.84,
+   "end": 1226.55,
+   "type": "speech",
+   "text": "a kasance allah ya fahi",
+   "phrases": [],
+   "review": false,
+   "id": 294
+  },
+  {
+   "start": 1227.53,
+   "end": 1229.78,
+   "type": "speech",
+   "text": "su kuma ciistafo na sara",
+   "phrases": [],
+   "review": false,
+   "id": 295
+  },
+  {
+   "start": 1229.9,
+   "end": 1231.25,
+   "type": "speech",
+   "text": "sunkakaansu",
+   "phrases": [],
+   "review": true,
+   "id": 296
+  },
+  {
+   "start": 1231.59,
+   "end": 1234.07,
+   "type": "speech",
+   "text": "ya zo mai ta hanyar yin aikin gari",
+   "phrases": [],
+   "review": false,
+   "id": 297
+  },
+  {
+   "start": 1234.99,
+   "end": 1236.18,
+   "type": "speech",
+   "text": "ubaka aikida",
+   "phrases": [],
+   "review": false,
+   "id": 298
+  },
+  {
+   "start": 1236.71,
+   "end": 1239.32,
+   "type": "speech",
+   "text": "danganaidundadaninyaddakizahake",
+   "phrases": [],
+   "review": true,
+   "id": 299
+  },
+  {
+   "start": 1239.5,
+   "end": 1243.8,
+   "type": "speech",
+   "text": "aamakaga abu ɗaya ne kuma ukune lokaci guda in bar nigansiak",
+   "phrases": [],
+   "review": false,
+   "id": 300
+  },
+  {
+   "start": 1244.84,
+   "end": 1247.8,
+   "type": "speech",
+   "text": "ko ka san cewa babu yadda naaiko wjen rubutawa",
+   "phrases": [],
+   "review": false,
+   "id": 301
+  },
+  {
+   "start": 1247.88,
+   "end": 1249.78,
+   "type": "speech",
+   "text": "igain ɗaya ataka",
+   "phrases": [],
+   "review": true,
+   "id": 302
+  },
+  {
+   "start": 1250.51,
+   "end": 1256.31,
+   "type": "speech",
+   "text": "kuma haka wandiuai taya biyu uku wannan kuma taya kakai mmakuma diiabudaine",
+   "phrases": [],
+   "review": false,
+   "id": 303
+  },
+  {
+   "start": 1256.36,
+   "end": 1258.81,
+   "type": "speech",
+   "text": "aaaukuaiakai",
+   "phrases": [],
+   "review": true,
+   "id": 304
+  },
+  {
+   "start": 1259.91,
+   "end": 1260.44,
+   "type": "speech",
+   "text": "la",
+   "phrases": [],
+   "review": true,
+   "id": 305
+  },
+  {
+   "start": 1260.87,
+   "end": 1265.53,
+   "type": "speech",
+   "text": "saboda haka tarihin da ke cikin aƙidar na saraciisaka samuiunakai",
+   "phrases": [],
+   "review": false,
+   "id": 306
+  },
+  {
+   "start": 1266.51,
+   "end": 1273.14,
+   "type": "speech",
+   "text": "rashin aiki da ilimida ke saakidaihudaiikafishidausitahakuaaiataiakekiawa",
+   "phrases": [],
+   "review": false,
+   "id": 307
+  },
+  {
+   "start": 1273.26,
+   "end": 1278.74,
+   "type": "speech",
+   "text": "dukda mutuminda ya ke da sani baya aiki da karunta cikin wannan al'ummataanamhamadadakal",
+   "phrases": [],
+   "review": false,
+   "id": 308
+  },
+  {
+   "start": 1278.99,
+   "end": 1283.83,
+   "type": "speech",
+   "text": "li yana da wani kasu yana da wani raho na kafarihudufii",
+   "phrases": [],
+   "review": false,
+   "id": 309
+  },
+  {
+   "start": 1284.39,
+   "end": 1289.37,
+   "type": "speech",
+   "text": "haka dukkan mutumin da ya ke aiki da gari a cikin wannin al'uma ta namai jua",
+   "phrases": [],
+   "review": false,
+   "id": 310
+  },
+  {
+   "start": 1289.67,
+   "end": 1291.35,
+   "type": "speech",
+   "text": "waautine kowani maji",
+   "phrases": [],
+   "review": true,
+   "id": 311
+  },
+  {
+   "start": 1291.4,
+   "end": 1299.57,
+   "type": "speech",
+   "text": "ya zabarwakansa zama cikin jari zai yi karatu ba ba zai yi tambaya ba me diyaya a ke ajili yana adini daka",
+   "phrases": [],
+   "review": false,
+   "id": 312
+  },
+  {
+   "start": 1299.79,
+   "end": 1304.28,
+   "type": "speech",
+   "text": "bi sanyi dai ba ko ina da wata tsufako rabo na tsuffarkinta",
+   "phrases": [],
+   "review": false,
+   "id": 313
+  },
+  {
+   "start": 1304.65,
+   "end": 1305.62,
+   "type": "speech",
+   "text": "wasakaba",
+   "phrases": [],
+   "review": true,
+   "id": 314
+  },
+  {
+   "start": 1305.99,
+   "end": 1310.55,
+   "type": "speech",
+   "text": "barbadan faɗinjamisinka barbadan yadda kake ƙara kusansidikinsati",
+   "phrases": [],
+   "review": false,
+   "id": 315
+  },
+  {
+   "start": 1310.89,
+   "end": 1313.78,
+   "type": "speech",
+   "text": "garbadan ilimi da kuma baka ai ƙirji",
+   "phrases": [],
+   "review": false,
+   "id": 316
+  },
+  {
+   "start": 1313.83,
+   "end": 1315.89,
+   "type": "speech",
+   "text": "baakasasidadaa",
+   "phrases": [],
+   "review": true,
+   "id": 317
+  },
+  {
+   "start": 1317.07,
+   "end": 1324.5,
+   "type": "speech",
+   "text": "kmiallahyafarakar damuiilallikukiya itafakinadannangudbiushiakuma a karantar da mukurfurfatiha kullummukekonallaidan karnfaciki",
+   "phrases": [],
+   "review": true,
+   "id": 318
+  },
+  {
+   "start": 1325.1,
+   "end": 1330.07,
+   "type": "speech",
+   "text": "an ba waina maganar baihude ba ne amatsiyinskinabiude saboda mumunan sumfinsa ta ilimi bada iki",
+   "phrases": [],
+   "review": false,
+   "id": 319
+  },
+  {
+   "start": 1330.41,
+   "end": 1336.82,
+   "type": "speech",
+   "text": "baaana magana ba ne kirstiamatayinsainakiaa'a saboda mumulakufaaigai isi ba tare da ilmi",
+   "phrases": [],
+   "review": false,
+   "id": 320
+  },
+  {
+   "start": 1337.39,
+   "end": 1344.53,
+   "type": "speech",
+   "text": "o dukkanwaakakakakaiwannan oi tabbatar cewa wato yana da wani rabu na wannansualsii",
+   "phrases": [],
+   "review": false,
+   "id": 321
+  },
+  {
+   "start": 1344.81,
+   "end": 1347.61,
+   "type": "speech",
+   "text": "isatmiki rogonallahiiidinafuratar mahfi",
+   "phrases": [],
+   "review": true,
+   "id": 322
+  },
+  {
+   "start": 1347.75,
+   "end": 1353.88,
+   "type": "speech",
+   "text": "alahktii dimutafarki maaidaicirasalafina daakaalaikiafakin waɗanda ka lema agareku",
+   "phrases": [],
+   "review": false,
+   "id": 323
+  },
+  {
+   "start": 1353.93,
+   "end": 1355.45,
+   "type": "speech",
+   "text": "akagaa",
+   "phrases": [],
+   "review": true,
+   "id": 324
+  },
+  {
+   "start": 1355.5,
+   "end": 1358.13,
+   "type": "speech",
+   "text": "a waɗanda kikijiagarisuiaainak",
+   "phrases": [],
+   "review": false,
+   "id": 325
+  },
+  {
+   "start": 1359.05,
+   "end": 1374.87,
+   "type": "speech",
+   "text": "da kuma anfakada cewa waɗanda allahiyimasu iiasune watowaɗanda allahiya zana cikinfutianisa da allaikeiniaaiaualadmaallainaanaiaianabiizasubitiye mashadduasalihi aasna kula da kata",
+   "phrases": [],
+   "review": false,
+   "id": 326
+  },
+  {
+   "start": 1376.04,
+   "end": 1382.13,
+   "type": "speech",
+   "text": "uwannan kayarina mutane gudahuduanaiyuasijikuasahada kalia",
+   "phrases": [],
+   "review": true,
+   "id": 327
+  },
+  {
+   "start": 1382.25,
+   "end": 1383.7,
+   "type": "speech",
+   "text": "une waɗanda allain",
+   "phrases": [],
+   "review": false,
+   "id": 328
+  },
+  {
+   "start": 1384.01,
+   "end": 1392.41,
+   "type": "speech",
+   "text": "akullum ka na roƙon allah kina roƙonallah lokacin da kike karanta furkin fatiya cewa allah ka saka cikin wannan ayaribabu ayariii albarkar",
+   "phrases": [],
+   "review": false,
+   "id": 329
+  },
+  {
+   "start": 1392.94,
+   "end": 1399.35,
+   "type": "speech",
+   "text": "anabiyu akidika asihade a austaliisalakaua hakana kula ikarai",
+   "phrases": [],
+   "review": true,
+   "id": 330
+  },
+  {
+   "start": 1400.3,
+   "end": 1401.69,
+   "type": "speech",
+   "text": "aakakanakia",
+   "phrases": [],
+   "review": true,
+   "id": 331
+  },
+  {
+   "start": 1402.31,
+   "end": 1408.92,
+   "type": "speech",
+   "text": "atu ka ga babu abu saiukyawu saboda akeka abokanci waɗannan ayaribudanuiaaligaiyagayani",
+   "phrases": [],
+   "review": false,
+   "id": 332
+  },
+  {
+   "start": 1410.47,
+   "end": 1414.87,
+   "type": "speech",
+   "text": "wannan a kakitishine bayanitsuratufatina ta fuskar kalmomin da ta koka",
+   "phrases": [],
+   "review": false,
+   "id": 333
+  },
+  {
+   "start": 1415.31,
+   "end": 1421.78,
+   "type": "speech",
+   "text": "anan gurma ikitawa anyi saƙa ne mawaita sun yi saƙa ne ki i kauni surutin fatiha makiya",
+   "phrases": [],
+   "review": false,
+   "id": 334
+  },
+  {
+   "start": 1421.87,
+   "end": 1428.09,
+   "type": "speech",
+   "text": "dabanaallah nazurabiakaiza auhiyaminisuailakitakaaanaduduadiasubabinmukai",
+   "phrases": [],
+   "review": true,
+   "id": 335
+  },
+  {
+   "start": 1428.84,
+   "end": 1430.52,
+   "type": "speech",
+   "text": "suabatamakiyana",
+   "phrases": [],
+   "review": true,
+   "id": 336
+  },
+  {
+   "start": 1431.82,
+   "end": 1434.39,
+   "type": "speech",
+   "text": "ko kuma a'a maikiyafimadamiyyacinatafe",
+   "phrases": [],
+   "review": false,
+   "id": 337
+  },
+  {
+   "start": 1435.18,
+   "end": 1436.31,
+   "type": "speech",
+   "text": "malami sunyi haka",
+   "phrases": [],
+   "review": false,
+   "id": 338
+  },
+  {
+   "start": 1436.97,
+   "end": 1439.03,
+   "type": "speech",
+   "text": "waɗanda ku ke ganin makia ce",
+   "phrases": [],
+   "review": false,
+   "id": 339
+  },
+  {
+   "start": 1439.69,
+   "end": 1441.08,
+   "type": "speech",
+   "text": "uka ce saboda",
+   "phrases": [],
+   "review": false,
+   "id": 340
+  },
+  {
+   "start": 1441.48,
+   "end": 1444.12,
+   "type": "speech",
+   "text": "dalila naiyawa kadadikisiiugaguda biyu",
+   "phrases": [],
+   "review": false,
+   "id": 341
+  },
+  {
+   "start": 1444.49,
+   "end": 1445.81,
+   "type": "speech",
+   "text": "dalili na farko",
+   "phrases": [],
+   "review": false,
+   "id": 342
+  },
+  {
+   "start": 1446.31,
+   "end": 1447.96,
+   "type": "speech",
+   "text": "an sar ankasalla",
+   "phrases": [],
+   "review": false,
+   "id": 343
+  },
+  {
+   "start": 1448.87,
+   "end": 1450.23,
+   "type": "speech",
+   "text": "adarai isra",
+   "phrases": [],
+   "review": false,
+   "id": 344
+  },
+  {
+   "start": 1451.08,
+   "end": 1456.28,
+   "type": "speech",
+   "text": "maza allah komaikelasalaidaba fatina ina batun cewa babutaatia",
+   "phrases": [],
+   "review": false,
+   "id": 345
+  },
+  {
+   "start": 1456.81,
+   "end": 1458.68,
+   "type": "speech",
+   "text": "kandalili na biyu",
+   "phrases": [],
+   "review": false,
+   "id": 346
+  },
+  {
+   "start": 1458.73,
+   "end": 1465.94,
+   "type": "speech",
+   "text": "kuka ce allah ya goretawa manzanka dan sunasarda tiniiasatua wakadaafina ka taba amina misali",
+   "phrases": [],
+   "review": false,
+   "id": 347
+  },
+  {
+   "start": 1466.03,
+   "end": 1467.25,
+   "type": "speech",
+   "text": "akaani",
+   "phrases": [],
+   "review": true,
+   "id": 348
+  },
+  {
+   "start": 1467.56,
+   "end": 1471.35,
+   "type": "speech",
+   "text": "hakiƙa mun waka guda bakwai da a ke yiwa maimita karantu",
+   "phrases": [],
+   "review": false,
+   "id": 349
+  },
+  {
+   "start": 1471.69,
+   "end": 1474.77,
+   "type": "speech",
+   "text": "aki yiyo minikakalatusuraaya mai ƙaya baku",
+   "phrases": [],
+   "review": false,
+   "id": 350
+  },
+  {
+   "start": 1475.05,
+   "end": 1477.43,
+   "type": "speech",
+   "text": "walkuraniadimun ba ka ƙurani maigirma",
+   "phrases": [],
+   "review": false,
+   "id": 351
+  },
+  {
+   "start": 1477.83,
+   "end": 1478.74,
+   "type": "speech",
+   "text": "wannan",
+   "phrases": [],
+   "review": false,
+   "id": 352
+  },
+  {
+   "start": 1478.79,
+   "end": 1481.14,
+   "type": "speech",
+   "text": "abolmasali sun tafani a ciki sabosai",
+   "phrases": [],
+   "review": false,
+   "id": 353
+  },
+  {
+   "start": 1482.15,
+   "end": 1485.85,
+   "type": "speech",
+   "text": "da kuma wannan aya da kake kea anbasa furutan fatiha",
+   "phrases": [],
+   "review": false,
+   "id": 354
+  },
+  {
+   "start": 1485.9,
+   "end": 1493.17,
+   "type": "speech",
+   "text": "iiayasusaian saukar da fafiya har kafin azoakiiwalataakiakitabaiaia",
+   "phrases": [],
+   "review": false,
+   "id": 355
+  },
+  {
+   "start": 1493.45,
+   "end": 1496.34,
+   "type": "speech",
+   "text": "dwuɗansu dalilaimafi yawa ammanesanfatannisimitofi",
+   "phrases": [],
+   "review": true,
+   "id": 356
+  },
+  {
+   "start": 1497.16,
+   "end": 1500.34,
+   "type": "speech",
+   "text": "ama waɗanda kuke cewa saasuasibajia",
+   "phrases": [],
+   "review": false,
+   "id": 357
+  },
+  {
+   "start": 1500.39,
+   "end": 1506.68,
+   "type": "speech",
+   "text": "ana dagacikin tsororin madina habiza suka dauka d jiki da abdullainaiudagamazanlaiyan cikin fariimusu",
+   "phrases": [],
+   "review": false,
+   "id": 358
+  },
+  {
+   "start": 1507.08,
+   "end": 1511.35,
+   "type": "speech",
+   "text": "azi allah natorowata rana a cikinmdadiiiaka jiwnirin ƙara kamar abuda kofa",
+   "phrases": [],
+   "review": false,
+   "id": 359
+  },
+  {
+   "start": 1512.11,
+   "end": 1513.78,
+   "type": "speech",
+   "text": "zama gaalaiahabe",
+   "phrases": [],
+   "review": true,
+   "id": 360
+  },
+  {
+   "start": 1513.93,
+   "end": 1517.59,
+   "type": "speech",
+   "text": "au wata ƙofa aka buɗe cike kofofin sama kafin yau bata buɗe",
+   "phrases": [],
+   "review": false,
+   "id": 361
+  },
+  {
+   "start": 1518.51,
+   "end": 1522.84,
+   "type": "speech",
+   "text": "ga wani malaika nan ya sauka kafin yau bai taɓa sauka sarren dunia",
+   "phrases": [],
+   "review": false,
+   "id": 362
+  },
+  {
+   "start": 1524.23,
+   "end": 1530.1,
+   "type": "speech",
+   "text": "ka ida wanzan allahkaluaiaii a aleleana maka bitara da alaudahaske guda biyu",
+   "phrases": [],
+   "review": false,
+   "id": 363
+  },
+  {
+   "start": 1531.91,
+   "end": 1535.0,
+   "type": "speech",
+   "text": "an ba ka haske guda biyu don yi muta huma n biyun ka",
+   "phrases": [],
+   "review": false,
+   "id": 364
+  },
+  {
+   "start": 1535.21,
+   "end": 1536.95,
+   "type": "speech",
+   "text": "dkababaiakai",
+   "phrases": [],
+   "review": true,
+   "id": 365
+  },
+  {
+   "start": 1537.39,
+   "end": 1542.42,
+   "type": "speech",
+   "text": "enenahaken guda biyu tonesurafin sadiya watsawaasiriaka",
+   "phrases": [],
+   "review": true,
+   "id": 366
+  },
+  {
+   "start": 1542.95,
+   "end": 1548.28,
+   "type": "speech",
+   "text": "tu surutin fatiya da kuma ƙarshen surtinakiraineinaisuizuwa faiaake",
+   "phrases": [],
+   "review": true,
+   "id": 367
+  },
+  {
+   "start": 1548.68,
+   "end": 1550.1,
+   "type": "speech",
+   "text": "onihakiguda bi",
+   "phrases": [],
+   "review": false,
+   "id": 368
+  },
+  {
+   "start": 1550.47,
+   "end": 1551.67,
+   "type": "speech",
+   "text": "banain ra'ayi",
+   "phrases": [],
+   "review": false,
+   "id": 369
+  },
+  {
+   "start": 1551.72,
+   "end": 1560.02,
+   "type": "speech",
+   "text": "tamaimaita wannan kalmar ka roƙi allah wata buƙata fasiza allaiaara alatuakina ilafi na wakaana allaikikaa",
+   "phrases": [],
+   "review": false,
+   "id": 370
+  },
+  {
+   "start": 1556.38,
+   "end": 1565.73,
+   "type": "quran",
+   "refs": [
+    "2:286"
+   ],
+   "heard": "ربنا لا تؤثرنا ان نسينا او اخترنا التي قدف عليك. ولا تحمل علينا اسراً كما عملته على الذين من قبلنا قدف عليك. ولا تحملنا",
+   "match": 76.47058823529412,
+   "review": true,
+   "id": 371
+  },
+  {
+   "start": 1564.91,
+   "end": 1568.92,
+   "type": "speech",
+   "text": "nauaninamaakakasalaiikaaakazawakaakafai",
+   "phrases": [],
+   "review": true,
+   "id": 372
+  },
+  {
+   "start": 1569.1,
+   "end": 1571.89,
+   "type": "speech",
+   "text": "abuawasunaakamakaamikikia",
+   "phrases": [],
+   "review": true,
+   "id": 373
+  },
+  {
+   "start": 1573.13,
+   "end": 1575.54,
+   "type": "speech",
+   "text": "gagawannan daminu an sakarda fatia ina",
+   "phrases": [],
+   "review": false,
+   "id": 374
+  },
+  {
+   "start": 1576.2,
+   "end": 1577.01,
+   "type": "speech",
+   "text": "amadu ne",
+   "phrases": [],
+   "review": false,
+   "id": 375
+  },
+  {
+   "start": 1577.55,
+   "end": 1580.15,
+   "type": "speech",
+   "text": "ma babumatsala naguriwannanbiikai dawan",
+   "phrases": [],
+   "review": false,
+   "id": 376
+  },
+  {
+   "start": 1580.46,
+   "end": 1584.85,
+   "type": "speech",
+   "text": "domin akwai cikin tsorori waɗanda aka mayaimaita haukar da mu an saukarda kua",
+   "phrases": [],
+   "review": false,
+   "id": 377
+  },
+  {
+   "start": 1585.32,
+   "end": 1588.25,
+   "type": "speech",
+   "text": "binnanmuka sinankuma khakeioinda ku",
+   "phrases": [],
+   "review": true,
+   "id": 378
+  },
+  {
+   "start": 1588.68,
+   "end": 1591.41,
+   "type": "speech",
+   "text": "bama iya tabbatar da hakan saiinman ddaili",
+   "phrases": [],
+   "review": false,
+   "id": 379
+  },
+  {
+   "start": 1591.59,
+   "end": 1593.97,
+   "type": "speech",
+   "text": "akaiba wai kawai katihaduani",
+   "phrases": [],
+   "review": true,
+   "id": 380
+  },
+  {
+   "start": 1594.41,
+   "end": 1598.2,
+   "type": "speech",
+   "text": "wuzaiindana inyiia in yi tunani in jesuakaaiii",
+   "phrases": [],
+   "review": false,
+   "id": 381
+  },
+  {
+   "start": 1598.54,
+   "end": 1601.05,
+   "type": "speech",
+   "text": "asauka amuka tasauka jinaukiinii",
+   "phrases": [],
+   "review": true,
+   "id": 382
+  },
+  {
+   "start": 1601.32,
+   "end": 1604.73,
+   "type": "speech",
+   "text": "adawanagurinmuntabbatar ta hanyarnaisukimaka",
+   "phrases": [],
+   "review": false,
+   "id": 383
+  },
+  {
+   "start": 1604.91,
+   "end": 1610.23,
+   "type": "speech",
+   "text": "damun tabbatar ta wani hanyar wannaabibi d wyermitindagagiadibituwakumasaiyarmijii",
+   "phrases": [],
+   "review": false,
+   "id": 384
+  },
+  {
+   "start": 1610.51,
+   "end": 1612.57,
+   "type": "speech",
+   "text": "nna ansaukar da ita sonaw",
+   "phrases": [],
+   "review": false,
+   "id": 385
+  },
+  {
+   "start": 1612.65,
+   "end": 1615.61,
+   "type": "speech",
+   "text": "biyu an saukar da ita amurka ansake sakdaika kn",
+   "phrases": [],
+   "review": true,
+   "id": 386
+  },
+  {
+   "start": 1617.1,
+   "end": 1620.34,
+   "type": "speech",
+   "text": "i itaaatiiima tana ƙoitar ayoyi guda bakwai",
+   "phrases": [],
+   "review": false,
+   "id": 387
+  },
+  {
+   "start": 1620.52,
+   "end": 1623.45,
+   "type": "speech",
+   "text": "dakinsallanyaudarbasmala aya",
+   "phrases": [],
+   "review": false,
+   "id": 388
+  },
+  {
+   "start": 1623.5,
+   "end": 1625.65,
+   "type": "speech",
+   "text": "zuabaidaalayan kaya",
+   "phrases": [],
+   "review": true,
+   "id": 389
+  },
+  {
+   "start": 1625.74,
+   "end": 1629.43,
+   "type": "speech",
+   "text": "wagaamaaiiiabaiiakika",
+   "phrases": [],
+   "review": true,
+   "id": 390
+  },
+  {
+   "start": 1629.99,
+   "end": 1632.57,
+   "type": "speech",
+   "text": "wato duk malamai sne daauin guda maka",
+   "phrases": [],
+   "review": false,
+   "id": 391
+  },
+  {
+   "start": 1632.62,
+   "end": 1637.49,
+   "type": "speech",
+   "text": "tuamma kmaidanaadaiadansumalamai sun kirgabasaaianayansufati",
+   "phrases": [],
+   "review": true,
+   "id": 392
+  },
+  {
+   "start": 1637.83,
+   "end": 1648.47,
+   "type": "speech",
+   "text": "un dogara ga haizan wato umusalma ai dagake matanallafitaniada ta zoza ka yi karatuida yaddama aekiyn katutdakaraiiaidikakma karanta ahandullai aga ali",
+   "phrases": [],
+   "review": true,
+   "id": 393
+  },
+  {
+   "start": 1645.34,
+   "end": 1648.88,
+   "type": "quran",
+   "refs": [
+    "1:1",
+    "1:2"
+   ],
+   "heard": "الله الرحمن الرحيم. تكمل كلمة الحمد لله رب العالمين. واسم",
+   "match": 77.5,
+   "review": true,
+   "id": 394
+  },
+  {
+   "start": 1648.55,
+   "end": 1655.38,
+   "type": "speech",
+   "text": "cusai wanda ya yi nuna aitafin tabbasaya ta farko ke nalhadullahi i aiin ay d biui",
+   "phrases": [],
+   "review": false,
+   "id": 395
+  },
+  {
+   "start": 1655.63,
+   "end": 1658.26,
+   "type": "speech",
+   "text": "jokunajinekaratuaallakikeia",
+   "phrases": [],
+   "review": true,
+   "id": 396
+  },
+  {
+   "start": 1658.57,
+   "end": 1667.0,
+   "type": "speech",
+   "text": "amasu waɗanda ki ke ganin baaa ayatacikinayosatafatiba wato wata aya ce ko julate mai zaman kanta da ake bude tura da ita",
+   "phrases": [],
+   "review": false,
+   "id": 397
+  },
+  {
+   "start": 1667.08,
+   "end": 1671.32,
+   "type": "speech",
+   "text": "uka saya mana da hadisunmatuwanda ya tabbata suiiiandiinabua",
+   "phrases": [],
+   "review": false,
+   "id": 398
+  },
+  {
+   "start": 1671.63,
+   "end": 1672.5,
+   "type": "speech",
+   "text": "munda",
+   "phrases": [],
+   "review": true,
+   "id": 399
+  },
+  {
+   "start": 1672.94,
+   "end": 1679.09,
+   "type": "speech",
+   "text": "aliyu ne kudri allah madoukakin sarki ke sowa na raba kalla tsakanina da bawa na gida biyu",
+   "phrases": [],
+   "review": false,
+   "id": 400
+  },
+  {
+   "start": 1677.86,
+   "end": 1686.97,
+   "type": "quran",
+   "refs": [
+    "1:2"
+   ],
+   "heard": "بابا وانا يجد ابيه. اذا قال الابد الحمد لله رب العالمين. قال",
+   "match": 100.0,
+   "review": false,
+   "id": 401
+  },
+  {
+   "start": 1689.74,
+   "end": 1693.08,
+   "type": "speech",
+   "text": "gaaasaiikaihakana alayai",
+   "phrases": [],
+   "review": true,
+   "id": 402
+  },
+  {
+   "start": 1693.13,
+   "end": 1696.63,
+   "type": "speech",
+   "text": "waakalamaikiwaaakalamaiidanaa",
+   "phrases": [],
+   "review": true,
+   "id": 403
+  },
+  {
+   "start": 1697.16,
+   "end": 1701.17,
+   "type": "speech",
+   "text": "dakadaiikanabudaakankaikalahaabainigobena",
+   "phrases": [],
+   "review": true,
+   "id": 404
+  },
+  {
+   "start": 1701.45,
+   "end": 1707.41,
+   "type": "speech",
+   "text": "idtaaidiakuaiakakiiaiasikuhakulaiianiwadaaniata",
+   "phrases": [],
+   "review": true,
+   "id": 405
+  },
+  {
+   "start": 1707.98,
+   "end": 1709.56,
+   "type": "speech",
+   "text": "banukaankidialiyu",
+   "phrases": [],
+   "review": true,
+   "id": 406
+  },
+  {
+   "start": 1709.71,
+   "end": 1716.47,
+   "type": "speech",
+   "text": "defina raba fatiha ko tsalla wandanaufatiadin gida biyu tsakanina da bawa sai ya fara da daina",
+   "phrases": [],
+   "review": false,
+   "id": 407
+  },
+  {
+   "start": 1716.87,
+   "end": 1721.88,
+   "type": "speech",
+   "text": "li yake idanba ike haiaiiakiitiiaikinanbadasa",
+   "phrases": [],
+   "review": true,
+   "id": 408
+  },
+  {
+   "start": 1721.96,
+   "end": 1723.64,
+   "type": "speech",
+   "text": "unakufida allaii i",
+   "phrases": [],
+   "review": true,
+   "id": 409
+  },
+  {
+   "start": 1724.91,
+   "end": 1725.75,
+   "type": "speech",
+   "text": "mikaka",
+   "phrases": [],
+   "review": true,
+   "id": 410
+  },
+  {
+   "start": 1725.9,
+   "end": 1731.0,
+   "type": "speech",
+   "text": "matsala kikitafari tsakanin wannanbagaren dawannaagarama kiraauƙi da ake da su guda bakwai",
+   "phrases": [],
+   "review": false,
+   "id": 411
+  },
+  {
+   "start": 1731.11,
+   "end": 1741.14,
+   "type": "speech",
+   "text": "akwaiƙurawanidakukegirga basmala yakaaianikoatakirgaatoamarwasakuma idanankkinaagudabiyu suikar ataikardikaini",
+   "phrases": [],
+   "review": true,
+   "id": 412
+  },
+  {
+   "start": 1745.3,
+   "end": 1753.08,
+   "type": "quran",
+   "refs": [
+    "2:9"
+   ],
+   "heard": "كذا. يقادعون الله والذين امنوا وما يقادعون الا انفسهم. واتفكتها وما يخدعون الا انفسهم. باكا كرسه وانا باكا",
+   "match": 94.87179487179486,
+   "review": false,
+   "id": 413
+  },
+  {
+   "start": 1753.08,
+   "end": 1757.32,
+   "type": "quran",
+   "refs": [
+    "4:78"
+   ],
+   "heard": "كرسوا وننقوش كدتكي كل من عند الله. ها. الا اياك القراءة",
+   "match": 100.0,
+   "review": false,
+   "id": 414
+  },
+  {
+   "start": 1755.79,
+   "end": 1765.43,
+   "type": "speech",
+   "text": "inaiyakakiasaikaiakaiyadahaiiaakagudabiyukokiia tohaka ikiraigudabiyukosaaiakidiitaaa",
+   "phrases": [],
+   "review": true,
+   "id": 415
+  },
+  {
+   "start": 1765.55,
+   "end": 1766.58,
+   "type": "speech",
+   "text": "amu yi da ku",
+   "phrases": [],
+   "review": false,
+   "id": 416
+  },
+  {
+   "start": 1767.69,
+   "end": 1769.97,
+   "type": "speech",
+   "text": "awannan abinda yasafi wannanka",
+   "phrases": [],
+   "review": true,
+   "id": 417
+  },
+  {
+   "start": 1770.15,
+   "end": 1777.11,
+   "type": "speech",
+   "text": "ana soanadayafi kuluiauƙaafiahe watowanda kuka kigabamalaayafe gamaridda mukaii",
+   "phrases": [],
+   "review": true,
+   "id": 418
+  },
+  {
+   "start": 1777.32,
+   "end": 1789.01,
+   "type": "speech",
+   "text": "lledasaƙullazinharzuwa damagzuyalemalabbalen ayayakewanda kasukuke baalabata ikiisuatiya karikinasuulazinakalaiyadasukuke nan dayamagualemalabbalen ayata",
+   "phrases": [],
+   "review": true,
+   "id": 419
+  },
+  {
+   "start": 1782.51,
+   "end": 1786.47,
+   "type": "quran",
+   "refs": [
+    "1:7"
+   ],
+   "heard": "سورة الفاتحة. كذلك نصراط الذين انعمت عليهم آية تصدقنا.",
+   "match": 100.0,
+   "review": false,
+   "id": 420
+  },
+  {
+   "start": 1790.25,
+   "end": 1794.71,
+   "type": "speech",
+   "text": "anihaamawun tafi tana da sunaye da yawa da farko alfakia",
+   "phrases": [],
+   "review": false,
+   "id": 421
+  },
+  {
+   "start": 1794.89,
+   "end": 1799.35,
+   "type": "speech",
+   "text": "likitahakita biyuada an bude littafiea na biyu mhimmalkurana",
+   "phrases": [],
+   "review": false,
+   "id": 422
+  },
+  {
+   "start": 1799.4,
+   "end": 1804.98,
+   "type": "speech",
+   "text": "ana kirantabimakuraisiuiaaadamiaaninkuanihulumotafoki dukkan ma'anojin akuɗani",
+   "phrases": [],
+   "review": false,
+   "id": 423
+  },
+  {
+   "start": 1806.83,
+   "end": 1812.05,
+   "type": "speech",
+   "text": "na uku surakulabi ana kiran ta hkuai na hudu suratu kalati",
+   "phrases": [],
+   "review": false,
+   "id": 424
+  },
+  {
+   "start": 1812.27,
+   "end": 1815.13,
+   "type": "speech",
+   "text": "na biyar ana kiranta a samaulmisali",
+   "phrases": [],
+   "review": false,
+   "id": 425
+  },
+  {
+   "start": 1815.21,
+   "end": 1817.21,
+   "type": "speech",
+   "text": "nabauana kiranka ar rukuya",
+   "phrases": [],
+   "review": false,
+   "id": 426
+  },
+  {
+   "start": 1817.42,
+   "end": 1819.35,
+   "type": "speech",
+   "text": "a kafamana kiranka annuwa",
+   "phrases": [],
+   "review": false,
+   "id": 427
+  },
+  {
+   "start": 1820.71,
+   "end": 1822.26,
+   "type": "speech",
+   "text": "adakakai",
+   "phrases": [],
+   "review": true,
+   "id": 428
+  },
+  {
+   "start": 1822.51,
+   "end": 1825.53,
+   "type": "speech",
+   "text": "kanakitaanakakoaddu'a",
+   "phrases": [],
+   "review": true,
+   "id": 429
+  },
+  {
+   "start": 1826.54,
+   "end": 1830.52,
+   "type": "speech",
+   "text": "asir almunaja dimafizanikaminiaunahaba",
+   "phrases": [],
+   "review": true,
+   "id": 430
+  },
+  {
+   "start": 1830.99,
+   "end": 1839.48,
+   "type": "speech",
+   "text": "dukkan waɗannan sunaye da malami ambata guda takwa ko tara wato saboda malami suna bagana dangantaka ne wajen sanya masa wannan suna",
+   "phrases": [],
+   "review": false,
+   "id": 431
+  },
+  {
+   "start": 1839.91,
+   "end": 1850.84,
+   "type": "speech",
+   "text": "menene akwai saaaakwai dalilai da suke kula da kiajin sinyainanuimatiikitaiku ya kawo sunaye na surutufai saboda suna ajhirin",
+   "phrases": [],
+   "review": false,
+   "id": 432
+  },
+  {
+   "start": 1851.4,
+   "end": 1852.34,
+   "type": "speech",
+   "text": "dabandaban",
+   "phrases": [],
+   "review": false,
+   "id": 433
+  },
+  {
+   "start": 1852.55,
+   "end": 1863.45,
+   "type": "speech",
+   "text": "mma lauin asiru a cikinliftafin atahriiwatanniitaii ya cigaba iabinnand suki ya kawoguda uku da suke da huja ƙaraa dagi cikinnasinadiisuran ki di iiia",
+   "phrases": [],
+   "review": true,
+   "id": 434
+  },
+  {
+   "start": 1863.69,
+   "end": 1865.49,
+   "type": "speech",
+   "text": "wannan migida suna ne",
+   "phrases": [],
+   "review": false,
+   "id": 435
+  },
+  {
+   "start": 1865.67,
+   "end": 1869.14,
+   "type": "speech",
+   "text": "uguwar ƙurani suna ne saboda hadifinubada iginan sai",
+   "phrases": [],
+   "review": false,
+   "id": 436
+  },
+  {
+   "start": 1869.19,
+   "end": 1872.18,
+   "type": "speech",
+   "text": "na kamata da wani makaihaiuminkura",
+   "phrases": [],
+   "review": false,
+   "id": 437
+  },
+  {
+   "start": 1872.65,
+   "end": 1878.07,
+   "type": "speech",
+   "text": "akuma hadizunaƙuharadkecikimusulatinaaisaminna cikinbuhari da musumanci ina cikinmulua",
+   "phrases": [],
+   "review": false,
+   "id": 438
+  },
+  {
+   "start": 1878.22,
+   "end": 1882.36,
+   "type": "speech",
+   "text": "akulatafafia tukita shima ya kabbata cikin hadisin auar",
+   "phrases": [],
+   "review": false,
+   "id": 439
+  },
+  {
+   "start": 1882.67,
+   "end": 1886.1,
+   "type": "speech",
+   "text": "udabo asbaisani ya tabbata cikinhadisi",
+   "phrases": [],
+   "review": true,
+   "id": 440
+  },
+  {
+   "start": 1886.28,
+   "end": 1892.79,
+   "type": "speech",
+   "text": "bu ta yiyida ilmin muhalla cewa audadktin sunayenta suaamisali wandanimaiii inbuai",
+   "phrases": [],
+   "review": true,
+   "id": 441
+  },
+  {
+   "start": 1893.26,
+   "end": 1907.45,
+   "type": "speech",
+   "text": "abaidaaokatimataƙummuƙurai dayalifatakinhadiiokasiatakummulkita dayasafataskinhadii kokaimata kabawamasali ayasufatakinhadiiakkaiakakitakafatihadii i ygudahunusuka tabbataiinai",
+   "phrases": [],
+   "review": true,
+   "id": 442
+  },
+  {
+   "start": 1907.95,
+   "end": 1914.87,
+   "type": "speech",
+   "text": "badakuinaiaka ke musukukiiki domin ƙmilkitafi da umaƙuranidabidinidoina kuranin wakitaikitabiwaku",
+   "phrases": [],
+   "review": true,
+   "id": 443
+  },
+  {
+   "start": 1915.4,
+   "end": 1916.15,
+   "type": "speech",
+   "text": "maka",
+   "phrases": [],
+   "review": true,
+   "id": 444
+  },
+  {
+   "start": 1916.33,
+   "end": 1920.95,
+   "type": "speech",
+   "text": "manbokalmangwargwarigudawudukeakoiakudamadannangudaiiyagui",
+   "phrases": [],
+   "review": true,
+   "id": 445
+  },
+  {
+   "start": 1921.23,
+   "end": 1922.26,
+   "type": "speech",
+   "text": "aamakuaka",
+   "phrases": [],
+   "review": true,
+   "id": 446
+  },
+  {
+   "start": 1922.35,
+   "end": 1924.47,
+   "type": "speech",
+   "text": "isukaɗai suka tabada cikinnana",
+   "phrases": [],
+   "review": false,
+   "id": 447
+  },
+  {
+   "start": 1925.26,
+   "end": 1933.62,
+   "type": "speech",
+   "text": "mma arukuya don me za a samisanaauui wanda suka samitisanaagu atosuka si saboda ya kitiimi cikinhadisinabutadinikudi",
+   "phrases": [],
+   "review": true,
+   "id": 448
+  },
+  {
+   "start": 1933.83,
+   "end": 1938.13,
+   "type": "speech",
+   "text": "mutanennan da suka ji yausaamaganna suka sauka a ani dari ba ba su masauƙi a",
+   "phrases": [],
+   "review": false,
+   "id": 449
+  },
+  {
+   "start": 1939.02,
+   "end": 1943.03,
+   "type": "speech",
+   "text": "shugaban ganin mafi iikokuraba taharbe shi akauwakiniuaga ne wajen",
+   "phrases": [],
+   "review": false,
+   "id": 450
+  },
+  {
+   "start": 1943.21,
+   "end": 1945.56,
+   "type": "speech",
+   "text": "dagaskensage ya karanta masi dufaa",
+   "phrases": [],
+   "review": true,
+   "id": 451
+  },
+  {
+   "start": 1946.12,
+   "end": 1947.73,
+   "type": "speech",
+   "text": "ikarantamakkaik",
+   "phrases": [],
+   "review": true,
+   "id": 452
+  },
+  {
+   "start": 1948.2,
+   "end": 1955.93,
+   "type": "speech",
+   "text": "kasheka bau wani audiidkumaki suka tafi da su suka tabeemazanalakafinmazualacewamaiguriiallaharikuya",
+   "phrases": [],
+   "review": false,
+   "id": 453
+  },
+  {
+   "start": 1956.94,
+   "end": 1961.56,
+   "type": "speech",
+   "text": "dabiannaabaahudunasitiduaaakacedagananaka",
+   "phrases": [],
+   "review": true,
+   "id": 454
+  },
+  {
+   "start": 1963.21,
+   "end": 1964.82,
+   "type": "speech",
+   "text": "waigariiala",
+   "phrases": [],
+   "review": true,
+   "id": 455
+  },
+  {
+   "start": 1964.87,
+   "end": 1965.85,
+   "type": "speech",
+   "text": "rukiya",
+   "phrases": [],
+   "review": false,
+   "id": 456
+  },
+  {
+   "start": 1967.56,
+   "end": 1969.4,
+   "type": "speech",
+   "text": "idan muka taɓa sasuafi",
+   "phrases": [],
+   "review": false,
+   "id": 457
+  },
+  {
+   "start": 1970.15,
+   "end": 1975.13,
+   "type": "speech",
+   "text": "allahke kasatuaatabaiyibaina aidaayiwanda afalataiinamikiiiai",
+   "phrases": [],
+   "review": true,
+   "id": 458
+  },
+  {
+   "start": 1975.53,
+   "end": 1981.21,
+   "type": "speech",
+   "text": "idan muka taimaka almunajata saboda mutuina yin kalaaa kumfiamualmusalli nafi habba",
+   "phrases": [],
+   "review": false,
+   "id": 459
+  },
+  {
+   "start": 1981.77,
+   "end": 1983.8,
+   "type": "speech",
+   "text": "salayanamunasatinababangii",
+   "phrases": [],
+   "review": true,
+   "id": 460
+  },
+  {
+   "start": 1983.98,
+   "end": 1987.19,
+   "type": "speech",
+   "text": "fu lauyina zama imalanba ayakawai abinda yafiinii",
+   "phrases": [],
+   "review": false,
+   "id": 461
+  },
+  {
+   "start": 1987.98,
+   "end": 1989.78,
+   "type": "speech",
+   "text": "bana zai akwai suna akwai su",
+   "phrases": [],
+   "review": false,
+   "id": 462
+  },
+  {
+   "start": 1989.99,
+   "end": 1995.73,
+   "type": "speech",
+   "text": "damkace suna maikanrauminkitauminkurafatihakakitaasaamisali sunai",
+   "phrases": [],
+   "review": false,
+   "id": 463
+  },
+  {
+   "start": 1995.98,
+   "end": 2003.25,
+   "type": "speech",
+   "text": "amma allukuya suratuhange surufesala suratu malaga da duk abinda imaisukefaɗa tu wannan su tafi batunaba",
+   "phrases": [],
+   "review": true,
+   "id": 464
+  },
+  {
+   "start": 2003.34,
+   "end": 2007.61,
+   "type": "speech",
+   "text": "suna ya abaaalakidarna ufa kuma ikin baɗinda a ke yidauhi",
+   "phrases": [],
+   "review": false,
+   "id": 465
+  },
+  {
+   "start": 2007.85,
+   "end": 2010.49,
+   "type": "speech",
+   "text": "kaaina faringubuyia",
+   "phrases": [],
+   "review": true,
+   "id": 466
+  },
+  {
+   "start": 2013.0,
+   "end": 2015.61,
+   "type": "speech",
+   "text": "anantaisikina abinda ya kafi obuƙkata",
+   "phrases": [],
+   "review": true,
+   "id": 467
+  },
+  {
+   "start": 2015.75,
+   "end": 2020.79,
+   "type": "speech",
+   "text": "kame da malaifaɗa yakimakasudin uani gabaɗaya tatraisuinfati",
+   "phrases": [],
+   "review": false,
+   "id": 468
+  },
+  {
+   "start": 2021.26,
+   "end": 2028.63,
+   "type": "speech",
+   "text": "haka mmalami adaki kuma gaba ɗaya masusuisuiakahaiyyatafata ne ikin al'amura guda biyu iaka na aguduwaiyyaka",
+   "phrases": [],
+   "review": false,
+   "id": 469
+  },
+  {
+   "start": 2029.19,
+   "end": 2032.37,
+   "type": "speech",
+   "text": "akknaguigabaɗaiyi donmaifar halittar bawadia",
+   "phrases": [],
+   "review": true,
+   "id": 470
+  },
+  {
+   "start": 2033.03,
+   "end": 2037.53,
+   "type": "speech",
+   "text": "aukida littafi kugabaɗaya dikino dai a danaaikunyidamaai",
+   "phrases": [],
+   "review": true,
+   "id": 471
+  },
+  {
+   "start": 2037.77,
+   "end": 2043.38,
+   "type": "speech",
+   "text": "gafa ɗayaniitafidoia da aka saukar makasususikuaniyasotadaaiimuhiminanaai",
+   "phrases": [],
+   "review": true,
+   "id": 472
+  },
+  {
+   "start": 2044.27,
+   "end": 2048.31,
+   "type": "speech",
+   "text": "usadakalumabai ne ziyiigiaiamuhayiminaalii",
+   "phrases": [],
+   "review": true,
+   "id": 473
+  },
+  {
+   "start": 2049.74,
+   "end": 2056.69,
+   "type": "speech",
+   "text": "hi kuma ƙuriali gabaɗaya binda kakaso surkunfata ta kiuruasurdusurkunfata kuaaiƙijiyakana abudu ariyadi",
+   "phrases": [],
+   "review": true,
+   "id": 474
+  },
+  {
+   "start": 2056.97,
+   "end": 2059.67,
+   "type": "speech",
+   "text": "aadnagarin ta karya anbayanmakalatai",
+   "phrases": [],
+   "review": false,
+   "id": 475
+  },
+  {
+   "start": 2059.75,
+   "end": 2063.93,
+   "type": "speech",
+   "text": "nmasu aƙali daakin sirrin kazakurrinkaza uabindaakka samikuiki",
+   "phrases": [],
+   "review": false,
+   "id": 476
+  },
+  {
+   "start": 2064.11,
+   "end": 2067.38,
+   "type": "speech",
+   "text": "ba jindadikasa zaɓe saaiaminiki",
+   "phrases": [],
+   "review": true,
+   "id": 477
+  },
+  {
+   "start": 2067.56,
+   "end": 2073.37,
+   "type": "speech",
+   "text": "a'a shikmanakaikaa bindaaki tafiraadaiakanabui",
+   "phrases": [],
+   "review": true,
+   "id": 478
+  },
+  {
+   "start": 2073.96,
+   "end": 2075.19,
+   "type": "speech",
+   "text": "bnnakakia",
+   "phrases": [],
+   "review": true,
+   "id": 479
+  },
+  {
+   "start": 2075.27,
+   "end": 2081.17,
+   "type": "speech",
+   "text": "iinaaaiiiakanabuduasaallaokeakakiinnainai",
+   "phrases": [],
+   "review": true,
+   "id": 480
+  },
+  {
+   "start": 2081.83,
+   "end": 2084.05,
+   "type": "speech",
+   "text": "aaiiaa",
+   "phrases": [],
+   "review": true,
+   "id": 481
+  },
+  {
+   "start": 2085.13,
+   "end": 2087.06,
+   "type": "speech",
+   "text": "kaayibaaidaaaiakar",
+   "phrases": [],
+   "review": true,
+   "id": 482
+  },
+  {
+   "start": 2088.17,
+   "end": 2090.33,
+   "type": "speech",
+   "text": "na halirtaimatfiiakara",
+   "phrases": [],
+   "review": true,
+   "id": 483
+  },
+  {
+   "start": 2090.44,
+   "end": 2093.33,
+   "type": "speech",
+   "text": "yahalitta cimata aakaraka ikicekaratuakar",
+   "phrases": [],
+   "review": true,
+   "id": 484
+  },
+  {
+   "start": 2094.41,
+   "end": 2096.85,
+   "type": "speech",
+   "text": "araakakirsibakaraitakuaaa",
+   "phrases": [],
+   "review": true,
+   "id": 485
+  },
+  {
+   "start": 2097.19,
+   "end": 2099.19,
+   "type": "speech",
+   "text": "umamu bukari ya yi babuakin",
+   "phrases": [],
+   "review": false,
+   "id": 486
+  },
+  {
+   "start": 2099.5,
+   "end": 2108.63,
+   "type": "speech",
+   "text": "ba abinda keguna cewa sin aa iya cewa suratun baƙara suratu aliralakuatinisaidaakaikobadahi ba",
+   "phrases": [],
+   "review": false,
+   "id": 487
+  },
+  {
+   "start": 2108.84,
+   "end": 2110.52,
+   "type": "speech",
+   "text": "uyi saboda alamar tambaya",
+   "phrases": [],
+   "review": false,
+   "id": 488
+  },
+  {
+   "start": 2110.57,
+   "end": 2113.78,
+   "type": "speech",
+   "text": "nhabiazaikawo inka karantakikuiiinaudaka",
+   "phrases": [],
+   "review": true,
+   "id": 489
+  },
+  {
+   "start": 2113.96,
+   "end": 2117.05,
+   "type": "speech",
+   "text": "abaritumalamintuna ganin ba za sufirfinaaraa",
+   "phrases": [],
+   "review": false,
+   "id": 490
+  },
+  {
+   "start": 2118.03,
+   "end": 2122.55,
+   "type": "speech",
+   "text": "dinsukunsana ganinaa za ka fe suratun baƙara amma ka ke albaƙara ne kaibaka",
+   "phrases": [],
+   "review": false,
+   "id": 491
+  },
+  {
+   "start": 2122.73,
+   "end": 2135.09,
+   "type": "speech",
+   "text": "ba za ka cebakaratuakaratuaremuakaratukaaadole saikacekaratusuratakakartusuratualemarkaratusuratumaryamabakkaƙaratumaryamkaratubaamayaddaafiinabika yi nuna duka yahaaidagui",
+   "phrases": [],
+   "review": false,
+   "id": 492
+  },
+  {
+   "start": 2135.24,
+   "end": 2141.08,
+   "type": "speech",
+   "text": "karatu surutubakarakaratu bakarakaratu surutu aliminkaratu alindukabinda ka faɗaye cikinbiu",
+   "phrases": [],
+   "review": false,
+   "id": 493
+  },
+  {
+   "start": 2141.23,
+   "end": 2142.55,
+   "type": "speech",
+   "text": "dan kowanenaiyara",
+   "phrases": [],
+   "review": true,
+   "id": 494
+  },
+  {
+   "start": 2143.66,
+   "end": 2144.73,
+   "type": "speech",
+   "text": "adaka",
+   "phrases": [],
+   "review": true,
+   "id": 495
+  },
+  {
+   "start": 2145.23,
+   "end": 2153.21,
+   "type": "speech",
+   "text": "domin ya tabbatainhadisinmusu da usanike cowau yanke karanta wani abuna alkurani a cikin kafilankasarkumake su kamar ƙabirbara",
+   "phrases": [],
+   "review": false,
+   "id": 496
+  },
+  {
+   "start": 2153.96,
+   "end": 2156.05,
+   "type": "speech",
+   "text": "inna kefara yan firu",
+   "phrases": [],
+   "review": false,
+   "id": 497
+  },
+  {
+   "start": 2156.14,
+   "end": 2158.84,
+   "type": "speech",
+   "text": "aakinadaiikwaridatasaata",
+   "phrases": [],
+   "review": true,
+   "id": 498
+  },
+  {
+   "start": 2159.08,
+   "end": 2161.4,
+   "type": "speech",
+   "text": "lakiikaaakiaka",
+   "phrases": [],
+   "review": true,
+   "id": 499
+  },
+  {
+   "start": 2162.09,
+   "end": 2163.54,
+   "type": "speech",
+   "text": "isakimatatura",
+   "phrases": [],
+   "review": true,
+   "id": 500
+  },
+  {
+   "start": 2164.01,
+   "end": 2168.47,
+   "type": "speech",
+   "text": "kuma ya sabodi cikin wani hadisin dabaya ke ta allaaafara",
+   "phrases": [],
+   "review": false,
+   "id": 501
+  },
+  {
+   "start": 2170.12,
+   "end": 2172.25,
+   "type": "speech",
+   "text": "u koyi afakar isiituai",
+   "phrases": [],
+   "review": true,
+   "id": 502
+  },
+  {
+   "start": 2172.62,
+   "end": 2174.77,
+   "type": "speech",
+   "text": "inaakaaaraka",
+   "phrases": [],
+   "review": true,
+   "id": 503
+  },
+  {
+   "start": 2174.92,
+   "end": 2178.68,
+   "type": "speech",
+   "text": "wakarkah hafara wanakasaiibaala",
+   "phrases": [],
+   "review": true,
+   "id": 504
+  },
+  {
+   "start": 2179.15,
+   "end": 2181.65,
+   "type": "speech",
+   "text": "akoigaabakakakoialaka",
+   "phrases": [],
+   "review": true,
+   "id": 505
+  },
+  {
+   "start": 2181.83,
+   "end": 2184.63,
+   "type": "speech",
+   "text": "ike domin koyanta na iyata albarka",
+   "phrases": [],
+   "review": false,
+   "id": 506
+  },
+  {
+   "start": 2185.45,
+   "end": 2187.45,
+   "type": "speech",
+   "text": "arinka ba tare ankoyi tabahaae",
+   "phrases": [],
+   "review": false,
+   "id": 507
+  },
+  {
+   "start": 2187.91,
+   "end": 2192.09,
+   "type": "speech",
+   "text": "aiyan zamankaka wandoba za ki iya haismakaaba",
+   "phrases": [],
+   "review": false,
+   "id": 508
+  },
+  {
+   "start": 2193.07,
+   "end": 2193.85,
+   "type": "speech",
+   "text": "akaaa",
+   "phrases": [],
+   "review": true,
+   "id": 509
+  },
+  {
+   "start": 2196.55,
+   "end": 2199.29,
+   "type": "speech",
+   "text": "animsaasaaabikifukiaka",
+   "phrases": [],
+   "review": true,
+   "id": 510
+  },
+  {
+   "start": 2200.2,
+   "end": 2207.41,
+   "type": "speech",
+   "text": "da haka ne kurikarafuratiatukarfaayacikinsurorinda akekirakudaa malamai sun kasa furarrenafarani zuwa gidahud",
+   "phrases": [],
+   "review": false,
+   "id": 511
+  },
+  {
+   "start": 2208.23,
+   "end": 2210.26,
+   "type": "speech",
+   "text": "kashi na farko a samaakewa",
+   "phrases": [],
+   "review": false,
+   "id": 512
+  },
+  {
+   "start": 2210.51,
+   "end": 2212.47,
+   "type": "speech",
+   "text": "kasi na biyu alamiuga",
+   "phrases": [],
+   "review": false,
+   "id": 513
+  },
+  {
+   "start": 2212.68,
+   "end": 2216.12,
+   "type": "speech",
+   "text": "kafi na uku almaka ne kafi na hudu almafaffa",
+   "phrases": [],
+   "review": false,
+   "id": 514
+  },
+  {
+   "start": 2216.78,
+   "end": 2220.34,
+   "type": "speech",
+   "text": "abinda kikaritsorarinda suka kara ko waɗanne tsaho",
+   "phrases": [],
+   "review": false,
+   "id": 515
+  },
+  {
+   "start": 2220.94,
+   "end": 2224.98,
+   "type": "speech",
+   "text": "turfi baƙa surafi alimra surafin nika surafin ma'ida",
+   "phrases": [],
+   "review": false,
+   "id": 516
+  },
+  {
+   "start": 2226.03,
+   "end": 2226.68,
+   "type": "speech",
+   "text": "a",
+   "phrases": [],
+   "review": true,
+   "id": 517
+  },
+  {
+   "start": 2227.18,
+   "end": 2228.25,
+   "type": "speech",
+   "text": "kaa",
+   "phrases": [],
+   "review": true,
+   "id": 518
+  },
+  {
+   "start": 2228.97,
+   "end": 2229.97,
+   "type": "speech",
+   "text": "akanara",
+   "phrases": [],
+   "review": true,
+   "id": 519
+  },
+  {
+   "start": 2230.15,
+   "end": 2232.66,
+   "type": "speech",
+   "text": "dakkitaaaaakii",
+   "phrases": [],
+   "review": true,
+   "id": 520
+  },
+  {
+   "start": 2232.91,
+   "end": 2235.45,
+   "type": "speech",
+   "text": "waɗansu malamai suka ke dafalitaba",
+   "phrases": [],
+   "review": false,
+   "id": 521
+  },
+  {
+   "start": 2236.3,
+   "end": 2237.69,
+   "type": "speech",
+   "text": "amusaba suturawa",
+   "phrases": [],
+   "review": false,
+   "id": 522
+  },
+  {
+   "start": 2238.03,
+   "end": 2240.53,
+   "type": "speech",
+   "text": "daadaminubaaaaia",
+   "phrases": [],
+   "review": true,
+   "id": 523
+  },
+  {
+   "start": 2240.94,
+   "end": 2246.42,
+   "type": "speech",
+   "text": "aboda babananakankaimalamai uka tsalla kesuka dakoiuniii",
+   "phrases": [],
+   "review": false,
+   "id": 524
+  },
+  {
+   "start": 2246.76,
+   "end": 2248.28,
+   "type": "speech",
+   "text": "annan datya fi inganci",
+   "phrases": [],
+   "review": false,
+   "id": 525
+  },
+  {
+   "start": 2248.59,
+   "end": 2250.23,
+   "type": "speech",
+   "text": "akaminadamakai",
+   "phrases": [],
+   "review": true,
+   "id": 526
+  },
+  {
+   "start": 2250.73,
+   "end": 2253.11,
+   "type": "speech",
+   "text": "waɗannan na kiransu akta maakewa",
+   "phrases": [],
+   "review": false,
+   "id": 527
+  },
+  {
+   "start": 2253.51,
+   "end": 2259.54,
+   "type": "speech",
+   "text": "zaallah ya fada cikinhadisin adulaidukan wanda yahadasiirorinnan guda bakwai ya sanmalasu ya zo mala",
+   "phrases": [],
+   "review": false,
+   "id": 528
+  },
+  {
+   "start": 2261.1,
+   "end": 2263.83,
+   "type": "speech",
+   "text": "akaasaaifaahagurone",
+   "phrases": [],
+   "review": true,
+   "id": 529
+  },
+  {
+   "start": 2264.04,
+   "end": 2268.44,
+   "type": "speech",
+   "text": "kace hagurun sokace higirun dun manasitaya nadibaliniasa",
+   "phrases": [],
+   "review": true,
+   "id": 530
+  },
+  {
+   "start": 2269.35,
+   "end": 2276.47,
+   "type": "speech",
+   "text": "anamusummaddukya iya karanta su daidai kuma yi ƙoƙarin fahimtarmalisu yana iki ikeaga malabiakma zaafiaken",
+   "phrases": [],
+   "review": true,
+   "id": 531
+  },
+  {
+   "start": 2278.83,
+   "end": 2284.85,
+   "type": "speech",
+   "text": "afi nbieluualuun dukkan ayarda dukkan surar da adadin ayoyinta ya ƙara",
+   "phrases": [],
+   "review": false,
+   "id": 532
+  },
+  {
+   "start": 2285.32,
+   "end": 2286.07,
+   "type": "speech",
+   "text": "ara",
+   "phrases": [],
+   "review": true,
+   "id": 533
+  },
+  {
+   "start": 2286.15,
+   "end": 2290.1,
+   "type": "speech",
+   "text": "mma kuma yayi taari amm mikai tsawon waɗannan gudakuiii",
+   "phrases": [],
+   "review": false,
+   "id": 534
+  },
+  {
+   "start": 2290.92,
+   "end": 2292.25,
+   "type": "speech",
+   "text": "sakikafaaliwa",
+   "phrases": [],
+   "review": true,
+   "id": 535
+  },
+  {
+   "start": 2292.46,
+   "end": 2297.91,
+   "type": "speech",
+   "text": "daganakaialmakane waɗanda suke dadadari tsamaninda wani abuta siinda nani am bi sukedaria",
+   "phrases": [],
+   "review": true,
+   "id": 536
+  },
+  {
+   "start": 2298.25,
+   "end": 2300.95,
+   "type": "speech",
+   "text": "na kirankua samini saboda yawanmaimaita karatu",
+   "phrases": [],
+   "review": false,
+   "id": 537
+  },
+  {
+   "start": 2301.48,
+   "end": 2305.78,
+   "type": "speech",
+   "text": "daiaaufafar shine tundaga saajinia",
+   "phrases": [],
+   "review": true,
+   "id": 538
+  },
+  {
+   "start": 2306.15,
+   "end": 2311.29,
+   "type": "speech",
+   "text": "kuma malamai sunaaigida uku akwai tualin makwafa akwai ausatin makafan akwaitkamakaf",
+   "phrases": [],
+   "review": false,
+   "id": 539
+  },
+  {
+   "start": 2312.36,
+   "end": 2315.06,
+   "type": "speech",
+   "text": "da ko waɗanne suna da kusan biza a cikin uaminfura",
+   "phrases": [],
+   "review": false,
+   "id": 540
+  },
+  {
+   "start": 2315.34,
+   "end": 2321.56,
+   "type": "speech",
+   "text": "domin farkon abinda ya fara sauka cikinƙurani game yaddahadimna aiha yiman sune wato ainakin almafafa",
+   "phrases": [],
+   "review": false,
+   "id": 541
+  },
+  {
+   "start": 2322.15,
+   "end": 2324.85,
+   "type": "speech",
+   "text": "nabindaallaaiiigurai ufa",
+   "phrases": [],
+   "review": true,
+   "id": 542
+  },
+  {
+   "start": 2324.97,
+   "end": 2326.36,
+   "type": "speech",
+   "text": "anakinakika",
+   "phrases": [],
+   "review": true,
+   "id": 543
+  },
+  {
+   "start": 2326.47,
+   "end": 2329.27,
+   "type": "speech",
+   "text": "yadinamtaiyaamutaiakinakaia",
+   "phrases": [],
+   "review": true,
+   "id": 544
+  },
+  {
+   "start": 2329.35,
+   "end": 2330.2,
+   "type": "speech",
+   "text": "amika",
+   "phrases": [],
+   "review": true,
+   "id": 545
+  },
+  {
+   "start": 2330.28,
+   "end": 2339.19,
+   "type": "speech",
+   "text": "ke kuma take a cikinsu bafekutallafa baafe kuitaaa baafe ku barka na kubarka na ba kwi abinda kake aaanhutaaljaa",
+   "phrases": [],
+   "review": false,
+   "id": 546
+  },
+  {
+   "start": 2339.66,
+   "end": 2340.66,
+   "type": "speech",
+   "text": "dazuwarkaka",
+   "phrases": [],
+   "review": false,
+   "id": 547
+  },
+  {
+   "start": 2341.03,
+   "end": 2343.96,
+   "type": "speech",
+   "text": "dan a tattali zukatan kudin idan sun firgita",
+   "phrases": [],
+   "review": false,
+   "id": 548
+  },
+  {
+   "start": 2344.01,
+   "end": 2349.72,
+   "type": "speech",
+   "text": "aiakudaina kan giya udanazama udeinakara sannan kuma uyi tsanna kuyidaakua",
+   "phrases": [],
+   "review": false,
+   "id": 549
+  },
+  {
+   "start": 2350.12,
+   "end": 2357.21,
+   "type": "speech",
+   "text": "inda da farko kawai kadakai kudaina sin giya kuyi tsalla kudainasata kuyi zaka da mutane sui baza mu dainaba",
+   "phrases": [],
+   "review": false,
+   "id": 550
+  },
+  {
+   "start": 2357.48,
+   "end": 2374.26,
+   "type": "speech",
+   "text": "aka akatikaiiaarinaaaacikinmuaidaga satiuwaikiia annndaakistaaabinzaikesukidawokainwaka abidzabieaahakasuaka abinzabiakaasaaaaabizabiaauaaaka azutaaizakaikiia",
+   "phrases": [],
+   "review": true,
+   "id": 551
+  },
+  {
+   "start": 2374.28,
+   "end": 2378.84,
+   "type": "speech",
+   "text": "adafaaaakakiafihubimaikakitabihubiai",
+   "phrases": [],
+   "review": true,
+   "id": 552
+  },
+  {
+   "start": 2379.08,
+   "end": 2382.23,
+   "type": "speech",
+   "text": "soadaasanakanbriainmaganaumagan",
+   "phrases": [],
+   "review": true,
+   "id": 553
+  },
+  {
+   "start": 2382.92,
+   "end": 2384.5,
+   "type": "speech",
+   "text": "aakaaka",
+   "phrases": [],
+   "review": true,
+   "id": 554
+  },
+  {
+   "start": 2384.55,
+   "end": 2389.11,
+   "type": "speech",
+   "text": "aai mutane sunrazana sun kuɗatu da aljanna sun ƙora tuta",
+   "phrases": [],
+   "review": false,
+   "id": 555
+  },
+  {
+   "start": 2389.45,
+   "end": 2392.25,
+   "type": "speech",
+   "text": "kamar kunyi tambaya yaya za mu yiguutin nan",
+   "phrases": [],
+   "review": false,
+   "id": 556
+  },
+  {
+   "start": 2392.33,
+   "end": 2401.05,
+   "type": "speech",
+   "text": "ati ku dainasada kudaina juna udeina cibiya kudeina ƙoyon lai kudei na damfara kudaina ƙarya kudainanakufarci da munafurci da hakala da kaza",
+   "phrases": [],
+   "review": false,
+   "id": 557
+  },
+  {
+   "start": 2401.29,
+   "end": 2411.38,
+   "type": "speech",
+   "text": "aya zan ukigaaluakuyi tsala kuyi agiakuyi daka kuyi aikinadi kuiiai ku yi taada mahaifakukiakuka ku yi tausayin nakala kugirma ma na sama kuyikaakuyikaa",
+   "phrases": [],
+   "review": false,
+   "id": 558
+  },
+  {
+   "start": 2412.43,
+   "end": 2413.4,
+   "type": "speech",
+   "text": "akaa",
+   "phrases": [],
+   "review": true,
+   "id": 559
+  },
+  {
+   "start": 2415.69,
+   "end": 2419.06,
+   "type": "speech",
+   "text": "iikaguidasuimakanaikinnu",
+   "phrases": [],
+   "review": true,
+   "id": 560
+  },
+  {
+   "start": 2419.15,
+   "end": 2422.07,
+   "type": "speech",
+   "text": "maidan yana guduwaibargidan da a ke karanta rifinmaka",
+   "phrases": [],
+   "review": false,
+   "id": 561
+  },
+  {
+   "start": 2422.89,
+   "end": 2427.0,
+   "type": "speech",
+   "text": "agaankaraaakaraagidaimiusgudifaaiikaidai",
+   "phrases": [],
+   "review": true,
+   "id": 562
+  },
+  {
+   "start": 2427.21,
+   "end": 2430.97,
+   "type": "speech",
+   "text": "kuya iya karatu gabiriama bakilaiu yimiu",
+   "phrases": [],
+   "review": true,
+   "id": 563
+  },
+  {
+   "start": 2432.2,
+   "end": 2433.01,
+   "type": "speech",
+   "text": "bidaka",
+   "phrases": [],
+   "review": true,
+   "id": 564
+  },
+  {
+   "start": 2433.1,
+   "end": 2436.25,
+   "type": "speech",
+   "text": "daka akwai kafiin karati akwai kafirin maikarai",
+   "phrases": [],
+   "review": false,
+   "id": 565
+  },
+  {
+   "start": 2436.59,
+   "end": 2443.41,
+   "type": "speech",
+   "text": "o ya iya karatu a sauti mai kyau gaialai amma akaiwaɗansuakwai ababen da ke kaituajanuai",
+   "phrases": [],
+   "review": false,
+   "id": 566
+  },
+  {
+   "start": 2446.06,
+   "end": 2450.61,
+   "type": "speech",
+   "text": "miniminyahutuna anzamahotontakauwaajikaariukaia",
+   "phrases": [],
+   "review": true,
+   "id": 567
+  },
+  {
+   "start": 2453.1,
+   "end": 2454.1,
+   "type": "speech",
+   "text": "akiladama",
+   "phrases": [],
+   "review": true,
+   "id": 568
+  },
+  {
+   "start": 2454.44,
+   "end": 2457.53,
+   "type": "speech",
+   "text": "kakaraskikigaaiiiinaka",
+   "phrases": [],
+   "review": true,
+   "id": 569
+  },
+  {
+   "start": 2460.07,
+   "end": 2461.01,
+   "type": "speech",
+   "text": "akungaka",
+   "phrases": [],
+   "review": false,
+   "id": 570
+  },
+  {
+   "start": 2461.26,
+   "end": 2464.25,
+   "type": "speech",
+   "text": "wana barin gida da kasanta rantamawurinmatukaraa",
+   "phrases": [],
+   "review": false,
+   "id": 571
+  },
+  {
+   "start": 2465.93,
+   "end": 2468.37,
+   "type": "speech",
+   "text": "iu suna buƙatar inda kaata ta ke daki",
+   "phrases": [],
+   "review": false,
+   "id": 572
+  },
+  {
+   "start": 2470.03,
+   "end": 2471.29,
+   "type": "speech",
+   "text": "znagrinaiaka",
+   "phrases": [],
+   "review": true,
+   "id": 573
+  },
+  {
+   "start": 2471.72,
+   "end": 2473.27,
+   "type": "speech",
+   "text": "mutuyaikra",
+   "phrases": [],
+   "review": true,
+   "id": 574
+  },
+  {
+   "start": 2474.06,
+   "end": 2479.29,
+   "type": "speech",
+   "text": "kuma gakakikain na bulofindaraida rashin gunya da rashinmautidtakiata kulu aciki",
+   "phrases": [],
+   "review": false,
+   "id": 575
+  },
+  {
+   "start": 2479.37,
+   "end": 2480.6,
+   "type": "speech",
+   "text": "aaiai",
+   "phrases": [],
+   "review": true,
+   "id": 576
+  },
+  {
+   "start": 2482.15,
+   "end": 2492.82,
+   "type": "speech",
+   "text": "akullin abinda mutum yi budesaki kalowannankegaaitaciakallowaniiagahiikallaaniagkaikaabindayagaieagiina kuaaiaka",
+   "phrases": [],
+   "review": true,
+   "id": 577
+  },
+  {
+   "start": 2495.11,
+   "end": 2496.47,
+   "type": "speech",
+   "text": "amaka dan rabewa ne",
+   "phrases": [],
+   "review": false,
+   "id": 578
+  },
+  {
+   "start": 2496.87,
+   "end": 2500.05,
+   "type": "speech",
+   "text": "akaindinbalakiidanadaaakehangeaafiagaba",
+   "phrases": [],
+   "review": true,
+   "id": 579
+  },
+  {
+   "start": 2501.16,
+   "end": 2509.37,
+   "type": "speech",
+   "text": "dan rage ya kasance wato jukiri da hallla daiiari sun ɗauki kashe tamanizuwa tamani da biyar zuwa tafi dincikinari",
+   "phrases": [],
+   "review": false,
+   "id": 580
+  },
+  {
+   "start": 2510.63,
+   "end": 2512.66,
+   "type": "speech",
+   "text": "ahakali hkaliiaaamuraka",
+   "phrases": [],
+   "review": true,
+   "id": 581
+  },
+  {
+   "start": 2513.19,
+   "end": 2519.22,
+   "type": "speech",
+   "text": "mma duadamuuiikaratun dukda ya karta indi akwiabinda ke dawujiminagidanka kofibind",
+   "phrases": [],
+   "review": false,
+   "id": 582
+  },
+  {
+   "start": 2520.94,
+   "end": 2521.85,
+   "type": "speech",
+   "text": "adaka",
+   "phrases": [],
+   "review": true,
+   "id": 583
+  },
+  {
+   "start": 2522.6,
+   "end": 2523.48,
+   "type": "speech",
+   "text": "alex ce",
+   "phrases": [],
+   "review": false,
+   "id": 584
+  },
+  {
+   "start": 2523.91,
+   "end": 2526.39,
+   "type": "speech",
+   "text": "alasimakarantakadahanimabude",
+   "phrases": [],
+   "review": true,
+   "id": 585
+  },
+  {
+   "start": 2526.39,
+   "end": 2540.08,
+   "type": "quran",
+   "refs": [
+    "2:1",
+    "2:2"
+   ],
+   "heard": "بسم الله الرحمن الرحيم الف لان ذلك الكتاب لا ويبكي",
+   "match": 87.5,
+   "review": false,
+   "id": 586
+  },
+  {
+   "start": 2541.13,
+   "end": 2544.15,
+   "type": "speech",
+   "text": "adani ne asafi",
+   "phrases": [],
+   "review": true,
+   "id": 587
+  },
+  {
+   "start": 2543.82,
+   "end": 2583.04,
+   "type": "quran",
+   "refs": [
+    "2:3",
+    "2:4",
+    "2:5"
+   ],
+   "heard": "الذين يؤمنون بالغيب ويكيمون الصلاة ومما رزقناهم ينفقون والذين يؤمنون بما أنزل إليك وما أنزل من قبلك وبالآثرة هم ينقلون أولئك على هدى موذيهم وأولئك هم المفلحون",
+   "match": 89.74358974358975,
+   "review": false,
+   "id": 588
+  },
+  {
+   "start": 2586.67,
+   "end": 2589.27,
+   "type": "speech",
+   "text": "iiaakiiaiia",
+   "phrases": [],
+   "review": true,
+   "id": 589
+  },
+  {
+   "start": 2589.48,
+   "end": 2592.85,
+   "type": "speech",
+   "text": "alamai suna da matsayi guda biyu don gane da ireire matsalika",
+   "phrases": [],
+   "review": false,
+   "id": 590
+  },
+  {
+   "start": 2593.51,
+   "end": 2598.81,
+   "type": "speech",
+   "text": "atsaya ta farko malaman da kuke in sun karanta ssuke allahu alami biradi ba ta kaka",
+   "phrases": [
+    {
+     "id": "allahu_alam",
+     "arabic": "ٱللَّهُ أَعْلَمُ",
+     "translit": "Allāhu aʿlam",
+     "meaning_en": "Allah knows best",
+     "meaning_ha": ""
+    }
+   ],
+   "review": false,
+   "id": 591
+  },
+  {
+   "start": 2599.63,
+   "end": 2600.57,
+   "type": "speech",
+   "text": "da wuce",
+   "phrases": [],
+   "review": false,
+   "id": 592
+  },
+  {
+   "start": 2600.97,
+   "end": 2605.81,
+   "type": "speech",
+   "text": "ya shirya biicikin malamai waɗanda suke ƙoƙarin fassarasu ta hanyar ma'anoli dabandaban",
+   "phrases": [],
+   "review": false,
+   "id": 593
+  },
+  {
+   "start": 2606.09,
+   "end": 2611.0,
+   "type": "speech",
+   "text": "duka maranardagabasamaana mafi zafiwa wadda imamidikakiririsaadaika",
+   "phrases": [],
+   "review": false,
+   "id": 594
+  },
+  {
+   "start": 2611.47,
+   "end": 2613.88,
+   "type": "speech",
+   "text": "da kuma dansu daga cikin manyanmalamantire",
+   "phrases": [],
+   "review": false,
+   "id": 595
+  },
+  {
+   "start": 2614.09,
+   "end": 2617.78,
+   "type": "speech",
+   "text": "cewa ne abinda wannan ke nunawa alex ai",
+   "phrases": [],
+   "review": false,
+   "id": 596
+  },
+  {
+   "start": 2618.03,
+   "end": 2622.55,
+   "type": "speech",
+   "text": "ya kula rabawa da akaƙalubalettiku kawo wannan alkurani ko kasa kawuwa",
+   "phrases": [],
+   "review": false,
+   "id": 597
+  },
+  {
+   "start": 2622.67,
+   "end": 2630.58,
+   "type": "speech",
+   "text": "u sanifa a gina kalmamin akaani ne daga alifin dalamun damimun waɗanda hakalin sanannu akikiai",
+   "phrases": [],
+   "review": false,
+   "id": 598
+  },
+  {
+   "start": 2631.27,
+   "end": 2638.49,
+   "type": "speech",
+   "text": "idan kun ia kuma ku je ku ɗauki ali kuɗauki nam buɗauki mim uɗauki ka uɗauki ba ta da sauransu",
+   "phrases": [],
+   "review": false,
+   "id": 599
+  },
+  {
+   "start": 2638.67,
+   "end": 2642.33,
+   "type": "speech",
+   "text": "ku gina wani ganti wanda ta ki hikima zai ti kamar aƙurani",
+   "phrases": [],
+   "review": false,
+   "id": 600
+  },
+  {
+   "start": 2643.11,
+   "end": 2645.59,
+   "type": "speech",
+   "text": "cikin bayanin hukutinhukudaaakaari",
+   "phrases": [],
+   "review": false,
+   "id": 601
+  },
+  {
+   "start": 2645.71,
+   "end": 2648.6,
+   "type": "speech",
+   "text": "kinabasinmagana akaiaabirnikaza kuia",
+   "phrases": [],
+   "review": true,
+   "id": 602
+  },
+  {
+   "start": 2649.16,
+   "end": 2652.95,
+   "type": "speech",
+   "text": "akaicialiuameasayake zalikaitabulariaka",
+   "phrases": [],
+   "review": true,
+   "id": 603
+  },
+  {
+   "start": 2653.61,
+   "end": 2654.58,
+   "type": "speech",
+   "text": "zalika",
+   "phrases": [],
+   "review": false,
+   "id": 604
+  },
+  {
+   "start": 2654.7,
+   "end": 2658.77,
+   "type": "speech",
+   "text": "suna ne da itaba ana amfani da shi don nuna abinda ya keaialia",
+   "phrases": [],
+   "review": false,
+   "id": 605
+  },
+  {
+   "start": 2659.08,
+   "end": 2662.71,
+   "type": "speech",
+   "text": "abinda ya ke kusuaahaza mmaaasezalik",
+   "phrases": [],
+   "review": false,
+   "id": 606
+  },
+  {
+   "start": 2663.95,
+   "end": 2670.42,
+   "type": "speech",
+   "text": "waɗansu daga cikin sala suka ci zaliƙa daidai ya ke da haga ina mifin haga sita wannan littafi",
+   "phrases": [],
+   "review": false,
+   "id": 607
+  },
+  {
+   "start": 2670.51,
+   "end": 2673.14,
+   "type": "speech",
+   "text": "na rabafadi babu koatu a cikinsa",
+   "phrases": [],
+   "review": true,
+   "id": 608
+  },
+  {
+   "start": 2673.29,
+   "end": 2677.59,
+   "type": "speech",
+   "text": "cewa daga wajenallahine gudaamtakikuasiiaiiwaɗanna",
+   "phrases": [],
+   "review": false,
+   "id": 609
+  },
+  {
+   "start": 2678.95,
+   "end": 2683.48,
+   "type": "speech",
+   "text": "aɗansu malaman kuma sukake a'a zalia yana nan a matsayina zalikakitabi",
+   "phrases": [],
+   "review": false,
+   "id": 610
+  },
+  {
+   "start": 2683.72,
+   "end": 2686.23,
+   "type": "speech",
+   "text": "wan can littafin da kuke ji da gari",
+   "phrases": [],
+   "review": false,
+   "id": 611
+  },
+  {
+   "start": 2686.63,
+   "end": 2688.6,
+   "type": "speech",
+   "text": "amma an fi masa wuwanitan",
+   "phrases": [],
+   "review": false,
+   "id": 612
+  },
+  {
+   "start": 2688.91,
+   "end": 2695.09,
+   "type": "speech",
+   "text": "saboda yana sama yana kolaluwa wajen abinda ya kuai ma'anoli da fasaha da balaga",
+   "phrases": [],
+   "review": false,
+   "id": 613
+  },
+  {
+   "start": 2695.24,
+   "end": 2698.65,
+   "type": "speech",
+   "text": "dadadda dan bayani ya kera kowani isafi",
+   "phrases": [],
+   "review": false,
+   "id": 614
+  },
+  {
+   "start": 2698.73,
+   "end": 2700.5,
+   "type": "speech",
+   "text": "yana saman ko wani littafi",
+   "phrases": [],
+   "review": false,
+   "id": 615
+  },
+  {
+   "start": 2700.59,
+   "end": 2705.94,
+   "type": "speech",
+   "text": "da haka ba za ka fihaba ba ka mayar da shi kusa idakafizalikakarishen koluluwa",
+   "phrases": [],
+   "review": false,
+   "id": 616
+  },
+  {
+   "start": 2706.28,
+   "end": 2710.58,
+   "type": "speech",
+   "text": "zalikin kita littafin tun da kuke fangowa daa alkurani",
+   "phrases": [],
+   "review": true,
+   "id": 617
+  },
+  {
+   "start": 2710.63,
+   "end": 2711.45,
+   "type": "speech",
+   "text": "na ribake",
+   "phrases": [],
+   "review": true,
+   "id": 618
+  },
+  {
+   "start": 2711.53,
+   "end": 2713.81,
+   "type": "speech",
+   "text": "o jakkamaucewanisafinadagoo",
+   "phrases": [],
+   "review": false,
+   "id": 619
+  },
+  {
+   "start": 2714.63,
+   "end": 2717.46,
+   "type": "speech",
+   "text": "waɗannan matafia iiaikikaasukaka",
+   "phrases": [],
+   "review": true,
+   "id": 620
+  },
+  {
+   "start": 2718.67,
+   "end": 2721.43,
+   "type": "speech",
+   "text": "ankakuraniamasuakanafaairya",
+   "phrases": [],
+   "review": true,
+   "id": 621
+  },
+  {
+   "start": 2721.48,
+   "end": 2722.87,
+   "type": "speech",
+   "text": "ana ɗaukar mana gudabi",
+   "phrases": [],
+   "review": false,
+   "id": 622
+  },
+  {
+   "start": 2723.31,
+   "end": 2725.21,
+   "type": "speech",
+   "text": "cimiya tana zuwa da ma'anar bayani",
+   "phrases": [],
+   "review": false,
+   "id": 623
+  },
+  {
+   "start": 2726.44,
+   "end": 2727.7,
+   "type": "speech",
+   "text": "baiiyanawa mutumda",
+   "phrases": [],
+   "review": false,
+   "id": 624
+  },
+  {
+   "start": 2728.33,
+   "end": 2729.69,
+   "type": "speech",
+   "text": "idakakakawa",
+   "phrases": [],
+   "review": true,
+   "id": 625
+  },
+  {
+   "start": 2730.38,
+   "end": 2731.54,
+   "type": "speech",
+   "text": "ma'ana ka biyu",
+   "phrases": [],
+   "review": false,
+   "id": 626
+  },
+  {
+   "start": 2731.59,
+   "end": 2734.23,
+   "type": "speech",
+   "text": "siriya tana zuwa da ma'anan gayatarwa",
+   "phrases": [],
+   "review": false,
+   "id": 627
+  },
+  {
+   "start": 2734.38,
+   "end": 2738.13,
+   "type": "speech",
+   "text": "allah ya dafar da kaii maka gambe ka tarye maka taufiki",
+   "phrases": [],
+   "review": false,
+   "id": 628
+  },
+  {
+   "start": 2738.31,
+   "end": 2739.89,
+   "type": "speech",
+   "text": "a faɗawa gacikitaki",
+   "phrases": [],
+   "review": true,
+   "id": 629
+  },
+  {
+   "start": 2740.27,
+   "end": 2744.02,
+   "type": "speech",
+   "text": "ba tare dduba da waye ya fidiiidanadawani ko badanaa",
+   "phrases": [],
+   "review": false,
+   "id": 630
+  },
+  {
+   "start": 2744.17,
+   "end": 2745.62,
+   "type": "speech",
+   "text": "rinkunikoaangarinku",
+   "phrases": [],
+   "review": true,
+   "id": 631
+  },
+  {
+   "start": 2745.96,
+   "end": 2747.38,
+   "type": "speech",
+   "text": "danguf ni kuma dangu",
+   "phrases": [],
+   "review": false,
+   "id": 632
+  },
+  {
+   "start": 2747.82,
+   "end": 2749.49,
+   "type": "speech",
+   "text": "anakakijikaa",
+   "phrases": [],
+   "review": true,
+   "id": 633
+  },
+  {
+   "start": 2749.64,
+   "end": 2751.41,
+   "type": "speech",
+   "text": "wannan shi ne kiam da kasar",
+   "phrases": [],
+   "review": false,
+   "id": 634
+  },
+  {
+   "start": 2751.59,
+   "end": 2753.43,
+   "type": "speech",
+   "text": "nnan shirya tana zuwa da wannamahanar",
+   "phrases": [],
+   "review": false,
+   "id": 635
+  },
+  {
+   "start": 2754.09,
+   "end": 2758.36,
+   "type": "speech",
+   "text": "bayani kaɗai baya zama tsudiya sai dan mutum ya sami taukuki na kungia",
+   "phrases": [],
+   "review": false,
+   "id": 636
+  },
+  {
+   "start": 2758.92,
+   "end": 2766.47,
+   "type": "quran",
+   "refs": [
+    "41:17"
+   ],
+   "heard": "التي واما ثمود فهديناهم. اما فاتحب العمى على الهدى. فأخذتهم",
+   "match": 92.15686274509804,
+   "review": false,
+   "id": 637
+  },
+  {
+   "start": 2765.87,
+   "end": 2768.63,
+   "type": "speech",
+   "text": "akaakasakaazabidakuai",
+   "phrases": [],
+   "review": true,
+   "id": 638
+  },
+  {
+   "start": 2769.8,
+   "end": 2773.37,
+   "type": "speech",
+   "text": "saboda haka najiaiiadainamuni fisuar daku",
+   "phrases": [],
+   "review": true,
+   "id": 639
+  },
+  {
+   "start": 2774.7,
+   "end": 2778.55,
+   "type": "speech",
+   "text": "maana mun yi musu bayani na hanya dalladalla dakiaki",
+   "phrases": [],
+   "review": false,
+   "id": 640
+  },
+  {
+   "start": 2779.37,
+   "end": 2782.26,
+   "type": "speech",
+   "text": "girma sidaanadatafakarbayani",
+   "phrases": [],
+   "review": true,
+   "id": 641
+  },
+  {
+   "start": 2782.67,
+   "end": 2785.33,
+   "type": "speech",
+   "text": "anaaakikikaauniaakiice",
+   "phrases": [],
+   "review": true,
+   "id": 642
+  },
+  {
+   "start": 2785.42,
+   "end": 2789.05,
+   "type": "speech",
+   "text": "adaaaafisaiyesananakanitima",
+   "phrases": [],
+   "review": true,
+   "id": 643
+  },
+  {
+   "start": 2789.1,
+   "end": 2793.78,
+   "type": "speech",
+   "text": "aakakaakiamuaina gamauai da waɗanda suke",
+   "phrases": [],
+   "review": true,
+   "id": 644
+  },
+  {
+   "start": 2794.41,
+   "end": 2797.56,
+   "type": "speech",
+   "text": "anganidakodakalakekadaainahamidu",
+   "phrases": [],
+   "review": true,
+   "id": 645
+  },
+  {
+   "start": 2798.03,
+   "end": 2799.29,
+   "type": "speech",
+   "text": "mu da musikaa",
+   "phrases": [],
+   "review": false,
+   "id": 646
+  },
+  {
+   "start": 2799.43,
+   "end": 2804.02,
+   "type": "speech",
+   "text": "iaƙurani gamidaunaiiikiiane kumasufa atagatawarta",
+   "phrases": [],
+   "review": true,
+   "id": 647
+  },
+  {
+   "start": 2805.8,
+   "end": 2808.44,
+   "type": "speech",
+   "text": "aakataialaiaianaika",
+   "phrases": [],
+   "review": true,
+   "id": 648
+  },
+  {
+   "start": 2808.59,
+   "end": 2810.29,
+   "type": "speech",
+   "text": "awdanitamani dagai",
+   "phrases": [],
+   "review": true,
+   "id": 649
+  },
+  {
+   "start": 2810.41,
+   "end": 2815.19,
+   "type": "speech",
+   "text": "aunin aka shine abinda duk baaia stafta ta tsayo daga cikin kafofi guda",
+   "phrases": [],
+   "review": false,
+   "id": 650
+  },
+  {
+   "start": 2816.11,
+   "end": 2817.43,
+   "type": "speech",
+   "text": "ka dimakuia",
+   "phrases": [],
+   "review": true,
+   "id": 651
+  },
+  {
+   "start": 2818.54,
+   "end": 2820.15,
+   "type": "speech",
+   "text": "ba ka jinkudidakune",
+   "phrases": [],
+   "review": false,
+   "id": 652
+  },
+  {
+   "start": 2820.71,
+   "end": 2822.93,
+   "type": "speech",
+   "text": "ba ka dandamakakaiaasi",
+   "phrases": [],
+   "review": false,
+   "id": 653
+  },
+  {
+   "start": 2823.5,
+   "end": 2826.2,
+   "type": "speech",
+   "text": "baka shakarka ta hanyar hankinka",
+   "phrases": [],
+   "review": false,
+   "id": 654
+  },
+  {
+   "start": 2826.44,
+   "end": 2829.01,
+   "type": "speech",
+   "text": "annan kua ba ka iya faɗa su da hannudigin",
+   "phrases": [],
+   "review": false,
+   "id": 655
+  },
+  {
+   "start": 2829.48,
+   "end": 2831.09,
+   "type": "speech",
+   "text": "ya zama gii",
+   "phrases": [],
+   "review": false,
+   "id": 656
+  },
+  {
+   "start": 2832.17,
+   "end": 2833.91,
+   "type": "speech",
+   "text": "uiabindayakiwannan da zama",
+   "phrases": [],
+   "review": true,
+   "id": 657
+  },
+  {
+   "start": 2834.63,
+   "end": 2839.22,
+   "type": "speech",
+   "text": "daobaka ganinkabaakaiiniainoamikowakaaa",
+   "phrases": [],
+   "review": true,
+   "id": 658
+  },
+  {
+   "start": 2839.82,
+   "end": 2840.89,
+   "type": "speech",
+   "text": "ba ka jinkaka",
+   "phrases": [],
+   "review": false,
+   "id": 659
+  },
+  {
+   "start": 2841.77,
+   "end": 2844.12,
+   "type": "speech",
+   "text": "ba ka jin dasika kowari",
+   "phrases": [],
+   "review": false,
+   "id": 660
+  },
+  {
+   "start": 2844.3,
+   "end": 2847.25,
+   "type": "speech",
+   "text": "ba ka dananikunaiitafiikozagi",
+   "phrases": [],
+   "review": false,
+   "id": 661
+  },
+  {
+   "start": 2847.5,
+   "end": 2849.24,
+   "type": "speech",
+   "text": "a ka iya lalbawa da hannukaa",
+   "phrases": [],
+   "review": false,
+   "id": 662
+  },
+  {
+   "start": 2849.35,
+   "end": 2850.26,
+   "type": "speech",
+   "text": "yaloni",
+   "phrases": [],
+   "review": true,
+   "id": 663
+  },
+  {
+   "start": 2850.83,
+   "end": 2852.92,
+   "type": "speech",
+   "text": "maniiaidaka",
+   "phrases": [],
+   "review": true,
+   "id": 664
+  },
+  {
+   "start": 2854.57,
+   "end": 2859.22,
+   "type": "speech",
+   "text": "kasukaceasatakaidaga habahaibadaian",
+   "phrases": [],
+   "review": true,
+   "id": 665
+  },
+  {
+   "start": 2859.56,
+   "end": 2860.41,
+   "type": "speech",
+   "text": "alhadi",
+   "phrases": [],
+   "review": true,
+   "id": 666
+  },
+  {
+   "start": 2861.03,
+   "end": 2863.38,
+   "type": "speech",
+   "text": "watoakikaiaaikina nufina",
+   "phrases": [],
+   "review": true,
+   "id": 667
+  },
+  {
+   "start": 2863.95,
+   "end": 2867.32,
+   "type": "speech",
+   "text": "at madiismin ta ase a kawan madan",
+   "phrases": [],
+   "review": true,
+   "id": 668
+  },
+  {
+   "start": 2867.43,
+   "end": 2868.73,
+   "type": "speech",
+   "text": "ban aikiwinima",
+   "phrases": [],
+   "review": true,
+   "id": 669
+  },
+  {
+   "start": 2869.29,
+   "end": 2870.55,
+   "type": "speech",
+   "text": "ominnidika",
+   "phrases": [],
+   "review": true,
+   "id": 670
+  },
+  {
+   "start": 2871.08,
+   "end": 2875.77,
+   "type": "speech",
+   "text": "adaakawaalasisabiiaitaakataidaai",
+   "phrases": [],
+   "review": true,
+   "id": 671
+  },
+  {
+   "start": 2876.59,
+   "end": 2877.85,
+   "type": "speech",
+   "text": "ba daimadu",
+   "phrases": [],
+   "review": true,
+   "id": 672
+  },
+  {
+   "start": 2878.15,
+   "end": 2880.79,
+   "type": "speech",
+   "text": "lainaaakatanabinakia",
+   "phrases": [],
+   "review": true,
+   "id": 673
+  },
+  {
+   "start": 2880.94,
+   "end": 2882.07,
+   "type": "speech",
+   "text": "bagjahanaa",
+   "phrases": [],
+   "review": true,
+   "id": 674
+  },
+  {
+   "start": 2882.63,
+   "end": 2885.62,
+   "type": "speech",
+   "text": "mamaakiiaaki bakarnasadasi",
+   "phrases": [],
+   "review": true,
+   "id": 675
+  },
+  {
+   "start": 2886.09,
+   "end": 2889.24,
+   "type": "speech",
+   "text": "haka wuta haka aljanna haka malaiki",
+   "phrases": [],
+   "review": false,
+   "id": 676
+  },
+  {
+   "start": 2889.55,
+   "end": 2894.84,
+   "type": "speech",
+   "text": "sauran al'amuran da kuke bama yin likitasinhaɗe dagacikinmaɗannankafofinda na bayani",
+   "phrases": [],
+   "review": false,
+   "id": 677
+  },
+  {
+   "start": 2894.92,
+   "end": 2896.18,
+   "type": "speech",
+   "text": "sun zoma malagai",
+   "phrases": [],
+   "review": false,
+   "id": 678
+  },
+  {
+   "start": 2896.23,
+   "end": 2901.88,
+   "type": "speech",
+   "text": "amma da allah ya bamu labarin samua muidan allah ba mulabarin samuwar kitomuka iai",
+   "phrases": [],
+   "review": false,
+   "id": 679
+  },
+  {
+   "start": 2902.63,
+   "end": 2904.21,
+   "type": "speech",
+   "text": "inagimaaika",
+   "phrases": [],
+   "review": true,
+   "id": 680
+  },
+  {
+   "start": 2904.59,
+   "end": 2907.06,
+   "type": "speech",
+   "text": "kimanasna da kuma suke koyar da sama",
+   "phrases": [],
+   "review": false,
+   "id": 681
+  },
+  {
+   "start": 2907.69,
+   "end": 2913.75,
+   "type": "speech",
+   "text": "nangitini waɗansuaisukekiindukafali ba inda allah ike mutane suna sali",
+   "phrases": [],
+   "review": false,
+   "id": 682
+  },
+  {
+   "start": 2914.03,
+   "end": 2915.96,
+   "type": "speech",
+   "text": "kin suna tsayar da kana",
+   "phrases": [],
+   "review": false,
+   "id": 683
+  },
+  {
+   "start": 2916.62,
+   "end": 2922.29,
+   "type": "speech",
+   "text": "anadakiitallakaiiatayar dasallaakasalakakiluiaaaa",
+   "phrases": [],
+   "review": true,
+   "id": 684
+  },
+  {
+   "start": 2922.89,
+   "end": 2925.11,
+   "type": "speech",
+   "text": "wakakanakafarakaninaa",
+   "phrases": [],
+   "review": true,
+   "id": 685
+  },
+  {
+   "start": 2925.48,
+   "end": 2936.98,
+   "type": "speech",
+   "text": "dakaiiaaaaataaiaaaaaaaiwaiiisatawaiakatawaiiiukataiagakiamakaa",
+   "phrases": [],
+   "review": true,
+   "id": 686
+  },
+  {
+   "start": 2931.98,
+   "end": 2934.84,
+   "type": "quran",
+   "refs": [
+    "4:162"
+   ],
+   "heard": "والمقيمين الصلاة والموتون والمؤمنين جميعهم.",
+   "match": 100.0,
+   "review": false,
+   "id": 687
+  },
+  {
+   "start": 2937.35,
+   "end": 2938.84,
+   "type": "speech",
+   "text": "aakalakaa",
+   "phrases": [],
+   "review": true,
+   "id": 688
+  },
+  {
+   "start": 2938.89,
+   "end": 2941.3,
+   "type": "speech",
+   "text": "ki ake buƙatar ba akkalake buƙat",
+   "phrases": [],
+   "review": true,
+   "id": 689
+  },
+  {
+   "start": 2941.93,
+   "end": 2948.21,
+   "type": "speech",
+   "text": "asalafitasaukunita tasansharudata ta sin abinda saakeikaikinabinda saakaanaaa",
+   "phrases": [],
+   "review": true,
+   "id": 690
+  },
+  {
+   "start": 2948.36,
+   "end": 2960.92,
+   "type": "speech",
+   "text": "binda kuke garuwa daiabinda kike atidsikasawandi shine autakaata iita a lokacindaiike n ta zfiiamusalina ike koba a magana maikoiiiiaii",
+   "phrases": [],
+   "review": true,
+   "id": 691
+  },
+  {
+   "start": 2961.55,
+   "end": 2966.33,
+   "type": "speech",
+   "text": "sahu ne ababu wani jadadikimana kaako kaamurtalaa ko kaafukalafi",
+   "phrases": [],
+   "review": false,
+   "id": 692
+  },
+  {
+   "start": 2966.7,
+   "end": 2968.18,
+   "type": "speech",
+   "text": "inakaaimai",
+   "phrases": [],
+   "review": true,
+   "id": 693
+  },
+  {
+   "start": 2970.03,
+   "end": 2979.29,
+   "type": "speech",
+   "text": "anaikiimunakalata waniaraianahduikianikuma suna siyarwa daga abinda muka arbutaiwasuisiyarwa ajasuaamiukiisiyarwa ta e",
+   "phrases": [],
+   "review": false,
+   "id": 694
+  },
+  {
+   "start": 2979.5,
+   "end": 2983.96,
+   "type": "speech",
+   "text": "esuka ce aa ciyarwata nakiurensuka ce lafadin datusaciarwata akiai",
+   "phrases": [],
+   "review": false,
+   "id": 695
+  },
+  {
+   "start": 2984.87,
+   "end": 2987.99,
+   "type": "speech",
+   "text": "calinafinadakudiisakaanafiniaki",
+   "phrases": [],
+   "review": true,
+   "id": 696
+  },
+  {
+   "start": 2988.43,
+   "end": 2993.72,
+   "type": "speech",
+   "text": "llaiaiaakuikuma suiiwaɗanda sukiiimani da abinda k saukardai",
+   "phrases": [],
+   "review": true,
+   "id": 697
+  },
+  {
+   "start": 2993.77,
+   "end": 2998.17,
+   "type": "speech",
+   "text": "akudaanikamuka kuma suke imani da abinda aka sakarkika",
+   "phrases": [],
+   "review": false,
+   "id": 698
+  },
+  {
+   "start": 2998.35,
+   "end": 3003.77,
+   "type": "speech",
+   "text": "dikaiiyuakuma dangane da laitikiisuna da tabbacinsu",
+   "phrases": [],
+   "review": false,
+   "id": 699
+  },
+  {
+   "start": 3004.33,
+   "end": 3010.1,
+   "type": "speech",
+   "text": "abinda aka saukardaada allainburani abinda aka saukar kafin ku soitafe a taraajinagaburasaur",
+   "phrases": [],
+   "review": true,
+   "id": 700
+  },
+  {
+   "start": 3010.31,
+   "end": 3011.8,
+   "type": "speech",
+   "text": "wakisaka",
+   "phrases": [],
+   "review": true,
+   "id": 701
+  },
+  {
+   "start": 3012.11,
+   "end": 3015.06,
+   "type": "speech",
+   "text": "abadinaakarabisaikaania",
+   "phrases": [],
+   "review": true,
+   "id": 702
+  },
+  {
+   "start": 3015.18,
+   "end": 3017.49,
+   "type": "speech",
+   "text": "kamar muhallaf ne na al'aki",
+   "phrases": [],
+   "review": false,
+   "id": 703
+  },
+  {
+   "start": 3017.55,
+   "end": 3019.09,
+   "type": "speech",
+   "text": "wanda sike fusta agwa",
+   "phrases": [],
+   "review": true,
+   "id": 704
+  },
+  {
+   "start": 3019.4,
+   "end": 3021.17,
+   "type": "speech",
+   "text": "abinda ba na farkuba safimakai",
+   "phrases": [],
+   "review": false,
+   "id": 705
+  },
+  {
+   "start": 3021.39,
+   "end": 3022.26,
+   "type": "speech",
+   "text": "aaka",
+   "phrases": [],
+   "review": true,
+   "id": 706
+  },
+  {
+   "start": 3023.31,
+   "end": 3031.45,
+   "type": "speech",
+   "text": "dinsuka ce alakia anangida naakialmautinansafe sune adabiaki donallafinkikatarinakiri",
+   "phrases": [],
+   "review": true,
+   "id": 707
+  },
+  {
+   "start": 3030.61,
+   "end": 3034.61,
+   "type": "quran",
+   "refs": [
+    "28:83"
+   ],
+   "heard": "الانسابي. نجعلها للذين لا يريدون اولوهم في الارض. ولا",
+   "match": 90.0,
+   "review": false,
+   "id": 708
+  },
+  {
+   "start": 3034.38,
+   "end": 3036.31,
+   "type": "speech",
+   "text": "aliasada wani asiitii",
+   "phrases": [],
+   "review": true,
+   "id": 709
+  },
+  {
+   "start": 3037.03,
+   "end": 3043.45,
+   "type": "speech",
+   "text": "dahaka wanaiaadaakaadaaakaaaaaiaiaia",
+   "phrases": [],
+   "review": true,
+   "id": 710
+  },
+  {
+   "start": 3043.56,
+   "end": 3046.58,
+   "type": "speech",
+   "text": "waje tariakiimaakua",
+   "phrases": [],
+   "review": true,
+   "id": 711
+  },
+  {
+   "start": 3046.99,
+   "end": 3061.59,
+   "type": "speech",
+   "text": "kdaeadaanadaganintakaaaatakisiakaaikaakiaagaiadiaaiiisadakaaiiiaatianaiakiadaasaa",
+   "phrases": [],
+   "review": true,
+   "id": 712
+  },
+  {
+   "start": 3062.06,
+   "end": 3065.3,
+   "type": "speech",
+   "text": "nainasanadisikaaiia",
+   "phrases": [],
+   "review": true,
+   "id": 713
+  },
+  {
+   "start": 3065.61,
+   "end": 3067.03,
+   "type": "speech",
+   "text": "asiaiaka",
+   "phrases": [],
+   "review": true,
+   "id": 714
+  },
+  {
+   "start": 3067.4,
+   "end": 3074.29,
+   "type": "speech",
+   "text": "iauwandaki sokaidugakaasaaakyakaaaidauiwanda aka hakasaki",
+   "phrases": [],
+   "review": true,
+   "id": 715
+  },
+  {
+   "start": 3074.51,
+   "end": 3078.29,
+   "type": "speech",
+   "text": "anaahakaliakiaaakuaikiarbukatiataakaki",
+   "phrases": [],
+   "review": true,
+   "id": 716
+  },
+  {
+   "start": 3078.38,
+   "end": 3080.15,
+   "type": "speech",
+   "text": "ainidakikiahaka",
+   "phrases": [],
+   "review": true,
+   "id": 717
+  },
+  {
+   "start": 3082.6,
+   "end": 3083.89,
+   "type": "speech",
+   "text": "gaaka",
+   "phrases": [],
+   "review": true,
+   "id": 718
+  },
+  {
+   "start": 3084.01,
+   "end": 3085.59,
+   "type": "speech",
+   "text": "atanadaabaki",
+   "phrases": [],
+   "review": true,
+   "id": 719
+  },
+  {
+   "start": 3085.93,
+   "end": 3088.15,
+   "type": "speech",
+   "text": "waɗannasukikaaani",
+   "phrases": [],
+   "review": true,
+   "id": 720
+  },
+  {
+   "start": 3088.68,
+   "end": 3093.11,
+   "type": "speech",
+   "text": "ukafimaniirin waɗannansu ne kuma waɗanda suke masu buta alla",
+   "phrases": [],
+   "review": false,
+   "id": 721
+  },
+  {
+   "start": 3093.64,
+   "end": 3094.84,
+   "type": "speech",
+   "text": "lokacin alkwalaa",
+   "phrases": [],
+   "review": false,
+   "id": 722
+  },
+  {
+   "start": 3094.99,
+   "end": 3098.55,
+   "type": "speech",
+   "text": "amun abinda kuke so gudewa abinda kuke jintorishi da afaa",
+   "phrases": [],
+   "review": false,
+   "id": 723
+  },
+  {
+   "start": 3098.73,
+   "end": 3103.93,
+   "type": "speech",
+   "text": "akuuiwaɗandaaafidaabindai kuke sogogewa kuma abinda suki soar",
+   "phrases": [],
+   "review": true,
+   "id": 724
+  },
+  {
+   "start": 3104.17,
+   "end": 3108.12,
+   "type": "speech",
+   "text": "bindabaamnisakkakiiaaabindakakesofarakonsayawuta",
+   "phrases": [],
+   "review": true,
+   "id": 725
+  },
+  {
+   "start": 3108.36,
+   "end": 3111.57,
+   "type": "speech",
+   "text": "allaikidamuiiaadatayardamu da gobe",
+   "phrases": [],
+   "review": false,
+   "id": 726
+  },
+  {
+   "start": 3111.95,
+   "end": 3114.55,
+   "type": "speech",
+   "text": "na ganin ikamatamukataingooa",
+   "phrases": [],
+   "review": false,
+   "id": 727
+  },
+  {
+   "start": 3114.89,
+   "end": 3118.87,
+   "type": "speech",
+   "text": "bndmukafadaiiiiallaiindadamukaifikoinalla",
+   "phrases": [],
+   "review": true,
+   "id": 728
+  }
+ ],
+ "verses": {
+  "1:1": {
+   "surah": 1,
+   "ayah": 1,
+   "surah_name": "الفاتحة",
+   "surah_translit": "Al-Faatiha",
+   "uthmani": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+   "warsh": "اِ۬لْحَمْدُ لِلهِ رَبِّ اِ۬لْعَٰلَمِينَ",
+   "hausa": "Da sũnan Allah, Mai rahama, Mai jin ƙai."
+  },
+  "1:2": {
+   "surah": 1,
+   "ayah": 2,
+   "surah_name": "الفاتحة",
+   "surah_translit": "Al-Faatiha",
+   "uthmani": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+   "warsh": "اِ۬لْحَمْدُ لِلهِ رَبِّ اِ۬لْعَٰلَمِينَ",
+   "hausa": "Godiya ta tabbata ga Allah, Ubangijin halittu;"
+  },
+  "1:3": {
+   "surah": 1,
+   "ayah": 3,
+   "surah_name": "الفاتحة",
+   "surah_translit": "Al-Faatiha",
+   "uthmani": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+   "warsh": "اَ۬لرَّحْمَٰنِ اِ۬لرَّحِيمِ",
+   "hausa": "Mai rahama, Mai jin ƙai;"
+  },
+  "1:4": {
+   "surah": 1,
+   "ayah": 4,
+   "surah_name": "الفاتحة",
+   "surah_translit": "Al-Faatiha",
+   "uthmani": "مَٰلِكِ يَوْمِ ٱلدِّينِ",
+   "warsh": "مَلِكِ يَوْمِ اِ۬لدِّينِۖ",
+   "hausa": "Mai nuna Mulkin Rãnar Sakamako."
+  },
+  "1:5": {
+   "surah": 1,
+   "ayah": 5,
+   "surah_name": "الفاتحة",
+   "surah_translit": "Al-Faatiha",
+   "uthmani": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+   "warsh": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُۖ",
+   "hausa": "Kai muke bautawa, kuma Kai kadai muke neman taimakonKa"
+  },
+  "1:6": {
+   "surah": 1,
+   "ayah": 6,
+   "surah_name": "الفاتحة",
+   "surah_translit": "Al-Faatiha",
+   "uthmani": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",
+   "warsh": "اُ۪هْدِنَا اَ۬لصِّرَٰطَ اَ۬لْمُسْتَقِيمَ",
+   "hausa": "Ka shiryar da mu ga hanya madaidaiciya."
+  },
+  "1:7": {
+   "surah": 1,
+   "ayah": 7,
+   "surah_name": "الفاتحة",
+   "surah_translit": "Al-Faatiha",
+   "uthmani": "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ",
+   "warsh": "صِرَٰطَ اَ۬لذِينَ أَنْعَمْتَ عَلَيْهِمْ",
+   "hausa": "Hanyar waɗanda Ka yi wa ni'ima, ba waɗanda aka yi wa fushi ba, kuma ba ɓatattu ba.[1]"
+  },
+  "2:1": {
+   "surah": 2,
+   "ayah": 1,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ الٓمٓ",
+   "warsh": "أَلَٓمِّٓۖ ذَٰلِكَ اَ۬لْكِتَٰبُ لَا رَيْبَۖ فِيهِ هُدىٗ لِّلْمُتَّقِينَ",
+   "hausa": "A. L̃. M̃."
+  },
+  "2:2": {
+   "surah": 2,
+   "ayah": 2,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ",
+   "warsh": "أَلَٓمِّٓۖ ذَٰلِكَ اَ۬لْكِتَٰبُ لَا رَيْبَۖ فِيهِ هُدىٗ لِّلْمُتَّقِينَ",
+   "hausa": "Wãncan ne Littãfi, bãbu shakka a cikinsa, shiriya ne ga mãsu taƙawa.[1]"
+  },
+  "2:3": {
+   "surah": 2,
+   "ayah": 3,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ",
+   "warsh": "اَ۬لذِينَ يُومِنُونَ بِالْغَيْبِ وَيُقِيمُونَ اَ۬لصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَۖ",
+   "hausa": "Waɗanda suke yin ĩmãni game da gaibi, kuma suna tsayar da salla, kuma daga abin da Muka azurta su suna ciyarwa."
+  },
+  "2:4": {
+   "surah": 2,
+   "ayah": 4,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "وَٱلَّذِينَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَبِٱلْـَٔاخِرَةِ هُمْ يُوقِنُونَ",
+   "warsh": "وَالذِينَ يُومِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَبِالَاخِرَةِ هُمْ يُوقِنُونَ",
+   "hausa": "Kuma waɗanda suke yin ĩmãni da abin da aka saukar zuwa gare ka, da abin da aka saukar daga gabãninka, kuma game da Lãhira suna yin yaƙĩni."
+  },
+  "2:5": {
+   "surah": 2,
+   "ayah": 5,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "أُو۟لَٰٓئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ",
+   "warsh": "أُوْلَٰٓئِكَ عَلَىٰ هُدىٗ مِّن رَّبِّهِمْۖ وَأُوْلَٰٓئِكَ هُمُ اُ۬لْمُفْلِحُونَۖ",
+   "hausa": "Waɗancan suna kan shiriya, daga Ubangjinsu, kuma waɗannan su ne mãsu cin nasara."
+  },
+  "2:9": {
+   "surah": 2,
+   "ayah": 9,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "يُخَٰدِعُونَ ٱللَّهَ وَٱلَّذِينَ ءَامَنُوا۟ وَمَا يَخْدَعُونَ إِلَّآ أَنفُسَهُمْ وَمَا يَشْعُرُونَ",
+   "warsh": "يُخَٰدِعُونَ اَ۬للَّهَ وَالذِينَ ءَامَنُواْۖ وَمَا يُخَٰدِعُونَ إِلَّآ أَنفُسَهُمْ وَمَا يَشْعُرُونَۖ",
+   "hausa": "Suna yaudarayya da Allah da waɗanda suka yi ĩmãni, alhãli bã su yaudarar kõwa fãce kansu, kuma bã su sakankancẽwa!"
+  },
+  "2:143": {
+   "surah": 2,
+   "ayah": 143,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "وَكَذَٰلِكَ جَعَلْنَٰكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا۟ شُهَدَآءَ عَلَى ٱلنَّاسِ وَيَكُونَ ٱلرَّسُولُ عَلَيْكُمْ شَهِيدًا وَمَا جَعَلْنَا ٱلْقِبْلَةَ ٱلَّتِى كُنتَ عَلَيْهَآ إِلَّا لِنَعْلَمَ مَن يَتَّبِعُ ٱلرَّسُولَ مِمَّن يَنقَلِبُ عَلَىٰ عَقِبَيْهِ وَإِن كَانَتْ لَكَبِيرَةً إِلَّا عَلَى ٱلَّذِينَ هَدَى ٱللَّهُ وَمَا كَانَ ٱللَّهُ لِيُضِيعَ إِيمَٰنَكُمْ إِنَّ ٱللَّهَ بِٱلنَّاسِ لَرَءُوفٌ رَّحِيمٌ",
+   "warsh": "وَكَذَٰلِكَ جَعَلْنَٰكُمُۥٓ أُمَّةٗ وَسَطاٗۖ لِّتَكُونُواْ شُهَدَآءَ عَلَى اَ۬لنَّاسِ وَيَكُونَ اَ۬لرَّسُولُ عَلَيْكُمْ شَهِيداٗۖ وَمَا جَعَلْنَا اَ۬لْقِبْلَةَ اَ۬لتِے كُنتَ عَلَيْهَآ إِلَّا لِنَعْلَمَ مَنْ يَّتَّبِعُ اُ۬لرَّسُولَ مِمَّنْ يَّنقَلِبُ عَلَىٰ عَقِبَيْهِۖ وَإِن كَانَتْ لَكَبِيرَةً اِلَّا عَلَى اَ۬لذِينَ هَدَى اَ۬للَّهُۖ وَمَا كَانَ اَ۬للَّهُ لِيُضِيعَ إِيمَٰنَكُمُۥٓۖ إِنَّ اَ۬للَّهَ بِالنَّاسِ لَرَءُوفٞ رَّحِيمٞۖ",
+   "hausa": "Kuma kamar wancan, Muka sanya ku al'umma matsakaiciya[1] dõmin ku kasance mãsu bãyar da shaida a kan mutãne. Kuma Manzo ya kasance mai shaida a kanku. Kuma ba Mu sanya Alƙibla[2] wadda ka kasance a kanta ba, fãce dõmin Mu san wanda yake biyar Manzo daga wanda yake jũyãwa a kan duga-dugansa. Kuma lalle ne, tã kasance haƙĩƙa, mai girma, sai a kan waɗanda Allah Ya shiryar. Kuma ba ya yiwuwa ga Allah Ya tõzartar da ĩmãninku.[3] Lalle ne, Allah, ga mutãne, haƙĩƙa, Mai tausayi ne, Mai jin ƙai."
+  },
+  "2:146": {
+   "surah": 2,
+   "ayah": 146,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "ٱلَّذِينَ ءَاتَيْنَٰهُمُ ٱلْكِتَٰبَ يَعْرِفُونَهُۥ كَمَا يَعْرِفُونَ أَبْنَآءَهُمْ وَإِنَّ فَرِيقًا مِّنْهُمْ لَيَكْتُمُونَ ٱلْحَقَّ وَهُمْ يَعْلَمُونَ",
+   "warsh": "اَ۬لذِينَ ءَاتَيْنَٰهُمُ اُ۬لْكِتَٰبَ يَعْرِفُونَهُۥ كَمَا يَعْرِفُونَ أَبْنَآءَهُمْۖ وَإِنَّ فَرِيقاٗ مِّنْهُمْ لَيَكْتُمُونَ اَ۬لْحَقَّ وَهُمْ يَعْلَمُونَۖ",
+   "hausa": "Waɗanda Muka bã su Littãfi, suna saninsa kamar yadda suke sanin ɗiyansu. Kuma lalle ne wani ɓangare daga gare su, haƙiƙa, suna ɓõyewar gaskiya alhãli kuwa sũ, suna sane."
+  },
+  "2:286": {
+   "surah": 2,
+   "ayah": 286,
+   "surah_name": "البقرة",
+   "surah_translit": "Al-Baqara",
+   "uthmani": "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا ٱكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًا كَمَا حَمَلْتَهُۥ عَلَى ٱلَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦ وَٱعْفُ عَنَّا وَٱغْفِرْ لَنَا وَٱرْحَمْنَآ أَنتَ مَوْلَىٰنَا فَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ",
+   "warsh": "لَا يُكَلِّفُ اُ۬للَّهُ نَفْساً اِلَّا وُسْعَهَاۖ لَهَا مَا كَسَبَتْۖ وَعَلَيْهَا مَا اَ۪كْتَسَبَتْۖ رَبَّنَا لَا تُوَ۬اخِذْنَآ إِن نَّسِينَآ أَوَ اَخْطَأْنَاۖ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْراٗ كَمَا حَمَلْتَهُۥ عَلَى اَ۬لذِينَ مِن قَبْلِنَاۖ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦۖ وَاعْفُ عَنَّاۖ وَاغْفِرْ لَنَاۖ وَارْحَمْنَآۖ أَنتَ مَوْل۪يٰنَا فَانصُرْنَا عَلَى اَ۬لْقَوْمِ اِ۬لْكٰ۪فِرِينَۖ",
+   "hausa": "Allah ba Ya kallafa wa rai fãce ikon yinsa, yana da lãdar abin da ya tsirfanta, kuma a kansa akwai zunubin abin da ya yi ta aikatãwa: \"Yã Ubangijinmu! Kada Ka kãmã mu, idan mun yi mantuwa, ko kuma mun yi kuskure. Yã Ubangijinmu! Kuma kada Ka aza nauyi a kanmu, kamar yadda Ka aza shi a kan waɗanda suke a gabãninmu. Yã Ubangijinmu! Kada Ka sanya mu ɗaukar abin da bãbu ĩko gare mu da shi. Kuma Ka yãfe daga gare mu, kuma Ka gãfarta mana, kuma Ka yi jin ƙai gare mu. Kai ne Majibincinmu, sabõda haka Ka taimake mu a kan mutãnen nan kãfirai.\""
+  },
+  "4:78": {
+   "surah": 4,
+   "ayah": 78,
+   "surah_name": "النساء",
+   "surah_translit": "An-Nisaa",
+   "uthmani": "أَيْنَمَا تَكُونُوا۟ يُدْرِككُّمُ ٱلْمَوْتُ وَلَوْ كُنتُمْ فِى بُرُوجٍ مُّشَيَّدَةٍ وَإِن تُصِبْهُمْ حَسَنَةٌ يَقُولُوا۟ هَٰذِهِۦ مِنْ عِندِ ٱللَّهِ وَإِن تُصِبْهُمْ سَيِّئَةٌ يَقُولُوا۟ هَٰذِهِۦ مِنْ عِندِكَ قُلْ كُلٌّ مِّنْ عِندِ ٱللَّهِ فَمَالِ هَٰٓؤُلَآءِ ٱلْقَوْمِ لَا يَكَادُونَ يَفْقَهُونَ حَدِيثًا",
+   "warsh": "اَيْنَمَا تَكُونُواْ يُدْرِككُّمُ اُ۬لْمَوْتُ وَلَوْ كُنتُمْ فِے بُرُوجٖ مُّشَيَّدَةٖۖ وَإِن تُصِبْهُمْ حَسَنَةٞ يَقُولُواْ هَٰذِهِۦ مِنْ عِندِ اِ۬للَّهِۖ وَإِن تُصِبْهُمْ سَيِّيـَٔةٞ يَقُولُواْ هَٰذِهِۦ مِنْ عِندِكَۖ قُلْ كُلّٞ مِّنْ عِندِ اِ۬للَّهِۖ فَمَالِ هَٰٓؤُلَآءِ اِ۬لْقَوْمِ لَا يَكَادُونَ يَفْقَهُونَ حَدِيثاٗۖ",
+   "hausa": "\"Inda duk kuka kasance, mutuwa zã ta riske ku, kuma kõ da kun kasance ne a cikin gãnuwõyi ingãtattu!\" Kuma idan wani alhẽri ya sãme su sai su ce: \"Wannan daga wurin Allah ne,\" kuma idan wata cũta ta sãme su, sai su ce: \"Wannan daga gare ka ne.\"Ka ce: \"Dukkansu daga Allah ne.\" To, me ya sãmi waɗannan mutãne, bã su kusantar fahimtar magana?"
+  },
+  "4:162": {
+   "surah": 4,
+   "ayah": 162,
+   "surah_name": "النساء",
+   "surah_translit": "An-Nisaa",
+   "uthmani": "لَّٰكِنِ ٱلرَّٰسِخُونَ فِى ٱلْعِلْمِ مِنْهُمْ وَٱلْمُؤْمِنُونَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَٱلْمُقِيمِينَ ٱلصَّلَوٰةَ وَٱلْمُؤْتُونَ ٱلزَّكَوٰةَ وَٱلْمُؤْمِنُونَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْـَٔاخِرِ أُو۟لَٰٓئِكَ سَنُؤْتِيهِمْ أَجْرًا عَظِيمًا",
+   "warsh": "لَّٰكِنِ اِ۬لرَّٰسِخُونَ فِے اِ۬لْعِلْمِ مِنْهُمْ وَالْمُومِنُونَ يُومِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَالْمُقِيمِينَ اَ۬لصَّلَوٰةَۖ وَالْمُوتُونَ اَ۬لزَّكَوٰةَ وَالْمُومِنُونَ بِاللَّهِ وَالْيَوْمِ اِ۬لَاخِرِ أُوْلَٰٓئِكَ سَنُوتِيهِمُۥٓ أَجْراً عَظِيماًۖ",
+   "hausa": "Amma tabbatattu[1] a cikin ilmi daga gare su, da mũminai, suna ĩmani da abin da aka saukar zuwa gare ka, da abin da aka saukar daga gabãninka, madalla da masu tsai da salla, da mãsu bãyar da zakka, da mãsu ĩmãni daAllah da Rãnar Lãhira. Waɗannan zã Mu bã su lãda mai girma."
+  },
+  "5:28": {
+   "surah": 5,
+   "ayah": 28,
+   "surah_name": "المائدة",
+   "surah_translit": "Al-Maaida",
+   "uthmani": "لَئِنۢ بَسَطتَ إِلَىَّ يَدَكَ لِتَقْتُلَنِى مَآ أَنَا۠ بِبَاسِطٍ يَدِىَ إِلَيْكَ لِأَقْتُلَكَ إِنِّىٓ أَخَافُ ٱللَّهَ رَبَّ ٱلْعَٰلَمِينَ",
+   "warsh": "لَئِنۢ بَسَطْتَّ إِلَيَّ يَدَكَ لِتَقْتُلَنِے مَآ أَنَا بِبَاسِطٖ يَدِيَ إِلَيْكَ لِأَقْتُلَكَۖ إِنِّيَ أَخَافُ اُ۬للَّهَ رَبَّ اَ۬لْعَٰلَمِينَۖ",
+   "hausa": "\"Lalle ne idan ka shimfiɗa hannunka zuwa gare ni dõmin ka kashe ni, ban zama mai shimfiɗa hannuna zuwa gare ka ba dõmin in kashe ka. Lalle ne nĩ inã tsõron Allah Ubangijin tãlikai."
+  },
+  "6:112": {
+   "surah": 6,
+   "ayah": 112,
+   "surah_name": "الأنعام",
+   "surah_translit": "Al-An'aam",
+   "uthmani": "وَكَذَٰلِكَ جَعَلْنَا لِكُلِّ نَبِىٍّ عَدُوًّا شَيَٰطِينَ ٱلْإِنسِ وَٱلْجِنِّ يُوحِى بَعْضُهُمْ إِلَىٰ بَعْضٍ زُخْرُفَ ٱلْقَوْلِ غُرُورًا وَلَوْ شَآءَ رَبُّكَ مَا فَعَلُوهُ فَذَرْهُمْ وَمَا يَفْتَرُونَ",
+   "warsh": "وَكَذَٰلِكَ جَعَلْنَا لِكُلِّ نَبِےٓءٍ عَدُوّاٗ شَيَٰطِينَ اَ۬لِانسِ وَالْجِنِّ يُوحِے بَعْضُهُمُۥٓ إِلَىٰ بَعْضٖ زُخْرُفَ اَ۬لْقَوْلِ غُرُوراٗۖ وَلَوْ شَآءَ رَبُّكَ مَا فَعَلُوهُۖ فَذَرْهُمْ وَمَا يَفْتَرُونَۖ",
+   "hausa": "Kuma kamar wancan ne Muka sanya wa kõwane Annabi maƙiyi; shaiɗãnun mutãne da aljannu, sãshensu yanã yin ishãra[1] zuwa sãshe da ƙawãtaccen zance bisa ga rũɗi. Kuma dã Ubangijinka Yã so, dã ba su aikatã shi ba, don haka ka bar su da abin da, suke ƙirƙirãwa."
+  },
+  "7:156": {
+   "surah": 7,
+   "ayah": 156,
+   "surah_name": "الأعراف",
+   "surah_translit": "Al-A'raaf",
+   "uthmani": "وَٱكْتُبْ لَنَا فِى هَٰذِهِ ٱلدُّنْيَا حَسَنَةً وَفِى ٱلْـَٔاخِرَةِ إِنَّا هُدْنَآ إِلَيْكَ قَالَ عَذَابِىٓ أُصِيبُ بِهِۦ مَنْ أَشَآءُ وَرَحْمَتِى وَسِعَتْ كُلَّ شَىْءٍ فَسَأَكْتُبُهَا لِلَّذِينَ يَتَّقُونَ وَيُؤْتُونَ ٱلزَّكَوٰةَ وَٱلَّذِينَ هُم بِـَٔايَٰتِنَا يُؤْمِنُونَ",
+   "warsh": "۞ وَاكْتُبْ لَنَا فِے هَٰذِهِ اِ۬لدُّنْي۪ا حَسَنَةٗ وَفِے اِ۬لَاخِرَةِۖ إِنَّا هُدْنَآ إِلَيْكَۖ قَالَ عَذَابِيَ أُصِيبُ بِهِۦ مَنَ اَشَآءُۖ وَرَحْمَتِے وَسِعَتْ كُلَّ شَےْءٖۖ فَسَأَكْتُبُهَا لِلذِينَ يَتَّقُونَ وَيُوتُونَ اَ۬لزَّكَوٰةَ وَالذِينَ هُم بِــَٔايَٰتِنَا يُومِنُونَ",
+   "hausa": "\"Kuma Ka rubũta mana alhẽri a cikin wannan dũniya, kuma a cikin Lãhira. Lalle ne mũ, mun tũba zuwa gare Ka.\" Ya ce: \"AzãbaTa Inã sãmu, da ita, wanda Nike so, kuma rahamaTa, ta yalwaci dukan kõme. Sa'an nan zã Ni rubũta ta ga waɗanda suke yin taƙawa, kuma sunã bãyar da zakka, da waɗanda suke, game da ãyõyin Mu mũminai ne.\""
+  },
+  "7:157": {
+   "surah": 7,
+   "ayah": 157,
+   "surah_name": "الأعراف",
+   "surah_translit": "Al-A'raaf",
+   "uthmani": "ٱلَّذِينَ يَتَّبِعُونَ ٱلرَّسُولَ ٱلنَّبِىَّ ٱلْأُمِّىَّ ٱلَّذِى يَجِدُونَهُۥ مَكْتُوبًا عِندَهُمْ فِى ٱلتَّوْرَىٰةِ وَٱلْإِنجِيلِ يَأْمُرُهُم بِٱلْمَعْرُوفِ وَيَنْهَىٰهُمْ عَنِ ٱلْمُنكَرِ وَيُحِلُّ لَهُمُ ٱلطَّيِّبَٰتِ وَيُحَرِّمُ عَلَيْهِمُ ٱلْخَبَٰٓئِثَ وَيَضَعُ عَنْهُمْ إِصْرَهُمْ وَٱلْأَغْلَٰلَ ٱلَّتِى كَانَتْ عَلَيْهِمْ فَٱلَّذِينَ ءَامَنُوا۟ بِهِۦ وَعَزَّرُوهُ وَنَصَرُوهُ وَٱتَّبَعُوا۟ ٱلنُّورَ ٱلَّذِىٓ أُنزِلَ مَعَهُۥٓ أُو۟لَٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ",
+   "warsh": "اَ۬لذِينَ يَتَّبِعُونَ اَ۬لرَّسُولَ اَ۬لنَّبِےٓءَ اَ۬لُامِّيَّ اَ۬لذِے يَجِدُونَهُۥ مَكْتُوباً عِندَهُمْ فِے اِ۬لتَّوْر۪يٰةِ وَالِانجِيلِ يَامُرُهُم بِالْمَعْرُوفِ وَيَنْه۪يٰهُمْ عَنِ اِ۬لْمُنكَرِ وَيُحِلُّ لَهُمُ اُ۬لطَّيِّبَٰتِ وَيُحَرِّمُ عَلَيْهِمُ اُ۬لْخَبَٰٓئِثَ وَيَضَعُ عَنْهُمُۥٓ إِصْرَهُمْ وَالَاغْلَٰلَ اَ۬لتِے كَانَتْ عَلَيْهِمْۖ فَالذِينَ ءَامَنُواْ بِهِۦ وَعَزَّرُوهُ وَنَصَرُوهُ وَاتَّبَعُواْ اُ۬لنُّورَ اَ۬لذِےٓ أُنزِلَ مَعَهُۥٓ أُوْلَٰٓئِكَ هُمُ اُ۬لْمُفْلِحُونَۖ",
+   "hausa": "\"Waɗanda suke sunã bin Manzo[1], Annabi, Ummiyyi wanda suke sãmun sa rubũce a wurinsu, a cikin Attaura da Linjĩla.yanã umurnin su da alhẽri, kuma yana hana su daga barin abin da bã a so; kuma yana halatta musu abũ- buwa masu dadi, kuma yana haramtarwar mũnana a kansu. Kuma yanã kãyar da nauyinsu daga barinsu, da ƙuƙummai waɗannan da suka kasance a kansu. To, wa- ɗanda suka yi ĩmãni da shi kuma suka ƙarfafa shi, kuma suka tai- make shi, kuma suka bi haske wan- da aka saukar tãre da shi, waɗan- nan ne mãsu cin nasara."
+  },
+  "16:98": {
+   "surah": 16,
+   "ayah": 98,
+   "surah_name": "النحل",
+   "surah_translit": "An-Nahl",
+   "uthmani": "فَإِذَا قَرَأْتَ ٱلْقُرْءَانَ فَٱسْتَعِذْ بِٱللَّهِ مِنَ ٱلشَّيْطَٰنِ ٱلرَّجِيمِ",
+   "warsh": "۞ فَإِذَا قَرَأْتَ اَ۬لْقُرْءَانَ فَاسْتَعِذْ بِاللَّهِ مِنَ اَ۬لشَّيْطَٰنِ اِ۬لرَّجِيمِۖ",
+   "hausa": "Sa'an nan idan ka karantã [1]Alƙur'ãni, sai ka nẽmi tsari ga Allah daga shaiɗan jẽfaffe."
+  },
+  "18:1": {
+   "surah": 18,
+   "ayah": 1,
+   "surah_name": "الكهف",
+   "surah_translit": "Al-Kahf",
+   "uthmani": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ٱلْحَمْدُ لِلَّهِ ٱلَّذِىٓ أَنزَلَ عَلَىٰ عَبْدِهِ ٱلْكِتَٰبَ وَلَمْ يَجْعَل لَّهُۥ عِوَجَا",
+   "warsh": "اِ۬لْحَمْدُ لِلهِ اِ۬لذِےٓ أَنزَلَ عَلَىٰ عَبْدِهِ اِ۬لْكِتَٰبَ وَلَمْ يَجْعَل لَّهُۥ عِوَجاٗۖ",
+   "hausa": "Gõdiya ta tabbata ga Allah wanda Ya saukar da Littafi a kan bãwansa kuma bai sanya karkata ba a gare shi."
+  },
+  "18:17": {
+   "surah": 18,
+   "ayah": 17,
+   "surah_name": "الكهف",
+   "surah_translit": "Al-Kahf",
+   "uthmani": "وَتَرَى ٱلشَّمْسَ إِذَا طَلَعَت تَّزَٰوَرُ عَن كَهْفِهِمْ ذَاتَ ٱلْيَمِينِ وَإِذَا غَرَبَت تَّقْرِضُهُمْ ذَاتَ ٱلشِّمَالِ وَهُمْ فِى فَجْوَةٍ مِّنْهُ ذَٰلِكَ مِنْ ءَايَٰتِ ٱللَّهِ مَن يَهْدِ ٱللَّهُ فَهُوَ ٱلْمُهْتَدِ وَمَن يُضْلِلْ فَلَن تَجِدَ لَهُۥ وَلِيًّا مُّرْشِدًا",
+   "warsh": "۞ وَتَرَى اَ۬لشَّمْسَ إِذَا طَلَعَت تَّزَّٰوَرُ عَن كَهْفِهِمْ ذَاتَ اَ۬لْيَمِينِ وَإِذَا غَرَبَت تَّقْرِضُهُمْ ذَاتَ اَ۬لشِّمَالِ وَهُمْ فِے فَجْوَةٖ مِّنْهُۖ ذَٰلِكَ مِنَ اٰيَٰتِ اِ۬للَّهِۖ مَنْ يَّهْدِ اِ۬للَّهُ فَهُوَ اَ۬لْمُهْتَدِۦۖ وَمَنْ يُّضْلِلْ فَلَن تَجِدَ لَهُۥ وَلِيّاٗ مُّرْشِداٗۖ",
+   "hausa": "Kuma kanã ganin rãnã idan ta fito tanã karkata daga kõgonsu wajen dãma kuma idan ta fãɗi tanã gurgura su wajen hagu, kuma su, sunã a cikin wani fili daga gare shi. Wannan abu yanã daga ãyõyin Allah. Wanda Allah Ya shiryar, to shĩ ne mai shiryuwa, kuma wanda Allah Ya ɓatar to bã zã ka sãmar masa wani majiɓinci mai shiryarwa ba."
+  },
+  "20:8": {
+   "surah": 20,
+   "ayah": 8,
+   "surah_name": "طه",
+   "surah_translit": "Taa-Haa",
+   "uthmani": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ",
+   "warsh": "اَ۬للَّهُ لَآ إِلَٰهَ إِلَّا هُوَۖ لَهُ اُ۬لَاسْمَآءُ اُ۬لْحُسْن۪ىٰۖ",
+   "hausa": "Allah bãbu abin bautãwa fãce Shi. Yanã da sunãye mafiya kyau."
+  },
+  "22:65": {
+   "surah": 22,
+   "ayah": 65,
+   "surah_name": "الحج",
+   "surah_translit": "Al-Hajj",
+   "uthmani": "أَلَمْ تَرَ أَنَّ ٱللَّهَ سَخَّرَ لَكُم مَّا فِى ٱلْأَرْضِ وَٱلْفُلْكَ تَجْرِى فِى ٱلْبَحْرِ بِأَمْرِهِۦ وَيُمْسِكُ ٱلسَّمَآءَ أَن تَقَعَ عَلَى ٱلْأَرْضِ إِلَّا بِإِذْنِهِۦٓ إِنَّ ٱللَّهَ بِٱلنَّاسِ لَرَءُوفٌ رَّحِيمٌ",
+   "warsh": "أَلَمْ تَرَ أَنَّ اَ۬للَّهَ سَخَّرَ لَكُم مَّا فِے اِ۬لَارْضِ وَالْفُلْكَ تَجْرِے فِے اِ۬لْبَحْرِ بِأَمْرِهِۦۖ وَيُمْسِكُ اُ۬لسَّمَآءَ ان تَقَعَ عَلَى اَ۬لَارْضِ إِلَّا بِإِذْنِهِۦٓۖ إِنَّ اَ۬للَّهَ بِالنَّاسِ لَرَءُوفٞ رَّحِيمٞۖ",
+   "hausa": "Shin ba ka gani ba, lalle ne Allah Ya hõre muku abin da yake a cikin ƙasa, kuma jirãge sunã gudãna a cikin tẽku, da umurninSa kuma Yanã riƙe sama dõmin kada ta fãɗi a kan ƙasa fãce da izninsa? Lalle ne Allah ga mutãne haƙĩƙa, Mai tausayi ne, Mai jin ƙai."
+  },
+  "28:83": {
+   "surah": 28,
+   "ayah": 83,
+   "surah_name": "القصص",
+   "surah_translit": "Al-Qasas",
+   "uthmani": "تِلْكَ ٱلدَّارُ ٱلْـَٔاخِرَةُ نَجْعَلُهَا لِلَّذِينَ لَا يُرِيدُونَ عُلُوًّا فِى ٱلْأَرْضِ وَلَا فَسَادًا وَٱلْعَٰقِبَةُ لِلْمُتَّقِينَ",
+   "warsh": "۞ تِلْكَ اَ۬لدَّارُ اُ۬لَاخِرَةُ نَجْعَلُهَا لِلذِينَ لَا يُرِيدُونَ عُلُوّاٗ فِے اِ۬لَارْضِ وَلَا فَسَاداٗۖ وَالْعَٰقِبَةُ لِلْمُتَّقِينَۖ",
+   "hausa": "Wancan gidan Lãhira Munã sanya shi ga waɗanda suke bã su nufin ɗaukaka a cikin rãyuwar dũniya kuma bã su son ɓarna. Kuma ãkiba ga mãsu taƙawa take."
+  },
+  "34:22": {
+   "surah": 34,
+   "ayah": 22,
+   "surah_name": "سبإ",
+   "surah_translit": "Saba",
+   "uthmani": "قُلِ ٱدْعُوا۟ ٱلَّذِينَ زَعَمْتُم مِّن دُونِ ٱللَّهِ لَا يَمْلِكُونَ مِثْقَالَ ذَرَّةٍ فِى ٱلسَّمَٰوَٰتِ وَلَا فِى ٱلْأَرْضِ وَمَا لَهُمْ فِيهِمَا مِن شِرْكٍ وَمَا لَهُۥ مِنْهُم مِّن ظَهِيرٍ",
+   "warsh": "قُلُ اُ۟دْعُواْ اُ۬لذِينَ زَعَمْتُم مِّن دُونِ اِ۬للَّهِۖ لَا يَمْلِكُونَ مِثْقَالَ ذَرَّةٖ فِے اِ۬لسَّمَٰوَٰتِ وَلَا فِے اِ۬لَارْضِۖ وَمَا لَهُمْ فِيهِمَا مِن شِرْكٖۖ وَمَا لَهُۥ مِنْهُم مِّن ظَهِيرٖۖ",
+   "hausa": "Ka ce: \"Ku kirãyi waɗanda kuka riya (cẽwa abũbuwan bautãwa ne) baicin Allah, bã su Mallakar ma'aunin zarra a cikin sammai, kuma bã su Mallakarsa a cikin ƙasa kuma bã su da wani rabon tãrẽwa a cikinsu (sammai da ƙasa), kuma bã Shi da wani mataimaki daga gare su."
+  },
+  "34:23": {
+   "surah": 34,
+   "ayah": 23,
+   "surah_name": "سبإ",
+   "surah_translit": "Saba",
+   "uthmani": "وَلَا تَنفَعُ ٱلشَّفَٰعَةُ عِندَهُۥٓ إِلَّا لِمَنْ أَذِنَ لَهُۥ حَتَّىٰٓ إِذَا فُزِّعَ عَن قُلُوبِهِمْ قَالُوا۟ مَاذَا قَالَ رَبُّكُمْ قَالُوا۟ ٱلْحَقَّ وَهُوَ ٱلْعَلِىُّ ٱلْكَبِيرُ",
+   "warsh": "وَلَا تَنفَعُ اُ۬لشَّفَٰعَةُ عِندَهُۥٓ إِلَّا لِمَنَ اَذِنَ لَهُۥۖ حَتَّىٰٓ إِذَا فُزِّعَ عَن قُلُوبِهِمْ قَالُواْ مَاذَا قَالَ رَبُّكُمْ قَالُواْ اُ۬لْحَقَّۖ وَهُوَ اَ۬لْعَلِيُّ اُ۬لْكَبِيرُۖ",
+   "hausa": "\"Kuma wani cẽto bã ya amfãni a wurin Sa face fa ga wanda Ya yi izni a gare shi. Har a lõkacin da aka kuranye[1] tsõro daga zukãtansu, sai su ce, 'Mẽne ne Ubangijinku Ya ce?' Suka ce: 'Gaskiya', kuma shi ne Maɗaukaki, Mai girma,\""
+  },
+  "35:1": {
+   "surah": 35,
+   "ayah": 1,
+   "surah_name": "فاطر",
+   "surah_translit": "Faatir",
+   "uthmani": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ٱلْحَمْدُ لِلَّهِ فَاطِرِ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ جَاعِلِ ٱلْمَلَٰٓئِكَةِ رُسُلًا أُو۟لِىٓ أَجْنِحَةٍ مَّثْنَىٰ وَثُلَٰثَ وَرُبَٰعَ يَزِيدُ فِى ٱلْخَلْقِ مَا يَشَآءُ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ",
+   "warsh": "اِ۬لْحَمْدُ لِلهِ فَاطِرِ اِ۬لسَّمَٰوَٰتِ وَالَارْضِ جَاعِلِ اِ۬لْمَلَٰٓئِكَةِ رُسُلاً ا۟وْلِےٓ أَجْنِحَةٖ مَّثْن۪ىٰ وَثُلَٰثَ وَرُبَٰعَۖ يَزِيدُ فِے اِ۬لْخَلْقِ مَا يَشَآءُۖ اِ۪نَّ اَ۬للَّهَ عَلَىٰ كُلِّ شَےْءٖ قَدِيرٞۖ",
+   "hausa": "Gõdiya ta tabbata ga Allah, Mai fãra halittar sammai da ƙasã, Mai sanya malã'iku manzanni mãsu fukãfukai, bibbiyu, da uku-uku da hurhuɗu. Yanã ƙãrãwar abin da Ya ke so a cikin halittar. Lalle Allah Mai ĩkon yi ne a kan kõme."
+  },
+  "39:75": {
+   "surah": 39,
+   "ayah": 75,
+   "surah_name": "الزمر",
+   "surah_translit": "Az-Zumar",
+   "uthmani": "وَتَرَى ٱلْمَلَٰٓئِكَةَ حَآفِّينَ مِنْ حَوْلِ ٱلْعَرْشِ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْ وَقُضِىَ بَيْنَهُم بِٱلْحَقِّ وَقِيلَ ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+   "warsh": "وَتَرَى اَ۬لْمَلَٰٓئِكَةَ حَآفِّينَ مِنْ حَوْلِ اِ۬لْعَرْشِ يُسَبِّحُونَ بِحَمْدِ رَبِّهِمْۖ وَقُضِيَ بَيْنَهُم بِالْحَقِّۖ وَقِيلَ اَ۬لْحَمْدُ لِلهِ رَبِّ اِ۬لْعَٰلَمِينَۖ",
+   "hausa": "Kuma kanã ganin malã'iku sunã mãsu tsayãwa da haƙƙoƙin da aka ɗõra musu daga kẽwayen Al'arshi, sunã tasbĩhi game da gõde wa Ubangijinsu. Kuma aka yi hukunci a tsakãninsu da gaskiya. Kuma aka ce, \"Gõdiya ta tabbata ga Allah, Ubangijin halittu.\""
+  },
+  "41:17": {
+   "surah": 41,
+   "ayah": 17,
+   "surah_name": "فصلت",
+   "surah_translit": "Fussilat",
+   "uthmani": "وَأَمَّا ثَمُودُ فَهَدَيْنَٰهُمْ فَٱسْتَحَبُّوا۟ ٱلْعَمَىٰ عَلَى ٱلْهُدَىٰ فَأَخَذَتْهُمْ صَٰعِقَةُ ٱلْعَذَابِ ٱلْهُونِ بِمَا كَانُوا۟ يَكْسِبُونَ",
+   "warsh": "۞ وَأَمَّا ثَمُودُ فَهَدَيْنَٰهُمْ فَاسْتَحَبُّواْ اُ۬لْعَم۪ىٰ عَلَى اَ۬لْهُد۪ىٰ فَأَخَذَتْهُمْ صَٰعِقَةُ اُ۬لْعَذَابِ اِ۬لْهُونِ بِمَا كَانُواْ يَكْسِبُونَۖ",
+   "hausa": "Kuma amma Samũdãwa, sai Muka shiryar da su, sai suka fi son makanta a kan shiriya, dõmin haka tsawar azãbar wulãkanci, ta kamã su sabõda abin da suka kasance sunã aikatãwa (dõmin nẽman wata fã'ida)."
+  }
+ }
+}

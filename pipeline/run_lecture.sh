@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Process one lecture end to end:  clean audio -> transcribe (Hausa + Arabic) -> build player JSON.
+# Set FOCUS=1,2 (surahs the lecture covers) to resolve phrases that occur in several surahs.
 # Usage: pipeline/run_lecture.sh ORIGINAL.mp3 LECTURE_ID "Title" [extra transcribe.py args, e.g. --start 600 --duration 120]
 set -euo pipefail
 SRC="$1"; ID="$2"; TITLE="$3"; shift 3
@@ -23,5 +24,5 @@ echo "== Transcribing Arabic (Whisper large-v3; the slow step) to find Quran rec
 "$PY" "$ROOT/pipeline/transcribe.py" "$CLEAN" "$ROOT/work/$ID" --langs ar "$@"
 
 echo "== Building transcript"
-"$PY" "$ROOT/pipeline/build.py" "$ROOT/work/$ID" "$ID" "audio/$ID.mp3" "$ROOT/player/data/$ID.json" --title "$TITLE"
+"$PY" "$ROOT/pipeline/build.py" "$ROOT/work/$ID" "$ID" "audio/$ID.mp3" "$ROOT/player/data/$ID.json" --title "$TITLE" --focus "${FOCUS:-}"
 echo "Done. Preview: cd $ROOT/player && python3 serve.py, then open http://localhost:8000/?lecture=$ID"
