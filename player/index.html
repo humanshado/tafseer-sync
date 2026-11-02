@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ha">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tafsir Player</title>
+<style>
+@font-face { font-family: "Amiri"; src: url("fonts/amiri-regular.woff2") format("woff2"); font-display: swap; }
+:root {
+  --bg: #f7f5f0; --surface: #ffffff; --text: #1f2328; --muted: #6b6f76; --line: #e4e0d6;
+  --accent: #0f6b4f; --accent-soft: #e3f1ea; --active: #fff6d6; --active-line: #d9a400;
+  --quran-bg: #f1f6f3; --chip-bg: #eef1f6; --flag: #c2410c;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171a; --surface: #1c2024; --text: #e8e6e1; --muted: #9aa0a6; --line: #2c3238;
+    --accent: #5cc49b; --accent-soft: #1d3029; --active: #2e2a1a; --active-line: #e0b331;
+    --quran-bg: #18241f; --chip-bg: #232a33; --flag: #fb923c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171a; --surface: #1c2024; --text: #e8e6e1; --muted: #9aa0a6; --line: #2c3238;
+  --accent: #5cc49b; --accent-soft: #1d3029; --active: #2e2a1a; --active-line: #e0b331;
+  --quran-bg: #18241f; --chip-bg: #232a33; --flag: #fb923c;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body { font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.ar { font-family: "Amiri", "Scheherazade New", "Noto Naskh Arabic", serif; direction: rtl; unicode-bidi: isolate; }
+
+header.bar {
+  position: sticky; top: 0; z-index: 10; background: var(--surface);
+  border-bottom: 1px solid var(--line); padding: 10px 16px 12px;
+}
+.bar-inner { max-width: 820px; margin: 0 auto; }
+h1 { font-size: 1.05rem; margin: 0 0 2px; font-weight: 650; }
+.sub { color: var(--muted); font-size: .8rem; }
+.sub .draft { color: var(--flag); }
+audio { width: 100%; margin-top: 8px; height: 40px; }
+.controls { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+.controls button, .controls select {
+  font: inherit; font-size: .82rem; padding: 5px 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--text); cursor: pointer;
+}
+.controls button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.controls .spacer { flex: 1; }
+
+main { max-width: 820px; margin: 0 auto; padding: 16px 16px 50vh; }
+.seg {
+  position: relative; padding: 10px 14px 10px 16px; margin: 4px 0; border-radius: 10px;
+  border-left: 3px solid transparent; cursor: pointer; transition: background .2s, border-color .2s;
+}
+.seg:hover { background: var(--surface); }
+.seg.active { background: var(--active); border-left-color: var(--active-line); }
+.seg .t { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.seg.review .t::after { content: " • check"; color: var(--flag); }
+body:not(.show-review) .seg.review .t::after { content: ""; }
+
+.quran { background: var(--quran-bg); border: 1px solid var(--line); border-left-width: 3px; padding: 14px 16px; margin: 12px 0; }
+.quran.active { border-left-color: var(--active-line); }
+.quran .ref { font-size: .78rem; color: var(--accent); font-weight: 600; display: flex; justify-content: space-between; gap: 8px; }
+.quran .ref .ar { font-size: 1rem; }
+.verse { margin-top: 8px; }
+.verse .ar { font-size: 1.75rem; line-height: 2.3; display: block; text-align: right; }
+.verse .num { font-size: 1.1rem; color: var(--accent); }
+.verse .ha { color: var(--muted); font-size: .95rem; margin-top: 2px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.chip { background: var(--chip-bg); border-radius: 8px; padding: 4px 12px; font-size: .8rem; display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.chip .ar { font-size: 1.25rem; line-height: 1.6; }
+.chip .m { color: var(--muted); }
+
+#resume {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 20;
+  background: var(--accent); color: #fff; border: 0; border-radius: 999px;
+  padding: 10px 18px; font: inherit; font-size: .9rem; box-shadow: 0 4px 16px rgba(0,0,0,.2); cursor: pointer;
+}
+#resume[hidden] { display: none; }
+.empty { color: var(--muted); text-align: center; padding: 40px 0; }
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .verse .ar { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-inner">
+    <h1 id="title">Loading…</h1>
+    <div class="sub" id="sub"></div>
+    <audio id="audio" controls preload="metadata"></audio>
+    <div class="controls">
+      <select id="rate" aria-label="Playback speed">
+        <option value="0.75">0.75×</option><option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option>
+      </select>
+      <button id="follow" aria-pressed="true" title="Scroll the transcript with the audio">Auto-scroll</button>
+      <button id="script" aria-pressed="false" title="Switch Quran script between Hafs and Warsh">Hafs</button>
+      <button id="trans" aria-pressed="true" title="Show the Hausa translation of verses">Fassara</button>
+      <button id="flags" aria-pressed="false" title="Show segments that still need checking">Review</button>
+      <span class="spacer"></span>
+      <button id="theme" title="Light / dark">◐</button>
+    </div>
+  </div>
+</header>
+
+<main id="list"><p class="empty">Loading transcript…</p></main>
+<button id="resume" hidden>↓ Back to current</button>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem("tafsir." + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem("tafsir." + k, JSON.stringify(v)); } catch {} },
+  };
+  const fmt = (s) => {
+    s = Math.max(0, Math.floor(s));
+    const h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, x = String(s % 60).padStart(2, "0");
+    return h ? `${h}:${String(m).padStart(2, "0")}:${x}` : `${m}:${x}`;
+  };
+  const toArabicDigits = (n) => String(n).replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+  const audio = $("audio"), list = $("list"), resume = $("resume");
+  const lecture = new URLSearchParams(location.search).get("lecture") || "fatihah01_baqara05";
+  let segs = [], nodes = [], starts = [], current = -1;
+  let follow = true, programmaticScroll = 0;
+
+  // ---------- settings ----------
+  const settings = {
+    warsh: store.get("warsh", false), trans: store.get("trans", true),
+    flags: store.get("flags", false), theme: store.get("theme", null), rate: store.get("rate", 1),
+  };
+  function applySettings() {
+    $("script").textContent = settings.warsh ? "Warsh" : "Hafs";
+    $("script").setAttribute("aria-pressed", settings.warsh);
+    $("trans").setAttribute("aria-pressed", settings.trans);
+    $("flags").setAttribute("aria-pressed", settings.flags);
+    document.body.classList.toggle("show-review", settings.flags);
+    document.querySelectorAll(".verse .ha").forEach((e) => (e.hidden = !settings.trans));
+    document.querySelectorAll(".verse .ar").forEach((e) => {
+      e.textContent = e.dataset[settings.warsh ? "warsh" : "hafs"] || e.dataset.hafs;
+      e.hidden = settings.warsh && e.parentElement.dataset.warshDup === "1";
+    });
+    if (settings.theme) document.documentElement.dataset.theme = settings.theme; else delete document.documentElement.dataset.theme;
+    audio.playbackRate = settings.rate; $("rate").value = String(settings.rate);
+  }
+  $("script").onclick = () => { settings.warsh = !settings.warsh; store.set("warsh", settings.warsh); applySettings(); };
+  $("trans").onclick = () => { settings.trans = !settings.trans; store.set("trans", settings.trans); applySettings(); };
+  $("flags").onclick = () => { settings.flags = !settings.flags; store.set("flags", settings.flags); applySettings(); };
+  $("theme").onclick = () => {
+    const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+    const now = settings.theme || (dark ? "dark" : "light");
+    settings.theme = now === "dark" ? "light" : "dark"; store.set("theme", settings.theme); applySettings();
+  };
+  $("rate").onchange = (e) => { settings.rate = +e.target.value; store.set("rate", settings.rate); applySettings(); };
+  $("follow").onclick = () => setFollow(!follow);
+
+  function setFollow(on) {
+    follow = on; $("follow").setAttribute("aria-pressed", on); resume.hidden = on || current < 0;
+    if (on) scrollToCurrent();
+  }
+
+  // ---------- render ----------
+  function render(data) {
+    document.title = data.title || "Tafsir Player";
+    $("title").textContent = data.title || data.lecture;
+    $("sub").innerHTML = "";
+    $("sub").append(`${data.segments.length} segments`);
+    if (data.status && /draft/i.test(data.status)) { $("sub").append(" · "); $("sub").append(el("span", "draft", "Draft transcript — not yet reviewed")); }
+    audio.src = data.audio;
+
+    segs = data.segments; list.innerHTML = ""; nodes = [];
+    for (const s of segs) {
+      const n = el("div", "seg" + (s.review ? " review" : ""));
+      n.append(el("div", "t", fmt(s.start)));
+      if (s.type === "quran") {
+        n.classList.add("quran");
+        const v0 = data.verses[s.refs[0]], v1 = data.verses[s.refs[s.refs.length - 1]];
+        const ref = el("div", "ref");
+        const range = v0.ayah === v1.ayah ? v0.ayah : `${v0.ayah}–${v1.ayah}`;
+        ref.append(el("span", "", `${v0.surah_translit} ${v0.surah}:${range}`), el("span", "ar", "سورة " + v0.surah_name));
+        n.append(ref);
+        let prevWarsh = null;
+        for (const r of s.refs) {
+          const v = data.verses[r], box = el("div", "verse");
+          // Warsh counts some verses differently (e.g. 2:1-2 are one verse): show a shared Warsh verse once.
+          if (v.warsh && v.warsh === prevWarsh) box.dataset.warshDup = "1";
+          prevWarsh = v.warsh;
+          const ar = el("span", "ar"); ar.dataset.hafs = `${v.uthmani} ﴿${toArabicDigits(v.ayah)}﴾`;
+          ar.dataset.warsh = v.warsh ? `${v.warsh} ﴿${toArabicDigits(v.ayah)}﴾` : "";
+          box.append(ar, el("div", "ha", `(${v.ayah}) ${v.hausa.replace(/\s*\[\d+\]/g, "")}`)); n.append(box);
+        }
+      } else if (s.type === "arabic") {
+        n.append(el("div", "ar", s.text));
+      } else {
+        n.append(el("div", "txt", s.text));
+        if (s.phrases && s.phrases.length) {
+          const chips = el("div", "chips");
+          const seen = new Set();
+          for (const p of s.phrases) {
+            if (seen.has(p.id)) continue; seen.add(p.id);
+            const c = el("span", "chip"); c.title = p.translit;
+            c.append(el("span", "ar", p.arabic), el("span", "m", p.meaning_ha || p.meaning_en)); chips.append(c);
+          }
+          n.append(chips);
+        }
+      }
+      n.onclick = () => { audio.currentTime = s.start + 0.01; audio.play(); setFollow(true); };
+      list.append(n); nodes.push(n);
+    }
+    starts = segs.map((s) => s.start);
+    if (!segs.length) list.innerHTML = '<p class="empty">This transcript has no segments yet.</p>';
+    applySettings();
+  }
+
+  // ---------- sync ----------
+  function indexAt(t) {  // last segment that started at or before t (binary search)
+    let lo = 0, hi = starts.length - 1, ans = -1;
+    while (lo <= hi) { const mid = (lo + hi) >> 1; if (starts[mid] <= t) { ans = mid; lo = mid + 1; } else hi = mid - 1; }
+    return ans;
+  }
+  function scrollToCurrent() {
+    if (current < 0) return;
+    programmaticScroll = performance.now();
+    const n = nodes[current], barH = document.querySelector("header.bar").offsetHeight;
+    const y = n.getBoundingClientRect().top + scrollY - barH - Math.min(140, innerHeight * 0.18);
+    scrollTo({ top: y, behavior: "smooth" });
+  }
+  function tick() {
+    const i = indexAt(audio.currentTime);
+    if (i !== current) {
+      if (current >= 0) nodes[current].classList.remove("active");
+      current = i;
+      if (i >= 0) { nodes[i].classList.add("active"); if (follow) scrollToCurrent(); else resume.hidden = false; }
+    }
+    if (!audio.paused) requestAnimationFrame(tick);
+  }
+  audio.addEventListener("play", () => requestAnimationFrame(tick));
+  audio.addEventListener("seeked", tick);
+  audio.addEventListener("timeupdate", tick);
+
+  // Pause auto-scroll when the reader scrolls by hand.
+  const manual = () => { if (performance.now() - programmaticScroll > 900 && follow) setFollow(false); };
+  addEventListener("wheel", manual, { passive: true });
+  addEventListener("touchmove", manual, { passive: true });
+  addEventListener("keydown", (e) => { if (["PageUp", "PageDown", "Home", "End"].includes(e.key)) manual(); });
+  resume.onclick = () => setFollow(true);
+
+  // Keyboard: space = play/pause, ←/→ = 5 s.
+  addEventListener("keydown", (e) => {
+    if (e.target.closest("input, select, textarea")) return;
+    if (e.code === "Space" && e.target === document.body) { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); }
+    if (e.key === "ArrowLeft") audio.currentTime = Math.max(0, audio.currentTime - 5);
+    if (e.key === "ArrowRight") audio.currentTime += 5;
+  });
+
+  // Remember position per lecture.
+  const posKey = "pos." + lecture;
+  audio.addEventListener("loadedmetadata", () => { const p = store.get(posKey, 0); if (p > 5) audio.currentTime = p; }, { once: true });
+  setInterval(() => { if (!audio.paused) store.set(posKey, Math.floor(audio.currentTime)); }, 5000);
+
+  fetch(`data/${lecture}.json`).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(() => { $("title").textContent = "Transcript not found"; list.innerHTML = `<p class="empty">No transcript at data/${lecture}.json yet.</p>`; });
+})();
+</script>
+</body>
+</html>

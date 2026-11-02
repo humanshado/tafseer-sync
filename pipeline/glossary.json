@@ -1,0 +1,141 @@
+{
+ "_note": "Arabic expressions spoken inside the Hausa commentary. 'pattern' is a regex matched against a simplified 'skeleton' of the Hausa transcript: lowercase, accents removed, spaces/punctuation removed, doubled letters collapsed (e.g. 'Bismillahi rRahmani' -> 'bismilahirahmani'). Add entries as you review lectures; 'meaning_ha' is left for a Hausa speaker to fill in.",
+ "phrases": [
+  {
+   "id": "basmala",
+   "pattern": "bismilah\\w{0,2}rahman\\w{0,2}rahim",
+   "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+   "translit": "Bismillāhir-raḥmānir-raḥīm",
+   "meaning_en": "In the name of Allah, the Most Gracious, the Most Merciful",
+   "meaning_ha": ""
+  },
+  {
+   "id": "taawwudh",
+   "pattern": "[ao]?[uo](dh|z|d)u?bilah\\w{0,2}min\\w{0,3}(sh|s)[ae]i?y?(t|d)\\w{0,4}raji?m",
+   "arabic": "أَعُوذُ بِٱللَّهِ مِنَ ٱلشَّيْطَٰنِ ٱلرَّجِيمِ",
+   "translit": "Aʿūdhu billāhi minash-shayṭānir-rajīm",
+   "meaning_en": "I seek refuge in Allah from the accursed Satan",
+   "meaning_ha": ""
+  },
+  {
+   "id": "hamdala",
+   "pattern": "alhamdulilah",
+   "arabic": "ٱلْحَمْدُ لِلَّهِ",
+   "translit": "Al-ḥamdu lillāh",
+   "meaning_en": "All praise is due to Allah",
+   "meaning_ha": ""
+  },
+  {
+   "id": "swt",
+   "pattern": "subh?anahuwatala",
+   "arabic": "سُبْحَانَهُ وَتَعَالَىٰ",
+   "translit": "Subḥānahu wa taʿālā",
+   "meaning_en": "Glorified and exalted is He",
+   "meaning_ha": ""
+  },
+  {
+   "id": "tabaraka",
+   "pattern": "tabarakawatala",
+   "arabic": "تَبَارَكَ وَتَعَالَىٰ",
+   "translit": "Tabāraka wa taʿālā",
+   "meaning_en": "Blessed and exalted is He",
+   "meaning_ha": ""
+  },
+  {
+   "id": "azza_wajalla",
+   "pattern": "azawajala",
+   "arabic": "عَزَّ وَجَلَّ",
+   "translit": "ʿAzza wa jall",
+   "meaning_en": "Mighty and Majestic",
+   "meaning_ha": ""
+  },
+  {
+   "id": "salawat",
+   "pattern": "s[ao]lal?ahu?[ae]l[ae]i?hiwas[ae]lam",
+   "arabic": "صَلَّى ٱللَّهُ عَلَيْهِ وَسَلَّمَ",
+   "translit": "Ṣallallāhu ʿalayhi wa sallam",
+   "meaning_en": "May Allah's peace and blessings be upon him",
+   "meaning_ha": ""
+  },
+  {
+   "id": "radiyallahu",
+   "pattern": "rad?h?iy?alahu?anhu",
+   "arabic": "رَضِيَ ٱللَّهُ عَنْهُ",
+   "translit": "Raḍiyallāhu ʿanhu",
+   "meaning_en": "May Allah be pleased with him",
+   "meaning_ha": ""
+  },
+  {
+   "id": "inshaallah",
+   "pattern": "insh?alah",
+   "arabic": "إِنْ شَاءَ ٱللَّهُ",
+   "translit": "In shāʾ Allāh",
+   "meaning_en": "If Allah wills",
+   "meaning_ha": ""
+  },
+  {
+   "id": "mashaallah",
+   "pattern": "mash?alah",
+   "arabic": "مَا شَاءَ ٱللَّهُ",
+   "translit": "Mā shāʾ Allāh",
+   "meaning_en": "What Allah has willed",
+   "meaning_ha": ""
+  },
+  {
+   "id": "subhanallah",
+   "pattern": "subh?analah",
+   "arabic": "سُبْحَانَ ٱللَّهِ",
+   "translit": "Subḥān Allāh",
+   "meaning_en": "Glory be to Allah",
+   "meaning_ha": ""
+  },
+  {
+   "id": "takbir",
+   "pattern": "alahuakbar",
+   "arabic": "ٱللَّهُ أَكْبَرُ",
+   "translit": "Allāhu akbar",
+   "meaning_en": "Allah is the Greatest",
+   "meaning_ha": ""
+  },
+  {
+   "id": "allahu_alam",
+   "pattern": "alahua?l[ae]m",
+   "arabic": "ٱللَّهُ أَعْلَمُ",
+   "translit": "Allāhu aʿlam",
+   "meaning_en": "Allah knows best",
+   "meaning_ha": ""
+  },
+  {
+   "id": "astaghfirullah",
+   "pattern": "ast[ae]g?h?f[iu]rulah",
+   "arabic": "أَسْتَغْفِرُ ٱللَّهَ",
+   "translit": "Astaghfirullāh",
+   "meaning_en": "I seek Allah's forgiveness",
+   "meaning_ha": ""
+  },
+  {
+   "id": "tahlil",
+   "pattern": "lailahailalah",
+   "arabic": "لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+   "translit": "Lā ilāha illallāh",
+   "meaning_en": "There is no god but Allah",
+   "meaning_ha": ""
+  },
+  {
+   "id": "jazakallah",
+   "pattern": "jazakalahu?k?h?airan",
+   "arabic": "جَزَاكَ ٱللَّهُ خَيْرًا",
+   "translit": "Jazāk Allāhu khayran",
+   "meaning_en": "May Allah reward you with good",
+   "meaning_ha": ""
+  },
+  {
+   "id": "salam",
+   "pattern": "asalamu?alaikum",
+   "arabic": "ٱلسَّلَامُ عَلَيْكُمْ",
+   "translit": "As-salāmu ʿalaykum",
+   "meaning_en": "Peace be upon you",
+   "meaning_ha": ""
+  }
+ ]
+}
