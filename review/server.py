@@ -22,7 +22,7 @@ import urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "player"))
 sys.path.insert(0, os.path.join(ROOT, "pipeline"))
-from serve import RangeHandler  # noqa: E402  (player/serve.py: seeking support)
+from serve import QuietServer, RangeHandler  # noqa: E402  (player/serve.py: seeking support)
 
 DATA = os.path.join(ROOT, "player", "data")
 GLOSSARY = os.path.join(ROOT, "pipeline", "glossary.json")
@@ -171,4 +171,4 @@ class Handler(RangeHandler):
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8001
     print(f"Review tool: http://localhost:{port}")
-    http.server.ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()
+    QuietServer(("127.0.0.1", port), Handler).serve_forever()

@@ -49,8 +49,18 @@ class RangeHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
 
+class QuietServer(http.server.ThreadingHTTPServer):
+    """Browsers cancel audio downloads whenever the listener seeks; that is normal, so don't print tracebacks."""
+    daemon_threads = True
+
+    def handle_error(self, request, client_address):
+        if isinstance(sys.exc_info()[1], (BrokenPipeError, ConnectionResetError, ConnectionAbortedError)):
+            return
+        super().handle_error(request, client_address)
+
+
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     print(f"Serving on http://localhost:{port}")
-    http.server.ThreadingHTTPServer(("", port), RangeHandler).serve_forever()
+    QuietServer(("", port), RangeHandler).serve_forever()
