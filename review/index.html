@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript Review</title>
+<style>
+@font-face { font-family: "Amiri"; src: url("/player/fonts/amiri-regular.woff2") format("woff2"); font-display: swap; }
+:root {
+  --bg: #f5f4f0; --surface: #fff; --text: #1f2328; --muted: #6b6f76; --line: #e2ded4;
+  --accent: #0f6b4f; --accent-soft: #e3f1ea; --warn: #b45309; --warn-soft: #fdf0dc;
+  --danger: #b91c1c; --sel: #fff6d6; --playing: #d9a400; --quran: #eef5f1;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171a; --surface: #1c2024; --text: #e8e6e1; --muted: #9aa0a6; --line: #2e343a;
+    --accent: #5cc49b; --accent-soft: #1d3029; --warn: #f59e0b; --warn-soft: #33270f;
+    --danger: #f87171; --sel: #2e2a1a; --playing: #e0b331; --quran: #18241f;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171a; --surface: #1c2024; --text: #e8e6e1; --muted: #9aa0a6; --line: #2e343a;
+  --accent: #5cc49b; --accent-soft: #1d3029; --warn: #f59e0b; --warn-soft: #33270f;
+  --danger: #f87171; --sel: #2e2a1a; --playing: #e0b331; --quran: #18241f;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text); }
+body { font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.ar { font-family: "Amiri", "Scheherazade New", "Noto Naskh Arabic", serif; direction: rtl; unicode-bidi: isolate; }
+button, select, input, textarea { font: inherit; color: inherit; }
+button {
+  border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 4px 10px; cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.danger { color: var(--danger); }
+button:disabled { opacity: .5; cursor: default; }
+select, input[type=text], textarea {
+  border: 1px solid var(--line); background: var(--bg); border-radius: 8px; padding: 5px 8px;
+}
+textarea { width: 100%; resize: vertical; min-height: 70px; font-size: 1.05rem; }
+kbd { font: .75rem ui-monospace, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; background: var(--bg); }
+
+header {
+  position: sticky; top: 0; z-index: 10; background: var(--surface); border-bottom: 1px solid var(--line); padding: 10px 16px;
+}
+.wrap { max-width: 980px; margin: 0 auto; }
+.row1 { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.row1 h1 { font-size: 1rem; margin: 0 8px 0 0; }
+.grow { flex: 1; }
+#saveState { font-size: .82rem; color: var(--muted); }
+#saveState.dirty { color: var(--warn); }
+#saveState.err { color: var(--danger); }
+audio { width: 100%; height: 38px; margin-top: 8px; }
+.row2 { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 6px; font-size: .85rem; }
+.progress { flex: 1; min-width: 140px; height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.progress > div { height: 100%; background: var(--accent); width: 0; transition: width .3s; }
+
+main { max-width: 980px; margin: 0 auto; padding: 12px 16px 60vh; }
+.seg {
+  display: grid; grid-template-columns: 74px 64px 1fr 22px; gap: 10px; align-items: baseline;
+  padding: 7px 10px; border-radius: 8px; cursor: pointer; border-left: 3px solid transparent;
+}
+.seg:hover { background: var(--surface); }
+.seg.playing { border-left-color: var(--playing); }
+.seg.sel { background: var(--sel); }
+.seg .time { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .8rem; }
+.seg .badge { font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.seg .badge.quran { color: var(--accent); font-weight: 600; }
+.seg .sum { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.seg .sum.ar { font-size: 1.15rem; text-align: right; }
+.seg .st { text-align: center; }
+.seg .st.ok { color: var(--accent); }
+.seg .st.flag { color: var(--warn); }
+
+.editor {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 4px 0 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+.editor .line { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px; }
+.editor label.k { font-size: .78rem; color: var(--muted); min-width: 44px; }
+.editor .tval { width: 92px; font-variant-numeric: tabular-nums; text-align: center; }
+.seg-types button[aria-pressed=true] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.letters button { padding: 2px 9px; font-size: 1rem; }
+.hint { font-size: .78rem; color: var(--muted); }
+.heard { font-size: 1rem; color: var(--muted); background: var(--bg); border-radius: 8px; padding: 6px 10px; }
+.verses { background: var(--quran); border-radius: 10px; padding: 8px 12px; margin-top: 6px; }
+.verses .v .ar { font-size: 1.5rem; line-height: 2.1; display: block; text-align: right; }
+.verses .v .ha { font-size: .88rem; color: var(--muted); }
+.err { color: var(--danger); font-size: .85rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; gap: 8px; align-items: center; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 2px 4px 2px 10px; }
+.chip .ar { font-size: 1.15rem; line-height: 1.9; }
+.chip button { border: 0; padding: 0 6px; background: none; color: var(--muted); }
+fieldset { border: 1px dashed var(--line); border-radius: 10px; margin: 8px 0 0; padding: 8px 10px; }
+fieldset input[type=text] { min-width: 180px; flex: 1; }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--line); padding-top: 10px; margin-top: 4px; }
+.empty { color: var(--muted); text-align: center; padding: 40px 0; }
+
+dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); max-width: 560px; }
+dialog table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
+#toast {
+  position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg);
+  padding: 8px 14px; border-radius: 8px; font-size: .9rem; opacity: 0; transition: opacity .2s; pointer-events: none; z-index: 30;
+}
+#toast.show { opacity: .92; }
+@media (max-width: 640px) {
+  .seg { grid-template-columns: 60px 1fr 18px; }
+  .seg .badge { display: none; }
+  .row1 h1, #help { display: none; }
+  header { padding: 8px 12px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="row1">
+      <h1>Transcript review</h1>
+      <select id="lecture" aria-label="Lecture"></select>
+      <span class="grow"></span>
+      <span id="saveState">Loading…</span>
+      <button id="undo" title="Undo split / merge / delete / insert" disabled>Undo</button>
+      <button id="save" class="primary" title="Save (Ctrl+S)">Save</button>
+      <button id="help" title="Keyboard shortcuts">?</button>
+    </div>
+    <audio id="audio" controls preload="metadata"></audio>
+    <div class="row2">
+      <select id="filter" aria-label="Show">
+        <option value="todo">Not yet reviewed</option>
+        <option value="flag">Flagged as uncertain</option>
+        <option value="quran">Quran passages</option>
+        <option value="all">All segments</option>
+      </select>
+      <select id="rate" aria-label="Speed">
+        <option value="0.75">0.75×</option><option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option><option value="1.5">1.5×</option>
+      </select>
+      <label><input type="checkbox" id="follow"> Follow audio</label>
+      <div class="progress" title="Reviewed"><div id="bar"></div></div>
+      <span id="count"></span>
+    </div>
+  </div>
+</header>
+<main id="list"><p class="empty">Loading…</p></main>
+<div id="toast" role="status"></div>
+
+<dialog id="helpDlg">
+  <h3 style="margin-top:0">Keyboard shortcuts</h3>
+  <table>
+    <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>Mark reviewed and go to the next segment</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>P</kbd></td><td>Play the selected segment</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>K</kbd></td><td>Play / pause</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>J</kbd> / <kbd>L</kbd></td><td>Back / forward 3 seconds</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>Previous / next segment</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>S</kbd></td><td>Split at the text cursor (time: at the playhead)</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>M</kbd></td><td>Merge with the next segment</td></tr>
+    <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Save now (it also saves automatically)</td></tr>
+  </table>
+  <p class="hint">Typical flow: press <kbd>Alt</kbd>+<kbd>P</kbd>, listen, correct the text, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
+  Verse texts always come from the official Quran data; you only set the references.</p>
+  <form method="dialog"><button>Close</button></form>
+</dialog>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, attrs = {}, ...kids) => {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === "class") e.className = v; else if (k.startsWith("on")) e[k] = v;
+      else if (v === true) e.setAttribute(k, ""); else if (v !== false && v != null) e.setAttribute(k, v);
+    }
+    for (const k of kids.flat()) if (k != null) e.append(k);
+    return e;
+  };
+  const fmt = (s) => { s = Math.max(0, s); const m = Math.floor(s / 60), x = (s % 60).toFixed(1).padStart(4, "0"); return `${m}:${x}`; };
+  const round = (x) => Math.round(x * 100) / 100;
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem("review." + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem("review." + k, JSON.stringify(v)); } catch {} },
+  };
+  const toast = (msg) => { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 2200); };
+
+  const audio = $("audio"), list = $("list");
+  let doc = null, lectureId = null, segs = [], sel = -1, glossary = [];
+  let dirty = false, saving = false, version = 0, saveTimer = null, undoStack = [], stopAt = null, playingIdx = -1;
+
+  // ---------------- loading ----------------
+  async function init() {
+    const [lectures, gl] = await Promise.all([fetch("/api/lectures").then((r) => r.json()), fetch("/api/glossary").then((r) => r.json())]);
+    glossary = gl;
+    const sel0 = new URLSearchParams(location.search).get("lecture") || store.get("lecture", lectures[0]?.id);
+    for (const l of lectures) $("lecture").append(el("option", { value: l.id }, `${l.title} (${l.reviewed}/${l.segments})`));
+    if (!lectures.length) { list.innerHTML = '<p class="empty">No transcripts in player/data yet.</p>'; return; }
+    $("lecture").value = lectures.some((l) => l.id === sel0) ? sel0 : lectures[0].id;
+    $("filter").value = store.get("filter", "todo");
+    $("rate").value = String(store.get("rate", 1)); audio.playbackRate = +$("rate").value;
+    $("follow").checked = store.get("follow", false);
+    await load($("lecture").value);
+  }
+  async function load(id) {
+    if (dirty && !(await save())) return;
+    lectureId = id; store.set("lecture", id);
+    doc = await fetch(`/player/data/${id}.json`, { cache: "no-store" }).then((r) => r.json());
+    segs = doc.segments; undoStack = []; $("undo").disabled = true;
+    audio.src = "/player/" + doc.audio;
+    sel = Math.min(store.get("sel." + id, 0), segs.length - 1);
+    setDirty(false); render();
+    requestAnimationFrame(() => scrollToSel());
+  }
+
+  // ---------------- list ----------------
+  const visible = (s) => {
+    const f = $("filter").value;
+    return f === "all" || (f === "todo" && !s.reviewed) || (f === "flag" && s.review) || (f === "quran" && s.type === "quran");
+  };
+  function summary(s) {
+    if (s.type === "quran") {
+      const v = doc.verses[s.refs[0]];
+      return el("span", { class: "sum" }, `${v ? v.surah_translit : ""} ${s.refs.length > 1 ? s.refs[0] + "–" + s.refs[s.refs.length - 1].split(":")[1] : s.refs[0]}`);
+    }
+    return el("span", { class: "sum" + (s.type === "arabic" ? " ar" : "") }, s.text);
+  }
+  function row(s, i) {
+    const st = s.reviewed ? el("span", { class: "st ok", title: "Reviewed" }, "✓") : s.review ? el("span", { class: "st flag", title: "Uncertain" }, "!") : el("span", { class: "st" }, "");
+    const r = el("div", { class: "seg" + (i === sel ? " sel" : "") + (i === playingIdx ? " playing" : ""), "data-i": i },
+      el("span", { class: "time" }, fmt(s.start)), el("span", { class: "badge " + s.type }, s.type), summary(s), st);
+    r.onclick = () => select(i, { play: false });
+    return r;
+  }
+  function render() {
+    list.innerHTML = "";
+    let shown = 0;
+    segs.forEach((s, i) => {
+      if (!visible(s) && i !== sel) return;
+      shown++;
+      list.append(row(s, i));
+      if (i === sel) list.append(editor(s, i));
+    });
+    if (!shown) list.append(el("p", { class: "empty" }, $("filter").value === "todo" ? "Everything in this lecture is reviewed. 🎉" : "Nothing matches this filter."));
+    updateProgress();
+  }
+  function refreshRow(i) {
+    const old = list.querySelector(`.seg[data-i="${i}"]`);
+    if (old) old.replaceWith(row(segs[i], i));
+  }
+  function updateProgress() {
+    const done = segs.filter((s) => s.reviewed).length;
+    $("bar").style.width = (100 * done / Math.max(1, segs.length)) + "%";
+    $("count").textContent = `${done} of ${segs.length} reviewed`;
+  }
+  function scrollToSel() {
+    const n = list.querySelector(".seg.sel"); if (!n) return;
+    const top = n.getBoundingClientRect().top + scrollY - document.querySelector("header").offsetHeight - 20;
+    scrollTo({ top, behavior: "smooth" });
+  }
+  function select(i, { play = false, focus = true } = {}) {
+    if (i < 0 || i >= segs.length) return;
+    sel = i; store.set("sel." + lectureId, i);
+    render(); scrollToSel();
+    if (play) playSeg();
+    if (focus) setTimeout(() => list.querySelector(".editor textarea, .editor input.refs")?.focus({ preventScroll: true }), 50);
+  }
+  const step = (dir) => {  // next/previous visible segment
+    for (let i = sel + dir; i >= 0 && i < segs.length; i += dir) if (visible(segs[i])) return select(i, { play: true });
+  };
+
+  // ---------------- editor ----------------
+  function timeCtl(s, key, i) {
+    const inp = el("input", { type: "text", class: "tval", value: s[key].toFixed(2), "aria-label": key });
+    const set = (v) => {
+      v = round(Math.max(0, v));
+      const lo = key === "start" ? (i > 0 ? segs[i - 1].start : 0) : s.start + 0.05;
+      const hi = key === "start" ? s.end - 0.05 : (i + 1 < segs.length ? segs[i + 1].end : audio.duration || 1e9);
+      s[key] = Math.min(Math.max(v, lo), hi); inp.value = s[key].toFixed(2);
+      if (key === "end" && i + 1 < segs.length && segs[i + 1].start < s.end) { segs[i + 1].start = s.end; }
+      if (key === "start" && i > 0 && segs[i - 1].end > s.start) { segs[i - 1].end = s.start; }
+      changed(); refreshRow(i);
+    };
+    inp.onchange = () => set(parseFloat(inp.value) || s[key]);
+    const b = (label, d, title) => el("button", { title, onclick: () => { set(s[key] + d); if (key === "start") { audio.currentTime = s.start; } } }, label);
+    return el("span", { class: "line", style: "margin:0" }, el("label", { class: "k" }, key === "start" ? "Start" : "End"),
+      b("−0.5", -0.5), b("−0.1", -0.1), inp, b("+0.1", 0.1), b("+0.5", 0.5),
+      el("button", { title: "Set to the current playback position", onclick: () => set(audio.currentTime) }, "⤓ playhead"));
+  }
+
+  function editor(s, i) {
+    const box = el("div", { class: "editor" });
+    // times + play
+    box.append(el("div", { class: "line" },
+      el("button", { class: "primary", title: "Alt+P", onclick: () => playSeg() }, "▶ Play segment"),
+      el("button", { onclick: () => { audio.currentTime = s.start; stopAt = null; audio.play(); } }, "Play from here"),
+      el("span", { class: "hint" }, `${fmt(s.start)} – ${fmt(s.end)} (${(s.end - s.start).toFixed(1)} s)`)));
+    box.append(el("div", { class: "line" }, timeCtl(s, "start", i)), el("div", { class: "line" }, timeCtl(s, "end", i)));
+
+    // type
+    const types = el("span", { class: "line seg-types", style: "margin:0" }, el("label", { class: "k" }, "Type"));
+    for (const [t, label] of [["speech", "Hausa"], ["quran", "Quran verse"], ["arabic", "Other Arabic"]]) {
+      types.append(el("button", { "aria-pressed": s.type === t, onclick: () => setType(s, i, t) }, label));
+    }
+    box.append(el("div", { class: "line" }, types));
+
+    if (s.type === "quran") box.append(quranEditor(s, i));
+    else box.append(textEditor(s, i));
+
+    // actions
+    box.append(el("div", { class: "actions" },
+      el("button", { class: "primary", title: "Ctrl+Enter", onclick: () => markReviewed() }, s.reviewed ? "✓ Reviewed — next" : "Mark reviewed & next"),
+      s.reviewed ? el("button", { onclick: () => { delete s.reviewed; changed(); select(i); } }, "Un-mark") : null,
+      el("button", { title: "Alt+S", onclick: () => split() }, "Split"),
+      el("button", { title: "Alt+M", onclick: () => merge() }, "Merge with next"),
+      el("button", { onclick: () => insertAfter() }, "Insert after"),
+      el("span", { class: "grow" }),
+      el("button", { class: "danger", onclick: () => remove() }, "Delete")));
+    return box;
+  }
+
+  function textEditor(s, i) {
+    const wrap = el("div");
+    const ta = el("textarea", { dir: s.type === "arabic" ? "rtl" : "auto", class: s.type === "arabic" ? "ar" : "", spellcheck: "false" });
+    ta.value = s.text || "";
+    ta.oninput = () => { s.text = ta.value; changed(); refreshRow(i); };
+    wrap.append(ta);
+    if (s.type === "speech") {
+      const letters = el("div", { class: "line letters", style: "margin-top:6px" }, el("span", { class: "hint" }, "Insert:"));
+      for (const ch of ["ɓ", "ɗ", "ƙ", "ƴ", "Ɓ", "Ɗ", "Ƙ", "Ƴ", "ʼ"]) {
+        letters.append(el("button", { onmousedown: (e) => e.preventDefault(), onclick: () => {
+          const a = ta.selectionStart, b = ta.selectionEnd;
+          ta.setRangeText(ch, a, b, "end"); ta.dispatchEvent(new Event("input")); ta.focus();
+        } }, ch));
+      }
+      wrap.append(letters, phrasesEditor(s, i));
+    }
+    return wrap;
+  }
+
+  function phrasesEditor(s, i) {
+    s.phrases = s.phrases || [];
+    const wrap = el("div", { class: "line", style: "flex-direction:column; align-items:stretch" });
+    const chips = el("div", { class: "chips" });
+    s.phrases.forEach((p, k) => chips.append(el("span", { class: "chip", title: p.translit },
+      el("span", { class: "ar" }, p.arabic), el("span", { class: "hint" }, p.translit),
+      el("button", { title: "Remove", onclick: () => { s.phrases.splice(k, 1); changed(); select(i, { focus: false }); } }, "×"))));
+    const pick = el("select", { "aria-label": "Add Arabic phrase" }, el("option", { value: "" }, "+ Add Arabic phrase heard here…"),
+      ...glossary.map((g) => el("option", { value: g.id }, `${g.translit} — ${g.arabic}`)), el("option", { value: "__new" }, "New phrase (not in the list)…"));
+    const form = el("fieldset", { hidden: true });
+    pick.onchange = () => {
+      if (pick.value === "__new") { form.hidden = false; form.querySelector("input").focus(); return; }
+      const g = glossary.find((x) => x.id === pick.value); if (!g) return;
+      if (!s.phrases.some((p) => p.id === g.id)) s.phrases.push(phraseFrom(g));
+      changed(); select(i, { focus: false });
+    };
+    const f = { arabic: el("input", { type: "text", dir: "rtl", class: "ar", placeholder: "Arabic, e.g. إِنْ شَاءَ ٱللَّهُ" }),
+      translit: el("input", { type: "text", placeholder: "As spoken, e.g. In shā' Allāh" }),
+      meaning_ha: el("input", { type: "text", placeholder: "Meaning in Hausa" }),
+      meaning_en: el("input", { type: "text", placeholder: "Meaning in English (optional)" }) };
+    const toGloss = el("input", { type: "checkbox", checked: true });
+    form.append(el("legend", { class: "hint" }, "New Arabic phrase"),
+      el("div", { class: "line" }, f.arabic, f.translit), el("div", { class: "line" }, f.meaning_ha, f.meaning_en),
+      el("div", { class: "line" }, el("label", {}, toGloss, " Also add to the glossary (detected automatically in future lectures)"),
+        el("span", { class: "grow" }),
+        el("button", { onclick: () => { form.hidden = true; pick.value = ""; } }, "Cancel"),
+        el("button", { class: "primary", onclick: async () => {
+          const p = Object.fromEntries(Object.entries(f).map(([k, v]) => [k, v.value.trim()]));
+          if (!p.arabic || !p.translit) return toast("Arabic text and transliteration are needed");
+          let g = { ...p, id: "custom_" + Date.now().toString(36) };
+          if (toGloss.checked) {
+            const r = await fetch("/api/glossary", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(p) });
+            const j = await r.json();
+            if (r.ok) { glossary.push(j); g = j; toast("Added to glossary"); } else toast(j.error);
+          }
+          s.phrases.push(phraseFrom(g)); changed(); select(i, { focus: false });
+        } }, "Add")));
+    wrap.append(chips, pick, form);
+    return wrap;
+  }
+  const phraseFrom = (g) => ({ id: g.id, arabic: g.arabic, translit: g.translit, meaning_en: g.meaning_en || "", meaning_ha: g.meaning_ha || "" });
+
+  function parseRefs(txt) {  // "2:3-5, 1:7" -> ["2:3","2:4","2:5","1:7"]
+    const out = [];
+    for (const part of txt.split(/[,\s]+/).filter(Boolean)) {
+      const m = part.match(/^(\d{1,3}):(\d{1,3})(?:[-–](\d{1,3}))?$/);
+      if (!m) throw new Error(`"${part}" — use the form 2:3 or 2:3-5`);
+      const [a, b] = [+m[2], +(m[3] || m[2])];
+      if (b < a || b - a > 40) throw new Error(`"${part}" is not a valid range`);
+      for (let v = a; v <= b; v++) out.push(`${m[1]}:${v}`);
+    }
+    if (!out.length) throw new Error("enter at least one reference");
+    return out;
+  }
+  const refsText = (refs) => {  // compact back into ranges
+    const out = []; let i = 0;
+    while (i < refs.length) {
+      const [c, v] = refs[i].split(":").map(Number); let j = i;
+      while (j + 1 < refs.length && refs[j + 1] === `${c}:${v + (j + 1 - i)}`) j++;
+      out.push(j > i ? `${c}:${v}-${v + j - i}` : `${c}:${v}`); i = j + 1;
+    }
+    return out.join(", ");
+  };
+
+  function quranEditor(s, i) {
+    const wrap = el("div");
+    const inp = el("input", { type: "text", class: "refs", value: refsText(s.refs || []), placeholder: "e.g. 2:3-5", style: "width:180px" });
+    const err = el("span", { class: "err" });
+    const preview = el("div", { class: "verses" });
+    const show = () => {
+      preview.innerHTML = "";
+      for (const r of s.refs || []) {
+        const v = doc.verses[r]; if (!v) continue;
+        preview.append(el("div", { class: "v" }, el("span", { class: "ar" }, `${v.uthmani} ﴿${String(v.ayah).replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d])}﴾`), el("div", { class: "ha" }, `${v.surah_translit} ${r} — ${v.hausa.replace(/\s*\[\d+\]/g, "")}`)));
+      }
+    };
+    const apply = async () => {
+      err.textContent = "";
+      let refs;
+      try { refs = parseRefs(inp.value); } catch (e) { err.textContent = e.message; return; }
+      const r = await fetch("/api/verses?refs=" + encodeURIComponent(refs.join(",")));
+      const j = await r.json();
+      if (!r.ok) { err.textContent = j.error; return; }
+      Object.assign(doc.verses, j); s.refs = refs; changed(); refreshRow(i); show();
+    };
+    inp.onchange = apply;
+    inp.onkeydown = (e) => { if (e.key === "Enter" && !e.ctrlKey) { e.preventDefault(); apply(); } };
+    wrap.append(el("div", { class: "line" }, el("label", { class: "k" }, "Verses"), inp, el("button", { onclick: apply }, "Look up"), err));
+    if (s.heard) wrap.append(el("div", { class: "line" }, el("label", { class: "k" }, "Heard"), el("span", { class: "heard ar" }, s.heard)));
+    wrap.append(preview); show();
+    return wrap;
+  }
+
+  function setType(s, i, t) {
+    if (s.type === t) return;
+    snapshot();
+    s.type = t;
+    if (t === "quran") { s.refs = s.refs || []; if (!s.heard && s.text) s.heard = s.text; }
+    else { s.text = s.text || ""; if (t === "speech") s.phrases = s.phrases || []; }
+    changed(); select(i);
+  }
+
+  // ---------------- structural edits ----------------
+  function snapshot() {
+    undoStack.push(JSON.stringify({ segs, sel, verses: doc.verses })); if (undoStack.length > 50) undoStack.shift();
+    $("undo").disabled = false;
+  }
+  $("undo").onclick = () => {
+    const u = undoStack.pop(); if (!u) return;
+    const o = JSON.parse(u); segs = doc.segments = o.segs; doc.verses = o.verses; sel = o.sel;
+    $("undo").disabled = !undoStack.length; changed(); render(); toast("Undone");
+  };
+  function split() {
+    const s = segs[sel]; if (!s) return;
+    const t = audio.currentTime;
+    if (!(t > s.start + 0.2 && t < s.end - 0.2)) return toast("Move the playhead inside this segment first (pause where the split should be)");
+    snapshot();
+    const b = JSON.parse(JSON.stringify(s));
+    s.end = b.start = round(t);
+    if (s.type !== "quran") {
+      const ta = list.querySelector(".editor textarea");
+      const cut = ta && ta.selectionStart > 0 && ta.selectionStart < s.text.length ? ta.selectionStart : guessCut(s, t);
+      b.text = s.text.slice(cut).trim(); s.text = s.text.slice(0, cut).trim() || "…"; b.text = b.text || "…";
+      b.phrases = [];
+    }
+    delete s.reviewed; delete b.reviewed;
+    segs.splice(sel + 1, 0, b); changed(); select(sel); toast("Split");
+  }
+  function guessCut(s, t) {  // proportional position, snapped to a space
+    const k = Math.round(s.text.length * (t - s.start) / (s.end - s.start));
+    const sp = s.text.indexOf(" ", k); return sp > 0 ? sp : k;
+  }
+  function merge() {
+    const a = segs[sel], b = segs[sel + 1]; if (!a || !b) return;
+    snapshot();
+    a.end = b.end;
+    if (a.type === "quran" && b.type === "quran") { a.refs = [...new Set([...a.refs, ...b.refs])]; a.heard = [a.heard, b.heard].filter(Boolean).join(" "); }
+    else if (a.type !== "quran") { a.text = [a.text, b.text || ""].filter(Boolean).join(" "); a.phrases = [...(a.phrases || []), ...(b.phrases || []).filter((p) => !(a.phrases || []).some((q) => q.id === p.id))]; }
+    delete a.reviewed;
+    segs.splice(sel + 1, 1); changed(); select(sel); toast("Merged");
+  }
+  function insertAfter() {
+    const a = segs[sel]; if (!a) return;
+    snapshot();
+    const next = segs[sel + 1];
+    const start = a.end, end = next ? Math.max(next.start, start + 0.5) : start + 3;
+    segs.splice(sel + 1, 0, { start: round(start), end: round(end), type: "speech", text: "…", phrases: [], review: true });
+    changed(); select(sel + 1);
+  }
+  function remove() {
+    if (!segs[sel] || !confirm("Delete this segment?")) return;
+    snapshot(); segs.splice(sel, 1); changed(); select(Math.min(sel, segs.length - 1), { focus: false }); toast("Deleted — Undo is available");
+  }
+  function markReviewed() {
+    const s = segs[sel]; if (!s) return;
+    if (s.type === "quran" && !(s.refs || []).length) return toast("Add the verse references first");
+    s.reviewed = true; s.review = false; changed();
+    for (let i = sel + 1; i < segs.length; i++) if (visible(segs[i])) return select(i, { play: true });
+    render(); toast("End of list");
+  }
+
+  // ---------------- audio ----------------
+  function playSeg() {
+    const s = segs[sel]; if (!s) return;
+    audio.currentTime = s.start; stopAt = s.end; audio.play();
+  }
+  function onTime() {
+    const t = audio.currentTime;
+    if (stopAt != null && t >= stopAt) { audio.pause(); stopAt = null; }
+    let i = -1, lo = 0, hi = segs.length - 1;
+    while (lo <= hi) { const m = (lo + hi) >> 1; if (segs[m].start <= t) { i = m; lo = m + 1; } else hi = m - 1; }
+    if (i !== playingIdx) {
+      list.querySelector(".seg.playing")?.classList.remove("playing");
+      playingIdx = i; list.querySelector(`.seg[data-i="${i}"]`)?.classList.add("playing");
+      if ($("follow").checked && !audio.paused && stopAt == null && i >= 0 && i !== sel) select(i, { focus: false });
+    }
+  }
+  audio.addEventListener("timeupdate", onTime);
+  audio.addEventListener("seeked", onTime);
+  audio.addEventListener("play", function loop() { onTime(); if (!audio.paused) requestAnimationFrame(loop); });
+
+  // ---------------- saving ----------------
+  function setDirty(d) {
+    dirty = d;
+    const st = $("saveState"); st.className = d ? "dirty" : ""; st.textContent = d ? "Unsaved changes" : "All changes saved";
+  }
+  function changed() {
+    version++; setDirty(true); updateProgress();
+    clearTimeout(saveTimer); saveTimer = setTimeout(save, 8000);
+  }
+  async function save() {
+    if (!doc || saving) return !dirty;
+    clearTimeout(saveTimer); saving = true;
+    $("saveState").textContent = "Saving…";
+    const sentVersion = version;
+    try {
+      const r = await fetch(`/api/save/${lectureId}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(doc) });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error || r.status);
+      doc.status = j.status; Object.assign(doc.verses, j.verses);
+      setDirty(version !== sentVersion);  // edits made while saving stay unsaved
+      if (dirty) { clearTimeout(saveTimer); saveTimer = setTimeout(save, 8000); }
+      const opt = $("lecture").selectedOptions[0];
+      if (opt) opt.textContent = `${doc.title} (${segs.filter((s) => s.reviewed).length}/${segs.length})`;
+      return true;
+    } catch (e) {
+      $("saveState").className = "err"; $("saveState").textContent = "Not saved: " + e.message;
+      return false;
+    } finally { saving = false; }
+  }
+  $("save").onclick = save;
+  addEventListener("beforeunload", (e) => { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
+
+  // ---------------- controls & keys ----------------
+  $("lecture").onchange = () => load($("lecture").value);
+  $("filter").onchange = () => { store.set("filter", $("filter").value); render(); };
+  $("rate").onchange = () => { audio.playbackRate = +$("rate").value; store.set("rate", +$("rate").value); };
+  $("follow").onchange = () => store.set("follow", $("follow").checked);
+  $("help").onclick = () => $("helpDlg").showModal();
+  audio.addEventListener("loadedmetadata", () => { audio.playbackRate = +$("rate").value; });
+
+  addEventListener("keydown", (e) => {
+    const k = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && k === "s") { e.preventDefault(); save(); return; }
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); markReviewed(); return; }
+    if (!e.altKey) return;
+    const map = {
+      p: playSeg, k: () => (audio.paused ? audio.play() : audio.pause()),
+      j: () => (audio.currentTime = Math.max(0, audio.currentTime - 3)), l: () => (audio.currentTime += 3),
+      arrowdown: () => step(1), arrowup: () => step(-1), s: split, m: merge,
+    };
+    // use e.code so Alt combinations work on keyboards where Alt changes the character
+    const code = e.code.startsWith("Key") ? e.code.slice(3).toLowerCase() : k;
+    if (map[code]) { e.preventDefault(); map[code](); }
+  });
+
+  init().catch((e) => { list.innerHTML = ""; list.append(el("p", { class: "empty" }, "Could not load: " + e.message)); });
+})();
+</script>
+</body>
+</html>

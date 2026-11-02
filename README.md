@@ -14,12 +14,15 @@ pipeline/
   glossary.json    Arabic expressions to detect in the Hausa text (add to it as you review)
   quran_data/      Uthmani + Warsh text, Hausa translation (Gumi), surah names
   models/cb.rnnn   noise-reduction model used for audio cleanup
+review/
+  server.py        local review server: serves the tool, validates and saves edits, keeps backups
+  index.html       the review tool
 player/
   index.html       the player (no build step, no dependencies)
   serve.py         local preview server (supports seeking)
   audio/<id>.mp3   cleaned audio
   data/<id>.json   transcript per lecture
-work/<id>/         raw Whisper output (kept for re-building)
+work/<id>/         raw speech-recognition output (for re-building) and review backups
 ```
 
 ## Setup
@@ -50,10 +53,31 @@ cd player && python3 serve.py
 ```
 Then open http://localhost:8000/?lecture=fatihah01_baqara05
 
+## Review and correct a transcript
+```bash
+python3 review/server.py
+```
+Then open http://localhost:8001 (plain Python is enough; no virtualenv needed).
+
+- The list starts with the segments not yet reviewed. **Alt+P** plays the selected segment.
+  Correct the text, then **Ctrl+Enter** marks it reviewed and plays the next one.
+- Buttons insert the Hausa letters ɓ ɗ ƙ ƴ.
+- Change a segment's type to **Quran verse** and enter references such as `2:3-5`. The verse text always
+  comes from the official data, and a reference that doesn't exist is rejected.
+- Add the Arabic expressions you hear. A new one can also go into `pipeline/glossary.json`, so
+  future lectures detect it automatically.
+- Nudge start and end times, or set them from the playhead. **Split**, **Merge with next**, **Insert after**,
+  **Delete** and **Undo** handle segmentation mistakes. Press **?** for all keyboard shortcuts.
+- It saves automatically (and with **Ctrl+S**). The previous 30 versions are kept in `work/<id>/backups/`.
+- Commit `player/data/<id>.json` after a review session so the work is on GitHub.
+
+Run the review tool only on your own computer: it can write files and has no login.
+
 ## Transcript format (player/data/<id>.json)
 - `segments[]`: `{id, start, end, type, ...}`, where `type` is one of:
   - `speech`: Hausa `text`, plus `phrases[]` (detected Arabic expressions)
   - `quran`: `refs` such as `["2:2", "2:3"]`, plus `heard` (what speech recognition heard, kept for review)
+  - every segment: `reviewed: true` once a person has checked it
   - `arabic`: other Arabic `text` (added by hand during review)
 - `review: true` marks segments speech recognition was unsure about. Toggle **Review** in the player to see them.
 - `verses{}`: the text for each referenced verse (`uthmani`, `warsh`, `hausa`).

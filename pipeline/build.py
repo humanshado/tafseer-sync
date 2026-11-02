@@ -122,6 +122,35 @@ def overlap(a0, a1, b0, b1):
     return max(0.0, min(a1, b1) - max(a0, b0))
 
 
+_qdata = {}
+
+
+def verse_entries(refs):
+    """{"2:3": {surah, ayah, surah_name, surah_translit, uthmani, warsh, hausa}} for the given refs.
+
+    Raises KeyError/ValueError for a reference that does not exist.
+    """
+    if not _qdata:
+        _qdata["uth"] = json.load(open(os.path.join(QD, "uthmani.json")))
+        _qdata["hau"] = json.load(open(os.path.join(QD, "hausa_gummi.json")))
+        _qdata["warsh"] = json.load(open(os.path.join(QD, "warsh.json")))
+        _qdata["names"] = {c["id"]: c for c in json.load(open(os.path.join(QD, "chapters.json")))["chapters"]}
+    q = _qdata
+    out = {}
+    for c, v in sorted({tuple(int(x) for x in r.split(":")) for r in refs}):
+        if c not in q["names"] or not 1 <= v <= q["names"][c]["total_verses"]:
+            raise ValueError(f"no such verse: {c}:{v}")
+        w = [x["text"] for x in q["warsh"][str(c)] if v in x.get("number_in_hafs", [])]
+        out[f"{c}:{v}"] = {
+            "surah": c, "ayah": v,
+            "surah_name": q["names"][c]["name"], "surah_translit": q["names"][c]["transliteration"],
+            "uthmani": q["uth"][str(c)][v - 1]["text"],
+            "warsh": w[0] if w else "",
+            "hausa": q["hau"][str(c)][v - 1]["text"],
+        }
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("work_dir")
@@ -188,21 +217,7 @@ def main():
         s["id"] = i
 
     # 3. Verse texts the lecture needs: Hafs (Uthmani), Warsh, and the Hausa translation (Gumi).
-    needed = {(int(r.split(":")[0]), int(r.split(":")[1])) for s in segs if s["type"] == "quran" for r in s["refs"]}
-    uth = json.load(open(os.path.join(QD, "uthmani.json")))
-    hau = json.load(open(os.path.join(QD, "hausa_gummi.json")))
-    warsh = json.load(open(os.path.join(QD, "warsh.json")))
-    names = {c["id"]: c for c in json.load(open(os.path.join(QD, "chapters.json")))["chapters"]}
-    verses = {}
-    for c, v in sorted(needed):
-        w = [x["text"] for x in warsh[str(c)] if v in x.get("number_in_hafs", [])]
-        verses[f"{c}:{v}"] = {
-            "surah": c, "ayah": v,
-            "surah_name": names[c]["name"], "surah_translit": names[c]["transliteration"],
-            "uthmani": uth[str(c)][v - 1]["text"],
-            "warsh": w[0] if w else "",
-            "hausa": hau[str(c)][v - 1]["text"],
-        }
+    verses = verse_entries(r for s in segs if s["type"] == "quran" for r in s["refs"])
 
     out = {
         "lecture": a.lecture_id, "title": a.title or a.lecture_id, "audio": a.audio_url,
