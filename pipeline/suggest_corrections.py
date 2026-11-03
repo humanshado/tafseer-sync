@@ -41,15 +41,19 @@ SYSTEM = (
     "Keep Arabic words as they are spoken. If a part is unclear or meaningless, leave that part exactly as it is. "
     "Reply with the corrected text only."
 )
-# Few-shot examples taken from this project's transcripts; the last one shows leaving garble alone.
+# Few-shot examples from lecture 1 (outside the 10:00-12:00 excerpt used to test this script):
+# splitting words, fixing a few letters, and leaving garbled or already correct text alone.
 EXAMPLES = [
-    ("kuma ya kasance an yi intizain waɗansuharuffa ne daga kalmobi guda biyu",
-     "kuma ya kasance an yi intizain waɗansu haruffa ne daga kalmomi guda biyu"),
-    ("wato da alhamdu da ashukuru akwi babbanci tsakani",
-     "wato da alhamdu da ashukuru akwai bambanci tsakani"),
-    ("sai mutumya fara karanta wannan kalmomin gudabiu",
-     "sai mutum ya fara karanta wannan kalmomin guda biyu"),
-    ("nanikadawaniisi owa alakowa", "nanikadawaniisi owa alakowa"),
+    ("to wannan hianuna wato batmala kamar mabuƙi ne",
+     "to wannan yana nuna wato basmala kamar mabuɗi ne"),
+    ("dukkan mutuminda ya kikauke ciar dagangan",
+     "dukkan mutumin da ya kikauke ciar da gangan"),
+    ("ina neman tsarin allah ina neman kariyar alla",
+     "ina neman tsarin allah ina neman kariyar allah"),
+    ("aka buduraƙuriaidakida ke harizuwa gaiiaaikin shekarutaka",
+     "aka buduraƙuriaidakida ke harizuwa gaiiaaikin shekarutaka"),
+    ("domin da taimakonka ne da agadinka ne zan karanta daidai",
+     "domin da taimakonka ne da agadinka ne zan karanta daidai"),
 ]
 
 # Letters are compared with spaces, case, punctuation and the hooks of ɓ ɗ ƙ ƴ ignored, so splitting

@@ -371,8 +371,8 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     const out = []; let x = 0, y = 0;
     while (x < a.length || y < b.length) {
       if (x < a.length && y < b.length && a[x] === b[y]) { out.push(["", a[x]]); x++; y++; }
-      else if (y < b.length && (x >= a.length || L[x][y + 1] >= L[x + 1][y])) out.push(["ins", b[y++]]);
-      else out.push(["del", a[x++]]);
+      else if (x < a.length && (y >= b.length || L[x + 1][y] >= L[x][y + 1])) out.push(["del", a[x++]]);
+      else out.push(["ins", b[y++]]);
     }
     return out;
   }
@@ -386,7 +386,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     const diff = el("div", { class: "diff" });
     for (const [k, w] of wordDiff(g.original, g.suggestion)) diff.append(k ? el(k, {}, w) : w, " ");
     return el("div", { class: "suggest" },
-      el("div", { class: "hint" }, `Suggested by ${sugg.model || "the language model"}: spacing and spelling only. It can be wrong: listen before using it.`),
+      el("div", { class: "hint", title: sugg.model || "" }, `Suggested by ${/atlas/i.test(sugg.model || "") ? "N-ATLaS" : sugg.model || "a language model"}: spacing and spelling only. It can be wrong: listen before using it.`),
       diff,
       el("div", { class: "line", style: "margin:0" },
         el("button", { class: "primary", title: "Alt+U", onclick: () => toggleSuggestion() }, "Use suggestion"),
