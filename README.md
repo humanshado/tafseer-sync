@@ -50,7 +50,7 @@ third of the Hausa commentary. `build.py` therefore combines them:
   letters with at least the same confidence. The other model's text is kept in `alt`, and the review tool
   shows it under the text box ("Other") with a button to swap it in.
 
-On lecture 1 the combined build found 41 recitation passages where Whisper alone found 31 (all 31 kept, most
+On lecture 1 the combined build found 43 recitation passages where Whisper alone found 31 (all 31 kept, most
 with tighter times; the new ones are mostly verses quoted during the explanation), and used Omnilingual's text
 for 216 of 689 Hausa segments. For example the Fatiha at 11:05–11:34, where Whisper alone gave 11:07–11:46 and
 hid the commentary after it. The isti'adha ("a'udhu billahi mina sh-shaytani r-rajim") is not matched as a

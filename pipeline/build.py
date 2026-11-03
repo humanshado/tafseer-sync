@@ -34,6 +34,9 @@ def norm_ar(t):
     t = t.replace("ى", "ي").replace("ة", "ه").replace("ؤ", "و").replace("ئ", "ي")
     t = re.sub(r"[^ء-ي\s]", " ", t)
     t = re.sub(r"\b(ال)?رحمان\b", lambda m: (m.group(1) or "") + "رحمن", t)  # plain spelling of الرحمن
+    # Recognisers often hear a plural in -una for -ina (النبيون for النبيين) and drop the "wa-" of
+    # "wa-l-..." (الصديقين for والصديقين). Fold both on either side; matching only compares letters.
+    t = " ".join(re.sub(r"ون$", "ين", re.sub(r"^وال", "ال", w)) for w in t.split())
     return re.sub(r"\s+", " ", t).strip()
 
 
