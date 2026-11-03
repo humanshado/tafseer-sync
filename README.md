@@ -71,8 +71,9 @@ change). Still listen before accepting one.
 .venv/bin/python pipeline/suggest_corrections.py player/data/fatihah01_baqara05.json --from 600 --to 720
 ```
 By default it runs a 4-bit GGUF copy of N-ATLaS (`QuantFactory/N-ATLaS-GGUF`, 4.9 GB download, about 6 GB of
-RAM), which works on an ordinary CPU at roughly 10–20 s per segment; a whole lecture takes a few hours, and an
-interrupted run continues where it stopped. With a GPU, `--hf NCAIR1/N-ATLaS` uses the official weights
+RAM), which works on an ordinary CPU but slowly: about 40 s per segment on 4 cores, so a whole lecture
+(about 700 segments) takes 7–8 hours. Run it overnight or on part of a lecture; an interrupted run continues
+where it stopped. With a GPU, `--hf NCAIR1/N-ATLaS` uses the official weights
 instead (gated like Hausa-ASR: accept the terms and set `HF_TOKEN`). `--flagged-only` limits it to segments
 flagged as uncertain.
 

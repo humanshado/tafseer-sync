@@ -5,9 +5,9 @@
    "start": 601.99,
    "end": 605.85,
    "original": "idan an hada gaba ɗaikakebasmala saboda guyakakiatabasmala",
-   "suggestion": "idan an hada gaba ɗaya kakebasmala saboda gaba ɗaya kakebasmala",
-   "status": "suggested",
-   "similarity": 0.868
+   "suggestion": "idan an hada gaba ɗaya ka ce basmala saboda gaba ɗaya ka ce basmala",
+   "status": "rejected: rewrites part of the text",
+   "similarity": 0.83
   },
   {
    "start": 605.99,
@@ -40,8 +40,152 @@
    "suggestion": "kadai",
    "status": "unchanged",
    "similarity": 1.0
+  },
+  {
+   "start": 615.37,
+   "end": 619.0,
+   "original": "nanafin ya ce bisnilanarwa malamirni",
+   "suggestion": "nanafin ya ce bisnilanarwa malamirni",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 623.11,
+   "end": 624.79,
+   "original": "iike nabiunafarko ko nabi",
+   "suggestion": "iike nabiunafarko ko nabi",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 627.95,
+   "end": 629.49,
+   "original": "ama idin larabci",
+   "suggestion": "ama idin larabci",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 630.22,
+   "end": 636.53,
+   "original": "duabinda aka gina si akan wazanan taalla kuma ya kasance an yi intizain waɗansuharuffa ne daga kalmobi guda biyu",
+   "suggestion": "duabinda aka gina si akan wazanan taalla kuma ya kasance an yi intizain waɗansuharuffa ne daga kalmomi guda biyu",
+   "status": "suggested",
+   "similarity": 0.989
+  },
+  {
+   "start": 636.71,
+   "end": 639.35,
+   "original": "ona dasatuwa kan wannan kalmomin gudabiu kai",
+   "suggestion": "ona dasatuwa kan wannan kalmomin gudabiu kai",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 639.75,
+   "end": 643.83,
+   "original": "asmala kamar haukala na ga daga nahaula wanakoa",
+   "suggestion": "asmala kamar haukala na ga daga nahaula wanakoa",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 644.36,
+   "end": 646.71,
+   "original": "haukala ka ga hauɗin daga na haula",
+   "suggestion": "haukala ka ga hauɗin daga na haula",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 647.82,
+   "end": 648.92,
+   "original": "sa'a dandagami",
+   "suggestion": "sa'a dandana",
+   "status": "rejected: changes too many letters",
+   "similarity": 0.818
+  },
+  {
+   "start": 649.0,
+   "end": 651.77,
+   "original": "owa alakowa kagiasiidagidi",
+   "suggestion": "owa alakowa kagiasiidagidi",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 652.14,
+   "end": 658.68,
+   "original": "ba tsammani daga biki da kuma allah na figindiaa amma baya kafin maitiiaidii",
+   "suggestion": "ba tsammani daga biki da kuma allah na figindiaa amma baya kafin maitiiaidii",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 658.99,
+   "end": 661.01,
+   "original": "sai mutumya nogon tawuli kokasa",
+   "suggestion": "sai mutumya nogon tawuli kokasa",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 661.55,
+   "end": 662.39,
+   "original": "anbania",
+   "suggestion": "anbania",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 663.08,
+   "end": 664.02,
+   "original": "dalai",
+   "suggestion": "dalai",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 664.78,
+   "end": 669.65,
+   "original": "alagali lagawa iilami",
+   "suggestion": "alagali lagawa iilami",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 707.53,
+   "end": 710.97,
+   "original": "ta wanaboya tabatulillahi da allah ta'ala",
+   "suggestion": "ta wanaboya taba tulin allah da allah ta'ala",
+   "status": "suggested",
+   "similarity": 0.958
+  },
+  {
+   "start": 711.02,
+   "end": 713.33,
+   "original": "riaalami obangininhai",
+   "suggestion": "riaalami obangininhai",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 714.06,
+   "end": 716.98,
+   "original": "wato da alhamdu da ashukuru akwi babbanci tsakani",
+   "suggestion": "wato da alhamdu da ashukuru akwai babbanci tsakani",
+   "status": "suggested",
+   "similarity": 0.988
+  },
+  {
+   "start": 717.71,
+   "end": 721.94,
+   "original": "wani ya kan tara wani maana a cikinsu ta faskar ina ya dofa",
+   "suggestion": "wani ya kan tara wani ma'ana a cikinsu ta faskar ina ya dofa",
+   "status": "suggested",
+   "similarity": 1.0
   }
  ],
  "model": "QuantFactory/N-ATLaS-GGUF:N-ATLaS.Q4_K_M.gguf",
- "updated": "2026-11-03T08:41:46"
+ "updated": "2026-11-03T09:11:25"
 }
