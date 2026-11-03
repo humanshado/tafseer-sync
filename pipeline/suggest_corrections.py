@@ -7,8 +7,8 @@ go to work/<id>/suggestions.json, and the review tool shows each one beside the 
 reviewer accepts or dismisses it while listening to the audio.
 
 A language model may "improve" the scholar's words or invent text where the audio was unclear,
-so every suggestion is checked mechanically and dropped if it adds, removes or changes more than
-spacing and a few letters (see `check`). Segments too garbled to tidy are best left to the reviewer.
+so every suggestion is checked mechanically and dropped unless it only changes spacing and a few
+letters here and there (see `check`). Segments too garbled to tidy are best left to the reviewer.
 
 Backends:
   default    a quantised GGUF copy run with llama-cpp-python (practical on a CPU, about 5 GB RAM)
@@ -17,6 +17,8 @@ Backends:
 Usage:
   python suggest_corrections.py player/data/ID.json [--from 600 --to 720] [--flagged-only] [--limit N]
 Re-running continues where it stopped: segments already processed with the same text are skipped.
+  python suggest_corrections.py player/data/ID.json --recheck
+re-applies the check to saved suggestions (after changing the limits below) without the model.
 """
 import argparse
 import datetime
@@ -50,8 +52,12 @@ EXAMPLES = [
     ("nanikadawaniisi owa alakowa", "nanikadawaniisi owa alakowa"),
 ]
 
-MIN_SIMILARITY = 0.80     # letters of suggestion vs original (spaces, case and punctuation ignored)
-MAX_LENGTH_CHANGE = 0.20  # letters added or removed, as a share of the original
+# Letters are compared with spaces, case, punctuation and the hooks of ɓ ɗ ƙ ƴ ignored, so splitting
+# run-together words is always allowed. Beyond that a suggestion may only change a few letters in any
+# one place (akwi -> akwai, babbanci -> bambanci), and only a small share of them overall: a longer
+# change means the model replaced something it could not make sense of with words of its own.
+MAX_EDIT = 3        # letters changed in any one place
+MAX_CHANGED = 0.15  # letters changed in total, as a share of the original
 HAUSA_TEXT = re.compile(r"^[a-zɓɗƙƴʼ'’ ]+$")
 
 
@@ -74,11 +80,13 @@ def check(original, suggestion):
     if not HAUSA_TEXT.match(suggestion):
         return "rejected: contains characters that are not Hausa letters", 0.0
     a, b = letters(original), letters(suggestion)
-    sim = difflib.SequenceMatcher(None, a, b, autojunk=False).ratio()
-    if abs(len(b) - len(a)) > MAX_LENGTH_CHANGE * max(len(a), 1):
-        return "rejected: adds or removes too much", sim
-    if sim < MIN_SIMILARITY:
-        return "rejected: changes too much", sim
+    sm = difflib.SequenceMatcher(None, a, b, autojunk=False)
+    edits = [max(i2 - i1, j2 - j1) for tag, i1, i2, j1, j2 in sm.get_opcodes() if tag != "equal"]
+    sim = sm.ratio()
+    if edits and max(edits) > MAX_EDIT:
+        return "rejected: rewrites part of the text", sim
+    if sum(edits) > MAX_CHANGED * max(len(a), 1):
+        return "rejected: changes too many letters", sim
     return "suggested", sim
 
 
@@ -114,6 +122,14 @@ class Transformers:
         return self.tok.decode(out[0, ids.shape[1]:], skip_special_tokens=True)
 
 
+def save(d, path):
+    d["items"].sort(key=lambda i: i["start"])
+    d["updated"] = datetime.datetime.now().isoformat(timespec="seconds")
+    tmp = path + ".tmp"
+    json.dump(d, open(tmp, "w"), ensure_ascii=False, indent=1)
+    os.replace(tmp, path)
+
+
 def messages_for(text):
     m = [{"role": "system", "content": SYSTEM}]
     for q, a in EXAMPLES:
@@ -131,6 +147,7 @@ def main():
     ap.add_argument("--to", dest="t1", type=float, default=float("inf"), help="only segments starting before (s)")
     ap.add_argument("--flagged-only", action="store_true", help="only segments flagged as uncertain")
     ap.add_argument("--limit", type=int, default=0, help="stop after this many new segments")
+    ap.add_argument("--recheck", action="store_true", help="re-apply the check to saved suggestions, then stop")
     a = ap.parse_args()
 
     doc = json.load(open(a.transcript))
@@ -138,6 +155,16 @@ def main():
     out = a.out or os.path.join(ROOT, "work", lid, "suggestions.json")
     os.makedirs(os.path.dirname(out), exist_ok=True)
     prev = json.load(open(out)) if os.path.exists(out) else {"lecture": lid, "items": []}
+    if a.recheck:
+        for i in prev["items"]:
+            i["status"], sim = check(i["original"], i["suggestion"])
+            i["similarity"] = round(sim, 3)
+        save(prev, out)
+        counts = {}
+        for i in prev["items"]:
+            counts[i["status"]] = counts.get(i["status"], 0) + 1
+        print(f"[suggest] rechecked {len(prev['items'])}: {counts}")
+        return
     done = {(round(i["start"], 2), i["original"]) for i in prev["items"]}
 
     todo = [s for s in doc["segments"]
@@ -161,11 +188,7 @@ def main():
         counts[status.split(":")[0]] = counts.get(status.split(":")[0], 0) + 1
         prev["items"].append({"start": s["start"], "end": s["end"], "original": s["text"],
                               "suggestion": suggestion, "status": status, "similarity": round(sim, 3)})
-        prev["items"].sort(key=lambda i: i["start"])
-        prev["updated"] = datetime.datetime.now().isoformat(timespec="seconds")
-        tmp = out + ".tmp"  # save after every segment so an interrupted run can continue
-        json.dump(prev, open(tmp, "w"), ensure_ascii=False, indent=1)
-        os.replace(tmp, out)
+        save(prev, out)  # after every segment, so an interrupted run can continue
         mark = {"suggested": "→", "unchanged": "="}.get(status, "✗")
         print(f"[suggest] {n}/{len(todo)} {s['start']:7.1f}  {s['text'][:60]}\n"
               f"          {mark} {suggestion[:60] if status == 'suggested' else status}", flush=True)
