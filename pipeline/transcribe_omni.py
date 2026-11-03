@@ -74,10 +74,10 @@ def main():
     dtype = a.dtype if a.dtype != "auto" else ("bfloat16" if cuda else "float32")
     pipe = ASRInferencePipeline(model_card=card, device="cuda" if cuda else "cpu", dtype=getattr(torch, dtype))
     is_ctc = "CTC" in a.model.upper()
-    if is_ctc:  # keep the CTC output so a confidence can be computed (blank is the pad symbol)
+    if is_ctc:  # keep the CTC output so a confidence can be computed (the CTC blank is <s>, i.e. bos)
         logits = []
         pipe.model.register_forward_hook(lambda m, i, o: logits.append(o[0][0].float()))
-        blank = pipe.tokenizer.vocab_info.pad_idx
+        blank = pipe.tokenizer.vocab_info.bos_idx
 
     chunks = get_speech_timestamps(audio, VadOptions(min_silence_duration_ms=300,
                                                      max_speech_duration_s=a.max_chunk, speech_pad_ms=150))

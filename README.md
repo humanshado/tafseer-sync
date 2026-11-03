@@ -47,6 +47,12 @@ Two other Hausa models can be compared with the current one on a 2-minute excerp
   it its own environment and point `OMNI_PYTHON` at it; without it, the comparison skips this model.
   `OMNI_MODEL` picks the model (default `omniASR_LLM_1B`; the `_v2` models are newer). If Meta's download
   server is unreachable, `OMNI_HF` loads the same checkpoint from Hugging Face (v1 models only).
+  The newer CTC v2 model also exists as a community conversion to the standard transformers format
+  (`aadel4/omniASR-CTC-1B-v2`, stated to match Meta's outputs). It runs in the main environment with word
+  timings, no separate setup needed:
+  `.venv/bin/python pipeline/transcribe_ctc.py player/audio/ID.mp3 OUT_DIR --model aadel4/omniASR-CTC-1B-v2`.
+  On lecture 1 it wrote the recited Fatiha correctly in Arabic script, but it also wrote about a third of the
+  Hausa commentary in Arabic letters, so it is not a drop-in replacement for the current model.
 ```bash
 python3.12 -m venv .venv-omni && .venv-omni/bin/pip install omnilingual-asr faster-whisper
 PYTHON=.venv/bin/python OMNI_PYTHON=.venv-omni/bin/python pipeline/compare_models.sh fatihah01_baqara05 600 120
