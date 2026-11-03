@@ -10,7 +10,8 @@ pipeline/
   run_lecture.sh   one command per lecture: clean audio -> transcribe -> build JSON
   transcribe_ctc.py Hausa commentary: CLEAR-Global w2v-bert-2.0 Hausa model (CC BY-SA 4.0), word timings
   transcribe_whisper_hf.py  alternative Hausa pass with a Hugging Face Whisper fine-tune (default NCAIR1/Hausa-ASR)
-  compare_ncair.sh / compare_asr.py  run two Hausa models on the same excerpt and compare side by side
+  transcribe_omni.py  alternative Hausa pass with Meta's Omnilingual ASR
+  compare_models.sh / compare_asr.py  run the Hausa models on the same excerpt and compare side by side
   suggest_corrections.py  optional: N-ATLaS suggests word-spacing and spelling fixes for the review tool
   transcribe.py    Whisper large-v3 (faster-whisper), Arabic pass used to find Quran recitation
   build.py         merges both passes, detects Quran recitation, tags Arabic phrases, flags low confidence
@@ -38,11 +39,17 @@ The first run downloads the models from huggingface.co (Whisper large-v3 about 3
 Why two models: Whisper is poor at Hausa (it produced mostly gibberish on this lecture), while the
 dedicated Hausa model gives usable text but cannot write Arabic. So the Hausa model transcribes the
 commentary, and Whisper's Arabic output is used only to find which verses are recited.
-`NCAIR1/Hausa-ASR` (Nigeria's National Centre for AI and Robotics) is another candidate, but it is
-gated: accept its terms on Hugging Face and set a read token in `HF_TOKEN`. To compare it with the
-current model on a 2-minute excerpt (writes `work/compare/<id>-<start>/comparison.md`):
+Two other Hausa models can be compared with the current one on a 2-minute excerpt (writes
+`work/compare/<id>-<start>/comparison.md`, one column per model):
+- `NCAIR1/Hausa-ASR` (Nigeria's National Centre for AI and Robotics), a Whisper fine-tune. It is gated:
+  accept its terms on Hugging Face and set a read token in `HF_TOKEN`.
+- Meta's Omnilingual ASR (Apache 2.0, 1,600+ languages). It needs Python 3.10–3.12 with PyTorch 2.8, so give
+  it its own environment and point `OMNI_PYTHON` at it; without it, the comparison skips this model.
+  `OMNI_MODEL` picks the model (default `omniASR_LLM_1B`; the `_v2` models are newer). If Meta's download
+  server is unreachable, `OMNI_HF` loads the same checkpoint from Hugging Face (v1 models only).
 ```bash
-PYTHON=.venv/bin/python pipeline/compare_ncair.sh fatihah01_baqara05 600 120
+python3.12 -m venv .venv-omni && .venv-omni/bin/pip install omnilingual-asr faster-whisper
+PYTHON=.venv/bin/python OMNI_PYTHON=.venv-omni/bin/python pipeline/compare_models.sh fatihah01_baqara05 600 120
 ```
 
 ## Process a lecture
