@@ -50,9 +50,13 @@ third of the Hausa commentary. `build.py` therefore combines them:
   letters with at least the same confidence. The other model's text is kept in `alt`, and the review tool
   shows it under the text box ("Other") with a button to swap it in.
 
-On the 10:00–12:00 test excerpt this placed the Fatiha at 11:05–11:34 (Whisper alone: 11:07–11:46, which hid
-the commentary after it) and used Omnilingual's text for 4 of 27 Hausa segments. Skip the third pass with
-`OMNI_MODEL=` (empty); `build.py` then works as before.
+On lecture 1 the combined build found 41 recitation passages where Whisper alone found 31 (all 31 kept, most
+with tighter times; the new ones are mostly verses quoted during the explanation), and used Omnilingual's text
+for 216 of 689 Hausa segments. For example the Fatiha at 11:05–11:34, where Whisper alone gave 11:07–11:46 and
+hid the commentary after it. The isti'adha ("a'udhu billahi mina sh-shaytani r-rajim") is not matched as a
+verse, and where the passes disagree on a surah, one the lecture covers (`FOCUS`) wins. The Omnilingual pass
+takes about 25 minutes per hour of audio on a 4-core CPU. Skip it with `OMNI_MODEL=` (empty); `build.py` then
+works as before.
 Two other Hausa models can be compared with the current one on a 2-minute excerpt (writes
 `work/compare/<id>-<start>/comparison.md`, one column per model):
 - `NCAIR1/Hausa-ASR` (Nigeria's National Centre for AI and Robotics), a Whisper fine-tune. It is gated:

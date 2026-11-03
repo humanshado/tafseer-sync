@@ -51,13 +51,18 @@ def load_quran():
     return words, owner, index
 
 
+ISTIADHA = re.compile(r"(اعوذ بالله )?من الشيطان الرجيم")  # recognisers sometimes split off "a'udhu billahi"
+
+
 def match_quran(text, words, owner, index, verse_pairs, focus=(), min_words=3, min_score=72):
     """Return (score, [(surah, ayah), ...]) if the Arabic text is Quran recitation.
 
     `focus` lists the surahs the lecture is about; when a phrase occurs in several places
     (e.g. "al-hamdu lillahi rabbil-alamin" is 1:2, 6:45, 10:10, 37:182, ...), those win.
     """
-    seg = norm_ar(text).split()
+    # The isti'adha ("a'udhu billahi mina sh-shaytani r-rajim") is said before reciting; it is not a
+    # verse, although it echoes the end of 16:98. Drop it so only what follows is matched.
+    seg = ISTIADHA.sub(" ", norm_ar(text)).split()
     if len(seg) < min_words:
         return None
     hits = defaultdict(list)  # offset -> [(seg index, quran position)]
@@ -166,6 +171,8 @@ def detect_quran(segs, skip, words, owner, index, verse_pairs, focus, source):
     for k, s in enumerate(segs):
         if k in skip:
             continue
+        if source == "omni" and len(re.findall(r"[A-Za-z]", s["text"])) > 2:
+            continue  # Hausa garbled into a mix of Latin and Arabic letters, not recitation
         m = match_quran(s["text"], words, owner, index, verse_pairs, focus)
         if not m:
             continue
@@ -190,19 +197,22 @@ def detect_quran(segs, skip, words, owner, index, verse_pairs, focus, source):
     return quran
 
 
-def merge_passages(found):
+def merge_passages(found, focus=()):
     """Combine passages found by different passes into one list.
 
     Passages of the same surah that overlap, or follow on within 2.5 s with the next verse, form one
     passage with all their verses. Its start comes from the part holding the first verse and its end
     from the part holding the last; Omnilingual parts win there, because its chunks are cut at pauses
     while Whisper segments often run on into the commentary. Where passes disagree on the surah for
-    the same stretch, the better match wins."""
+    the same stretch (overlapping by more than half), a surah the lecture covers wins, then the better
+    match: "الم" opens six surahs."""
     groups = []
     for q in sorted(found, key=lambda q: q["start"]):
         g = groups[-1] if groups else None
-        if g and overlap(g["start"], g["end"], q["start"], q["end"]) > 0 and q["refs"][0][0] != g["refs"][0][0]:
-            if q["score"] > max(x["score"] for x in g["parts"]):
+        if g and q["refs"][0][0] != g["refs"][0][0] and overlap(g["start"], g["end"], q["start"], q["end"]) > \
+                0.5 * min(g["end"] - g["start"], q["end"] - q["start"]):
+            rank = lambda x: (x["refs"][0][0] in focus, x["score"])  # noqa: E731
+            if rank(q) > max(rank(x) for x in g["parts"]):
                 groups[-1] = {"start": q["start"], "end": q["end"], "refs": list(q["refs"]), "parts": [q]}
             continue
         if g and q["refs"][0][0] == g["refs"][0][0] and (
@@ -314,7 +324,8 @@ def main():
     quran = detect_quran(ar, used, words, owner, index, verse_pairs, focus, "whisper")
     in_opening = {k for k, o in enumerate(omni)
                   if any(overlap(o["start"], o["end"], b["start"], b["end"]) > 0 for b in openings)}
-    quran = merge_passages(quran + detect_quran(omni, in_opening, words, owner, index, verse_pairs, focus, "omni"))
+    quran = merge_passages(quran + detect_quran(omni, in_opening, words, owner, index, verse_pairs, focus, "omni"),
+                           focus)
 
     # 2. Hausa commentary, minus the parts covered by recitation.
     segs = []
