@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Process one lecture end to end:  clean audio -> transcribe (Hausa + Arabic) -> build player JSON.
 # Set FOCUS=1,2 (surahs the lecture covers) to resolve phrases that occur in several surahs.
+# A third pass with Meta's Omnilingual ASR (CTC v2, transformers conversion) finds recitation more
+# accurately and often writes clearer Hausa; build.py combines it with the others. OMNI_MODEL picks
+# the model; set it empty (OMNI_MODEL= ) to skip this pass.
 # Usage: pipeline/run_lecture.sh ORIGINAL.mp3 LECTURE_ID "Title" [extra transcribe.py args, e.g. --start 600 --duration 120]
 set -euo pipefail
 SRC="$1"; ID="$2"; TITLE="$3"; shift 3
@@ -20,6 +23,11 @@ fi
 
 echo "== Transcribing Hausa commentary (CLEAR-Global w2v-bert Hausa model)"
 "$PY" "$ROOT/pipeline/transcribe_ctc.py" "$CLEAN" "$ROOT/work/$ID" "$@"
+OMNI_MODEL="${OMNI_MODEL-aadel4/omniASR-CTC-1B-v2}"
+if [ -n "$OMNI_MODEL" ]; then
+  echo "== Transcribing again with Omnilingual ASR ($OMNI_MODEL): recitation and a second Hausa reading"
+  "$PY" "$ROOT/pipeline/transcribe_ctc.py" "$CLEAN" "$ROOT/work/$ID" --model "$OMNI_MODEL" --name raw_omni.json "$@"
+fi
 echo "== Transcribing Arabic (Whisper large-v3; the slow step) to find Quran recitation"
 "$PY" "$ROOT/pipeline/transcribe.py" "$CLEAN" "$ROOT/work/$ID" --langs ar "$@"
 

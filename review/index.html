@@ -349,6 +349,14 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     ta.oninput = () => { s.text = ta.value; changed(); refreshRow(i); };
     wrap.append(ta);
     if (s.type === "arabic" && s.heard) wrap.append(el("div", { class: "line", style: "margin-top:6px" }, el("label", { class: "k" }, "Heard"), el("span", { class: "heard ar" }, s.heard)));
+    if (s.type === "speech" && s.alt) {  // the other speech model's reading of the same audio
+      wrap.append(el("div", { class: "line", style: "margin-top:6px" },
+        el("label", { class: "k", title: "What the other speech recognition model heard" }, "Other"),
+        el("span", { class: "heard", style: "flex:1" }, s.alt),
+        el("button", { title: "Swap: put this text in the box and keep the current one here", onclick: () => {
+          [s.text, s.alt] = [s.alt, s.text]; changed(); select(i);
+        } }, "Use this")));
+    }
     if (s.type === "speech") {
       const letters = el("div", { class: "line letters", style: "margin-top:6px" }, el("span", { class: "hint" }, "Insert:"));
       for (const ch of ["ɓ", "ɗ", "ƙ", "ƴ", "Ɓ", "Ɗ", "Ƙ", "Ƴ", "ʼ"]) {

@@ -3,6 +3,10 @@
 * Uses the Hausa pass as the main timeline.
 * Finds Quran recitation in the Arabic pass by matching it against the full
   Quran text, and replaces it with the official text (by surah:ayah reference).
+* Optional third pass, raw_omni.json (Meta's Omnilingual ASR, see run_lecture.sh). Its Arabic-script
+  output is searched for recitation too (it writes recited verses far more accurately than Whisper),
+  and where it wrote Hausa in Latin letters with at least the Hausa model's confidence, its text is
+  used. Each segment keeps the other model's text in `alt` for the reviewer.
 * Tags known Arabic expressions in the Hausa text using glossary.json.
 * Flags low-confidence segments for human review.
 
@@ -29,6 +33,7 @@ def norm_ar(t):
     t = re.sub("[أإآٱ]", "ا", t)
     t = t.replace("ى", "ي").replace("ة", "ه").replace("ؤ", "و").replace("ئ", "ي")
     t = re.sub(r"[^ء-ي\s]", " ", t)
+    t = re.sub(r"\b(ال)?رحمان\b", lambda m: (m.group(1) or "") + "رحمن", t)  # plain spelling of الرحمن
     return re.sub(r"\s+", " ", t).strip()
 
 
@@ -155,6 +160,94 @@ def overlap(a0, a1, b0, b1):
     return max(0.0, min(a1, b1) - max(a0, b0))
 
 
+def detect_quran(segs, skip, words, owner, index, verse_pairs, focus, source):
+    """Recitation passages in one Arabic-capable pass; neighbours continuing the same passage merge."""
+    quran = []
+    for k, s in enumerate(segs):
+        if k in skip:
+            continue
+        m = match_quran(s["text"], words, owner, index, verse_pairs, focus)
+        if not m:
+            continue
+        score, refs = m
+        start, end = s["start"], s["end"]
+        if source == "omni" and s.get("words"):
+            # CTC word timings are accurate: trim speech before and after the recited words
+            vw = {w for r in refs for w in verse_text.get(r, "").split()}
+            hit = [w for w in s["words"] if norm_ar(w["w"]) in vw]
+            if hit:
+                start, end = hit[0]["s"], hit[-1]["e"]
+        prev = quran[-1] if quran else None
+        if prev and start - prev["end"] < 2.5 and refs[0][0] == prev["refs"][-1][0] \
+                and 0 <= refs[0][1] - prev["refs"][-1][1] <= 1:
+            prev["end"] = end
+            prev["heard"] += " " + s["text"]
+            prev["score"] = min(prev["score"], score)
+            prev["refs"] += [r for r in refs if r not in prev["refs"]]
+        else:
+            quran.append({"start": start, "end": end, "refs": refs,
+                          "score": score, "heard": s["text"], "source": source})
+    return quran
+
+
+def merge_passages(found):
+    """Combine passages found by different passes into one list.
+
+    Passages of the same surah that overlap, or follow on within 2.5 s with the next verse, form one
+    passage with all their verses. Its start comes from the part holding the first verse and its end
+    from the part holding the last; Omnilingual parts win there, because its chunks are cut at pauses
+    while Whisper segments often run on into the commentary. Where passes disagree on the surah for
+    the same stretch, the better match wins."""
+    groups = []
+    for q in sorted(found, key=lambda q: q["start"]):
+        g = groups[-1] if groups else None
+        if g and overlap(g["start"], g["end"], q["start"], q["end"]) > 0 and q["refs"][0][0] != g["refs"][0][0]:
+            if q["score"] > max(x["score"] for x in g["parts"]):
+                groups[-1] = {"start": q["start"], "end": q["end"], "refs": list(q["refs"]), "parts": [q]}
+            continue
+        if g and q["refs"][0][0] == g["refs"][0][0] and (
+                overlap(g["start"], g["end"], q["start"], q["end"]) > 0
+                or (q["start"] - g["end"] < 2.5 and 0 <= q["refs"][0][1] - g["refs"][-1][1] <= 1)):
+            g["parts"].append(q)
+            g["refs"] = sorted(set(g["refs"]) | set(q["refs"]))
+            g["start"], g["end"] = min(g["start"], q["start"]), max(g["end"], q["end"])
+        else:
+            groups.append({"start": q["start"], "end": q["end"], "refs": list(q["refs"]), "parts": [q]})
+    out = []
+    for g in groups:
+        def edge(ref, pick):
+            parts = [x for x in g["parts"] if ref in x["refs"]]
+            omni = [x for x in parts if x["source"] == "omni"]
+            return pick(omni or parts)
+        best = max(g["parts"], key=lambda x: x["score"])
+        out.append({"start": edge(g["refs"][0], lambda xs: min(x["start"] for x in xs)),
+                    "end": edge(g["refs"][-1], lambda xs: max(x["end"] for x in xs)),
+                    "refs": g["refs"], "score": best["score"], "source": best["source"],
+                    "heard": " ".join(x["heard"] for x in sorted(g["parts"], key=lambda x: x["start"])
+                                      if x["source"] == best["source"])})
+    return out
+
+
+NON_LATIN = re.compile(r"[^\x00-\x7fɓɗƙƴƁƊƘƳʼ’]")
+
+
+def pick_hausa(s, omni, review_below, omni_below):
+    """(text, confidence flag, source, other model's text) for one Hausa-pass segment.
+
+    The Omnilingual segment cut from the same stretch of audio replaces the Hausa model's text only
+    if it is written in Latin letters (it sometimes writes Hausa in Arabic script, or invents text in
+    other scripts) and is at least as confident; both report the log of the mean character probability."""
+    dur = max(0.01, s["end"] - s["start"])
+    o = max(omni, key=lambda o: overlap(s["start"], s["end"], o["start"], o["end"]), default=None)
+    if o is None or overlap(s["start"], s["end"], o["start"], o["end"]) < 0.8 * max(dur, o["end"] - o["start"]):
+        return s["text"], s["avg_logprob"] < review_below or s["no_speech_prob"] > 0.6, "hausa", None
+    latin = o["text"].strip() and not NON_LATIN.search(o["text"])
+    if latin and o["avg_logprob"] >= s["avg_logprob"]:
+        return o["text"], o["avg_logprob"] < omni_below, "omni", s["text"]
+    return (s["text"], s["avg_logprob"] < review_below or s["no_speech_prob"] > 0.6, "hausa",
+            o["text"] if latin else None)
+
+
 _qdata = {}
 
 
@@ -201,6 +294,10 @@ def main():
     review_below = ha_raw.get("review_below_logprob", -1.0)  # CTC models report confidence differently
     ar_path = os.path.join(a.work_dir, "raw_ar.json")
     ar = json.load(open(ar_path))["segments"] if os.path.exists(ar_path) else []
+    omni_path = os.path.join(a.work_dir, "raw_omni.json")
+    omni_raw = json.load(open(omni_path)) if os.path.exists(omni_path) else {"segments": []}
+    omni = omni_raw["segments"]
+    omni_below = omni_raw.get("review_below_logprob", review_below)
     words, owner, index = load_quran()
     verse_pairs = load_verse_pairs()
     focus = {int(x) for x in a.focus.split(",") if x.strip()}
@@ -213,25 +310,11 @@ def main():
     formulas = json.load(open(os.path.join(HERE, "formulas.json")))["formulas"]
     openings, used = find_openings(ar, formulas)
 
-    # 1. Quran recitation from the Arabic pass; merge neighbours that continue the same passage.
-    quran = []
-    for k, s in enumerate(ar):
-        if k in used:
-            continue
-        m = match_quran(s["text"], words, owner, index, verse_pairs, focus)
-        if not m:
-            continue
-        score, refs = m
-        prev = quran[-1] if quran else None
-        if prev and s["start"] - prev["end"] < 2.5 and refs[0][0] == prev["refs"][-1][0] \
-                and 0 <= refs[0][1] - prev["refs"][-1][1] <= 1:
-            prev["end"] = s["end"]
-            prev["heard"] += " " + s["text"]
-            prev["score"] = min(prev["score"], score)
-            prev["refs"] += [r for r in refs if r not in prev["refs"]]
-        else:
-            quran.append({"start": s["start"], "end": s["end"], "refs": refs,
-                          "score": score, "heard": s["text"]})
+    # 1. Quran recitation from the Arabic pass (and the Omnilingual pass, outside the openings).
+    quran = detect_quran(ar, used, words, owner, index, verse_pairs, focus, "whisper")
+    in_opening = {k for k, o in enumerate(omni)
+                  if any(overlap(o["start"], o["end"], b["start"], b["end"]) > 0 for b in openings)}
+    quran = merge_passages(quran + detect_quran(omni, in_opening, words, owner, index, verse_pairs, focus, "omni"))
 
     # 2. Hausa commentary, minus the parts covered by recitation.
     segs = []
@@ -239,15 +322,20 @@ def main():
         dur = max(0.01, s["end"] - s["start"])
         if any(overlap(s["start"], s["end"], q["start"], q["end"]) / dur > 0.5 for q in quran + openings):
             continue
+        text, review, source, alt = pick_hausa(s, omni, review_below, omni_below)
         phrases = []
         for g in glossary:
-            if g["re"].search(skeleton(s["text"])):
+            if g["re"].search(skeleton(text)):
                 phrases.append({"id": g["id"], "arabic": g["arabic"],
                                 "translit": g["translit"], "meaning_en": g["meaning_en"],
                                 "meaning_ha": g["meaning_ha"]})
-        segs.append({"start": s["start"], "end": s["end"], "type": "speech", "text": s["text"],
-                     "phrases": phrases,
-                     "review": s["avg_logprob"] < review_below or s["no_speech_prob"] > 0.6})
+        seg = {"start": s["start"], "end": s["end"], "type": "speech", "text": text, "phrases": phrases,
+               "review": review}
+        if omni:
+            seg["asr"] = source
+        if alt:
+            seg["alt"] = alt
+        segs.append(seg)
 
     for q in quran:
         segs.append({"start": q["start"], "end": q["end"], "type": "quran",
@@ -287,6 +375,11 @@ def main():
         "segments": segs, "verses": verses,
     }
     json.dump(out, open(a.out, "w"), ensure_ascii=False, indent=1)
+    if omni:
+        sp = [s for s in segs if s["type"] == "speech" and not s.get("reviewed")]
+        print(f"Omnilingual pass: text used for {sum(s.get('asr') == 'omni' for s in sp)} of {len(sp)} Hausa segments; "
+              f"Quran passages found by Whisper {sum(q['source'] == 'whisper' for q in quran)}, "
+              f"by Omnilingual {sum(q['source'] == 'omni' for q in quran)} (best match of each kept)")
     print(f"{len(segs)} segments ({sum(s['type'] == 'quran' for s in segs)} Quran passages, "
           f"{sum(len(s.get('phrases', [])) for s in segs)} tagged phrases, "
           f"{sum(bool(s.get('review')) for s in segs)} flagged for review, {kept} reviewed segments kept) -> {a.out}")

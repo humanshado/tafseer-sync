@@ -5,7 +5,7 @@ Speech is split at pauses (Silero VAD from faster-whisper), each chunk is transc
 and word timings come from the CTC frame alignment.
 
 Usage:
-  python transcribe_ctc.py AUDIO.mp3 OUT_DIR [--model ID] [--start S --duration D]
+  python transcribe_ctc.py AUDIO.mp3 OUT_DIR [--model ID] [--name raw_ha.json] [--start S --duration D]
 """
 import argparse
 import json
@@ -30,6 +30,7 @@ def main():
     ap.add_argument("--start", type=float, default=0)
     ap.add_argument("--duration", type=float, default=0)
     ap.add_argument("--max-chunk", type=float, default=20.0, help="longest chunk in seconds")
+    ap.add_argument("--name", default="raw_ha.json", help="output file name in OUT_DIR")
     a = ap.parse_args()
     torch.set_num_threads(os.cpu_count() or 4)
 
@@ -83,7 +84,7 @@ def main():
         })
         print(f"[ha-ctc] {base:8.1f}  {out[-1]['text'][:100]}", flush=True)
 
-    path = os.path.join(a.out_dir, "raw_ha.json")
+    path = os.path.join(a.out_dir, a.name)
     json.dump({"language": "ha", "model": a.model, "review_below_logprob": round(float(np.log(0.8)), 3),
                "segments": out}, open(path, "w"), ensure_ascii=False, indent=1)
     print(f"[ha-ctc] {len(out)} segments in {time.time() - t0:.0f}s -> {path}", flush=True)

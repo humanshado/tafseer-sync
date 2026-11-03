@@ -14,7 +14,7 @@ pipeline/
   compare_models.sh / compare_asr.py  run the Hausa models on the same excerpt and compare side by side
   suggest_corrections.py  optional: N-ATLaS suggests word-spacing and spelling fixes for the review tool
   transcribe.py    Whisper large-v3 (faster-whisper), Arabic pass used to find Quran recitation
-  build.py         merges both passes, detects Quran recitation, tags Arabic phrases, flags low confidence
+  build.py         merges the passes, detects Quran recitation, tags Arabic phrases, flags low confidence
   glossary.json    Arabic expressions to detect in the Hausa text (add to it as you review)
   formulas.json    set Arabic openings (e.g. Khutbat al-Hajah) shown as "Opening praise", not as Quran verses
   quran_data/      Uthmani + Warsh text, Hausa translation (Gumi), surah names
@@ -34,11 +34,25 @@ work/<id>/         raw speech-recognition output (for re-building), review backu
 ```bash
 python3 -m venv .venv && .venv/bin/pip install faster-whisper rapidfuzz torch transformers
 ```
-The first run downloads the models from huggingface.co (Whisper large-v3 about 3 GB, the Hausa model about 2.3 GB).
+The first run downloads the models from huggingface.co (Whisper large-v3 about 3 GB, the Hausa model about
+2.3 GB, Omnilingual ASR about 3.9 GB).
 
-Why two models: Whisper is poor at Hausa (it produced mostly gibberish on this lecture), while the
+Why three passes: Whisper is poor at Hausa (it produced mostly gibberish on this lecture), while the
 dedicated Hausa model gives usable text but cannot write Arabic. So the Hausa model transcribes the
-commentary, and Whisper's Arabic output is used only to find which verses are recited.
+commentary, and Whisper's Arabic output is used to find which verses are recited. The third pass, Meta's
+Omnilingual ASR (CTC v2 via `aadel4/omniASR-CTC-1B-v2`, a community conversion stated to match Meta's
+outputs), writes recited verses far more accurately than Whisper but switches to Arabic letters for about a
+third of the Hausa commentary. `build.py` therefore combines them:
+- **Recitation:** searched for in both Whisper's and Omnilingual's Arabic. Where both find the same passage
+  it becomes one, with all verses either heard; its start and end come from Omnilingual, whose word timings
+  are cut at pauses, while Whisper's segments often run on into the commentary.
+- **Hausa:** each segment keeps the Hausa model's text unless Omnilingual wrote the same stretch in Latin
+  letters with at least the same confidence. The other model's text is kept in `alt`, and the review tool
+  shows it under the text box ("Other") with a button to swap it in.
+
+On the 10:00–12:00 test excerpt this placed the Fatiha at 11:05–11:34 (Whisper alone: 11:07–11:46, which hid
+the commentary after it) and used Omnilingual's text for 4 of 27 Hausa segments. Skip the third pass with
+`OMNI_MODEL=` (empty); `build.py` then works as before.
 Two other Hausa models can be compared with the current one on a 2-minute excerpt (writes
 `work/compare/<id>-<start>/comparison.md`, one column per model):
 - `NCAIR1/Hausa-ASR` (Nigeria's National Centre for AI and Robotics), a Whisper fine-tune. It is gated:
@@ -51,8 +65,7 @@ Two other Hausa models can be compared with the current one on a 2-minute excerp
   (`aadel4/omniASR-CTC-1B-v2`, stated to match Meta's outputs). It runs in the main environment with word
   timings, no separate setup needed:
   `.venv/bin/python pipeline/transcribe_ctc.py player/audio/ID.mp3 OUT_DIR --model aadel4/omniASR-CTC-1B-v2`.
-  On lecture 1 it wrote the recited Fatiha correctly in Arabic script, but it also wrote about a third of the
-  Hausa commentary in Arabic letters, so it is not a drop-in replacement for the current model.
+  This is the model `run_lecture.sh` uses for its third pass (see above).
 ```bash
 python3.12 -m venv .venv-omni && .venv-omni/bin/pip install omnilingual-asr faster-whisper
 PYTHON=.venv/bin/python OMNI_PYTHON=.venv-omni/bin/python pipeline/compare_models.sh fatihah01_baqara05 600 120
