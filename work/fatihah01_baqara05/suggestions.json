@@ -1,0 +1,47 @@
+{
+ "lecture": "fatihah01_baqara05",
+ "items": [
+  {
+   "start": 601.99,
+   "end": 605.85,
+   "original": "idan an hada gaba ɗaikakebasmala saboda guyakakiatabasmala",
+   "suggestion": "idan an hada gaba ɗaya kakebasmala saboda gaba ɗaya kakebasmala",
+   "status": "suggested",
+   "similarity": 0.868
+  },
+  {
+   "start": 605.99,
+   "end": 608.73,
+   "original": "shin idan na se wa ya karanta basmala",
+   "suggestion": "shin idan na ce wa ya karanta basmala",
+   "status": "suggested",
+   "similarity": 0.967
+  },
+  {
+   "start": 609.13,
+   "end": 610.13,
+   "original": "a nuke muka",
+   "suggestion": "a nuke muka",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 611.66,
+   "end": 614.04,
+   "original": "ina mukin ya ce bisulin lahi",
+   "suggestion": "ina mukin ya ce bisulin lahi",
+   "status": "unchanged",
+   "similarity": 1.0
+  },
+  {
+   "start": 614.38,
+   "end": 615.06,
+   "original": "kadai",
+   "suggestion": "kadai",
+   "status": "unchanged",
+   "similarity": 1.0
+  }
+ ],
+ "model": "QuantFactory/N-ATLaS-GGUF:N-ATLaS.Q4_K_M.gguf",
+ "updated": "2026-11-03T08:41:46"
+}
