@@ -10,6 +10,8 @@ Serves the project folder (so the review page can load player/audio and player/d
   GET  /api/glossary            the Arabic phrase glossary
   POST /api/glossary            add a phrase to the glossary
   POST /api/save/<lecture>      validate and save a transcript (previous version kept in work/<id>/backups/)
+  GET  /api/suggestions/<lecture>          spelling/spacing suggestions from pipeline/suggest_corrections.py
+  POST /api/suggestions/<lecture>/dismiss  {"start", "original"}: hide a suggestion for good
 """
 import datetime
 import http.server
@@ -29,6 +31,10 @@ GLOSSARY = os.path.join(ROOT, "pipeline", "glossary.json")
 LECTURE_ID = re.compile(r"^[A-Za-z0-9_-]+$")
 REF = re.compile(r"^\d{1,3}:\d{1,3}$")
 KEEP_BACKUPS = 30
+
+
+def suggestions_path(lid):
+    return os.path.join(ROOT, "work", lid, "suggestions.json")
 
 
 def verse_entries(refs):
@@ -121,6 +127,14 @@ class Handler(RangeHandler):
                 return self.reply(400, {"error": str(e)})
         if u.path == "/api/glossary":
             return self.reply(200, json.load(open(GLOSSARY))["phrases"])
+        m = re.match(r"^/api/suggestions/([^/]+)$", u.path)
+        if m:
+            path = suggestions_path(m.group(1))
+            if not LECTURE_ID.match(m.group(1)) or not os.path.exists(path):
+                return self.reply(200, {"model": None, "items": []})
+            d = json.load(open(path))
+            items = [i for i in d.get("items", []) if i.get("status") == "suggested" and not i.get("dismissed")]
+            return self.reply(200, {"model": d.get("model"), "items": items})
         return super().do_GET()
 
     def do_POST(self):
@@ -150,6 +164,23 @@ class Handler(RangeHandler):
             json.dump(doc, open(tmp, "w"), ensure_ascii=False, indent=1)
             os.replace(tmp, path)
             return self.reply(200, {"ok": True, "status": doc["status"], "verses": doc["verses"]})
+
+        m = re.match(r"^/api/suggestions/([^/]+)/dismiss$", u.path)
+        if m:
+            path = suggestions_path(m.group(1))
+            if not LECTURE_ID.match(m.group(1)) or not os.path.exists(path):
+                return self.reply(404, {"error": "no suggestions for this lecture"})
+            d = json.load(open(path))
+            hit = [i for i in d["items"] if abs(i["start"] - float(body.get("start", -1))) < 0.01
+                   and i["original"] == body.get("original")]
+            if not hit:
+                return self.reply(404, {"error": "suggestion not found"})
+            for i in hit:
+                i["dismissed"] = True
+            tmp = path + ".tmp"
+            json.dump(d, open(tmp, "w"), ensure_ascii=False, indent=1)
+            os.replace(tmp, path)
+            return self.reply(200, {"ok": True})
 
         if u.path == "/api/glossary":
             arabic, translit = str(body.get("arabic", "")).strip(), str(body.get("translit", "")).strip()

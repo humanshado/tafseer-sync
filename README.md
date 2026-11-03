@@ -11,6 +11,7 @@ pipeline/
   transcribe_ctc.py Hausa commentary: CLEAR-Global w2v-bert-2.0 Hausa model (CC BY-SA 4.0), word timings
   transcribe_whisper_hf.py  alternative Hausa pass with a Hugging Face Whisper fine-tune (default NCAIR1/Hausa-ASR)
   compare_ncair.sh / compare_asr.py  run two Hausa models on the same excerpt and compare side by side
+  suggest_corrections.py  optional: N-ATLaS suggests word-spacing and spelling fixes for the review tool
   transcribe.py    Whisper large-v3 (faster-whisper), Arabic pass used to find Quran recitation
   build.py         merges both passes, detects Quran recitation, tags Arabic phrases, flags low confidence
   glossary.json    Arabic expressions to detect in the Hausa text (add to it as you review)
@@ -25,7 +26,7 @@ player/
   serve.py         local preview server (supports seeking)
   audio/<id>.mp3   cleaned audio
   data/<id>.json   transcript per lecture
-work/<id>/         raw speech-recognition output (for re-building) and review backups
+work/<id>/         raw speech-recognition output (for re-building), review backups, suggestions.json
 ```
 
 ## Setup
@@ -55,6 +56,25 @@ Segments already marked reviewed in the existing transcript are kept; everything
 ```bash
 .venv/bin/python pipeline/build.py work/fatihah01_baqara05 fatihah01_baqara05 audio/fatihah01_baqara05.mp3 player/data/fatihah01_baqara05.json --title "..." --focus 1,2
 ```
+
+## Optional: spelling and spacing suggestions (N-ATLaS)
+The Hausa model often runs words together ("waɗansuharuffa") or misspells them ("akwi").
+`suggest_corrections.py` asks N-ATLaS, NCAIR's Hausa/Yoruba/Igbo/English language model, for a tidied
+version of each unreviewed Hausa segment. It never changes the transcript. It writes
+`work/<id>/suggestions.json`, and the review tool shows each suggestion under the segment as a word diff
+with **Use suggestion** (Alt+U, press again to restore the original) and **Dismiss**.
+A language model can "improve" what the scholar said or invent words where the audio was unclear, so a
+suggestion is thrown away unless it keeps essentially the same letters (only spacing and a few letters may
+change). Still listen before accepting one.
+```bash
+.venv/bin/pip install llama-cpp-python
+.venv/bin/python pipeline/suggest_corrections.py player/data/fatihah01_baqara05.json --from 600 --to 720
+```
+By default it runs a 4-bit GGUF copy of N-ATLaS (`QuantFactory/N-ATLaS-GGUF`, 4.9 GB download, about 6 GB of
+RAM), which works on an ordinary CPU at roughly 10–20 s per segment; a whole lecture takes a few hours, and an
+interrupted run continues where it stopped. With a GPU, `--hf NCAIR1/N-ATLaS` uses the official weights
+instead (gated like Hausa-ASR: accept the terms and set `HF_TOKEN`). `--flagged-only` limits it to segments
+flagged as uncertain.
 
 ## Preview
 ```bash

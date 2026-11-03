@@ -73,6 +73,11 @@ main { max-width: 980px; margin: 0 auto; padding: 12px 16px 60vh; }
 .seg .st { text-align: center; }
 .seg .st.ok { color: var(--accent); }
 .seg .st.flag { color: var(--warn); }
+.seg .st .sg { color: var(--accent); font-size: .85em; }
+.suggest { border: 1px dashed var(--accent); border-radius: 10px; padding: 8px 10px; margin-top: 8px; background: var(--accent-soft); }
+.suggest .diff { font-size: 1.02rem; margin: 4px 0 6px; line-height: 1.7; }
+.suggest del { color: var(--danger); }
+.suggest ins { text-decoration: none; color: var(--accent); font-weight: 600; }
 
 .editor {
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin: 4px 0 14px;
@@ -132,6 +137,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
         <option value="todo">Not yet reviewed</option>
         <option value="flag">Flagged as uncertain</option>
         <option value="quran">Quran passages</option>
+        <option value="sugg">With a spelling suggestion</option>
         <option value="all">All segments</option>
       </select>
       <select id="rate" aria-label="Speed">
@@ -157,6 +163,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     <tr><td><kbd>Alt</kbd>+<kbd>↑</kbd> / <kbd>↓</kbd></td><td>Previous / next segment</td></tr>
     <tr><td><kbd>Alt</kbd>+<kbd>S</kbd></td><td>Split at the text cursor (time: at the playhead)</td></tr>
     <tr><td><kbd>Alt</kbd>+<kbd>M</kbd></td><td>Merge with the next segment</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>U</kbd></td><td>Use the spelling suggestion (or restore the original)</td></tr>
     <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Save now (it also saves automatically)</td></tr>
   </table>
   <p class="hint">Typical flow: press <kbd>Alt</kbd>+<kbd>P</kbd>, listen, correct the text, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
@@ -186,6 +193,9 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
 
   const audio = $("audio"), list = $("list");
   let doc = null, lectureId = null, segs = [], sel = -1, glossary = [];
+  // Spelling/spacing suggestions from pipeline/suggest_corrections.py. A suggestion belongs to a segment
+  // only while the segment still has the exact text it was made for; `applied` remembers what was used.
+  let sugg = { model: null, items: [] }, applied = new WeakMap();
   let dirty = false, saving = false, version = 0, saveTimer = null, undoStack = [], stopAt = null, playingIdx = -1;
 
   // ---------------- loading ----------------
@@ -206,6 +216,8 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     lectureId = id; store.set("lecture", id);
     doc = await fetch(`/player/data/${id}.json`, { cache: "no-store" }).then((r) => r.json());
     segs = doc.segments; undoStack = []; $("undo").disabled = true;
+    sugg = await fetch(`/api/suggestions/${id}`, { cache: "no-store" }).then((r) => r.json()).catch(() => ({ items: [] }));
+    applied = new WeakMap();
     audio.src = "/player/" + doc.audio;
     sel = Math.min(store.get("sel." + id, 0), segs.length - 1);
     setDirty(false); render();
@@ -215,8 +227,11 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
   // ---------------- list ----------------
   const visible = (s) => {
     const f = $("filter").value;
-    return f === "all" || (f === "todo" && !s.reviewed) || (f === "flag" && s.review) || (f === "quran" && s.type === "quran");
+    return f === "all" || (f === "todo" && !s.reviewed) || (f === "flag" && s.review) || (f === "quran" && s.type === "quran")
+      || (f === "sugg" && !!suggestionFor(s));
   };
+  const suggestionFor = (s) => s.type === "speech" && !s.reviewed
+    ? sugg.items.find((x) => x.original === s.text && Math.abs(x.start - s.start) < 1) : null;
   function summary(s) {
     if (s.type === "quran") {
       const v = doc.verses[s.refs[0]];
@@ -227,6 +242,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
   }
   function row(s, i) {
     const st = s.reviewed ? el("span", { class: "st ok", title: "Reviewed" }, "✓") : s.review ? el("span", { class: "st flag", title: "Uncertain" }, "!") : el("span", { class: "st" }, "");
+    if (suggestionFor(s)) st.append(el("span", { class: "sg", title: "Has a spelling suggestion" }, "✎"));
     const r = el("div", { class: "seg" + (i === sel ? " sel" : "") + (i === playingIdx ? " playing" : ""), "data-i": i },
       el("span", { class: "time" }, fmt(s.start)), el("span", { class: "badge " + s.type }, s.type), summary(s), st);
     r.onclick = () => select(i, { play: false });
@@ -341,9 +357,52 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
           ta.setRangeText(ch, a, b, "end"); ta.dispatchEvent(new Event("input")); ta.focus();
         } }, ch));
       }
-      wrap.append(letters, phrasesEditor(s, i));
+      const sb = suggestionBox(s, i);
+      wrap.append(...(sb ? [sb] : []), letters, phrasesEditor(s, i));
     }
     return wrap;
+  }
+
+  function wordDiff(a, b) {  // words of a and b -> [kind, word] with kind "", "del" or "ins" (LCS)
+    a = a.split(/\s+/).filter(Boolean); b = b.split(/\s+/).filter(Boolean);
+    const L = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0));
+    for (let x = a.length - 1; x >= 0; x--) for (let y = b.length - 1; y >= 0; y--)
+      L[x][y] = a[x] === b[y] ? L[x + 1][y + 1] + 1 : Math.max(L[x + 1][y], L[x][y + 1]);
+    const out = []; let x = 0, y = 0;
+    while (x < a.length || y < b.length) {
+      if (x < a.length && y < b.length && a[x] === b[y]) { out.push(["", a[x]]); x++; y++; }
+      else if (y < b.length && (x >= a.length || L[x][y + 1] >= L[x + 1][y])) out.push(["ins", b[y++]]);
+      else out.push(["del", a[x++]]);
+    }
+    return out;
+  }
+  function suggestionBox(s, i) {
+    const used = applied.get(s);
+    if (used && s.text === used.suggestion) {
+      return el("div", { class: "suggest" }, el("span", { class: "hint" }, "Spelling suggestion used. Check it against the audio. "),
+        el("button", { title: "Alt+U", onclick: () => toggleSuggestion() }, "Restore the original"));
+    }
+    const g = suggestionFor(s); if (!g) return null;
+    const diff = el("div", { class: "diff" });
+    for (const [k, w] of wordDiff(g.original, g.suggestion)) diff.append(k ? el(k, {}, w) : w, " ");
+    return el("div", { class: "suggest" },
+      el("div", { class: "hint" }, `Suggested by ${sugg.model || "the language model"}: spacing and spelling only. It can be wrong: listen before using it.`),
+      diff,
+      el("div", { class: "line", style: "margin:0" },
+        el("button", { class: "primary", title: "Alt+U", onclick: () => toggleSuggestion() }, "Use suggestion"),
+        el("button", { onclick: () => dismiss(g, i) }, "Dismiss")));
+  }
+  function toggleSuggestion() {
+    const s = segs[sel]; if (!s) return;
+    const used = applied.get(s);
+    if (used && s.text === used.suggestion) { s.text = used.original; applied.delete(s); toast("Original text restored"); }
+    else { const g = suggestionFor(s); if (!g) return; s.text = g.suggestion; applied.set(s, g); }
+    changed(); select(sel);
+  }
+  async function dismiss(g, i) {
+    const r = await fetch(`/api/suggestions/${lectureId}/dismiss`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ start: g.start, original: g.original }) });
+    if (!r.ok) return toast((await r.json()).error || "Could not dismiss");
+    sugg.items = sugg.items.filter((x) => x !== g); select(i); toast("Suggestion dismissed");
   }
 
   function phrasesEditor(s, i) {
@@ -575,7 +634,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     const map = {
       p: playSeg, k: () => (audio.paused ? audio.play() : audio.pause()),
       j: () => (audio.currentTime = Math.max(0, audio.currentTime - 3)), l: () => (audio.currentTime += 3),
-      arrowdown: () => step(1), arrowup: () => step(-1), s: split, m: merge,
+      arrowdown: () => step(1), arrowup: () => step(-1), s: split, m: merge, u: toggleSuggestion,
     };
     // use e.code so Alt combinations work on keyboards where Alt changes the character
     const code = e.code.startsWith("Key") ? e.code.slice(3).toLowerCase() : k;
