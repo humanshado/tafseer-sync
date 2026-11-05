@@ -400,13 +400,19 @@ def main():
     }
     if rounds:
         out["rounds"] = rounds["rounds"]
+        # Rounds edited in the review tool win over freshly generated ones (same bloc = overlapping in time).
+        if os.path.exists(a.out) and not a.discard_reviewed:
+            edited = [r for r in json.load(open(a.out)).get("rounds") or [] if r.get("edited")]
+            same = lambda x, y: overlap(x["start"], x["end"], y["start"], y["end"]) > 0  # noqa: E731
+            out["rounds"] = sorted([g for g in out["rounds"] if not any(same(g["bloc"], e["bloc"]) for e in edited)]
+                                   + edited, key=lambda r: r["bloc"]["start"])
     json.dump(out, open(a.out, "w"), ensure_ascii=False, indent=1)
-    if rounds:
-        for r in rounds["rounds"]:
-            b = r["bloc"]
-            print(f"Bloc {b['refs'][0]}-{b['refs'][-1].split(':')[1]} at {b['start']:.0f}s: explanations for "
-                  f"{', '.join(e['ref'] for e in r['explanations'])}"
-                  + (f"; not found: {', '.join(r['missing'])}" if r["missing"] else ""))
+    for r in out.get("rounds", []):
+        b = r["bloc"]
+        print(f"Bloc {b['refs'][0]}-{b['refs'][-1].split(':')[1]} at {b['start']:.0f}s: explanations for "
+              f"{', '.join(e.get('ref') or e.get('label', '?') for e in r['explanations'])}"
+              + (f"; not found: {', '.join(r['missing'])}" if r["missing"] else "")
+              + (" (edited in the review tool, kept)" if r.get("edited") else ""))
     if omni:
         sp = [s for s in segs if s["type"] == "speech" and not s.get("reviewed")]
         print(f"Omnilingual pass: text used for {sum(s.get('asr') == 'omni' for s in sp)} of {len(sp)} Hausa segments; "

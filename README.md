@@ -110,7 +110,14 @@ verse with its transcript and an `index.md` into `work/explanations/<id>/`.
 On lecture 1 the two voices separate cleanly (the reciter: 1.6 of 45 minutes, in three blocs: 1:1, 1:2–7,
 2:1–5) and explanations were found for 10 of 12 verses. 1:3 and 2:5 were not found, and the end of the last
 explanation in a round is only where the next bloc starts: 1:7's runs on through the general discussion of
-the Fatiha. Check the boundaries by listening.
+the Fatiha. Check the boundaries by listening, and correct them in the review tool: choose **Verse
+explanations** in its Show menu. Each round lists the reciter's bloc and one row per explanation, with play
+buttons (whole, or its last 15 s to hear where it ends), start and end controls (touching boundaries move
+together), a **Checked** tick and **Remove**. Missing verses get an **Add at the playhead** button (inside an
+explanation this splits it there), and **Other…** adds a part that is not about one verse, such as "General:
+virtues of the Fatiha". The server checks every verse reference and that explanations do not overlap. A round
+you edited is kept when `build.py` runs again (unless `--discard-reviewed`); run `export_explanations.py` again
+to cut the audio from the corrected boundaries.
 
 ## Optional: spelling and spacing suggestions (N-ATLaS)
 The Hausa model often runs words together ("waɗansuharuffa") or misspells them ("akwi").

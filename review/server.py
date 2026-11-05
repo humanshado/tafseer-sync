@@ -55,6 +55,35 @@ def skeleton(t):
     return re.sub(r"(.)\1+", r"\1", t)
 
 
+def validate_rounds(rounds):
+    """The verse explanations: each has a real verse reference or a label, and they do not overlap."""
+    if rounds is None:
+        return
+    if not isinstance(rounds, list):
+        raise ValueError("rounds must be a list")
+    for n, rnd in enumerate(rounds, 1):
+        b = rnd.get("bloc") or {}
+        if not 0 <= float(b.get("start", -1)) < float(b.get("end", -1)):
+            raise ValueError(f"round {n}: the bloc's start must be before its end")
+        prev_end = -1.0
+        for e in rnd.get("explanations", []):
+            name = e.get("ref") or e.get("label") or "?"
+            start, end = float(e["start"]), float(e["end"])
+            if not 0 <= start < end:
+                raise ValueError(f"round {n}, {name}: start must be before end")
+            if start < prev_end - 0.05:
+                raise ValueError(f"round {n}, {name}: overlaps the explanation before it")
+            prev_end = end
+            if "ref" in e:
+                if not isinstance(e["ref"], str) or not REF.match(e["ref"]):
+                    raise ValueError(f"round {n}: {e['ref']!r} is not a verse reference like 2:3")
+                verse_entries([e["ref"]])  # raises for a verse that does not exist
+            elif not str(e.get("label", "")).strip():
+                raise ValueError(f"round {n}: an explanation needs a verse reference or a label")
+        have = {e.get("ref") for e in rnd.get("explanations", [])}
+        rnd["missing"] = [r for r in b.get("refs", []) if r not in have]
+
+
 def validate(doc):
     segs = doc.get("segments")
     if not isinstance(segs, list):
@@ -77,8 +106,10 @@ def validate(doc):
         elif not str(s.get("text", "")).strip():
             raise ValueError(f"{where}: text is empty")
         s["id"] = i
+    validate_rounds(doc.get("rounds"))
     # verse texts always come from the official data, never from the browser
-    doc["verses"] = verse_entries(r for s in segs if s["type"] == "quran" for r in s["refs"])
+    doc["verses"] = verse_entries([r for s in segs if s["type"] == "quran" for r in s["refs"]] +
+                                  [e["ref"] for rnd in doc.get("rounds") or [] for e in rnd["explanations"] if "ref" in e])
     done = sum(1 for s in segs if s.get("reviewed"))
     doc["status"] = "reviewed" if done == len(segs) else f"draft - {done} of {len(segs)} segments reviewed"
     return doc

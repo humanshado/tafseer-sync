@@ -74,6 +74,14 @@ main { max-width: 980px; margin: 0 auto; padding: 12px 16px 60vh; }
 .seg .st.ok { color: var(--accent); }
 .seg .st.flag { color: var(--warn); }
 .seg .st .sg { color: var(--accent); font-size: .85em; }
+.round { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; }
+.round h3 { font-size: .95rem; margin: 0 0 8px; }
+.ex { border-left: 3px solid var(--line); padding: 6px 0 6px 10px; margin: 8px 0; }
+.ex.ok { border-left-color: var(--accent); }
+.ex.playing { background: var(--sel); border-radius: 0 8px 8px 0; }
+.ex .ref { width: 120px; font-weight: 600; }
+.ex .ref.label { width: 260px; font-weight: 400; }
+.ex .tval { width: 76px; font-variant-numeric: tabular-nums; text-align: center; }
 .suggest { border: 1px dashed var(--accent); border-radius: 10px; padding: 8px 10px; margin-top: 8px; background: var(--accent-soft); }
 .suggest .diff { font-size: 1.02rem; margin: 4px 0 6px; line-height: 1.7; }
 .suggest del { color: var(--danger); }
@@ -138,6 +146,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
         <option value="flag">Flagged as uncertain</option>
         <option value="quran">Quran passages</option>
         <option value="sugg">With a spelling suggestion</option>
+        <option value="rounds">Verse explanations</option>
         <option value="all">All segments</option>
       </select>
       <select id="rate" aria-label="Speed">
@@ -166,6 +175,8 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     <tr><td><kbd>Alt</kbd>+<kbd>U</kbd></td><td>Use the spelling suggestion (or restore the original)</td></tr>
     <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Save now (it also saves automatically)</td></tr>
   </table>
+  <p class="hint">“Verse explanations” (in the Show menu) lists each bloc the reciter recites and where the lecturer
+  explains each of its verses; set the start and end of each, add verses that were missed, and tick them when checked.</p>
   <p class="hint">Typical flow: press <kbd>Alt</kbd>+<kbd>P</kbd>, listen, correct the text, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
   Verse texts always come from the official Quran data; you only set the references.</p>
   <form method="dialog"><button>Close</button></form>
@@ -250,6 +261,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
   }
   function render() {
     list.innerHTML = "";
+    if ($("filter").value === "rounds") { list.append(roundsView()); updateProgress(); return; }
     let shown = 0;
     segs.forEach((s, i) => {
       if (!visible(s) && i !== sel) return;
@@ -517,12 +529,13 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
 
   // ---------------- structural edits ----------------
   function snapshot() {
-    undoStack.push(JSON.stringify({ segs, sel, verses: doc.verses })); if (undoStack.length > 50) undoStack.shift();
+    undoStack.push(JSON.stringify({ segs, sel, verses: doc.verses, rounds: doc.rounds })); if (undoStack.length > 50) undoStack.shift();
     $("undo").disabled = false;
   }
   $("undo").onclick = () => {
     const u = undoStack.pop(); if (!u) return;
     const o = JSON.parse(u); segs = doc.segments = o.segs; doc.verses = o.verses; sel = o.sel;
+    if (o.rounds) doc.rounds = o.rounds;
     $("undo").disabled = !undoStack.length; changed(); render(); toast("Undone");
   };
   function split() {
@@ -574,6 +587,117 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     render(); toast("End of list");
   }
 
+  // ---------------- verse explanations (rounds) ----------------
+  // doc.rounds (from pipeline/explanations.py): [{bloc: {start, end, refs}, explanations: [{ref | label, start, end,
+  // found, heard, checked}], missing}]. Explanations that touch share their boundary: moving one moves the other.
+  const REF_RE = /^\d{1,3}:\d{1,3}$/;
+  const windowEnd = (ri) => (doc.rounds[ri + 1] ? doc.rounds[ri + 1].bloc.start : Math.max(audio.duration || 0, segs.length ? segs[segs.length - 1].end : 0));
+  const exName = (e) => e.ref || e.label || "?";
+  function touched(r) {
+    r.edited = true;
+    const have = new Set(r.explanations.map((e) => e.ref));
+    r.missing = r.bloc.refs.filter((x) => !have.has(x));
+    changed(); render();
+  }
+  function playRange(a, b) { audio.currentTime = a; stopAt = b; audio.play(); }
+  function exTimeCtl(ri, k, key) {
+    const e = doc.rounds[ri].explanations[k];
+    const inp = el("input", { type: "text", class: "tval", value: fmt(e[key]), "aria-label": `${exName(e)} ${key}` });
+    const set = (v) => setExTime(ri, k, key, v);
+    inp.onchange = () => {
+      const m = inp.value.trim().match(/^(?:(\d+):)?(\d+(?:\.\d+)?)$/);
+      if (!m) { inp.value = fmt(e[key]); return toast("Use minutes:seconds, e.g. 17:33.2"); }
+      set((+(m[1] || 0)) * 60 + (+m[2]));
+    };
+    const b = (label, d) => el("button", { onclick: () => set(e[key] + d) }, label);
+    return el("span", { class: "line", style: "margin:0" }, el("label", { class: "k" }, key === "start" ? "Start" : "End"),
+      b("−5", -5), b("−1", -1), inp, b("+1", 1), b("+5", 5),
+      el("button", { title: "Set to the current playback position", onclick: () => set(audio.currentTime) }, "⤓ playhead"));
+  }
+  function setExTime(ri, k, key, v) {
+    const r = doc.rounds[ri], ex = r.explanations, e = ex[k], old = e[key];
+    v = round(v);
+    if (key === "start") v = Math.min(Math.max(v, k > 0 ? ex[k - 1].start + 0.5 : r.bloc.start), e.end - 0.5);
+    else v = Math.max(Math.min(v, k + 1 < ex.length ? ex[k + 1].end - 0.5 : windowEnd(ri)), e.start + 0.5);
+    if (v === old) return render();
+    snapshot();
+    e[key] = v;
+    if (key === "start" && k > 0 && (Math.abs(ex[k - 1].end - old) < 0.05 || ex[k - 1].end > v)) ex[k - 1].end = v;
+    if (key === "end" && k + 1 < ex.length && (Math.abs(ex[k + 1].start - old) < 0.05 || ex[k + 1].start < v)) ex[k + 1].start = v;
+    touched(r);
+  }
+  function addExplanation(ri, what) {  // at the playhead; inside an explanation this splits it there
+    const r = doc.rounds[ri], ex = r.explanations, t = round(audio.currentTime), wEnd = windowEnd(ri);
+    if (!(t >= r.bloc.start && t < wEnd - 0.5)) return toast(`Move the playhead into this round first (${fmt(r.bloc.start)} – ${fmt(wEnd)})`);
+    const inside = ex.find((e) => e.start < t - 0.5 && t < e.end - 0.5);
+    const next = ex.find((e) => e.start >= t);
+    snapshot();
+    const n = { ...what, start: t, end: inside ? inside.end : next ? next.start : round(wEnd), found: "added by hand", heard: "" };
+    if (inside) inside.end = t;
+    ex.push(n); ex.sort((a, b) => a.start - b.start);
+    touched(r); toast(`Added ${exName(n)} at ${fmt(t)}`);
+  }
+  function removeExplanation(ri, k) {
+    const ex = doc.rounds[ri].explanations, e = ex[k];
+    if (!confirm(`Remove the explanation of ${exName(e)}? Its time joins the one before it.`)) return;
+    snapshot();
+    if (k > 0 && Math.abs(ex[k - 1].end - e.start) < 0.05) ex[k - 1].end = e.end;
+    ex.splice(k, 1); touched(doc.rounds[ri]);
+  }
+  async function renameExplanation(ri, k, v) {
+    const e = doc.rounds[ri].explanations[k];
+    v = v.trim();
+    if (!v || v === exName(e)) return render();
+    if (REF_RE.test(v)) {
+      const res = await fetch("/api/verses?refs=" + encodeURIComponent(v)); const j = await res.json();
+      if (!res.ok) { toast(j.error); return render(); }
+      snapshot(); Object.assign(doc.verses, j); e.ref = v; delete e.label;
+    } else { snapshot(); e.label = v; delete e.ref; }
+    touched(doc.rounds[ri]);
+  }
+  function roundsView() {
+    const wrap = el("div");
+    if (!doc.rounds || !doc.rounds.length) {
+      wrap.append(el("p", { class: "empty" }, "No verse explanations in this transcript yet: run pipeline/diarize.py, then build.py."));
+      return wrap;
+    }
+    const all = doc.rounds.flatMap((r) => r.explanations);
+    wrap.append(el("p", { class: "hint" }, `${all.filter((e) => e.checked).length} of ${all.length} explanations checked. ` +
+      "Type a verse such as 1:3, or any label (e.g. General: virtues of the Fatiha) for a part that is not about one verse. " +
+      "Touching boundaries move together. After editing, run pipeline/export_explanations.py to cut the audio again."));
+    doc.rounds.forEach((r, ri) => {
+      const b = r.bloc, card = el("div", { class: "round" });
+      card.append(el("h3", {}, `Round ${ri + 1}: bloc ${b.refs[0]}${b.refs.length > 1 ? "–" + b.refs[b.refs.length - 1] : ""} recited ${fmt(b.start)} – ${fmt(b.end)}`,
+        " ", el("button", { onclick: () => playRange(b.start, b.end) }, "▶ Play bloc")));
+      r.explanations.forEach((e, k) => {
+        const ref = el("input", { type: "text", class: "ref" + (e.ref ? "" : " label"), value: exName(e), "aria-label": "Verse or label" });
+        ref.onchange = () => renameExplanation(ri, k, ref.value);
+        const how = e.found === "repeat" ? `repeat heard: ${e.heard}` : e.found;
+        card.append(el("div", { class: "ex" + (e.checked ? " ok" : ""), "data-s": e.start, "data-e": e.end },
+          el("div", { class: "line" }, ref,
+            el("span", { class: "hint" }, `${fmt(e.start)} – ${fmt(e.end)} · ${((e.end - e.start) / 60).toFixed(1)} min`),
+            el("span", { class: "grow" }),
+            el("button", { class: "primary", onclick: () => playRange(e.start, e.end) }, "▶ Play"),
+            el("button", { title: "Hear where it ends", onclick: () => playRange(Math.max(e.start, e.end - 15), e.end) }, "▶ Last 15 s"),
+            el("button", { "aria-pressed": !!e.checked, title: "Boundaries checked by ear", onclick: () => { snapshot(); e.checked = !e.checked; touched(r); } }, e.checked ? "✓ Checked" : "Checked?"),
+            el("button", { class: "danger", onclick: () => removeExplanation(ri, k) }, "Remove")),
+          el("div", { class: "line" }, exTimeCtl(ri, k, "start")),
+          el("div", { class: "line" }, exTimeCtl(ri, k, "end")),
+          el("div", { class: "hint" }, how)));
+      });
+      const add = el("div", { class: "line", style: "margin-top:8px" }, el("span", { class: "hint" }, "Add at the playhead:"));
+      for (const m of r.missing || []) add.append(el("button", { onclick: () => addExplanation(ri, { ref: m }) }, `+ ${m}`));
+      add.append(el("button", { onclick: () => {
+        const v = (prompt("Verse (e.g. 1:3) or label for the new part:") || "").trim();
+        if (v) addExplanation(ri, REF_RE.test(v) ? { ref: v } : { label: v });
+      } }, "+ Other…"));
+      card.append(add);
+      if ((r.missing || []).length) card.append(el("p", { class: "hint", style: "margin:4px 0 0" }, `Not found: ${r.missing.join(", ")}. Play to where it starts, then add it.`));
+      wrap.append(card);
+    });
+    return wrap;
+  }
+
   // ---------------- audio ----------------
   function playSeg() {
     const s = segs[sel]; if (!s) return;
@@ -584,6 +708,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     if (stopAt != null && t >= stopAt) { audio.pause(); stopAt = null; }
     let i = -1, lo = 0, hi = segs.length - 1;
     while (lo <= hi) { const m = (lo + hi) >> 1; if (segs[m].start <= t) { i = m; lo = m + 1; } else hi = m - 1; }
+    for (const n of list.querySelectorAll(".ex[data-s]")) n.classList.toggle("playing", t >= +n.dataset.s && t < +n.dataset.e);
     if (i !== playingIdx) {
       list.querySelector(".seg.playing")?.classList.remove("playing");
       playingIdx = i; list.querySelector(`.seg[data-i="${i}"]`)?.classList.add("playing");

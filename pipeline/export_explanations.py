@@ -12,6 +12,7 @@ Usage:
 import argparse
 import json
 import os
+import re
 import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,8 +40,10 @@ def main():
     for rnd in doc["rounds"]:
         b = rnd["bloc"]
         index += [f"## Bloc {b['refs'][0]}–{b['refs'][-1]} (recited {clock(b['start'])}–{clock(b['end'])})", ""]
-        for e in rnd["explanations"]:
-            name = e["ref"].replace(":", "_")
+        for k, e in enumerate(rnd["explanations"], 1):
+            title = e.get("ref") or e.get("label", "")
+            name = e["ref"].replace(":", "_") if e.get("ref") else \
+                f"round{doc['rounds'].index(rnd) + 1}_{k:02d}_" + (re.sub(r"[^a-z0-9]+", "_", title.lower()).strip("_")[:40] or "part")
             subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(e["start"]),
                             "-to", str(e["end"]), "-i", audio, "-c:a", "libmp3lame", "-q:a", "4",
                             os.path.join(out, name + ".mp3")], check=True)
@@ -50,9 +53,10 @@ def main():
                     body = ("[Quran " + ", ".join(s["refs"]) + "]") if s["type"] == "quran" else s.get("text", "")
                     lines.append(f"[{clock(s['start'])}] {body}")
             open(os.path.join(out, name + ".txt"), "w").write(
-                f"Explanation of {e['ref']}: {clock(e['start'])}–{clock(e['end'])}\n\n" + "\n".join(lines) + "\n")
-            how = "starts after the bloc" if e["found"] == "after bloc" else f"repeat heard: {e['heard'][:60]}"
-            index.append(f"- **{e['ref']}** {clock(e['start'])}–{clock(e['end'])} "
+                f"Explanation of {title}: {clock(e['start'])}–{clock(e['end'])}\n\n" + "\n".join(lines) + "\n")
+            how = {"after bloc": "starts after the bloc", "repeat": f"repeat heard: {e.get('heard', '')[:60]}"}.get(
+                e.get("found"), e.get("found") or "set by hand") + ("; checked by ear" if e.get("checked") else "")
+            index.append(f"- **{title}** {clock(e['start'])}–{clock(e['end'])} "
                          f"({(e['end'] - e['start']) / 60:.1f} min; {how}) [{name}.mp3]({name}.mp3)")
         if rnd["missing"]:
             index.append(f"- Not found: {', '.join(rnd['missing'])} (inside the explanation before it, if explained)")
