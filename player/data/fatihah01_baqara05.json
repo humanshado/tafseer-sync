@@ -8217,5 +8217,126 @@
    "warsh": "۞ وَأَمَّا ثَمُودُ فَهَدَيْنَٰهُمْ فَاسْتَحَبُّواْ اُ۬لْعَم۪ىٰ عَلَى اَ۬لْهُد۪ىٰ فَأَخَذَتْهُمْ صَٰعِقَةُ اُ۬لْعَذَابِ اِ۬لْهُونِ بِمَا كَانُواْ يَكْسِبُونَۖ",
    "hausa": "Kuma amma Samũdãwa, sai Muka shiryar da su, sai suka fi son makanta a kan shiriya, dõmin haka tsawar azãbar wulãkanci, ta kamã su sabõda abin da suka kasance sunã aikatãwa (dõmin nẽman wata fã'ida)."
   }
- }
+ },
+ "rounds": [
+  {
+   "bloc": {
+    "start": 158.51,
+    "end": 171.64,
+    "refs": [
+     "1:1"
+    ]
+   },
+   "explanations": [
+    {
+     "ref": "1:1",
+     "start": 171.64,
+     "end": 664.78,
+     "found": "after bloc",
+     "heard": ""
+    }
+   ],
+   "missing": []
+  },
+  {
+   "bloc": {
+    "start": 664.78,
+    "end": 699.61,
+    "refs": [
+     "1:2",
+     "1:3",
+     "1:4",
+     "1:5",
+     "1:6",
+     "1:7"
+    ]
+   },
+   "explanations": [
+    {
+     "ref": "1:2",
+     "start": 699.61,
+     "end": 1053.23,
+     "found": "after bloc",
+     "heard": ""
+    },
+    {
+     "ref": "1:4",
+     "start": 1053.23,
+     "end": 1100.76,
+     "found": "repeat",
+     "heard": "مالك يوم الدين"
+    },
+    {
+     "ref": "1:5",
+     "start": 1100.76,
+     "end": 1134.6,
+     "found": "repeat",
+     "heard": "اياك نعبد وياك نستعيد."
+    },
+    {
+     "ref": "1:6",
+     "start": 1134.6,
+     "end": 1140.97,
+     "found": "repeat",
+     "heard": "المستقيم كشلية دمو الصراط المستقيم تفلكي وان دي كمدرس."
+    },
+    {
+     "ref": "1:7",
+     "start": 1140.97,
+     "end": 2526.39,
+     "found": "repeat",
+     "heard": "sirat alazina an'amta alaihim tafarkin waɗanda kai ni'ma a gare su ghair ilmardubi alaihim ba waɗanda kai sushi a gare su ba wala dallin ba kuma tafarkin katarsu ba"
+    }
+   ],
+   "missing": [
+    "1:3"
+   ]
+  },
+  {
+   "bloc": {
+    "start": 2526.39,
+    "end": 2586.23,
+    "refs": [
+     "2:1",
+     "2:2",
+     "2:3",
+     "2:4",
+     "2:5"
+    ]
+   },
+   "explanations": [
+    {
+     "ref": "2:1",
+     "start": 2586.23,
+     "end": 2648.78,
+     "found": "after bloc",
+     "heard": ""
+    },
+    {
+     "ref": "2:2",
+     "start": 2648.78,
+     "end": 2869.29,
+     "found": "repeat",
+     "heard": "ده قد يتكلم منكي ذلك الكتاب لا ريبكي. ذلك سناني الاشارة."
+    },
+    {
+     "ref": "2:3",
+     "start": 2869.29,
+     "end": 3037.03,
+     "found": "repeat",
+     "heard": "يؤمنون بالغيب"
+    },
+    {
+     "ref": "2:4",
+     "start": 3037.03,
+     "end": 3118.87,
+     "found": "repeat",
+     "heard": "دهك والذين جلمن بما أنزل إليك وما أنزل من قبلك وبالآثرتهم"
+    }
+   ],
+   "missing": [
+    "2:5"
+   ]
+  }
+ ]
 }

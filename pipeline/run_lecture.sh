@@ -31,6 +31,18 @@ fi
 echo "== Transcribing Arabic (Whisper large-v3; the slow step) to find Quran recitation"
 "$PY" "$ROOT/pipeline/transcribe.py" "$CLEAN" "$ROOT/work/$ID" --langs ar "$@"
 
+DPY="${DIARIZE_PYTHON:-$PY}"
+if "$DPY" -c "import speechbrain, sklearn" 2>/dev/null; then
+  echo "== Telling the reciter's voice from the lecturer's (for the explanation of each verse)"
+  "$DPY" "$ROOT/pipeline/diarize.py" "$CLEAN" "$ROOT/work/$ID"
+else
+  echo "== Skipping speaker detection: speechbrain is not installed for $DPY (set DIARIZE_PYTHON)"
+fi
+
 echo "== Building transcript"
 "$PY" "$ROOT/pipeline/build.py" "$ROOT/work/$ID" "$ID" "audio/$ID.mp3" "$ROOT/player/data/$ID.json" --title "$TITLE" --focus "${FOCUS:-}"
+if [ -f "$ROOT/work/$ID/speakers.json" ]; then
+  echo "== Cutting the explanation of each verse into its own file"
+  "$PY" "$ROOT/pipeline/export_explanations.py" "$ROOT/player/data/$ID.json"
+fi
 echo "Done. Preview: cd $ROOT/player && python3 serve.py, then open http://localhost:8000/?lecture=$ID"

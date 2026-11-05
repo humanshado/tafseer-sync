@@ -17,6 +17,7 @@ import argparse
 import json
 import os
 import re
+import sys
 import unicodedata
 from collections import Counter, defaultdict
 
@@ -375,6 +376,15 @@ def main():
     for i, s in enumerate(segs, 1):
         s["id"] = i
 
+    # 2b. Rounds: the reciter's blocs and the lecturer's explanation of each verse (needs speakers.json).
+    rounds = None
+    sp_path = os.path.join(a.work_dir, "speakers.json")
+    if os.path.exists(sp_path):
+        sys.modules.setdefault("build", sys.modules[__name__])  # explanations.py imports this module
+        from explanations import explanation_rounds
+        rounds = explanation_rounds(segs, json.load(open(sp_path))["segments"], [ar, omni], [ha, omni],
+                                    (words, owner, index, verse_pairs, focus), max(s["end"] for s in segs))
+
     # 3. Verse texts the lecture needs: Hafs (Uthmani), Warsh, and the Hausa translation (Gumi).
     verses = verse_entries(r for s in segs if s["type"] == "quran" for r in s["refs"])
 
@@ -388,7 +398,15 @@ def main():
         },
         "segments": segs, "verses": verses,
     }
+    if rounds:
+        out["rounds"] = rounds["rounds"]
     json.dump(out, open(a.out, "w"), ensure_ascii=False, indent=1)
+    if rounds:
+        for r in rounds["rounds"]:
+            b = r["bloc"]
+            print(f"Bloc {b['refs'][0]}-{b['refs'][-1].split(':')[1]} at {b['start']:.0f}s: explanations for "
+                  f"{', '.join(e['ref'] for e in r['explanations'])}"
+                  + (f"; not found: {', '.join(r['missing'])}" if r["missing"] else ""))
     if omni:
         sp = [s for s in segs if s["type"] == "speech" and not s.get("reviewed")]
         print(f"Omnilingual pass: text used for {sum(s.get('asr') == 'omni' for s in sp)} of {len(sp)} Hausa segments; "

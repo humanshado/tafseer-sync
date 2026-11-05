@@ -4,3 +4,4 @@ __pycache__/
 work/*/backups/
 work/compare/
 work/test_*/
+work/explanations/

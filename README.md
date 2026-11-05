@@ -15,6 +15,9 @@ pipeline/
   suggest_corrections.py  optional: N-ATLaS suggests word-spacing and spelling fixes for the review tool
   transcribe.py    Whisper large-v3 (faster-whisper), Arabic pass used to find Quran recitation
   build.py         merges the passes, detects Quran recitation, tags Arabic phrases, flags low confidence
+  diarize.py       tells the reciter's voice from the lecturer's (speakers.json)
+  explanations.py  finds each bloc the reciter recites and the lecturer's explanation of each verse
+  export_explanations.py  cuts each verse's explanation into its own audio file, with its transcript
   glossary.json    Arabic expressions to detect in the Hausa text (add to it as you review)
   formulas.json    set Arabic openings (e.g. Khutbat al-Hajah) shown as "Opening praise", not as Quran verses
   quran_data/      Uthmani + Warsh text, Hausa translation (Gumi), surah names
@@ -86,6 +89,28 @@ Segments already marked reviewed in the existing transcript are kept; everything
 ```bash
 .venv/bin/python pipeline/build.py work/fatihah01_baqara05 fatihah01_baqara05 audio/fatihah01_baqara05.mp3 player/data/fatihah01_baqara05.json --title "..." --focus 1,2
 ```
+
+## Explanations verse by verse
+In each round a reciter recites a bloc of verses; the lecturer then repeats them one at a time and explains
+each (quoting other verses as he goes) until the next bloc. `diarize.py` gives every speech chunk a voice
+print (SpeechBrain ECAPA) and groups them into two voices; the one whose speech lies inside the recitation is
+the reciter, and his stretches are the blocs. `build.py` then looks after each bloc for the lecturer's repeat
+of each of its verses, in order: in the Arabic of the Whisper and Omnilingual passes, or in Hausa text that
+writes the verse in Latin letters (compared by consonants). A run through three or more of the bloc's verses
+within seconds (a hadith listing them) is skipped. Each verse's explanation runs from its repeat to the next
+one; the first starts when the bloc ends. A verse whose repeat is not found is listed as missing, not guessed.
+The result is stored as `rounds` in the transcript, and `export_explanations.py` cuts one audio file per
+verse with its transcript and an `index.md` into `work/explanations/<id>/`.
+```bash
+.venv/bin/pip install speechbrain scikit-learn torchaudio
+.venv/bin/python pipeline/diarize.py player/audio/ID.mp3 work/ID
+.venv/bin/python pipeline/build.py work/ID ID audio/ID.mp3 player/data/ID.json --title "..." --focus 1,2
+.venv/bin/python pipeline/export_explanations.py player/data/ID.json
+```
+On lecture 1 the two voices separate cleanly (the reciter: 1.6 of 45 minutes, in three blocs: 1:1, 1:2–7,
+2:1–5) and explanations were found for 10 of 12 verses. 1:3 and 2:5 were not found, and the end of the last
+explanation in a round is only where the next bloc starts: 1:7's runs on through the general discussion of
+the Fatiha. Check the boundaries by listening.
 
 ## Optional: spelling and spacing suggestions (N-ATLaS)
 The Hausa model often runs words together ("waɗansuharuffa") or misspells them ("akwi").
