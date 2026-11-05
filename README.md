@@ -34,6 +34,8 @@ work/<id>/         raw speech-recognition output (for re-building), review backu
 ```
 
 ## Setup
+The pipeline uses [ffmpeg](https://ffmpeg.org) to clean and cut audio: `brew install ffmpeg` on macOS,
+`sudo apt install ffmpeg` on Debian/Ubuntu. Then:
 ```bash
 python3 -m venv .venv && .venv/bin/pip install faster-whisper rapidfuzz torch transformers
 ```

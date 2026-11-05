@@ -13,6 +13,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,6 +30,9 @@ def main():
     ap.add_argument("--audio", help="default: the transcript's audio under player/")
     a = ap.parse_args()
 
+    if not shutil.which("ffmpeg"):
+        raise SystemExit("ffmpeg is needed to cut the audio but was not found. Install it (macOS: brew install ffmpeg; "
+                         "Debian/Ubuntu: sudo apt install ffmpeg; Windows: winget install ffmpeg), then run this again.")
     doc = json.load(open(a.transcript))
     if not doc.get("rounds"):
         raise SystemExit("No rounds in this transcript: run diarize.py, then build.py.")
