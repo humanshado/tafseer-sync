@@ -5,3 +5,4 @@ work/*/backups/
 work/compare/
 work/test_*/
 work/explanations/
+work/*/peaks.json

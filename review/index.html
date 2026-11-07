@@ -10,18 +10,21 @@
   --bg: #f5f4f0; --surface: #fff; --text: #1f2328; --muted: #6b6f76; --line: #e2ded4;
   --accent: #0f6b4f; --accent-soft: #e3f1ea; --warn: #b45309; --warn-soft: #fdf0dc;
   --danger: #b91c1c; --sel: #fff6d6; --playing: #d9a400; --quran: #eef5f1;
+  --wave: #b9b3a5; --wave-progress: #0f6b4f; --reg-speech: rgba(107,111,118,.12); --reg-quran: rgba(15,107,79,.22); --reg-arabic: rgba(37,99,235,.16); --reg-sel: rgba(217,164,0,.38); --reg-ex-a: rgba(15,107,79,.16); --reg-ex-b: rgba(37,99,235,.16); --reg-bloc: rgba(180,83,9,.28);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #14171a; --surface: #1c2024; --text: #e8e6e1; --muted: #9aa0a6; --line: #2e343a;
     --accent: #5cc49b; --accent-soft: #1d3029; --warn: #f59e0b; --warn-soft: #33270f;
     --danger: #f87171; --sel: #2e2a1a; --playing: #e0b331; --quran: #18241f;
+    --wave: #5d636b; --wave-progress: #5cc49b; --reg-speech: rgba(154,160,166,.14); --reg-quran: rgba(92,196,155,.24); --reg-arabic: rgba(96,165,250,.20); --reg-sel: rgba(224,179,49,.40); --reg-ex-a: rgba(92,196,155,.18); --reg-ex-b: rgba(96,165,250,.18); --reg-bloc: rgba(245,158,11,.28);
   }
 }
 :root[data-theme="dark"] {
   --bg: #14171a; --surface: #1c2024; --text: #e8e6e1; --muted: #9aa0a6; --line: #2e343a;
   --accent: #5cc49b; --accent-soft: #1d3029; --warn: #f59e0b; --warn-soft: #33270f;
   --danger: #f87171; --sel: #2e2a1a; --playing: #e0b331; --quran: #18241f;
+  --wave: #5d636b; --wave-progress: #5cc49b; --reg-speech: rgba(154,160,166,.14); --reg-quran: rgba(92,196,155,.24); --reg-arabic: rgba(96,165,250,.20); --reg-sel: rgba(224,179,49,.40); --reg-ex-a: rgba(92,196,155,.18); --reg-ex-b: rgba(96,165,250,.18); --reg-bloc: rgba(245,158,11,.28);
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--bg); color: var(--text); }
@@ -74,6 +77,14 @@ main { max-width: 980px; margin: 0 auto; padding: 12px 16px 60vh; }
 .seg .st.ok { color: var(--accent); }
 .seg .st.flag { color: var(--warn); }
 .seg .st .sg { color: var(--accent); font-size: .85em; }
+.wavebox { margin-top: 8px; border: 1px solid var(--line); border-radius: 10px; padding: 6px 8px 4px; background: var(--bg); }
+.wavebox[hidden] { display: none; }
+#waveMain { cursor: text; }
+.wavebar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; font-size: .82rem; }
+.wavebar button { padding: 2px 8px; font-size: .82rem; }
+.wavebar input[type=range] { width: 130px; vertical-align: middle; }
+#wClock { font-variant-numeric: tabular-nums; min-width: 120px; }
+.ex.sel { background: var(--sel); border-radius: 0 8px 8px 0; }
 .round { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin: 0 0 14px; }
 .round h3 { font-size: .95rem; margin: 0 0 8px; }
 .ex { border-left: 3px solid var(--line); padding: 6px 0 6px 10px; margin: 8px 0; }
@@ -140,6 +151,22 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
       <button id="help" title="Keyboard shortcuts">?</button>
     </div>
     <audio id="audio" controls preload="metadata"></audio>
+    <div id="waveBox" class="wavebox">
+      <div id="waveMain"></div>
+      <div class="wavebar">
+        <button id="wPlay" title="Play / pause (Space)">▶ / ❚❚</button>
+        <span id="wClock" class="hint"></span>
+        <label class="hint" title="Or Ctrl/⌘ + scroll on the waveform; + and − keys">Zoom <input type="range" id="wZoom" min="0" max="100" value="0"></label>
+        <button id="wFit" title="Whole lecture">Fit</button>
+        <button id="wZoomSel" title="Zoom to the selected segment or explanation">To selection</button>
+        <button id="wSplit" title="Split at the playhead (S)">✂ Split</button>
+        <button id="wStart" title="Set the selected item's start to the playhead ([)">[ Start</button>
+        <button id="wEnd" title="Set the selected item's end to the playhead (])">End ]</button>
+        <label class="hint" title="Repeat the region being played"><input type="checkbox" id="wLoop"> Loop</label>
+        <label class="hint" title="A dragged or set boundary moves to the quietest point within 0.35 s"><input type="checkbox" id="wSnap" checked> Snap to pauses</label>
+        <span id="waveMsg" class="hint"></span>
+      </div>
+    </div>
     <div class="row2">
       <select id="filter" aria-label="Show">
         <option value="todo">Not yet reviewed</option>
@@ -154,6 +181,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
         <option value="1.25">1.25×</option><option value="1.5">1.5×</option>
       </select>
       <label><input type="checkbox" id="follow"> Follow audio</label>
+      <label><input type="checkbox" id="showWave" checked> Waveform</label>
       <div class="progress" title="Reviewed"><div id="bar"></div></div>
       <span id="count"></span>
     </div>
@@ -174,6 +202,13 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     <tr><td><kbd>Alt</kbd>+<kbd>M</kbd></td><td>Merge with the next segment</td></tr>
     <tr><td><kbd>Alt</kbd>+<kbd>U</kbd></td><td>Use the spelling suggestion (or restore the original)</td></tr>
     <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Save now (it also saves automatically)</td></tr>
+    <tr><td colspan="2"><b>Waveform</b> (when not typing in a box)</td></tr>
+    <tr><td><kbd>Space</kbd></td><td>Play / pause</td></tr>
+    <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Back / forward 1 s (with <kbd>Shift</kbd>: 5 s)</td></tr>
+    <tr><td><kbd>[</kbd> / <kbd>]</kbd></td><td>Set the selected item's start / end to the playhead</td></tr>
+    <tr><td><kbd>S</kbd></td><td>Split at the playhead</td></tr>
+    <tr><td><kbd>+</kbd> / <kbd>−</kbd></td><td>Zoom in / out (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + scroll on the waveform)</td></tr>
+    <tr><td colspan="2">Drag a region's edge to move it; click a region to select it, double-click to play it.</td></tr>
   </table>
   <p class="hint">“Verse explanations” (in the Show menu) lists each bloc the reciter recites and where the lecturer
   explains each of its verses; set the start and end of each, add verses that were missed, and tick them when checked.</p>
@@ -182,6 +217,11 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
   <form method="dialog"><button>Close</button></form>
 </dialog>
 
+<script src="/review/vendor/wavesurfer/wavesurfer.min.js"></script>
+<script src="/review/vendor/wavesurfer/regions.min.js"></script>
+<script src="/review/vendor/wavesurfer/timeline.min.js"></script>
+<script src="/review/vendor/wavesurfer/minimap.min.js"></script>
+<script src="/review/vendor/wavesurfer/hover.min.js"></script>
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);
@@ -230,6 +270,8 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     sugg = await fetch(`/api/suggestions/${id}`, { cache: "no-store" }).then((r) => r.json()).catch(() => ({ items: [] }));
     applied = new WeakMap();
     audio.src = "/player/" + doc.audio;
+    selEx = null;
+    initWave();
     sel = Math.min(store.get("sel." + id, 0), segs.length - 1);
     setDirty(false); render();
     requestAnimationFrame(() => scrollToSel());
@@ -260,6 +302,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     return r;
   }
   function render() {
+    scheduleDraw();
     list.innerHTML = "";
     if ($("filter").value === "rounds") { list.append(roundsView()); updateProgress(); return; }
     let shown = 0;
@@ -289,7 +332,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
   function select(i, { play = false, focus = true } = {}) {
     if (i < 0 || i >= segs.length) return;
     sel = i; store.set("sel." + lectureId, i);
-    render(); scrollToSel();
+    render(); scrollToSel(); revealTime(segs[i].start, segs[i].end);
     if (play) playSeg();
     if (focus) setTimeout(() => list.querySelector(".editor textarea, .editor input.refs")?.focus({ preventScroll: true }), 50);
   }
@@ -599,7 +642,7 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     r.missing = r.bloc.refs.filter((x) => !have.has(x));
     changed(); render();
   }
-  function playRange(a, b) { audio.currentTime = a; stopAt = b; audio.play(); }
+  function playRange(a, b) { audio.currentTime = a; stopAt = b; loopFrom = a; audio.play(); }
   function exTimeCtl(ri, k, key) {
     const e = doc.rounds[ri].explanations[k];
     const inp = el("input", { type: "text", class: "tval", value: fmt(e[key]), "aria-label": `${exName(e)} ${key}` });
@@ -673,7 +716,10 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
         const ref = el("input", { type: "text", class: "ref" + (e.ref ? "" : " label"), value: exName(e), "aria-label": "Verse or label" });
         ref.onchange = () => renameExplanation(ri, k, ref.value);
         const how = e.found === "repeat" ? `repeat heard: ${e.heard}` : e.found;
-        card.append(el("div", { class: "ex" + (e.checked ? " ok" : ""), "data-s": e.start, "data-e": e.end },
+        const isSel = selEx && selEx.ri === ri && selEx.k === k;
+        card.append(el("div", { class: "ex" + (e.checked ? " ok" : "") + (isSel ? " sel" : ""), "data-s": e.start, "data-e": e.end,
+          "data-ri": ri, "data-k": k, onclick: (ev) => { if (!isSel) { selEx = { ri, k }; for (const n of list.querySelectorAll(".ex.sel")) n.classList.remove("sel");
+            ev.currentTarget.classList.add("sel"); scheduleDraw(); revealTime(e.start, e.end); } } },
           el("div", { class: "line" }, ref,
             el("span", { class: "hint" }, `${fmt(e.start)} – ${fmt(e.end)} · ${((e.end - e.start) / 60).toFixed(1)} min`),
             el("span", { class: "grow" }),
@@ -698,14 +744,181 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
     return wrap;
   }
 
+  // ---------------- waveform editor (wavesurfer.js, vendored in review/vendor) ----------------
+  // The waveform is drawn from /api/peaks (computed once by the server), so the browser never decodes the
+  // whole lecture. It shows the transcript segments, or in "Verse explanations" the reciter's blocs and the
+  // explanations, as regions whose edges can be dragged; every change goes through the same functions as
+  // the controls in the list, so linked boundaries, undo and saving behave the same.
+  let ws = null, wsRegions = null, peaksData = null, drawPending = false, selEx = null, loopFrom = null, fitPx = 1, zoomPx = 1;
+  const cssv = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  // region labels live in wavesurfer's shadow DOM, out of reach of this page's stylesheet: style them inline
+  const label = (t) => el("span", { title: t, style: "display:inline-block;max-width:100%;box-sizing:border-box;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"
+    + "font:11px/1.3 system-ui,sans-serif;padding:1px 4px;color:var(--text);background:var(--surface);opacity:.85;border-radius:0 0 4px 0;pointer-events:none" }, t);
+  async function initWave() {
+    if (ws) { ws.destroy(); ws = null; wsRegions = null; }
+    $("waveMsg").textContent = "";
+    if (!window.WaveSurfer || $("waveBox").hidden) return;
+    const id = lectureId;
+    $("waveMsg").textContent = "Drawing the waveform…";
+    const r = await fetch(`/api/peaks/${id}`);
+    const j = await r.json();
+    if (id !== lectureId) return;
+    if (!r.ok) { $("waveMsg").textContent = "No waveform: " + j.error; return; }
+    peaksData = j;
+    ws = WaveSurfer.create({
+      container: "#waveMain", media: audio, peaks: [Float32Array.from(j.peaks, (v) => v / 100)], duration: j.duration,
+      height: 96, waveColor: cssv("--wave"), progressColor: cssv("--wave-progress"), cursorColor: cssv("--playing"),
+      cursorWidth: 2, normalize: true, autoScroll: true, autoCenter: true, dragToSeek: true, hideScrollbar: false,
+      plugins: [
+        WaveSurfer.Timeline.create({ height: 16, style: { fontSize: "10px", color: cssv("--muted") } }),  // inside, so it scrolls along
+        WaveSurfer.Minimap.create({ height: 24, waveColor: cssv("--wave"), progressColor: cssv("--wave-progress"), cursorColor: cssv("--playing") }),
+        WaveSurfer.Hover.create({ lineColor: cssv("--muted"), labelBackground: cssv("--text"), labelColor: cssv("--bg"), labelSize: "11px" }),
+      ],
+    });
+    wsRegions = ws.registerPlugin(WaveSurfer.Regions.create());
+    ws.on("ready", () => { fitPx = ws.getWidth() / j.duration; zoomPx = fitPx; drawRegions(); $("waveMsg").textContent = ""; onTime(); });
+    ws.on("interaction", () => { stopAt = null; });  // a click on the waveform starts free playback from there
+    wsRegions.on("region-updated", onRegionDragged);
+    wsRegions.on("region-clicked", (reg, ev) => { ev.stopPropagation(); pickRegion(reg); audio.currentTime = timeAt(ev); });
+    wsRegions.on("region-double-clicked", (reg) => playRange(reg.start, reg.end));
+    $("waveMain").addEventListener("wheel", (ev) => {
+      if (!(ev.ctrlKey || ev.metaKey)) return;
+      ev.preventDefault();
+      zoomBy(ev.deltaY < 0 ? 1.25 : 0.8, timeAt(ev), ev);
+    }, { passive: false });
+  }
+  function timeAt(ev) {  // the time under the mouse
+    const box = $("waveMain").getBoundingClientRect();
+    return Math.max(0, (ws.getScroll() + ev.clientX - box.left) / zoomPx);
+  }
+  function setZoom(px, at = audio.currentTime, ev = null) {
+    if (!ws) return;
+    zoomPx = Math.min(400, Math.max(fitPx, px));
+    const off = ev ? ev.clientX - $("waveMain").getBoundingClientRect().left : ws.getWidth() / 2;
+    ws.zoom(zoomPx);
+    ws.setScroll(Math.max(0, at * zoomPx - off));
+    $("wZoom").value = String(Math.round(100 * Math.log(zoomPx / fitPx) / Math.log(Math.max(1.0001, 400 / fitPx))));
+  }
+  const zoomBy = (f, at, ev) => setZoom(zoomPx * f, at, ev);
+  function revealTime(t0, t1) {  // scroll the waveform so the span is in view
+    if (!ws) return;
+    const left = ws.getScroll() / zoomPx, width = ws.getWidth() / zoomPx;
+    if (t0 < left || t1 > left + width) ws.setScroll(Math.max(0, (t0 - Math.min(width * 0.15, 5)) * zoomPx));
+  }
+  function selectedSpan() {
+    if ($("filter").value === "rounds") return selEx ? doc.rounds[selEx.ri].explanations[selEx.k] : null;
+    return segs[sel] || null;
+  }
+  function snap(t) {  // the quietest moment within 0.35 s, so a cut falls in a pause rather than mid-word
+    if (!$("wSnap").checked || !peaksData) return round(t);
+    const r = peaksData.rate, p = peaksData.peaks, c = Math.round(t * r), w = Math.round(0.35 * r);
+    let best = Math.min(Math.max(c, 0), p.length - 1);
+    for (let i = Math.max(0, c - w); i <= Math.min(p.length - 1, c + w); i++) if (p[i] < p[best]) best = i;
+    return round(best / r);
+  }
+  function scheduleDraw() {
+    if (drawPending) return;
+    drawPending = true;
+    requestAnimationFrame(() => { drawPending = false; drawRegions(); });
+  }
+  function drawRegions() {
+    if (!wsRegions || !doc) return;
+    wsRegions.clearRegions();
+    if ($("filter").value === "rounds") {
+      (doc.rounds || []).forEach((r, ri) => {
+        wsRegions.addRegion({ id: `bloc:${ri}`, start: r.bloc.start, end: r.bloc.end, color: cssv("--reg-bloc"), drag: false, resize: false,
+          content: label(`Bloc ${r.bloc.refs[0]}${r.bloc.refs.length > 1 ? "–" + r.bloc.refs[r.bloc.refs.length - 1] : ""}`) });
+        r.explanations.forEach((e, k) => {
+          const on = selEx && selEx.ri === ri && selEx.k === k;
+          wsRegions.addRegion({ id: `ex:${ri}:${k}`, start: e.start, end: e.end, drag: false, resize: true, minLength: 0.5,
+            color: on ? cssv("--reg-sel") : cssv(k % 2 ? "--reg-ex-b" : "--reg-ex-a"), content: label((e.checked ? "✓ " : "") + exName(e)) });
+        });
+      });
+      return;
+    }
+    segs.forEach((s, i) => {
+      const on = i === sel;
+      wsRegions.addRegion({ id: `seg:${i}`, start: s.start, end: s.end, drag: false, resize: on, minLength: 0.2,
+        color: on ? cssv("--reg-sel") : cssv("--reg-" + s.type),
+        content: on ? label(s.type === "quran" ? (s.refs || []).join(", ") : (s.text || "").slice(0, 40)) : undefined });
+    });
+  }
+  function pickRegion(reg) {
+    const [kind, a, b] = reg.id.split(":");
+    if (kind === "seg") select(+a, { focus: false });
+    else if (kind === "ex") {
+      selEx = { ri: +a, k: +b }; render();
+      list.querySelector(`.ex[data-ri="${a}"][data-k="${b}"]`)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+  }
+  function onRegionDragged(reg) {  // fired once, when a drag of an edge ends
+    const [kind, a, b] = reg.id.split(":");
+    const item = kind === "ex" ? doc.rounds[+a].explanations[+b] : kind === "seg" ? segs[+a] : null;
+    if (!item) return scheduleDraw();
+    const key = Math.abs(reg.start - item.start) > Math.abs(reg.end - item.end) ? "start" : "end";
+    if (kind === "ex") { selEx = { ri: +a, k: +b }; setExTime(+a, +b, key, snap(reg[key])); }
+    else setSegTime(+a, key, snap(reg[key]));
+  }
+  function setSegTime(i, key, v) {  // same rules as the start/end controls under a segment
+    const s = segs[i];
+    v = round(Math.max(0, v));
+    const lo = key === "start" ? (i > 0 ? segs[i - 1].start : 0) : s.start + 0.05;
+    const hi = key === "start" ? s.end - 0.05 : (i + 1 < segs.length ? segs[i + 1].end : audio.duration || 1e9);
+    v = Math.min(Math.max(v, lo), hi);
+    if (v === s[key]) return render();
+    snapshot();
+    s[key] = v;
+    if (key === "end" && i + 1 < segs.length && segs[i + 1].start < s.end) segs[i + 1].start = s.end;
+    if (key === "start" && i > 0 && segs[i - 1].end > s.start) segs[i - 1].end = s.start;
+    changed(); render();
+  }
+  function setToPlayhead(key) {
+    const t = snap(audio.currentTime);
+    if ($("filter").value === "rounds") {
+      if (!selEx) return toast("Click an explanation (in the list or on the waveform) first");
+      return setExTime(selEx.ri, selEx.k, key, t);
+    }
+    if (segs[sel]) setSegTime(sel, key, t);
+  }
+  function splitAtPlayhead() {
+    if ($("filter").value !== "rounds") return split();
+    const t = audio.currentTime;
+    const ri = (doc.rounds || []).findIndex((r, n) => t >= r.bloc.start && t < windowEnd(n));
+    if (ri < 0) return toast("Move the playhead into a round first");
+    const missing = doc.rounds[ri].missing || [];
+    const v = (prompt("Verse (e.g. 1:3) or label for the part that starts here:", missing[0] || "") || "").trim();
+    if (!v) return;
+    audio.currentTime = snap(t);
+    addExplanation(ri, REF_RE.test(v) ? { ref: v } : { label: v });
+    const k = doc.rounds[ri].explanations.findIndex((e) => Math.abs(e.start - audio.currentTime) < 0.05);
+    if (k >= 0) { selEx = { ri, k }; render(); }
+  }
+  $("wPlay").onclick = () => (audio.paused ? audio.play() : audio.pause());
+  $("wZoom").oninput = () => setZoom(fitPx * Math.pow(400 / fitPx, +$("wZoom").value / 100));
+  $("wFit").onclick = () => setZoom(fitPx, 0);
+  $("wZoomSel").onclick = () => {
+    const s = selectedSpan(); if (!s || !ws) return toast("Select a segment or explanation first");
+    const d = Math.max(1, s.end - s.start);
+    setZoom(ws.getWidth() / (d * 1.3), s.start - d * 0.15, { clientX: $("waveMain").getBoundingClientRect().left });
+  };
+  $("wSplit").onclick = splitAtPlayhead;
+  $("wStart").onclick = () => setToPlayhead("start");
+  $("wEnd").onclick = () => setToPlayhead("end");
+  $("showWave").checked = store.get("wave", true);
+  $("waveBox").hidden = !$("showWave").checked;
+  $("showWave").onchange = () => { store.set("wave", $("showWave").checked); $("waveBox").hidden = !$("showWave").checked; initWave(); };
+
   // ---------------- audio ----------------
   function playSeg() {
     const s = segs[sel]; if (!s) return;
-    audio.currentTime = s.start; stopAt = s.end; audio.play();
+    audio.currentTime = s.start; stopAt = s.end; loopFrom = s.start; audio.play();
   }
   function onTime() {
     const t = audio.currentTime;
-    if (stopAt != null && t >= stopAt) { audio.pause(); stopAt = null; }
+    if (stopAt != null && t >= stopAt) {
+      if ($("wLoop").checked && loopFrom != null) audio.currentTime = loopFrom; else { audio.pause(); stopAt = null; }
+    }
+    if (ws) $("wClock").textContent = `${fmt(t)} / ${fmt(ws.getDuration() || 0)}`;
     let i = -1, lo = 0, hi = segs.length - 1;
     while (lo <= hi) { const m = (lo + hi) >> 1; if (segs[m].start <= t) { i = m; lo = m + 1; } else hi = m - 1; }
     for (const n of list.querySelectorAll(".ex[data-s]")) n.classList.toggle("playing", t >= +n.dataset.s && t < +n.dataset.e);
@@ -761,6 +974,17 @@ dialog td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
 
   addEventListener("keydown", (e) => {
     const k = e.key.toLowerCase();
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) && e.target.type !== "checkbox" && e.target.type !== "range";
+    if (!e.altKey && !e.ctrlKey && !e.metaKey && !typing) {
+      const keys = {
+        " ": () => (audio.paused ? audio.play() : audio.pause()),
+        arrowleft: () => (audio.currentTime = Math.max(0, audio.currentTime - (e.shiftKey ? 5 : 1))),
+        arrowright: () => (audio.currentTime += e.shiftKey ? 5 : 1),
+        "[": () => setToPlayhead("start"), "]": () => setToPlayhead("end"),
+        "+": () => zoomBy(1.5), "=": () => zoomBy(1.5), "-": () => zoomBy(1 / 1.5), s: splitAtPlayhead,
+      };
+      if (keys[k]) { e.preventDefault(); keys[k](); return; }
+    }
     if ((e.ctrlKey || e.metaKey) && k === "s") { e.preventDefault(); save(); return; }
     if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); markReviewed(); return; }
     if (!e.altKey) return;

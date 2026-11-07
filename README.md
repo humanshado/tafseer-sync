@@ -153,6 +153,15 @@ python3 review/server.py
 ```
 Then open http://localhost:8001 (plain Python is enough; no virtualenv needed).
 
+- At the top is a **waveform editor** (wavesurfer.js, bundled in `review/vendor/`, BSD licence): a time ruler,
+  an overview strip, zoom (slider, **Fit**, **To selection**, or Ctrl/⌘ + scroll) and a moving playhead. The
+  segments (or, in *Verse explanations*, the reciter's blocs and the explanations) are drawn as regions:
+  click one to select it, double-click to play it, drag its edge to move a boundary. Keys when not typing:
+  **Space** play/pause, **←/→** 1 s (Shift: 5 s), **[** / **]** set the selected item's start/end to the
+  playhead, **S** split at the playhead, **+/−** zoom. **Snap to pauses** moves a boundary you set to the
+  quietest point within 0.35 s, so cuts fall between words; **Loop** repeats what is being played. The
+  waveform outline is computed once with ffmpeg and cached in `work/<id>/peaks.json` (about 10 s for an hour);
+  untick **Waveform** to hide the editor.
 - The list starts with the segments not yet reviewed. **Alt+P** plays the selected segment.
   Correct the text, then **Ctrl+Enter** marks it reviewed and plays the next one.
 - Buttons insert the Hausa letters ɓ ɗ ƙ ƴ.

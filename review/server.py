@@ -10,14 +10,18 @@ Serves the project folder (so the review page can load player/audio and player/d
   GET  /api/glossary            the Arabic phrase glossary
   POST /api/glossary            add a phrase to the glossary
   POST /api/save/<lecture>      validate and save a transcript (previous version kept in work/<id>/backups/)
+  GET  /api/peaks/<lecture>      waveform outline for the editor (computed once with ffmpeg, cached in work/<id>/)
   GET  /api/suggestions/<lecture>          spelling/spacing suggestions from pipeline/suggest_corrections.py
   POST /api/suggestions/<lecture>/dismiss  {"start", "original"}: hide a suggestion for good
 """
+import array
 import datetime
 import http.server
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import urllib.parse
 
@@ -31,6 +35,36 @@ GLOSSARY = os.path.join(ROOT, "pipeline", "glossary.json")
 LECTURE_ID = re.compile(r"^[A-Za-z0-9_-]+$")
 REF = re.compile(r"^\d{1,3}:\d{1,3}$")
 KEEP_BACKUPS = 30
+
+
+PEAKS_PER_SECOND = 50
+
+
+def peaks(lid):
+    """Loudest sample per 1/50 s, scaled 0-100: enough to draw the waveform at any zoom without the
+    browser decoding the whole lecture. Cached next to the lecture's other work files."""
+    doc = json.load(open(os.path.join(DATA, lid + ".json")))
+    audio = os.path.join(ROOT, "player", doc["audio"])
+    cache = os.path.join(ROOT, "work", lid, "peaks.json")
+    if os.path.exists(cache) and os.path.getmtime(cache) >= os.path.getmtime(audio):
+        return json.load(open(cache))
+    if not shutil.which("ffmpeg"):
+        raise RuntimeError("ffmpeg is needed to draw the waveform (macOS: brew install ffmpeg)")
+    sr = 8000
+    raw = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", audio, "-ac", "1", "-ar", str(sr),
+                          "-f", "s16le", "-"], check=True, capture_output=True).stdout
+    x = array.array("h")
+    x.frombytes(raw[:len(raw) // 2 * 2])
+    if sys.byteorder != "little":
+        x.byteswap()
+    step = sr // PEAKS_PER_SECOND
+    loud = [max(max(c), -min(c)) if c else 0 for c in (x[i:i + step] for i in range(0, len(x), step))]
+    top = max(loud) or 1
+    out = {"rate": PEAKS_PER_SECOND, "duration": round(len(x) / sr, 3),
+           "peaks": [round(100 * v / top) for v in loud]}
+    os.makedirs(os.path.dirname(cache), exist_ok=True)
+    json.dump(out, open(cache, "w"), separators=(",", ":"))
+    return out
 
 
 def suggestions_path(lid):
@@ -158,6 +192,15 @@ class Handler(RangeHandler):
                 return self.reply(400, {"error": str(e)})
         if u.path == "/api/glossary":
             return self.reply(200, json.load(open(GLOSSARY))["phrases"])
+        m = re.match(r"^/api/peaks/([^/]+)$", u.path)
+        if m:
+            lid = m.group(1)
+            if not LECTURE_ID.match(lid) or not os.path.exists(os.path.join(DATA, lid + ".json")):
+                return self.reply(404, {"error": "unknown lecture"})
+            try:
+                return self.reply(200, peaks(lid))
+            except (RuntimeError, OSError, subprocess.CalledProcessError) as e:
+                return self.reply(503, {"error": str(e)})
         m = re.match(r"^/api/suggestions/([^/]+)$", u.path)
         if m:
             path = suggestions_path(m.group(1))
